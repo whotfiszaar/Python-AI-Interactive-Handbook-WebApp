@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model DayProgress {
+  id          Int      @id @default(autoincrement())
+  dayNumber   Int      @unique
+  completed   Boolean  @default(false)
+  bookmarked  Boolean  @default(false)
+  lastVisited DateTime @default(now())
+  notes       String   @default("")
+}
+
+model AssessmentScore {
+  id           Int      @id @default(autoincrement())
+  assessmentId String
+  score        Int
+  total        Int
+  answers      String // JSON string of answers
+  completedAt  DateTime @default(now())
+}
+
+model Notebook {
+  id        Int      @id @default(autoincrement())
+  name      String
+  cells     String   // JSON string of cell contents
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Settings {
+  id          Int    @id @default(1)
+  darkMode    Boolean @default(false)
+  fontSize    Int    @default(16)
+  apiKeys     String @default("{}") // JSON string of API keys
+  studentName String @default("") // the learner's name, asked on first visit
+}

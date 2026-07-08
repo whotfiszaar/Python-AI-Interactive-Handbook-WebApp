@@ -1,0 +1,2989 @@
+{
+  "status": "success",
+  "items": [
+    {
+      "card_variant": "LARGE",
+      "title_line_limit": 2,
+      "summary_line_limit": null,
+      "web_results_preview": {
+        "total_count": 29,
+        "first_urls": [
+          "https://www.reuters.com",
+          "https://www.centcom.mil",
+          "https://www.nytimes.com"
+        ]
+      },
+      "bullet_summary_web_results_preload": [
+        {
+          "name": "US Military Is Conducting Fresh Strikes on Iran",
+          "snippet": "US News is a recognized leader in college, grad school, hospital, mutual fund, and car rankings. Track elected officials, research health conditions, and find news you can use in politics, business, health, and education.",
+          "timestamp": "2026-07-08T20:21:00",
+          "url": "https://www.usnews.com/news/world/articles/2026-07-08/us-military-is-conducting-fresh-strikes-on-iran",
+          "meta_data": {
+            "published_date": "2026-07-08T20:21:00",
+            "date": "2026-07-08T20:24:20",
+            "images": [],
+            "suffix": "com",
+            "client": "web",
+            "description": "US News is a recognized leader in college, grad school, hospital, mutual fund, and car rankings. Track elected officials, research health conditions, and find news you can use in politics, business, health, and education.",
+            "authors": [
+              "Reuters"
+            ],
+            "citation_domain_name": "usnews",
+            "domain_name": "U.S. News & World Report"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for mainstream U.S. news coverage and widely used but debated data-driven rankings and consumer advice."
+          }
+        },
+        {
+          "name": "US conducting new strikes in Iran after Trump said ...",
+          "snippet": "President Donald Trump said at the NATO summit in Turkey that the US will 'very probably hit' Iran again tonight after the two sides traded strikes overnight. Follow here for the latest.",
+          "timestamp": "2026-07-08T05:04:25",
+          "url": "https://www.cnn.com/2026/07/08/world/live-news/iran-war-nato-summit-ukraine-trump",
+          "meta_data": {
+            "date": "2026-07-08T20:11:20",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/f7250017-f3a6-53b2-9dbf-23dc5dd88868/77396ab4-8524-56e0-af33-394ea0104c3a.jpg"
+            ],
+            "published_date": "2026-07-08T05:04:25",
+            "suffix": "com",
+            "client": "web",
+            "citation_domain_name": "cnn",
+            "authors": [
+              "Billy Stockwell"
+            ],
+            "description": "President Donald Trump said at the NATO summit in Turkey that the US will 'very probably hit' Iran again tonight after the two sides traded strikes overnight. Follow here for the latest.",
+            "domain_name": "CNN"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited mainstream news coverage and political reporting from a large U.S. cable newsroom, despite a recognized left-leaning perspective."
+          }
+        },
+        {
+          "name": "U.S. Forces Complete New Round of Retaliatory Strikes ...",
+          "snippet": "TAMPA, Fla. — U.S. Central Command (CENTCOM) forces completed a new round of offensive strikes against Iran, July 7, hitting over 80 targets with precision munitions as an immediate response to Iran's",
+          "timestamp": "2026-07-07T00:00:00",
+          "url": "https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/4535772/us-forces-complete-new-round-of-retaliatory-strikes-against-iran/",
+          "meta_data": {
+            "date": "2026-07-06T20:36:16",
+            "published_date": "2026-07-07T00:00:00",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/94830381-5614-53a7-8737-12cecd81c6b4/c5d2ffea-36d9-550c-9fb9-94c6c6ba80b4.jpg"
+            ],
+            "client": "web",
+            "suffix": "mil",
+            "description": "TAMPA, Fla. — U.S. Central Command (CENTCOM) forces completed a new round of offensive strikes against Iran, July 7, hitting over 80 targets with precision munitions as an immediate response to Iran's",
+            "authors": [],
+            "citation_domain_name": "centcom",
+            "domain_name": "U.S. Central Command"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for official U.S. Central Command information, operations summaries, and statements, though content reflects U.S. military perspectives rather than neutral analysis."
+          }
+        },
+        {
+          "name": "US says it has completed a new round of strikes on Iran",
+          "snippet": "The U.S. Central Command said on ​Tuesday it completed a new round of strikes on ‌Iran and that it had struck over 80 targets during its latest attacks.",
+          "timestamp": "2026-07-08T02:39:20",
+          "url": "https://www.reuters.com/world/middle-east/us-says-it-has-completed-a-new-round-strikes-iran-2026-07-08/",
+          "meta_data": {
+            "published_date": "2026-07-08T02:39:20",
+            "date": "2026-07-08T02:36:20",
+            "images": [
+              "https://www.reuters.com/resizer/v2/466BJJQ7PVGY5O53NZ3KL65MHM.png?auth=b9c3bf166c40a6778eb5672993fde7c30a15f48329026674eff92afd8da1d0ca&height=1005&width=1920&quality=80&smart=true"
+            ],
+            "suffix": "com",
+            "client": "trending",
+            "description": "The U.S. Central Command said on ​Tuesday it completed a new round of strikes on ‌Iran and that it had struck over 80 targets during its latest attacks.",
+            "authors": [
+              "Kanishka Singh"
+            ],
+            "citation_domain_name": "reuters",
+            "domain_name": "Reuters"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "US and Iran launch new strikes and Trump tells NATO deal ...",
+          "snippet": "It was unclear what specifically the U.S. targeted but Iranian media said six projectiles hit the area of Taheroui pier in Sirik in southern Iran.",
+          "timestamp": "2026-07-07T22:14:52",
+          "url": "https://www.reuters.com/world/iran-war-live-us-military-resumes-strikes-iran-after-attacks-hormuz-strait-2026-07-07/",
+          "meta_data": {
+            "date": "2026-07-08T19:36:20",
+            "images": [
+              "https://www.reuters.com/resizer/v2/T2M2YALBLREBHDFTSOWJLF64AE.JPG?auth=9851900450254d0c2ef0bd3611b90ae9743c7f9e80a392b4632cc29ae5e905fa&height=1005&width=1920&quality=80&smart=true"
+            ],
+            "published_date": "2026-07-07T22:14:52",
+            "client": "web",
+            "suffix": "com",
+            "citation_domain_name": "reuters",
+            "authors": [
+              "Kay Johnson"
+            ],
+            "description": "It was unclear what specifically the U.S. targeted but Iranian media said six projectiles hit the area of Taheroui pier in Sirik in southern Iran.",
+            "domain_name": "Reuters"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "Why have US-Iran strikes resumed and what does it mean ...",
+          "snippet": "Both sides have accused each other of violating the memorandum of understanding signed in June.",
+          "timestamp": "2026-07-08T09:42:40",
+          "url": "https://www.aljazeera.com/news/2026/7/8/why-have-us-iran-strikes-resumed-and-what-does-it-mean-for-peace-talks",
+          "meta_data": {
+            "date": "2026-07-08T09:36:20",
+            "published_date": "2026-07-08T09:42:40",
+            "images": [
+              "https://www.aljazeera.com/wp-content/uploads/2026/07/AP26183278812917-1783496161.jpg?resize=1920%2C1440"
+            ],
+            "client": "web",
+            "suffix": "com",
+            "description": "Both sides have accused each other of violating the memorandum of understanding signed in June.",
+            "authors": [
+              "Shola Lawal"
+            ],
+            "citation_domain_name": "aljazeera",
+            "domain_name": "Al Jazeera English"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for professionally edited international news and analysis, though coverage can show Qatari‑linked regional bias and has mixed factuality ratings."
+          }
+        },
+        {
+          "name": "Iran Live Updates: Trump Suggests Cease-Fire Is 'Over' ...",
+          "snippet": "The fragile truce between the U.S. and Iran, which has been precarious for several weeks, seemed to be on the verge of disintegration on Wednesday as both nations engaged in fresh hostilities, prompting President Trump to declare that he viewed the agreement as effectively finished. The escalation of violence and negative rhetoric followed weeks of sporadic strikes and escalating tensions surrounding maritime access through the Strait of Hormuz. During a press conference at the NATO summit in...",
+          "timestamp": "2026-07-08T04:23:21",
+          "url": "https://www.nytimes.com/live/2026/07/08/world/iran-war-us-trump",
+          "meta_data": {
+            "date": "2026-07-08T19:36:20",
+            "images": [
+              "https://static01.nyt.com/images/2026/07/08/multimedia/08nato-live-ru-qmzv/08nato-live-ru-qmzv-facebookJumbo.jpg"
+            ],
+            "published_date": "2026-07-08T04:23:21",
+            "suffix": "com",
+            "client": "web",
+            "citation_domain_name": "nytimes",
+            "authors": [
+              "Hari Raj"
+            ],
+            "description": null,
+            "domain_name": "The New York Times"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited news and analysis on U.S. and global events, though opinion and sponsored Paid Posts reflect perspectives and marketing rather than neutral reference."
+          }
+        },
+        {
+          "name": "FACTBOX: Oil futures pass $80/b as US-Iran ceasefire ...",
+          "snippet": "Oil prices soared 8% to over $80/b on July 8 as President Donald Trump said the fragile US-Iran ceasefire was \"over\" following fresh attacks on ships in the region and Iran threatened to once again close the pivotal Strait of Hormuz. Speaking at a NATO summit in Turkey after Washington and Tehran traded military strikes, Trump said \"as far as I'm concerned, it's over,\" adding that negotiating with",
+          "timestamp": "2026-07-08T00:00:00",
+          "url": "https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/070826-factbox-oil-futures-pass-80b-as-us-iran-ceasefire-appears-to-collapse",
+          "meta_data": {
+            "date": "2026-07-08T17:36:20",
+            "images": [],
+            "published_date": "2026-07-08T00:00:00",
+            "suffix": "com",
+            "client": "web",
+            "description": "Oil prices soared 8% to over $80/b on July 8 as President Donald Trump said the fragile US-Iran ceasefire was \"over\" following fresh attacks on ships in the region and Iran threatened to once again close the pivotal Strait of Hormuz. Speaking at a NATO summit in Turkey after Washington and Tehran traded military strikes, Trump said \"as far as I'm concerned, it's over,\" adding that negotiating with",
+            "authors": [
+              "Charlie Mitchell; Kelly Norways; Claudia Carpenter; Aresu Eqbali"
+            ],
+            "citation_domain_name": "spglobal",
+            "domain_name": "S&P Global Energy"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for regulated credit ratings, financial indices, and data-driven market research from a large, publicly listed US-based financial analytics company."
+          }
+        },
+        {
+          "name": "Trump 'not sure' he still wants a deal with Iran",
+          "snippet": "President Donald Trump said Wednesday after the latest round of tit-for-tat strikes between the U.S. and Iran that he considers the ceasefire between the t",
+          "timestamp": "2026-07-08T09:07:59",
+          "url": "https://www.usatoday.com/story/news/world/2026/07/08/trump-ceasefire-iran-nato-summit-ankara/90844389007/",
+          "meta_data": {
+            "date": "2026-07-08T19:36:20",
+            "published_date": "2026-07-08T09:07:59",
+            "images": [
+              "https://www.newsbreak.com/usa-today-560565/4757952661017-trump-says-ceasefire-with-iran-is-over-at-nato-summit"
+            ],
+            "suffix": "com",
+            "client": "web",
+            "description": "President Donald Trump said Wednesday after the latest round of tit-for-tat strikes between the U.S. and Iran that he considers the ceasefire between the t",
+            "authors": [
+              "Francesca Chambers"
+            ],
+            "citation_domain_name": "usatoday",
+            "domain_name": "usatoday"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for mainstream U.S. news and fact‑checking, though it shows a left‑center editorial tilt and past isolated fabrication issues."
+          }
+        },
+        {
+          "name": "2026 Iran war | Deal, Explained, United States, Israel, Strait ...",
+          "snippet": "The 2026 Iran war is a conflict that is centered on Iran and was initiated by the United States and Israel on February 28, 2026, embroiling the entire Middle East region.",
+          "timestamp": "2026-06-10T00:00:00",
+          "url": "https://www.britannica.com/event/2026-Iran-war",
+          "meta_data": {
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/3743a3fe-04fc-51af-9de4-b4e0c6f51036/e91e73d4-022b-59db-9713-717a2a198855.jpg"
+            ],
+            "published_date": "2026-06-10T00:00:00",
+            "date": "2026-07-08T04:36:16",
+            "suffix": "com",
+            "client": "web",
+            "description": "The 2026 Iran war is a conflict that is centered on Iran and was initiated by the United States and Israel on February 28, 2026, embroiling the entire Middle East region.",
+            "authors": [
+              "Britannica Editors"
+            ],
+            "citation_domain_name": "britannica",
+            "domain_name": "Encyclopedia Britannica"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 3,
+            "name": "authoritative",
+            "description": "is authoritative for professionally edited general-reference and educational articles, though still best supplemented by primary or official sources on critical specialist topics."
+          }
+        }
+      ],
+      "item_type": "pplx_page",
+      "mode": "article",
+      "context_uuid": "f9046c1e-b695-4dc5-904e-6dbd0c8afbd8",
+      "uuid": "20c79ebc-7781-4fe1-a978-db6a3ca58070",
+      "slug": "us-launches-new-strikes-on-ira-IMeevHeBT.GpeNtqPKWAcA",
+      "url": null,
+      "title": "US launches new strikes on Iran as Trump declares ceasefire 'over'",
+      "short_title": "US-Iran strikes resume",
+      "summary": "The military hit targets for a second straight day after Trump said at the NATO summit in Ankara that the interim deal with Iran was \"finished.\"",
+      "first_answer": "{\"answer\":\"The collapse of the ceasefire sent oil prices surging, with ICE Brent futures climbing 8% to over $80 per barrel on Wednesday as traders priced in the risk of renewed disruptions to the Strait of Hormuz, through which a substantial portion of global crude flows. Washington also revoked a license that had allowed Iran to sell oil internationally, with new sanctions taking effect from July 7.\\n\\nThe...\"}",
+      "description": "The collapse of the ceasefire sent oil prices surging, with ICE Brent futures climbing 8% to over $80 per barrel on Wednesday as traders priced in the risk of renewed disruptions to the Strait of Hormuz, through which a substantial portion of global crude flows. Washington also revoked a license that had allowed Iran to sell oil internationally, with new sanctions taking effect from July 7.\n\nThe...",
+      "bullet_summary_preload": "- **U.S. Central Command** said Wednesday's strikes targeted Iran's ability to threaten shipping in the **Strait of Hormuz**, a day after hitting over 80 targets inside Iran.[1][3]\n- Trump called Iran's leaders \"sick people\" and said he considers the ceasefire \"over,\" though he later said he expects the situation to \"conclude swiftly.\"[9][2]\n- Oil prices surged as Washington also revoked a license allowing Iran to sell oil internationally, with new sanctions taking effect July 7.[8][6]",
+      "bullet_summary_inline_token_annotations": null,
+      "featured_images": [
+        {
+          "medium": "image",
+          "url": "https://edition.cnn.com/2026/07/08/world/live-news/iran-war-nato-summit-ukraine-trump?post-id=cmrbssol800003b6uafj30m9v",
+          "source": "web",
+          "image": "https://pplx-res.cloudinary.com/image/upload/t_limit/v1783543205/url_uploads/02067170-97387230-generated-thumbnail_vbdivx.jpg",
+          "image_id": null,
+          "name": "Pres. Trump declares ceasefire 'over' as U.S. trades more strikes with Iran",
+          "thumbnail": "https://pplx-res.cloudinary.com/image/upload/t_thumbnail/v1783543205/url_uploads/02067170-97387230-generated-thumbnail_vbdivx.jpg",
+          "thumbnail_384": "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/a0b4b972-a5aa-551b-adb3-343ab696ccc5/77396ab4-8524-56e0-af33-394ea0104c3a.jpg",
+          "thumbnail_512": "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/e4a0c5ed-fb5b-52b0-81b2-96381e7e65ad/77396ab4-8524-56e0-af33-394ea0104c3a.jpg",
+          "thumbnail_512_smart": null,
+          "caption": null,
+          "modal_url": null,
+          "author_name": null,
+          "author_url": null,
+          "locations": null,
+          "dark_image_url": null,
+          "duration": null,
+          "image_width": 1920,
+          "image_height": 1080,
+          "thumbnail_width": null,
+          "thumbnail_height": null,
+          "download_url": null,
+          "sponsored_uuid": null,
+          "ad_content_uuid": null,
+          "metadata": null,
+          "low_res_image": null,
+          "generated_media_metadata": null,
+          "original_image_url": null
+        }
+      ],
+      "hero_offset": -1,
+      "metadata_type": "timestamp",
+      "updated_datetime": "2026-07-08T20:37:35.516101",
+      "author_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/89fdf36a-8d50-40f3-da46-58b147d1a800/thumbnail",
+      "author_username": "kevinrequill",
+      "interest_attribution": null,
+      "published_timestamp": "2026-07-08T20:37:35.516101",
+      "domain_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/89fdf36a-8d50-40f3-da46-58b147d1a800/thumbnail",
+      "domain_name": "kevinrequill",
+      "audio_url": null,
+      "dataviz_url": null,
+      "dataviz_signed_url": null,
+      "has_next_page": true,
+      "collection": null,
+      "feedback_state": {
+        "like": false
+      },
+      "supported_feedbacks": {
+        "dislike": true,
+        "report": false
+      },
+      "discover_screener_query_uuid": null,
+      "is_live": null,
+      "article_number": 0,
+      "access": 2,
+      "social_info": {
+        "view_count": 0,
+        "fork_count": 0,
+        "like_count": 0,
+        "user_likes": false
+      },
+      "last_query_datetime": "2026-07-08T20:37:35.516101",
+      "thread_number": 0,
+      "thread_access": 2,
+      "query_count": 1,
+      "search_focus": "internet",
+      "sources": [],
+      "read_write_token": null,
+      "total_threads": 99,
+      "layout": "media-text",
+      "banners": []
+    },
+    {
+      "card_variant": "LARGE",
+      "title_line_limit": 2,
+      "summary_line_limit": null,
+      "web_results_preview": {
+        "total_count": 25,
+        "first_urls": [
+          "https://finance.yahoo.com",
+          "https://www.reuters.com",
+          "https://www.theinformation.com"
+        ]
+      },
+      "bullet_summary_web_results_preload": [
+        {
+          "name": "China plans to let top AI firms buy limited amount of Nvidia ...",
+          "snippet": "China is planning to let top AI companies buy a limited amount of Nvidia's H200 ⁠chips, the Information reported ⁠on Wednesday.",
+          "timestamp": "2026-07-08T15:33:17",
+          "url": "https://finance.yahoo.com/technology/ai/articles/china-plans-let-top-ai-150506111.html",
+          "meta_data": {
+            "published_date": "2026-07-08T15:33:17",
+            "description": null,
+            "citation_domain_name": "finance.yahoo",
+            "client": "web",
+            "date": "2026-07-08T15:33:17",
+            "suffix": "com",
+            "domain_name": null,
+            "images": [],
+            "authors": []
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for mainstream financial data snapshots and news, though free aggregated quotes and commercial partner content limit precision and full independence."
+          }
+        },
+        {
+          "name": "China Plans to Let Top AI Firms Buy Limited Amount ...",
+          "snippet": "China will allow top AI firms to purchase limited Nvidia H200 chips. · Policy shift addresses China's severe AI chip shortage for training models ...",
+          "timestamp": "2026-07-08T14:33:17",
+          "url": "https://www.theinformation.com/articles/china-plans-let-top-ai-firms-buy-limited-amount-nvidia-h200-chips",
+          "meta_data": {
+            "published_date": "2026-07-08T14:33:17",
+            "description": null,
+            "citation_domain_name": "theinformation",
+            "client": "web",
+            "date": "2026-07-08T14:33:17",
+            "images": [],
+            "domain_name": null,
+            "authors": [],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for deeply reported, subscription-based technology and business journalism, though some subscribers report aggressive auto-renewal and refund policies."
+          }
+        },
+        {
+          "name": "China plans to let top AI firms buy limited Nvidia H200 ...",
+          "snippet": "",
+          "timestamp": "2026-07-08T15:58:29",
+          "url": "https://www.reuters.com/world/china/china-plans-let-top-ai-firms-buy-limited-amount-nvidia-h200-chips-information-2026-07-08/",
+          "meta_data": {
+            "published_date": "2026-07-08T15:58:29",
+            "description": null,
+            "citation_domain_name": "reuters",
+            "client": "web",
+            "date": "2026-07-08T15:58:29",
+            "suffix": "com",
+            "domain_name": null,
+            "images": [],
+            "authors": []
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "The Nvidia H200 China deal survived the Trump-Xi summit ...",
+          "snippet": "Washington approved Nvidia H200 chip sales to China. Beijing blocked its own companies from buying them. Here is what the Trump-Xi summit actually resolved.",
+          "timestamp": "2026-05-19T00:00:00",
+          "url": "https://www.artificialintelligence-news.com/news/nvidia-h200-china-deal-stalled-trump-xi-summit-2026/",
+          "meta_data": {
+            "published_date": "2026-05-19T00:00:00",
+            "client": "web",
+            "citation_domain_name": "artificialintelligence-news",
+            "description": "Washington approved Nvidia H200 chip sales to China. Beijing blocked its own companies from buying them. Here is what the Trump-Xi summit actually resolved.",
+            "date": null,
+            "suffix": "com",
+            "domain_name": "AI News",
+            "authors": [
+              "Dashveenjit Kaur"
+            ],
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/b3aa7dc0-2668-585a-a47b-8ddb2f0d51a0/ac8ec0ba-c79c-56f6-93a8-0339404b7f6a.jpg"
+            ]
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for trade news and analysis on artificial intelligence, though its strong sponsored-content model means advertorial pieces need extra caution."
+          }
+        },
+        {
+          "name": "The Consequences of Exporting Nvidia's H200 Chips to ...",
+          "snippet": "Three CFR experts discuss President Donald Trump’s decision to allow Nvidia to sell advanced AI chip sales to China and what implications it could have for the future of AI, U.S. national security policy, and Chinese relations.",
+          "timestamp": "2025-12-09T00:00:00",
+          "url": "https://www.cfr.org/articles/consequences-exporting-nvidias-h200-chips-china",
+          "meta_data": {
+            "published_date": "2025-12-09T00:00:00",
+            "client": "web",
+            "citation_domain_name": "cfr",
+            "description": "Three CFR experts discuss President Donald Trump’s decision to allow Nvidia to sell advanced AI chip sales to China and what implications it could have for the future of AI, U.S. national security policy, and Chinese relations.",
+            "date": "2025-12-09T00:00:00",
+            "suffix": "org",
+            "domain_name": "Council on Foreign Relations",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/06e29e85-9a2a-576b-a5d5-4c308bae7a66/a1ae5bb0-9c73-5189-9e36-292bdc04a608.jpg"
+            ],
+            "authors": []
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for expert, nonpartisan analysis and background on international relations and U.S. foreign policy, though content mixes facts with policy interpretation."
+          }
+        },
+        {
+          "name": "China gives nod to ByteDance, Alibaba and Tencent to buy ...",
+          "snippet": "China has given the green light to three of its largest tech companies to buy Nvidia's H200 artificial intelligence chips, four people familiar with the matter told Reuters, marking a shift in position as Beijing seeks to balance its AI needs against spurring domestic development.",
+          "timestamp": "2026-01-28T08:46:26",
+          "url": "https://www.reuters.com/world/china/china-gives-green-light-importing-first-batch-nvidias-h200-ai-chips-sources-say-2026-01-28/",
+          "meta_data": {
+            "published_date": "2026-01-28T08:46:26",
+            "description": "China has given the green light to three of its largest tech companies to buy Nvidia's H200 artificial intelligence chips, four people familiar with the matter told Reuters, marking a shift in position as Beijing seeks to balance its AI needs against spurring domestic development.",
+            "citation_domain_name": "reuters",
+            "client": "web",
+            "date": "2026-01-28T00:00:00",
+            "authors": [
+              "Reuters"
+            ],
+            "domain_name": "Reuters",
+            "images": [
+              "https://www.reuters.com/resizer/v2/N4EQEEV44FIZ7H3VF4A2QX72D4.jpg?auth=4f562fe44f1fc2c439a3aad5363a0f184ab320b60679f9cbe7dd2d729607a1dc&height=1005&width=1920&quality=80&smart=true"
+            ],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "U.S. Clears NVIDIA H200 Chip Sales to China Under New ...",
+          "snippet": "U.S. approves Nvidia H200 chip exports to China under new rules, adding third-party reviews, volume limits, and security conditions on shipments.",
+          "timestamp": "2026-01-16T00:00:00",
+          "url": "https://www.thomasnet.com/insights/nvidia-h200-chip-china-exports-approved/",
+          "meta_data": {
+            "published_date": "2026-01-16T00:00:00",
+            "description": "U.S. approves Nvidia H200 chip exports to China under new rules, adding third-party reviews, volume limits, and security conditions on shipments.",
+            "citation_domain_name": "thomasnet",
+            "client": "web",
+            "date": "2026-01-16T00:00:00",
+            "suffix": "com",
+            "domain_name": "Thomas",
+            "images": [
+              "https://thomasmkt.wpengine.com/wp-content/uploads/2026/01/nvidia-h200-chip-china-exports-approved.jpg"
+            ],
+            "authors": [
+              "Kat De Naoum"
+            ]
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for North American industrial supplier discovery and sourcing information, though supplier listings are self‑reported and paid marketing claims warrant caution."
+          }
+        },
+        {
+          "name": "The Silicon Surrender Of China To Nvidia",
+          "snippet": "China approved 400,000 Nvidia H200 chips at a 25% tariff—the silicon surrender validates Nvidia's foundational position.",
+          "timestamp": "2026-02-03T14:48:55",
+          "url": "https://www.forbes.com/sites/jonmarkman/2026/02/03/the-silicon-surrender-of-china-to-nvidia/",
+          "meta_data": {
+            "published_date": "2026-02-03T14:48:55",
+            "client": "web",
+            "citation_domain_name": "forbes",
+            "description": "China approved 400,000 Nvidia H200 chips at a 25% tariff—the silicon surrender validates Nvidia's foundational position.",
+            "date": "2026-02-03T00:00:00",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/96084322-dc70-5e6c-b245-607f3fac9b3c/1022a671-5141-5220-8745-76bff839b7d8.jpg"
+            ],
+            "domain_name": "forbes",
+            "authors": [
+              "Jon Markman"
+            ],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for business and finance journalism, but contributor and sponsored sections on the site are less reliable and more commercially driven."
+          }
+        },
+        {
+          "name": "China plans to let top AI firms buy limited amount of Nvidia ...",
+          "snippet": "US has approved around 10 Chinese firms to buy Nvidia $NVDA H200 chips, but no deliveries have been made, per Reuters.",
+          "timestamp": "2026-07-08T15:33:17",
+          "url": "https://www.reddit.com/r/NvidiaStock/comments/1uqvrgt/china_plans_to_let_top_ai_firms_buy_limited/",
+          "meta_data": {
+            "published_date": "2026-07-08T15:33:17",
+            "client": "web",
+            "citation_domain_name": "reddit",
+            "description": null,
+            "date": "2026-07-08T15:33:17",
+            "authors": [],
+            "domain_name": null,
+            "suffix": "com",
+            "images": []
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        },
+        {
+          "name": "China Eases AI Chip Controls, Granting DeepSeek ...",
+          "snippet": "Chinese regulators have granted conditional approval for Hangzhou-based AI startup DeepSeek to purchase Nvidia’s H200 artificial intelligence chips, according to sources cited by Reuters. While the move falls short of a full clearance, it signals a notable shift in Beijing’s approach—allowing limited access to advanced U.S. chips for select AI players deemed strategically important.",
+          "timestamp": "2026-02-01T00:00:00",
+          "url": "https://asiatechdaily.com/china-eases-ai-chip-controls-granting-deepseek-conditional-access-to-nvidias-h200/",
+          "meta_data": {
+            "published_date": "2026-02-01T00:00:00",
+            "client": "web",
+            "citation_domain_name": "asiatechdaily",
+            "description": "Chinese regulators have granted conditional approval for Hangzhou-based AI startup DeepSeek to purchase Nvidia’s H200 artificial intelligence chips, according to sources cited by Reuters. While the move falls short of a full clearance, it signals a notable shift in Beijing’s approach—allowing limited access to advanced U.S. chips for select AI players deemed strategically important.",
+            "date": "2026-01-31T00:00:00",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/c3c50d49-8bc9-591b-9d12-19396be39536/9fcb3e51-5546-5995-8a99-261562bef018.jpg"
+            ],
+            "domain_name": "AsiaTechDaily - Asia's Leading Tech and Startup Media Platform",
+            "authors": [
+              "Chan-Yeol Lee"
+            ],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        },
+        {
+          "name": "China to approve limited Nvidia H200 chip sales to top AI ...",
+          "snippet": "China may soon approve Nvidia's H200 AI chips for firms like Alibaba and ByteDance amid rising AI demand.",
+          "timestamp": "2026-07-08T16:26:17",
+          "url": "https://www.firstpost.com/tech/china-to-approve-limited-nvidia-h200-chip-sales-to-top-ai-firms-report-14029915.html",
+          "meta_data": {
+            "published_date": "2026-07-08T16:26:17",
+            "client": "web",
+            "citation_domain_name": "firstpost",
+            "description": null,
+            "date": "2026-07-08T16:26:17",
+            "suffix": "com",
+            "domain_name": null,
+            "authors": [],
+            "images": []
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        },
+        {
+          "name": "China plans to let top AI firms buy limited Nvidia H200 ...",
+          "snippet": "China plans to permit its leading artificial intelligence companies to acquire Nvidia's H200 chips. Officials have informed Alibaba, ByteDance, ...",
+          "timestamp": "2026-07-08T15:33:17",
+          "url": "https://economictimes.com/tech/artificial-intelligence/china-plans-to-let-top-ai-firms-buy-limited-nvidia-h200-chips-the-information-reports/articleshow/132267191.cms",
+          "meta_data": {
+            "published_date": "2026-07-08T15:33:17",
+            "description": null,
+            "citation_domain_name": "economictimes",
+            "client": "web",
+            "date": "2026-07-08T15:33:17",
+            "images": [],
+            "domain_name": null,
+            "authors": [],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        },
+        {
+          "name": "China conditionally approves DeepSeek to buy Nvidia's ...",
+          "snippet": "China has given its top AI startup DeepSeek approval to buy Nvidia's H200 artificial intelligence chips with regulatory conditions that ​are still being finalised, two people familiar with the matter told Reuters. Nvidia CEO Jensen Huang told reporters in Taipei on Thursday that his company had not received such information. Nvidia did not respond to a request for comment on DeepSeek's approval.",
+          "timestamp": "2026-01-30T06:51:14",
+          "url": "https://finance.yahoo.com/news/exclusive-china-conditionally-approves-deepseek-065114403.html",
+          "meta_data": {
+            "published_date": "2026-01-30T06:51:14",
+            "description": "China has given its top AI startup DeepSeek approval to buy Nvidia's H200 artificial intelligence chips with regulatory conditions that ​are still being finalised, two people familiar with the matter told Reuters. Nvidia CEO Jensen Huang told reporters in Taipei on Thursday that his company had not received such information. Nvidia did not respond to a request for comment on DeepSeek's approval.",
+            "citation_domain_name": "finance.yahoo",
+            "client": "web",
+            "date": "2026-01-29T00:00:00",
+            "images": [
+              "https://s.yimg.com/ny/api/res/1.2/likCVEP.xzs4cweRuqbXQg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03ODY-/https://s.yimg.com/os/creatr-uploaded-images/2025-05/77f150a0-3745-11f0-bfb9-6d59298afb00"
+            ],
+            "domain_name": "Yahoo",
+            "authors": [
+              "Fanny Potkin"
+            ],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for mainstream financial data snapshots and news, though free aggregated quotes and commercial partner content limit precision and full independence."
+          }
+        }
+      ],
+      "item_type": "pplx_page",
+      "mode": "article",
+      "context_uuid": "f3ea5fe0-74ec-449e-95b0-bdeb1b50570b",
+      "uuid": "c7b868dd-051b-4239-b907-c0005c9b94c7",
+      "slug": "china-plans-to-let-top-ai-firm-x7ho3QUbQjm5B8AAXJuUxw",
+      "url": null,
+      "title": "China plans to let top AI firms buy Nvidia H200 chips",
+      "short_title": "China allows Nvidia",
+      "summary": "Beijing is moving to end a monthslong deadlock that left U.S.-approved chip exports frozen due to conflicting Chinese and American use requirements.",
+      "first_answer": "{\"answer\":\"The move represents a reversal for Beijing, which had previously urged its tech firms to avoid dependence on Nvidia chips and instead support domestic alternatives such as those from Huawei. Chinese companies have broadly been shifting toward homegrown AI chip suppliers amid escalating U.S.-China technology tensions.\\n\\nOrders from Chinese technology companies have reportedly totaled more than 2...\"}",
+      "description": "The move represents a reversal for Beijing, which had previously urged its tech firms to avoid dependence on Nvidia chips and instead support domestic alternatives such as those from Huawei. Chinese companies have broadly been shifting toward homegrown AI chip suppliers amid escalating U.S.-China technology tensions.\n\nOrders from Chinese technology companies have reportedly totaled more than 2...",
+      "bullet_summary_preload": "- **China** plans to allow top AI firms including **Alibaba** and **ByteDance** to buy limited **Nvidia** H200 chips, according to The Information.[2][3]\n- Despite U.S. export licenses issued to about 10 Chinese firms in January, no H200 chips have shipped because Beijing's domestic-use restrictions clashed with U.S. rules.[4][3]\n- Nvidia shares rose on the news, with Chinese demand for H200 chips reportedly exceeding 2 million units against roughly 700,000 available.[7]",
+      "bullet_summary_inline_token_annotations": null,
+      "featured_images": [
+        {
+          "medium": "image",
+          "url": "https://finance.yahoo.com/news/exclusive-china-conditionally-approves-deepseek-065114403.html",
+          "source": "web",
+          "image": "https://pplx-res.cloudinary.com/image/fetch/s--tzRMVUL0--/t_limit/https://s.yimg.com/ny/api/res/1.2/likCVEP.xzs4cweRuqbXQg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03ODY-/https://s.yimg.com/os/creatr-uploaded-images/2025-05/77f150a0-3745-11f0-bfb9-6d59298afb00",
+          "image_id": null,
+          "name": "China conditionally approves DeepSeek to buy Nvidia's ...",
+          "thumbnail": "https://pplx-res.cloudinary.com/image/fetch/s--bQ1Fzzj7--/t_thumbnail/https://s.yimg.com/ny/api/res/1.2/likCVEP.xzs4cweRuqbXQg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03ODY-/https://s.yimg.com/os/creatr-uploaded-images/2025-05/77f150a0-3745-11f0-bfb9-6d59298afb00",
+          "thumbnail_384": null,
+          "thumbnail_512": null,
+          "thumbnail_512_smart": null,
+          "caption": null,
+          "modal_url": null,
+          "author_name": null,
+          "author_url": null,
+          "locations": null,
+          "dark_image_url": null,
+          "duration": null,
+          "image_width": null,
+          "image_height": null,
+          "thumbnail_width": null,
+          "thumbnail_height": null,
+          "download_url": null,
+          "sponsored_uuid": null,
+          "ad_content_uuid": null,
+          "metadata": null,
+          "low_res_image": null,
+          "generated_media_metadata": null,
+          "original_image_url": null
+        }
+      ],
+      "hero_offset": -1,
+      "metadata_type": "timestamp",
+      "updated_datetime": "2026-07-08T16:35:09.450465",
+      "author_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/c456edd7-ccbe-43d0-57dc-0ffedd6b5c00/thumbnail",
+      "author_username": "alexwanders",
+      "interest_attribution": null,
+      "published_timestamp": "2026-07-08T16:35:09.450465",
+      "domain_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/c456edd7-ccbe-43d0-57dc-0ffedd6b5c00/thumbnail",
+      "domain_name": "alexwanders",
+      "audio_url": null,
+      "dataviz_url": null,
+      "dataviz_signed_url": null,
+      "has_next_page": true,
+      "collection": null,
+      "feedback_state": {
+        "like": false
+      },
+      "supported_feedbacks": {
+        "dislike": true,
+        "report": false
+      },
+      "discover_screener_query_uuid": null,
+      "is_live": null,
+      "article_number": 1,
+      "access": 2,
+      "social_info": {
+        "view_count": 0,
+        "fork_count": 0,
+        "like_count": 0,
+        "user_likes": false
+      },
+      "last_query_datetime": "2026-07-08T16:35:09.450465",
+      "thread_number": 1,
+      "thread_access": 2,
+      "query_count": 1,
+      "search_focus": "internet",
+      "sources": [],
+      "read_write_token": null,
+      "total_threads": 99,
+      "layout": "media-text",
+      "banners": []
+    },
+    {
+      "card_variant": "LARGE",
+      "title_line_limit": 2,
+      "summary_line_limit": null,
+      "web_results_preview": {
+        "total_count": 29,
+        "first_urls": [
+          "https://www.pravda.com.ua",
+          "https://www.ft.com",
+          "https://www.facebook.com"
+        ]
+      },
+      "bullet_summary_web_results_preload": [
+        {
+          "name": "Ukraine hits nine more Russian tankers in Sea of Azov",
+          "snippet": "Ukraine's Unmanned Systems Forces struck another nine tankers from Russia's so-called shadow fleet in the Sea of Azov on the night of 7-8 July.",
+          "timestamp": "2026-07-08T00:00:00",
+          "url": "https://www.pravda.com.ua/eng/news/2026/07/08/8042986/",
+          "meta_data": {
+            "date": "2026-07-08T07:16:52",
+            "images": [
+              "https://uimg.pravda.com.ua/buckets/upstatic/images/doc/f/1/866760/f1c3593aa9ca650ae527d0f08d0e7de0.jpeg?w=1200&q=85&stamp=1783495484"
+            ],
+            "domain_name": "Ukrainska Pravda",
+            "client": "web",
+            "published_date": "2026-07-08T00:00:00",
+            "description": "Ukraine's Unmanned Systems Forces struck another nine tankers from Russia's so-called shadow fleet in the Sea of Azov on the night of 7-8 July.",
+            "authors": [
+              "Artur Kryzhnyi"
+            ],
+            "citation_domain_name": "pravda",
+            "suffix": "com.ua"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for independent Ukrainian political and war reporting, though it reflects a clear Ukrainian editorial perspective rather than neutral global reference."
+          }
+        },
+        {
+          "name": "Another 9 Russian shadow fleet tankers hit in Azov Sea ...",
+          "snippet": "According to Robert Brovdi, over the past 72 hours Ukrainian forces hit 21 vessels , including 19 shadow fleet tankers, one cargo ship, and one ferry in Crimea's Kerch.",
+          "timestamp": "2026-07-08T00:00:00",
+          "url": "https://kyivindependent.com/ukraine-hit-another-9-russian-shadow-fleet-tankers-in-azov-sea-energy-facilities-in-crimea-military-say/",
+          "meta_data": {
+            "date": "2026-07-08T09:16:52",
+            "domain_name": "The Kyiv Independent",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/edc6f6f1-dbfe-5b28-baa8-86a98bad6744/eddbe1ac-94cb-537c-929e-48af40ad9292.jpg"
+            ],
+            "client": "web",
+            "published_date": "2026-07-08T00:00:00",
+            "description": "According to Robert Brovdi, over the past 72 hours Ukrainian forces hit 21 vessels , including 19 shadow fleet tankers, one cargo ship, and one ferry in Crimea's Kerch.",
+            "suffix": "com",
+            "authors": [
+              "Yuliia Taradiuk"
+            ],
+            "citation_domain_name": "kyivindependent"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for independent, pro‑Ukraine journalism on the war and Ukrainian politics, though its strong perspective and wartime context require normal caution."
+          }
+        },
+        {
+          "name": "Ukraine Strikes 9 Shadow Fleet Tankers Overnight ...",
+          "snippet": "Ukraine's Unmanned Systems Forces struck nine Russian shadow fleet tankers in the Sea of Azov.",
+          "timestamp": "2026-07-08T07:38:28",
+          "url": "https://united24media.com/war-in-ukraine/ukraine-strikes-9-shadow-fleet-tankers-overnight-bringing-72-hour-total-to-19-20556",
+          "meta_data": {
+            "date": "2026-07-08T14:16:52",
+            "domain_name": "united24media",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/cef84580-75f7-570b-89aa-aa18412cad5d/d252bb7c-fbff-5dba-9c07-9766cf049b0b.jpg"
+            ],
+            "client": "web",
+            "published_date": "2026-07-08T07:38:28",
+            "description": "Ukraine's Unmanned Systems Forces struck nine Russian shadow fleet tankers in the Sea of Azov.",
+            "citation_domain_name": "united24media",
+            "authors": [
+              "News Writer"
+            ],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for mostly factual, pro‑Ukraine war and politics reporting integrated with the Ukrainian government’s United24 donations platform, though not fully neutral."
+          }
+        },
+        {
+          "name": "Ukraine strikes Russian 'shadow fleet' tankers supplying ...",
+          "snippet": "Ukrainian drones have ‌attacked a dozen tankers from Russia's \"shadow fleet\" over the past two days that were delivering fuel to Crimea, Kyiv's military said on Tuesday, as it intensifies efforts to isolate the Russian-occupied peninsula.",
+          "timestamp": "2026-07-07T10:58:50",
+          "url": "https://www.reuters.com/world/europe/ukraine-strikes-eight-russian-shadow-fleet-tankers-kyiv-says-2026-07-07/",
+          "meta_data": {
+            "date": "2026-07-07T16:16:52",
+            "domain_name": "Reuters",
+            "images": [
+              "https://www.reuters.com/resizer/v2/RFZIEDR2LZIETJR3IWM6YT4P3Q.jpg?auth=76f5ee4a38017478ae3fa2f81d6549db646deddab2c08bfc4f7c6c1551558a4b&height=1005&width=1920&quality=80&smart=true"
+            ],
+            "client": "web",
+            "published_date": "2026-07-07T10:58:50",
+            "description": "Ukrainian drones have ‌attacked a dozen tankers from Russia's \"shadow fleet\" over the past two days that were delivering fuel to Crimea, Kyiv's military said on Tuesday, as it intensifies efforts to isolate the Russian-occupied peninsula.",
+            "citation_domain_name": "reuters",
+            "authors": [
+              "Dan Peleschuk"
+            ],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "Ukrainian Drone Raid Hits 10 Russian Ships, Crippling ...",
+          "snippet": "Ukraine’s Unmanned Systems Forces struck 10 vessels, including 8 shadow fleet oil tankers, severely disrupting Russian logistics to occupied Crimea.",
+          "timestamp": "2026-07-08T00:00:00",
+          "url": "https://www.navalnews.com/naval-news/2026/07/ukrainian-drone-raid-russian-ships-crimea-supply-lines/",
+          "meta_data": {
+            "date": "2026-07-08T12:16:52",
+            "published_date": "2026-07-08T00:00:00",
+            "domain_name": "Naval News",
+            "client": "web",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/56159e3b-8c75-5621-8522-a0bcfc5d51d6/363f7f7b-ee37-5f23-ba7b-29b6f4650e10.jpg"
+            ],
+            "description": "Ukraine’s Unmanned Systems Forces struck 10 vessels, including 8 shadow fleet oil tankers, severely disrupting Russian logistics to occupied Crimea.",
+            "authors": [
+              "Ethan Gossrow"
+            ],
+            "suffix": "com",
+            "citation_domain_name": "navalnews"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for specialized global naval defense news and analysis, though coverage can reflect industry press releases and commercial incentives."
+          }
+        },
+        {
+          "name": "Zelenskyy stated that the outcome of the war with Russia will ...",
+          "snippet": "Ukraine has already halted the Russian Federation on land and forced its fleet out of the greater part of the western Black Sea",
+          "timestamp": "2026-07-06T22:09:00",
+          "url": "https://news.liga.net/en/war/news/the-outcome-of-the-war-with-russia-will-be-decided-in-the-skies-zelenskyy",
+          "meta_data": {
+            "date": "2026-07-06T16:16:53",
+            "images": [
+              "https://storage.liga.net/images/general/social/social-4629268-en.png?v=1783354563"
+            ],
+            "published_date": "2026-07-06T22:09:00",
+            "client": "web",
+            "domain_name": "LIGA.net",
+            "description": "Ukraine has already halted the Russian Federation on land and forced its fleet out of the greater part of the western Black Sea",
+            "suffix": "net",
+            "citation_domain_name": "news.liga",
+            "authors": []
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for high-standard Ukrainian news and political-business reporting, though it remains a journalistic secondary source rather than primary official or scientific authority."
+          }
+        },
+        {
+          "name": "Zelenskyy: Outcome of war will be decided in the sky",
+          "snippet": "Read more",
+          "timestamp": "2026-07-06T00:00:00",
+          "url": "https://newsukraine.rbc.ua/news/zelenskyy-says-ukraine-s-war-will-be-decided-1783365869.html",
+          "meta_data": {
+            "date": "2026-07-06T16:16:53",
+            "domain_name": "RBC-Ukraine",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/4dfd283d-fdfc-52ff-ae53-82c59c323e06/ca8321c4-b4c1-5f35-bcc9-39826acd4401.jpg"
+            ],
+            "client": "web",
+            "published_date": "2026-07-06T00:00:00",
+            "description": "Read more",
+            "suffix": "ua",
+            "citation_domain_name": "newsukraine.rbc",
+            "authors": [
+              "Daryna Vialko"
+            ]
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for mostly factual, professionally edited English-language news about Ukraine, though coverage reflects a pro-Ukraine national perspective rather than neutral geopolitics."
+          }
+        },
+        {
+          "name": "\"The Sky Will Determine the Outcome of This War, ...",
+          "snippet": "Zelenskyy states the decisive phase of Russia’s full-scale invasion has shifted to the air, where Ukrainian drones are altering the war's outcome.",
+          "timestamp": "2026-07-06T00:00:00",
+          "url": "https://united24media.com/war-in-ukraine/the-sky-will-determine-the-outcome-of-this-war-zelenskyy-says-20500",
+          "meta_data": {
+            "date": "2026-07-06T16:16:57",
+            "domain_name": "UNITED24 Media",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/99be871d-3754-5058-bc9d-597ebcd2f372/d252bb7c-fbff-5dba-9c07-9766cf049b0b.jpg"
+            ],
+            "client": "web",
+            "published_date": "2026-07-06T00:00:00",
+            "description": "Zelenskyy states the decisive phase of Russia’s full-scale invasion has shifted to the air, where Ukrainian drones are altering the war's outcome.",
+            "citation_domain_name": "united24media",
+            "authors": [
+              "Katherina Popilnichenko"
+            ],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for mostly factual, pro‑Ukraine war and politics reporting integrated with the Ukrainian government’s United24 donations platform, though not fully neutral."
+          }
+        },
+        {
+          "name": "'Battle in the sky' will decide outcome of war with Russia ...",
+          "snippet": "Volodymyr Zelenskyy said the decisive phase of Russia's war against Ukraine has shifted from land and sea to the air, arguing that the “battle ...",
+          "timestamp": "2026-07-06T16:16:57",
+          "url": "https://www.ft.com/content/6ca8de40-15e4-470e-a258-6dd2d8d9d83e?syn-25a6b1a6=1",
+          "meta_data": {
+            "date": "2026-07-06T16:16:57",
+            "domain_name": null,
+            "published_date": "2026-07-06T16:16:57",
+            "client": "web",
+            "images": [],
+            "description": null,
+            "authors": [],
+            "citation_domain_name": "ft",
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global business, finance, and political news, though opinion sections reflect editorial viewpoints and subscription complaints exist."
+          }
+        },
+        {
+          "name": "Zelensky Attends 2026 NATO Summit, Presses For Air Defence Systems + More | Around The World in 5",
+          "snippet": "Don't forget to subscribe: https://bit.ly/2Hb8hjx Watch more interesting videos: https://bit.ly/34ogCaw Follow Channels Television On: https://www.facebook.com/channelsforum https://twitter.com/channelstv https://www.instagram.com/channelstelevision Get more news on our website: https://www.channelstv.com/ #ChannelsTv #newsupdate #news #newsinnigeria #newstoday #newsheadlines #Politicstoday #ChannelsTVNews #Nigeria #Lagos #Nigerianews #Nigeriannews #channelstelevision #Channelstv #Channels...",
+          "timestamp": "2026-07-08T00:00:00",
+          "url": "https://www.youtube.com/watch?v=wliKjysWGbo",
+          "meta_data": {
+            "date": "2026-07-08T01:16:53",
+            "images": [
+              "https://i.ytimg.com/vi/wliKjysWGbo/maxresdefault.jpg"
+            ],
+            "published_date": "2026-07-08T00:00:00",
+            "client": "trending",
+            "domain_name": "YouTube · Channels Television",
+            "description": "Don't forget to subscribe:  https://bit.ly/2Hb8hjx\n\nWatch more interesting videos: https://bit.ly/34ogCaw\n\nFollow Channels Television On: \nhttps://www.facebook.com/channelsforum\nhttps://twitter.com/channelstv\nhttps://www.instagram.com/channelstelevision\n\nGet more news on our website: https://www.channelstv.com/\n\n\n#ChannelsTv #newsupdate #news #newsinnigeria #newstoday #newsheadlines #Politicstoday #ChannelsTVNews #Nigeria #Lagos #Nigerianews #Nigeriannews  #channelstelevision #Channelstv #Channels #AfricaNews #BreakingNews #Nigerianpolitics",
+            "citation_domain_name": "youtube",
+            "authors": [
+              "Channels Television"
+            ],
+            "suffix": "com"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        },
+        {
+          "name": "Russia launches massive strike on Ukraine as Poland ...",
+          "snippet": "The Russian Defense Ministry said that it launched a \"massive strike using long-range precision air, land, and sea-based weapons and attack drones.\"",
+          "timestamp": "2026-07-02T04:43:19",
+          "url": "https://www.cnbc.com/2026/07/02/russia-launches-missile-drone-strikes-ukraine-kyiv.html",
+          "meta_data": {
+            "date": "2026-07-02T16:16:53",
+            "published_date": "2026-07-02T04:43:19",
+            "images": [
+              "https://image.cnbcfm.com/api/v1/image/108329707-1782966884942-gettyimages-2283713419-AFP_B8YU9ZR.jpeg?v=1782966931&w=1920&h=1080"
+            ],
+            "client": "web",
+            "domain_name": "CNBC",
+            "description": "The Russian Defense Ministry said that it launched a \"massive strike using long-range precision air, land, and sea-based weapons and attack drones.\"",
+            "suffix": "com",
+            "authors": [
+              "Lim Hui Jie"
+            ],
+            "citation_domain_name": "cnbc"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for mainstream U.S. business and financial news, though coverage reflects a left-center editorial framing and occasional opinion-driven segments."
+          }
+        },
+        {
+          "name": "Russia suffered its deadliest month of the war in ...",
+          "snippet": "Russia suffered its deadliest month of the war in June, with tens of thousands of troops reportedly killed as Vladimir Putin's invasion of Ukraine continues.",
+          "timestamp": "2026-07-05T00:00:00",
+          "url": "https://www.the-express.com/news/world-news/210917/putin-s-troops-reportedly-suffer-40-000-casualties-deadliest-ukraine-war-month",
+          "meta_data": {
+            "date": "2026-07-05T16:16:57",
+            "published_date": "2026-07-05T00:00:00",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/b869ab62-4c69-51c0-b5d4-21c4d248b061/ec632a50-853c-56f9-b131-5e6ba1617177.jpg"
+            ],
+            "client": "web",
+            "domain_name": "Daily Express US",
+            "description": "Russia suffered its deadliest month of the war in June, with tens of thousands of troops reportedly killed as Vladimir Putin's invasion of Ukraine continues.",
+            "suffix": "com",
+            "citation_domain_name": "the-express",
+            "authors": [
+              "Taila Nichole Thompson"
+            ]
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        },
+        {
+          "name": "Russia's advance collapses in Ukraine, '40000' troops ...",
+          "snippet": "Ukraine's long-range strikes hit targets in Russia, where anxiety is rising.",
+          "timestamp": "2026-07-03T13:57:24",
+          "url": "https://www.aljazeera.com/news/2026/7/3/russian-advance-collapses-in-ukraine-as-anxiety-rises-in-moscow",
+          "meta_data": {
+            "date": "2026-07-03T16:16:57",
+            "images": [
+              "https://www.aljazeera.com/wp-content/uploads/2026/07/2026-07-03T122319Z_1568142932_RC2C6MAAP7SA_RTRMADP_3_UKRAINE-CRISIS-ATTACK-KYIV-AFTERMATH-1783085120.jpg?resize=1920%2C1440"
+            ],
+            "domain_name": "Al Jazeera English",
+            "client": "web",
+            "published_date": "2026-07-03T13:57:24",
+            "description": "Ukraine's long-range strikes hit targets in Russia, where anxiety is rising.",
+            "citation_domain_name": "aljazeera",
+            "suffix": "com",
+            "authors": [
+              "John T Psaropoulos"
+            ]
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for professionally edited international news and analysis, though coverage can show Qatari‑linked regional bias and has mixed factuality ratings."
+          }
+        }
+      ],
+      "item_type": "pplx_page",
+      "mode": "article",
+      "context_uuid": "e9c954e2-115c-42ed-9443-b7152f17843c",
+      "uuid": "1fe830ff-8184-4185-a509-a32223434040",
+      "slug": "ukraine-destroys-21-russian-ve-H.gw_4GEQYWlCaMiI0NAQA",
+      "url": null,
+      "title": "Ukraine destroys 21 Russian vessels in 72 hours",
+      "short_title": "Ukraine hits tankers",
+      "summary": "The strikes targeted shadow fleet tankers supplying fuel to occupied Crimea as part of a broader campaign to cut off the peninsula.",
+      "first_answer": "{\"answer\":\"The maritime strikes come amid what multiple outlets describe as Russia's deadliest month of the war. According to Al Jazeera, Russian forces suffered approximately 39,490 casualties in June alone. The Express reported that roughly 26,000 Russian personnel were killed during the month, with an additional 14,000 wounded.\\n\\nRussia's territorial gains have also slowed sharply. The Institute for the...\"}",
+      "description": "The maritime strikes come amid what multiple outlets describe as Russia's deadliest month of the war. According to Al Jazeera, Russian forces suffered approximately 39,490 casualties in June alone. The Express reported that roughly 26,000 Russian personnel were killed during the month, with an additional 14,000 wounded.\n\nRussia's territorial gains have also slowed sharply. The Institute for the...",
+      "bullet_summary_preload": "- **Ukraine's** Unmanned Systems Forces hit 21 vessels in 72 hours, including 19 shadow fleet tankers, in the **Sea of Azov**, according to Commander Robert Brovdi.[1][2]\n- The attacks are part of a 40-day strategic operation that has also struck 50 energy facilities in **Crimea** since July 1 in a \"Crimean Switch Off\" campaign.[3]\n- President **Zelenskyy** told the **Financial Times** the war's decisive phase has shifted to the air and pressed **NATO** allies for more air defense systems.[8][10]",
+      "bullet_summary_inline_token_annotations": null,
+      "featured_images": [
+        {
+          "medium": "image",
+          "url": "https://www.lemonde.fr/en/international/article/2024/07/22/ukrainian-naval-drone-attacks-force-russian-fleet-out-of-crimea_6694576_4.html",
+          "source": "web",
+          "image": "https://pplx-res.cloudinary.com/image/fetch/s--mZ_B3Ri2--/t_limit/https://img.lemde.fr/2024/07/19/0/0/8640/5760/664/0/75/0/ba2bf23_1721402515600-ap24066422084324.jpg",
+          "image_id": null,
+          "name": "Ukrainian naval drone attacks force Russian fleet out of Crimea",
+          "thumbnail": "https://pplx-res.cloudinary.com/image/fetch/s--3qe7I83P--/t_thumbnail/https://img.lemde.fr/2024/07/19/0/0/8640/5760/664/0/75/0/ba2bf23_1721402515600-ap24066422084324.jpg",
+          "thumbnail_384": "",
+          "thumbnail_512": "",
+          "thumbnail_512_smart": null,
+          "caption": null,
+          "modal_url": null,
+          "author_name": null,
+          "author_url": null,
+          "locations": null,
+          "dark_image_url": null,
+          "duration": null,
+          "image_width": 664,
+          "image_height": 443,
+          "thumbnail_width": null,
+          "thumbnail_height": null,
+          "download_url": null,
+          "sponsored_uuid": null,
+          "ad_content_uuid": null,
+          "metadata": null,
+          "low_res_image": null,
+          "generated_media_metadata": null,
+          "original_image_url": null
+        }
+      ],
+      "hero_offset": -1,
+      "metadata_type": "timestamp",
+      "updated_datetime": "2026-07-08T16:18:34.853505",
+      "author_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/21b187bb-9a85-43f2-8e6e-f8845b169900/thumbnail",
+      "author_username": "aetheris",
+      "interest_attribution": null,
+      "published_timestamp": "2026-07-08T16:18:34.853505",
+      "domain_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/21b187bb-9a85-43f2-8e6e-f8845b169900/thumbnail",
+      "domain_name": "aetheris",
+      "audio_url": null,
+      "dataviz_url": null,
+      "dataviz_signed_url": null,
+      "has_next_page": true,
+      "collection": null,
+      "feedback_state": {
+        "like": false
+      },
+      "supported_feedbacks": {
+        "dislike": true,
+        "report": false
+      },
+      "discover_screener_query_uuid": null,
+      "is_live": null,
+      "article_number": 2,
+      "access": 2,
+      "social_info": {
+        "view_count": 0,
+        "fork_count": 0,
+        "like_count": 0,
+        "user_likes": false
+      },
+      "last_query_datetime": "2026-07-08T16:18:34.853505",
+      "thread_number": 2,
+      "thread_access": 2,
+      "query_count": 1,
+      "search_focus": "internet",
+      "sources": [],
+      "read_write_token": null,
+      "total_threads": 99,
+      "layout": "media-text",
+      "banners": []
+    },
+    {
+      "card_variant": "LARGE",
+      "title_line_limit": 2,
+      "summary_line_limit": null,
+      "web_results_preview": {
+        "total_count": 21,
+        "first_urls": [
+          "https://www.facebook.com",
+          "https://www.nytimes.com",
+          "https://www.reuters.com"
+        ]
+      },
+      "bullet_summary_web_results_preload": [
+        {
+          "name": "Bezos' Blue Origin raises first outside funding at $130 ...",
+          "snippet": "",
+          "timestamp": "2026-07-08T12:25:04",
+          "url": "https://www.reuters.com/legal/transactional/rocket-maker-blue-origin-raises-funds-first-time-nyt-dealbook-reports-2026-07-08/",
+          "meta_data": {
+            "domain_name": null,
+            "date": "2026-07-08T12:25:04",
+            "authors": [],
+            "citation_domain_name": "reuters",
+            "description": null,
+            "suffix": "com",
+            "published_date": "2026-07-08T12:25:04",
+            "images": [],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "Bezos' Blue Origin Raises First Outside Funding at $130 ...",
+          "snippet": "July 8 (Reuters) - Rocket maker Blue Origin ⁠is ⁠raising $10 billion at a ⁠pre-money valuation of $130 billion, the New York Times DealBook ...",
+          "timestamp": "2026-07-08T12:25:12",
+          "url": "https://money.usnews.com/investing/news/articles/2026-07-08/rocket-maker-blue-origin-raises-funds-for-first-time-nyt-dealbook-reports",
+          "meta_data": {
+            "domain_name": null,
+            "date": "2026-07-08T12:25:12",
+            "authors": [],
+            "citation_domain_name": "money.usnews",
+            "description": null,
+            "published_date": "2026-07-08T12:25:12",
+            "suffix": "com",
+            "images": [],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for mainstream U.S. personal finance and investing editorial content, though rankings and \"best\" lists reflect proprietary methods and commercial incentives."
+          }
+        },
+        {
+          "name": "Bezos' Blue Origin valued at $130 billion in first public ...",
+          "snippet": "",
+          "timestamp": "2026-07-08T12:25:12",
+          "url": "https://www.cnbc.com/2026/07/08/blue-origin-bezos-fundraising.html",
+          "meta_data": {
+            "domain_name": null,
+            "date": "2026-07-08T12:25:12",
+            "authors": [],
+            "citation_domain_name": "cnbc",
+            "description": null,
+            "published_date": "2026-07-08T12:25:12",
+            "suffix": "com",
+            "images": [],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for mainstream U.S. business and financial news, though coverage reflects a left-center editorial framing and occasional opinion-driven segments."
+          }
+        },
+        {
+          "name": "Bezos' Blue Origin Valued At $130 Billion",
+          "snippet": "Blue Origin raised $10 billion in the funding round, $4 billion of which comes from Coatue Management and $2 billion from Bezos himself,",
+          "timestamp": "2026-07-08T12:25:04",
+          "url": "https://www.forbes.com/sites/tylerroush/2026/07/08/jeff-bezos-blue-origin-valued-at-130-billion-after-first-fundraising-round/",
+          "meta_data": {
+            "domain_name": null,
+            "date": "2026-07-08T12:25:04",
+            "authors": [],
+            "citation_domain_name": "forbes",
+            "suffix": "com",
+            "published_date": "2026-07-08T12:25:04",
+            "description": null,
+            "images": [],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for business and finance journalism, but contributor and sponsored sections on the site are less reliable and more commercially driven."
+          }
+        },
+        {
+          "name": "Jeff Bezos' Blue Origin space venture reportedly considers ...",
+          "snippet": "The Financial Times quotes sources as saying external fundraising might be needed to support increased launch cadence at Blue Origin.",
+          "timestamp": "2026-05-13T00:00:00",
+          "url": "https://www.geekwire.com/2026/jeff-bezos-blue-origin-outside-investment/",
+          "meta_data": {
+            "domain_name": "GeekWire",
+            "date": "2026-05-13T00:00:00",
+            "authors": [
+              "Alan Boyle"
+            ],
+            "citation_domain_name": "geekwire",
+            "published_date": "2026-05-13T00:00:00",
+            "suffix": "com",
+            "description": "The Financial Times quotes sources as saying external fundraising might be needed to support increased launch cadence at Blue Origin.",
+            "images": [
+              "https://cdn.geekwire.com/wp-content/uploads/2026/05/Gallery-NG3-liftoff5-1260x840.jpg"
+            ],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for professionally edited technology and Pacific Northwest business news, though clearly labeled sponsor-post content is commercial and less neutral than core reporting."
+          }
+        },
+        {
+          "name": "Despite rocket explosion, Blue Origin awarded $24M ...",
+          "snippet": "Space Florida approved $24.2 million in state funding for Blue Origin's future major expansion, days after a New Glenn rocket exploded at the Cape.",
+          "timestamp": "2026-06-03T15:34:26",
+          "url": "https://www.floridatoday.com/story/tech/science/space/2026/06/03/despite-rocket-explosion-blue-origin-awarded-24-million-for-big-florida-expansion-on-merritt-island/90383519007/",
+          "meta_data": {
+            "domain_name": "floridatoday",
+            "date": "2026-06-03T00:00:00",
+            "authors": [
+              "Aol"
+            ],
+            "citation_domain_name": "floridatoday",
+            "description": "Space Florida approved $24.2 million in state funding for Blue Origin's future major expansion, days after a New Glenn rocket exploded at the Cape.",
+            "published_date": "2026-06-03T15:34:26",
+            "suffix": "com",
+            "images": [
+              "https://s.yimg.com/lo/mysterio/api/54D048A2AD5C3E902B5566FDE8E64777D1E3E58EF943766163B3383894F26153/subgraphmysterio/resizefill_w1200_h556;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Faol_usatoday_us_articles_590%2F638348ec5e1c3b3d742941057781c953"
+            ],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        },
+        {
+          "name": "Blue Origin plans $600M rocket plant expansion in Florida",
+          "snippet": "The Jeff Bezos-founded aerospace company will expand its manufacturing campus located in Cape Canaveral, creating an estimated 500 jobs.",
+          "timestamp": "2026-05-27T00:00:00",
+          "url": "https://www.manufacturingdive.com/news/blue-origin-600-million-jeff-bezos-cape-canaveral-expansion-florida/821134/",
+          "meta_data": {
+            "domain_name": "Manufacturing Dive",
+            "date": "2026-05-27T00:00:00",
+            "authors": [
+              "Sara Samora"
+            ],
+            "citation_domain_name": "manufacturingdive",
+            "suffix": "com",
+            "description": "The Jeff Bezos-founded aerospace company will expand its manufacturing campus located in Cape Canaveral, creating an estimated 500 jobs.",
+            "published_date": "2026-05-27T00:00:00",
+            "images": [
+              "https://imgproxy.divecdn.com/aoSf7KXUEbN43_mjFxwemLNBEGL6lemh4bNT3OC8xN4/g:ce/rs:fit:770:435/Z3M6Ly9kaXZlc2l0ZS1zdG9yYWdlL2RpdmVpbWFnZS9HYWxsZXJ5LU5HMy1KYWNrbHluLU5ldmVyVGVsbE1lVGhlT2Rkcy5wbmc=.webp"
+            ],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for professionally edited business-to-business news and analysis on the manufacturing industry, though content reflects trade-press, pro-business perspectives and includes sponsored material."
+          }
+        },
+        {
+          "name": "Blue Origin Raises First Funds. Its Valuation Is A Fraction ...",
+          "snippet": "",
+          "timestamp": "2026-07-08T13:32:12",
+          "url": "https://www.investors.com/news/blue-origin-10-billion-funding-round-130-billion-valuation-jeff-bezos-new-glenn-space-stocks/",
+          "meta_data": {
+            "domain_name": null,
+            "date": "2026-07-08T13:32:12",
+            "authors": [],
+            "citation_domain_name": "investors",
+            "published_date": "2026-07-08T13:32:12",
+            "description": null,
+            "suffix": "com",
+            "images": [],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for edited financial news, market analysis, and proprietary investing tools, though its stock recommendations and subscription marketing reflect commercial, non-guaranteed strategies."
+          }
+        },
+        {
+          "name": "Blue Origin IPO: Investment Opportunities & Pre ...",
+          "snippet": "Ways to buy and sell Blue Origin shares pre-IPO. Invest in proven Industrial private companies like Blue Origin at ForgeGlobal.com.",
+          "timestamp": "2021-08-05T00:00:00",
+          "url": "https://forgeglobal.com/blue-origin_ipo/",
+          "meta_data": {
+            "domain_name": "Forge Global",
+            "date": null,
+            "authors": [],
+            "citation_domain_name": "forgeglobal",
+            "suffix": "com",
+            "published_date": "2021-08-05T00:00:00",
+            "description": "Ways to buy and sell Blue Origin shares pre-IPO. Invest in proven Industrial private companies like Blue Origin at ForgeGlobal.com.",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/4ead45e9-5db3-53c5-8ca4-10ad45660209/c950d731-3429-5479-a548-dd03291dbc7d.jpg"
+            ],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for authoritative information on Forge Global’s regulated private-securities marketplace, products, and risk disclosures, though its content is commercially oriented, not neutral investment advice."
+          }
+        },
+        {
+          "name": "Blue Origin Pre-IPO: Stock, Valuation & IPO Outlook",
+          "snippet": "Can you buy Blue Origin stock pre-IPO? IPO CLUB on Blue Origin's valuation, New Glenn, NASA contracts, IPO outlook, and access for accredited investors.",
+          "timestamp": "2026-07-05T00:00:00",
+          "url": "https://www.ipo.club/deals/blue-origin",
+          "meta_data": {
+            "domain_name": "IPO CLUB",
+            "date": "2026-06-24T00:00:00",
+            "authors": [
+              "Edoardo Zarghetta"
+            ],
+            "citation_domain_name": "ipo",
+            "description": "Can you buy Blue Origin stock pre-IPO? IPO CLUB on Blue Origin's valuation, New Glenn, NASA contracts, IPO outlook, and access for accredited investors.",
+            "suffix": "club",
+            "published_date": "2026-07-05T00:00:00",
+            "images": [
+              "http://static1.squarespace.com/static/5fbc0bb3bfc40b6b5d13aae9/5fcb98a136758319a5560917/6a3b714c81b5f21a82336f1f/1783265395381/Blue+Origin.jpg?format=1500w"
+            ],
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        }
+      ],
+      "item_type": "pplx_page",
+      "mode": "article",
+      "context_uuid": "06c94d40-24a5-4ca2-b360-f6556efe20e8",
+      "uuid": "ff007877-dd79-4b43-9656-d407911ce8c9",
+      "slug": "blue-origin-raising-10b-in-fir-_wB4d915S0OWVtQHkRzoyQ",
+      "url": null,
+      "title": "Blue Origin raising $10B in first outside funding round",
+      "short_title": "Blue Origin fundraising",
+      "summary": "The rocket company, funded almost entirely by Jeff Bezos for 26 years, is valued at $130 billion in the deal led by Coatue Management.",
+      "first_answer": "{\"answer\":\"For more than 25 years, Bezos bankrolled Blue Origin largely on his own, selling billions in Amazon shares to finance the venture. The shift to outside capital reflects both the growing scale of Blue Origin's ambitions and the broader investor appetite for space companies. According to Crunchbase data, Blue Origin had previously raised only $167.4 million, primarily through government grants....\"}",
+      "description": "For more than 25 years, Bezos bankrolled Blue Origin largely on his own, selling billions in Amazon shares to finance the venture. The shift to outside capital reflects both the growing scale of Blue Origin's ambitions and the broader investor appetite for space companies. According to Crunchbase data, Blue Origin had previously raised only $167.4 million, primarily through government grants....",
+      "bullet_summary_preload": "- **Blue Origin** is raising $10 billion at a $130 billion pre-money valuation, its first outside fundraise in nearly 26 years, according to the New York Times DealBook.[1]\n- **Coatue Management** is expected to lead with $4 billion, while Bezos himself is contributing $2 billion to the round, according to Forbes.[4]\n- The deal follows a $600 million Florida manufacturing expansion and plans to increase launch cadence after a **New Glenn** rocket explosion in May.[7][6]",
+      "bullet_summary_inline_token_annotations": null,
+      "featured_images": [
+        {
+          "medium": "image",
+          "url": "https://www.geekwire.com/2026/jeff-bezos-blue-origin-outside-investment/",
+          "source": "web",
+          "image": "https://pplx-res.cloudinary.com/image/fetch/s--RRcPqlbT--/t_limit/https://cdn.geekwire.com/wp-content/uploads/2026/05/Gallery-NG3-liftoff5-1260x840.jpg",
+          "image_id": null,
+          "name": "Jeff Bezos' Blue Origin space venture reportedly considers ...",
+          "thumbnail": "https://pplx-res.cloudinary.com/image/fetch/s--HTTCgHYr--/t_thumbnail/https://cdn.geekwire.com/wp-content/uploads/2026/05/Gallery-NG3-liftoff5-1260x840.jpg",
+          "thumbnail_384": null,
+          "thumbnail_512": null,
+          "thumbnail_512_smart": null,
+          "caption": null,
+          "modal_url": null,
+          "author_name": null,
+          "author_url": null,
+          "locations": null,
+          "dark_image_url": null,
+          "duration": null,
+          "image_width": null,
+          "image_height": null,
+          "thumbnail_width": null,
+          "thumbnail_height": null,
+          "download_url": null,
+          "sponsored_uuid": null,
+          "ad_content_uuid": null,
+          "metadata": null,
+          "low_res_image": null,
+          "generated_media_metadata": null,
+          "original_image_url": null
+        }
+      ],
+      "hero_offset": -1,
+      "metadata_type": "timestamp",
+      "updated_datetime": "2026-07-08T14:26:53.783380",
+      "author_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/12c3f678-f2bd-49e3-eca3-a7ce722fa400/thumbnail",
+      "author_username": "mikeharb",
+      "interest_attribution": null,
+      "published_timestamp": "2026-07-08T14:26:53.783380",
+      "domain_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/12c3f678-f2bd-49e3-eca3-a7ce722fa400/thumbnail",
+      "domain_name": "mikeharb",
+      "audio_url": null,
+      "dataviz_url": null,
+      "dataviz_signed_url": null,
+      "has_next_page": true,
+      "collection": null,
+      "feedback_state": {
+        "like": false
+      },
+      "supported_feedbacks": {
+        "dislike": true,
+        "report": false
+      },
+      "discover_screener_query_uuid": null,
+      "is_live": null,
+      "article_number": 3,
+      "access": 2,
+      "social_info": {
+        "view_count": 0,
+        "fork_count": 0,
+        "like_count": 0,
+        "user_likes": false
+      },
+      "last_query_datetime": "2026-07-08T14:26:53.783380",
+      "thread_number": 3,
+      "thread_access": 2,
+      "query_count": 1,
+      "search_focus": "internet",
+      "sources": [],
+      "read_write_token": null,
+      "total_threads": 99,
+      "layout": "media-text",
+      "banners": []
+    },
+    {
+      "card_variant": "LARGE",
+      "title_line_limit": 2,
+      "summary_line_limit": null,
+      "web_results_preview": {
+        "total_count": 28,
+        "first_urls": [
+          "https://www.reuters.com",
+          "https://www.instagram.com",
+          "https://www.aljazeera.com"
+        ]
+      },
+      "bullet_summary_web_results_preload": [
+        {
+          "name": "India explores Iran talks to secure safe Strait of Hormuz passage for nine tankers: Report",
+          "snippet": "Citing sources, the report said the Ministry of External Affairs is expected to engage with Iranian authorities regarding the safety of Indian seafarers operating in the region.",
+          "timestamp": "2026-07-08T11:12:28",
+          "url": "https://www.moneycontrol.com/world/india-explores-iran-talks-to-secure-safe-strait-of-hormuz-passage-for-nine-tankers-report-article-13969097.html",
+          "meta_data": {
+            "description": "Citing sources, the report said the Ministry of External Affairs is expected to engage with Iranian authorities regarding the safety of Indian seafarers operating in the region.",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/b8218c6d-5a8a-5ba1-a8c2-ae157ab62ecc/b34c6664-9456-527a-b690-bd2d77284e0b.jpg"
+            ],
+            "date": "2026-07-08T11:11:19",
+            "citation_domain_name": "moneycontrol",
+            "domain_name": "Moneycontrol.com",
+            "authors": [
+              "Moneycontrol World Desk"
+            ],
+            "suffix": "com",
+            "published_date": "2026-07-08T11:12:28",
+            "client": "trending"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        },
+        {
+          "name": "India seeks safe passage for nine ships as Hormuz truce ...",
+          "snippet": "India may hold talks with Iran to secure safe passage for nine oil and LPG tankers waiting near Hormuz amid renewed Gulf tensions.",
+          "timestamp": "2026-07-08T11:11:19",
+          "url": "https://www.thehindubusinessline.com/economy/logistics/india-seeks-safe-passage-for-nine-ships-as-hormuz-truce-falters/article71197810.ece",
+          "meta_data": {
+            "description": null,
+            "authors": [],
+            "domain_name": null,
+            "citation_domain_name": "thehindubusinessline",
+            "date": "2026-07-08T11:11:19",
+            "images": [],
+            "published_date": "2026-07-08T11:11:19",
+            "suffix": "com",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for Indian business and financial news reporting, though external monitors note right-leaning bias and a mixed factual record."
+          }
+        },
+        {
+          "name": "Indian source says Iran to allow India-flagged tankers ...",
+          "snippet": "Iran will allow Indian-flagged tankers ​to transit the Strait of Hormuz, a conduit for 40% of the South Asian nation's crude imports, an Indian government source said ‌on Thursday, but an Iranian source outside the country denied any such deal was reached.",
+          "timestamp": "2026-03-12T05:54:51",
+          "url": "https://www.reuters.com/world/india/iran-allow-india-flagged-tankers-pass-through-strait-hormuz-indian-source-says-2026-03-12/",
+          "meta_data": {
+            "description": "Iran will allow Indian-flagged tankers ​to transit the Strait of Hormuz, a conduit for 40% of the South Asian nation's crude imports, an Indian government source said ‌on Thursday, but an Iranian source outside the country denied any such deal was reached.",
+            "authors": [
+              "Krishna N. Das"
+            ],
+            "domain_name": null,
+            "citation_domain_name": "reuters",
+            "date": "2026-03-12T00:00:00",
+            "images": [
+              "https://www.reuters.com/resizer/v2/YUPYKEGBSVKJJGCBPKAXQQS34Y.jpg?auth=063e38e19a7861f885b4850604e6f5855033c551f8b921376e51a691cd768a8e&height=1005&width=1920&quality=80&smart=true"
+            ],
+            "published_date": "2026-03-12T05:54:51",
+            "suffix": "com",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "India Asks Iran to Allow Tanker Armada Through Hormuz",
+          "snippet": "India is in active talks with Iran to allow at least 23 tankers through the Strait of Hormuz with the first crossings expected by the weekend, two Indian government officials told The Wall Street Journal. The tankers, loaded with oil and liquefied natural gas, have been stuck in the Persian Gulf sin",
+          "timestamp": "2026-03-13T09:57:10",
+          "url": "https://www.wsj.com/livecoverage/us-israel-iran-war-news-2026/card/CaONO6KBKCcOY8oZEEak",
+          "meta_data": {
+            "description": "India is in active talks with Iran to allow at least 23 tankers through the Strait of Hormuz with the first crossings expected by the weekend, two Indian government officials told The Wall Street Journal. The tankers, loaded with oil and liquefied natural gas, have been stuck in the Persian Gulf sin",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/d991a915-7ed8-5762-a83a-e8d3f0edc785/8bb9b935-675d-58f3-ae24-7085b89ba50e.jpg"
+            ],
+            "domain_name": "wsj",
+            "citation_domain_name": "wsj",
+            "date": "2026-03-13T00:00:00",
+            "authors": [],
+            "suffix": "com",
+            "published_date": "2026-03-13T09:57:10",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited business and general news reporting, though its right‑leaning opinion pages are less reliable than its straight news coverage."
+          }
+        },
+        {
+          "name": "Three Indian-flagged oil tankers clear Strait of Hormuz ...",
+          "snippet": "Three Indian-flagged tankers carrying more than 860,000 metric tons of oil and 94 ​Indian crew members have safely transited ‌the Strait of Hormuz and are en route to India, shipping minister Sarbananda Sonowal said on ​Saturday.",
+          "timestamp": "2026-06-20T16:22:07",
+          "url": "https://www.reuters.com/world/india/three-indian-flagged-oil-tankers-clear-strait-hormuz-minister-says-2026-06-20/",
+          "meta_data": {
+            "description": "Three Indian-flagged tankers carrying more than 860,000 metric tons of oil and 94 ​Indian crew members have safely transited ‌the Strait of Hormuz and are en route to India, shipping minister Sarbananda Sonowal said on ​Saturday.",
+            "authors": [
+              "Reuters"
+            ],
+            "date": "2026-06-20T00:00:00",
+            "citation_domain_name": "reuters",
+            "domain_name": "Reuters",
+            "images": [
+              "https://www.reuters.com/resizer/v2/S76ZOC3FPRIHNALALZQUEVNAPQ.jpg?auth=cacffef3a432a0b4bf26209fcd6957a3fff21abb6d218cba9a8c753614c4a610&height=1005&width=1920&quality=80&smart=true"
+            ],
+            "suffix": "com",
+            "published_date": "2026-06-20T16:22:07",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "Indian oil tanker turns back after Iran rejects Omani corridor ...",
+          "snippet": "Iran's Fars News Agency said an Indian oil tanker was turned back from the Omani corridor in the Strait of Hormuz and told to use a Tehran-designated route. The claim, yet to be independently…",
+          "timestamp": "2026-07-08T11:45:35",
+          "url": "https://www.indiatoday.in/world/story/strait-of-hormuz-indian-oil-tanker-turned-back-by-iran-from-omani-corridor-2943377-2026-07-08",
+          "meta_data": {
+            "description": "Iran's Fars News Agency said an Indian oil tanker was turned back from the Omani corridor in the Strait of Hormuz and told to use a Tehran-designated route. The claim, yet to be independently…",
+            "authors": [
+              "Akash Chatterjee"
+            ],
+            "domain_name": "India Today",
+            "citation_domain_name": "indiatoday",
+            "date": "2026-07-08T12:11:19",
+            "images": [
+              "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202607/strait-of-hormuz-084834318-16x9.jpg?VersionId=XDaq5._uaREnGUQ3zQ6McOIEH1rQVV37"
+            ],
+            "published_date": "2026-07-08T11:45:35",
+            "suffix": "in",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for mainstream Indian news and politics coverage, though right‑center bias and repeated fact‑check failures reduce its rigor and neutrality."
+          }
+        },
+        {
+          "name": "Ships attacked in the Strait of Hormuz: What that means for ongoing talks",
+          "snippet": "While marine traffic in Hormuz has steadily risen, vague provisions on the strait remain contentious in peace talks.",
+          "timestamp": "2026-07-07T12:19:42",
+          "url": "https://www.aljazeera.com/news/2026/7/7/ships-attacked-in-the-strait-of-hormuz-what-that-means-for-ongoing-talks",
+          "meta_data": {
+            "description": "While marine traffic in Hormuz has steadily risen, vague provisions on the strait remain contentious in peace talks.",
+            "images": [
+              "https://www.aljazeera.com/wp-content/uploads/2026/06/afp_6a4063ebd91d-1782604779.jpg?resize=1920%2C1440"
+            ],
+            "date": "2026-07-08T03:11:10",
+            "citation_domain_name": "aljazeera",
+            "domain_name": "Al Jazeera",
+            "authors": [
+              "Sarah Shamim"
+            ],
+            "suffix": "com",
+            "published_date": "2026-07-07T12:19:42",
+            "client": "trending"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for professionally edited international news and analysis, though coverage can show Qatari‑linked regional bias and has mixed factuality ratings."
+          }
+        },
+        {
+          "name": "Hormuz shipping risk raised to severe after tankers hit, ...",
+          "snippet": "Iran's Revolutionary Guards fired at least two missiles at commercial ships transiting through the Strait of ​Hormuz on Monday night, Axios reported, citing two U.S. officials.",
+          "timestamp": "2026-07-07T02:04:33",
+          "url": "https://www.reuters.com/world/middle-east/iran-fires-missiles-commercial-ships-strait-hormuz-axios-reports-2026-07-07/",
+          "meta_data": {
+            "description": "Iran's Revolutionary Guards fired at least two missiles at commercial ships transiting through the Strait of ​Hormuz on Monday night, Axios reported, citing two U.S. officials.",
+            "images": [
+              "https://www.reuters.com/resizer/v2/TKMHL3D4CZOTHDXUGHT6WVUCF4.jpg?auth=337c4b0bbd215c8064ae6ef6f23cc961ef807d6f845694736355f32eab331617&height=1005&width=1920&quality=80&smart=true"
+            ],
+            "domain_name": "Reuters",
+            "citation_domain_name": "reuters",
+            "date": "2026-07-07T20:11:10",
+            "authors": [
+              "Reuters"
+            ],
+            "published_date": "2026-07-07T02:04:33",
+            "suffix": "com",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "Four oil and gas tankers turn back from Hormuz strait after ...",
+          "snippet": "At least four oil and gas tankers have turned back from attempting to transit the Strait of Hormuz, ship-tracking data showed, as renewed attacks on ​vessels in the critical waterway heightened safety and security concerns.",
+          "timestamp": "2026-07-08T05:20:46",
+          "url": "https://www.reuters.com/world/middle-east/four-oil-gas-tankers-turn-back-hormuz-strait-after-vessel-attacks-2026-07-08/",
+          "meta_data": {
+            "description": "At least four oil and gas tankers have turned back from attempting to transit the Strait of Hormuz, ship-tracking data showed, as renewed attacks on ​vessels in the critical waterway heightened safety and security concerns.",
+            "images": [
+              "https://www.reuters.com/resizer/v2/ZL4FN5PASNIFNNHGYRD5B7HS4Y.jpg?auth=569422db9692f739784640c02d9fc7d8bcb62630de27611c998df074b67eaaa2&height=1005&width=1920&quality=80&smart=true"
+            ],
+            "domain_name": "Reuters",
+            "citation_domain_name": "reuters",
+            "date": "2026-07-08T05:11:19",
+            "authors": [
+              "Emily Chow"
+            ],
+            "suffix": "com",
+            "published_date": "2026-07-08T05:20:46",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited global news and business reporting, though it remains a journalistic outlet with normal bias critiques and occasional corrections."
+          }
+        },
+        {
+          "name": "Damaged Qatari LNG Tanker Awaits Salvage After Strike ...",
+          "snippet": "US News is a recognized leader in college, grad school, hospital, mutual fund, and car rankings. Track elected officials, research health conditions, and find news you can use in politics, business, health, and education.",
+          "timestamp": "2026-07-08T09:45:00",
+          "url": "https://www.usnews.com/news/world/articles/2026-07-08/damaged-qatari-lng-tanker-awaits-salvage-after-strike-near-hormuz",
+          "meta_data": {
+            "description": "US News is a recognized leader in college, grad school, hospital, mutual fund, and car rankings. Track elected officials, research health conditions, and find news you can use in politics, business, health, and education.",
+            "authors": [
+              "Reuters"
+            ],
+            "date": "2026-07-08T10:11:10",
+            "citation_domain_name": "usnews",
+            "domain_name": "U.S. News & World Report",
+            "images": [],
+            "published_date": "2026-07-08T09:45:00",
+            "suffix": "com",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for mainstream U.S. news coverage and widely used but debated data-driven rankings and consumer advice."
+          }
+        },
+        {
+          "name": "Damaged Qatari LNG Tanker Awaits Salvage After Strike ...",
+          "snippet": "Qatari LNG tanker Al Rekayyat is stationary near the Strait of Hormuz and awaiting salvage operations once a fire on board has been extinguished, according to ship tracking data and industry sources…",
+          "timestamp": "2026-07-08T10:02:20",
+          "url": "https://gcaptain.com/damaged-qatari-lng-tanker-awaits-salvage-after-strike-near-hormuz/",
+          "meta_data": {
+            "description": "Qatari LNG tanker Al Rekayyat is stationary near the Strait of Hormuz and awaiting salvage operations once a fire on board has been extinguished, according to ship tracking data and industry sources…",
+            "images": [
+              "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/7d202b55-0a08-510a-bca9-b4ff0be408bf/6f016444-6e0d-5b72-8737-2d9bd90e5834.jpg"
+            ],
+            "domain_name": "gCaptain",
+            "citation_domain_name": "gcaptain",
+            "date": "2026-07-08T10:11:10",
+            "authors": [
+              "Reuters"
+            ],
+            "published_date": "2026-07-08T10:02:20",
+            "suffix": "com",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": null
+        },
+        {
+          "name": "Saudi, Qatari tankers hit as Strait of Hormuz risks worsen",
+          "snippet": "Iranian television said the liquefied natural gas tanker came under attack after ignoring warnings.",
+          "timestamp": "2026-07-07T04:06:03",
+          "url": "https://www.aljazeera.com/news/2026/7/7/tanker-on-fire-off-coast-of-oman-after-being-hit-by-projectile",
+          "meta_data": {
+            "description": "Iranian television said the liquefied natural gas tanker came under attack after ignoring warnings.",
+            "images": [
+              "https://s.yimg.com/ny/api/res/1.2/W0HN20NwNOg7U1_5zUXCyQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/al_jazeera_289/4887375007e49223a6b29bf590736a8d"
+            ],
+            "domain_name": "aljazeera",
+            "citation_domain_name": "aljazeera",
+            "date": "2026-07-07T22:11:10",
+            "authors": [
+              "Al Jazeera Staff"
+            ],
+            "published_date": "2026-07-07T04:06:03",
+            "suffix": "com",
+            "client": "web"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 1,
+            "name": "credible",
+            "description": "is credible for professionally edited international news and analysis, though coverage can show Qatari‑linked regional bias and has mixed factuality ratings."
+          }
+        },
+        {
+          "name": "U.S. launches new strikes against Iran after three ships were hit in Strait of Hormuz",
+          "snippet": "The U.S. military has launched new strikes against Iran. The strikes began early Wednesday, hours after three merchant ships were struck in the Strait of Hormuz.",
+          "timestamp": "2026-07-07T01:28:45",
+          "url": "https://www.npr.org/2026/07/07/g-s1-132265/tanker-attack-strait-of-hormuz",
+          "meta_data": {
+            "description": "The U.S. military has launched new strikes against Iran. The strikes began early Wednesday, hours after three merchant ships were struck in the Strait of Hormuz.",
+            "images": [
+              "https://npr.brightspotcdn.com/dims4/default/cbc2d90/2147483647/strip/true/crop/6000x3150+0+113/resize/1200x630!/quality/90/?url=https%3A%2F%2Fnpr.brightspotcdn.com%2Fdims3%2Fdefault%2Fstrip%2Ffalse%2Fcrop%2F6000x3375%200%20105%2Fresize%2F6000x3375%21%2F%3Furl%3Dhttp%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F90%2Fea%2Ffca8c5f44741988643d06ae1fc5b%2Fap26181385886757.jpg"
+            ],
+            "date": "2026-07-07T14:11:10",
+            "citation_domain_name": "npr",
+            "domain_name": "NPR",
+            "authors": [
+              "Npr"
+            ],
+            "published_date": "2026-07-07T01:28:45",
+            "suffix": "org",
+            "client": "trending"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited public‑media news and cultural coverage from the United States, though its story selection and audience lean center‑left."
+          }
+        },
+        {
+          "name": "U.S. hits dozens of Iranian targets in retaliatory strikes after ship attacks in Strait of Hormuz",
+          "snippet": "With peace talks on hold, the U.S. said it launched a \"series of powerful strikes\" on Iran in response to Iranian attacks on three commercial vessels in the Strait of Hormuz.",
+          "timestamp": "2026-07-07T00:00:00",
+          "url": "https://www.cbsnews.com/live-updates/iran-us-war-strait-of-hormuz-trump-nato/",
+          "meta_data": {
+            "description": "With peace talks on hold, the U.S. said it launched a \"series of powerful strikes\" on Iran in response to Iranian attacks on three commercial vessels in the Strait of Hormuz.",
+            "authors": [
+              "Duarte Dias; Tucker Reals"
+            ],
+            "domain_name": "CBS News",
+            "citation_domain_name": "cbsnews",
+            "date": "2026-07-07T14:11:10",
+            "images": [
+              "https://assets2.cbsnewsstatic.com/hub/i/r/2026/07/07/a0ca5fd7-69dd-4d8c-b350-e8b1b0077b62/thumbnail/1200x630/145ea19b0f2357fa850010685334b829/gettyimages-2283372845.jpg"
+            ],
+            "suffix": "com",
+            "published_date": "2026-07-07T00:00:00",
+            "client": "trending"
+          },
+          "file_metadata": null,
+          "is_attachment": false,
+          "is_image": false,
+          "is_code_interpreter": false,
+          "is_knowledge_card": false,
+          "is_navigational": false,
+          "is_widget": false,
+          "sitelinks": null,
+          "is_focused_web": false,
+          "is_client_context": false,
+          "inline_entity_id": null,
+          "is_memory": false,
+          "is_conversation_history": false,
+          "is_conversation_summary": false,
+          "tab_id": null,
+          "is_scrubbed": null,
+          "is_hidden": null,
+          "trust": {
+            "level": 2,
+            "name": "trusted",
+            "description": "is trusted for professionally edited U.S. and world news coverage, though political bias and recent editorial controversies slightly temper its perceived credibility."
+          }
+        }
+      ],
+      "item_type": "pplx_page",
+      "mode": "article",
+      "context_uuid": "60e21a98-05e6-466d-8f13-28f2a6fcd65b",
+      "uuid": "de5e365f-711a-44ed-90fe-890aad838ede",
+      "slug": "india-pursues-iran-talks-to-fr-3l42X3EaRO2Q_okKrYOO3g",
+      "url": null,
+      "title": "India pursues Iran talks to free nine tankers stuck near Strait of Hormuz",
+      "short_title": "India seeks tanker passage",
+      "summary": "Bloomberg reports India is weighing diplomatic options to secure safe passage for oil and LPG tankers as missile attacks shatter the fragile ceasefire.",
+      "first_answer": "{\"answer\":\"The Qatari LNG tanker Al Rekayyat, struck by a projectile on its port side on Tuesday near Limah, Oman, remained stationary on Wednesday awaiting salvage operations as crews worked to extinguish a fire on board. All crew members were safely evacuated, and the LNG stored in the tanker's tanks remained intact with no breach reported, an industry source told Reuters.\\n\\nQatar's foreign ministry...\"}",
+      "description": "The Qatari LNG tanker Al Rekayyat, struck by a projectile on its port side on Tuesday near Limah, Oman, remained stationary on Wednesday awaiting salvage operations as crews worked to extinguish a fire on board. All crew members were safely evacuated, and the LNG stored in the tanker's tanks remained intact with no breach reported, an industry source told Reuters.\n\nQatar's foreign ministry...",
+      "bullet_summary_preload": "- **India** is exploring talks with **Iran** to move nine loaded tankers through the **Strait of Hormuz** after renewed IRGC missile strikes on commercial ships, Bloomberg reported.[1][2]\n- An Indian tanker was turned back Wednesday after Iran's IRGC rejected the **Omani** corridor, directing it to use a Tehran-designated shipping lane, according to Fars News Agency.[6]\n- The Qatari LNG tanker **Al Rekayyat** remained stationary awaiting salvage after being struck by a projectile Tuesday, with all crew safely evacuated, according to Reuters.[10]",
+      "bullet_summary_inline_token_annotations": null,
+      "featured_images": [
+        {
+          "medium": "image",
+          "url": "https://www.cbsnews.com/live-updates/iran-us-war-strait-of-hormuz-trump-nato/",
+          "source": "getty",
+          "image": "https://pplx-res.cloudinary.com/image/upload/t_limit/v1782987786/getty_uploads/2283372845_clcu3r.jpg",
+          "image_id": null,
+          "name": "U.S. hits dozens of Iranian targets in retaliatory strikes after ship attacks in Strait of Hormuz",
+          "thumbnail": "https://pplx-res.cloudinary.com/image/upload/t_thumbnail/v1782987786/getty_uploads/2283372845_clcu3r.jpg",
+          "thumbnail_384": null,
+          "thumbnail_512": null,
+          "thumbnail_512_smart": null,
+          "caption": null,
+          "modal_url": null,
+          "author_name": null,
+          "author_url": null,
+          "locations": null,
+          "dark_image_url": null,
+          "duration": null,
+          "image_width": null,
+          "image_height": null,
+          "thumbnail_width": null,
+          "thumbnail_height": null,
+          "download_url": null,
+          "sponsored_uuid": null,
+          "ad_content_uuid": null,
+          "metadata": null,
+          "low_res_image": null,
+          "generated_media_metadata": null,
+          "original_image_url": null
+        }
+      ],
+      "hero_offset": -1,
+      "metadata_type": "timestamp",
+      "updated_datetime": "2026-07-08T14:13:17.563080",
+      "author_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/e73d25f2-a354-414c-f143-a8dd5d964700/thumbnail",
+      "author_username": "mialua",
+      "interest_attribution": null,
+      "published_timestamp": "2026-07-08T14:13:17.563080",
+      "domain_image": "https://imagedelivery.net/MPdwyYSWT8IY7lxgN3x3Uw/e73d25f2-a354-414c-f143-a8dd5d964700/thumbnail",
+      "domain_name": "mialua",
+      "audio_url": null,
+      "dataviz_url": null,
+      "dataviz_signed_url": null,
+      "has_next_page": true,
+      "collection": null,
+      "feedback_state": {
+        "like": false
+      },
+      "supported_feedbacks": {
+        "dislike": true,
+        "report": false
+      },
+      "discover_screener_query_uuid": null,
+      "is_live": null,
+      "article_number": 4,
+      "access": 2,
+      "social_info": {
+        "view_count": 0,
+        "fork_count": 0,
+        "like_count": 0,
+        "user_likes": false
+      },
+      "last_query_datetime": "2026-07-08T14:13:17.563080",
+      "thread_number": 4,
+      "thread_access": 2,
+      "query_count": 1,
+      "search_focus": "internet",
+      "sources": [],
+      "read_write_token": null,
+      "total_threads": 99,
+      "layout": "media-text",
+      "banners": []
+    }
+  ],
+  "feed_uuid": "2b095233-d5be-40c2-821f-7d5f3d2f4948",
+  "next_token": "2b095233-d5be-40c2-821f-7d5f3d2f4948",
+  "cache_window_in_seconds": 900,
+  "push_notification_card": null,
+  "interest_picker_card": null,
+  "prefetch_threshold": 5,
+  "banner_text": "US-Iran strikes resume, China allows Nvidia, and more"
+}

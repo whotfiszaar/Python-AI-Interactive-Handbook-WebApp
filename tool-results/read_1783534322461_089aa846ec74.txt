@@ -1,0 +1,733 @@
+     1→     1→You are an expert fullstack developer and Python/AI instructor. Build a complete, production-ready, fullstack web application that serves as a 48-day Python and AI teaching handbook for a 13-year-old student named Aarav Singh.
+     2→     2→
+     3→     3→TECH STACK (use exactly these, no substitutions)
+     4→     4→- Framework: Next.js 14 with App Router
+     5→     5→- Language: TypeScript throughout (no JavaScript)
+     6→     6→- Styling: Tailwind CSS
+     7→     7→- Database: SQLite via Prisma ORM
+     8→     8→- Authentication: None required (single user app)
+     9→     9→- Python Execution: Pyodide loaded client-side in the browser
+    10→    10→- Code Editor: Monaco Editor (from @monaco-editor/react)
+    11→    11→- Syntax Highlighting for lessons: Shiki
+    12→    12→- Icons: Lucide React
+    13→    13→- Deployment target: Vercel (free tier)
+    14→    14→- Package manager: pnpm
+    15→    15→
+    16→    16→PROJECT STRUCTURE
+    17→    17→
+    18→    18→python-ai-handbook/
+    19→    19→├── prisma/
+    20→    20→│   └── schema.prisma
+    21→    21→├── public/
+    22→    22→│   └── (static assets if any)
+    23→    23→├── src/
+    24→    24→│   ├── app/
+    25→    25→│   │   ├── layout.tsx
+    26→    26→│   │   ├── page.tsx
+    27→    27→│   │   ├── globals.css
+    28→    28→│   │   ├── days/
+    29→    29→│   │   │   ├── [dayNumber]/
+    30→    30→│   │   │   │   └── page.tsx
+    31→    31→│   │   │   └── page.tsx
+    32→    32→│   │   ├── playground/
+    33→    33→│   │   │   └── page.tsx
+    34→    34→│   │   ├── assessments/
+    35→    35→│   │   │   ├── page.tsx
+    36→    36→│   │   │   └── [assessmentId]/
+    37→    37→│   │   │       └── page.tsx
+    38→    38→│   │   ├── progress/
+    39→    39→│   │   │   └── page.tsx
+    40→    40→│   │   ├── references/
+    41→    41→│   │   │   └── page.tsx
+    42→    42→│   │   └── api/
+    43→    43→│   │       ├── progress/
+    44→    44→│   │       │   └── route.ts
+    45→    45→│   │       ├── assessments/
+    46→    46→│   │       │   └── route.ts
+    47→    47→│   │       ├── notes/
+    48→    48→│   │       │   └── route.ts
+    49→    49→│   │       └── notebooks/
+    50→    50→│   │           └── route.ts
+    51→    51→│   ├── components/
+    52→    52→│   │   ├── layout/
+    53→    53→│   │   │   ├── Sidebar.tsx
+    54→    54→│   │   │   ├── Header.tsx
+    55→    55→│   │   │   ├── MobileNav.tsx
+    56→    56→│   │   │   └── Breadcrumbs.tsx
+    57→    57→│   │   ├── lesson/
+    58→    58→│   │   │   ├── LessonContent.tsx
+    59→    59→│   │   │   ├── CodeBlock.tsx
+    60→    60→│   │   │   ├── QuizBlock.tsx
+    61→    61→│   │   │   ├── ExerciseBlock.tsx
+    62→    62→│   │   │   ├── TeacherNote.tsx
+    63→    63→│   │   │   └── DayNavigation.tsx
+    64→    64→│   │   ├── playground/
+    65→    65→│   │   │   ├── Playground.tsx
+    66→    66→│   │   │   ├── CodeCell.tsx
+    67→    67→│   │   │   ├── OutputPanel.tsx
+    68→    68→│   │   │   ├── CellControls.tsx
+    69→    69→│   │   │   └── NotebookManager.tsx
+    70→    70→│   │   ├── assessment/
+    71→    71→│   │   │   ├── Quiz.tsx
+    72→    72→│   │   │   ├── QuestionCard.tsx
+    73→    73→│   │   │   ├── ResultsCard.tsx
+    74→    74→│   │   │   └── Certificate.tsx
+    75→    75→│   │   ├── progress/
+    76→    76→│   │   │   ├── ProgressDashboard.tsx
+    77→    77→│   │   │   ├── ProgressBar.tsx
+    78→    78→│   │   │   └── StreakTracker.tsx
+    79→    79→│   │   └── ui/
+    80→    80→│   │       ├── Button.tsx
+    81→    81→│   │       ├── Input.tsx
+    82→    82→│   │       ├── Card.tsx
+    83→    83→│   │       ├── Badge.tsx
+    84→    84→│   │       ├── Tabs.tsx
+    85→    85→│   │       ├── Toggle.tsx
+    86→    86→│   │       ├── Modal.tsx
+    87→    87→│   │       ├── Tooltip.tsx
+    88→    88→│   │       ├── SearchBar.tsx
+    89→    89→│   │       └── Toast.tsx
+    90→    90→│   ├── data/
+    91→    91→│   │   ├── days.ts
+    92→    92→│   │   ├── assessments.ts
+    93→    93→│   │   └── references.ts
+    94→    94→│   ├── lib/
+    95→    95→│   │   ├── prisma.ts
+    96→    96→│   │   ├── pyodide.ts
+    97→    97→│   │   └── utils.ts
+    98→    98→│   ├── hooks/
+    99→    99→│   │   ├── usePyodide.ts
+   100→   100→│   │   ├── useProgress.ts
+   101→   101→│   │   ├── useNotebook.ts
+   102→   102→│   │   └── useSearch.ts
+   103→   103→│   └── types/
+   104→   104→│       └── index.ts
+   105→   105→├── tailwind.config.ts
+   106→   106→├── tsconfig.json
+   107→   107→├── next.config.mjs
+   108→   108→├── package.json
+   109→   109→├── .env
+   110→   110→└── README.md
+   111→   111→
+   112→   112→PRISMA SCHEMA
+   113→   113→
+   114→   114→model DayProgress {
+   115→   115→  id          Int      @id @default(autoincrement())
+   116→   116→  dayNumber   Int      @unique
+   117→   117→  completed   Boolean  @default(false)
+   118→   118→  bookmarked  Boolean  @default(false)
+   119→   119→  lastVisited DateTime @default(now())
+   120→   120→  notes       String   @default("")
+   121→   121→}
+   122→   122→
+   123→   123→model AssessmentScore {
+   124→   124→  id           Int    @id @default(autoincrement())
+   125→   125→  assessmentId String
+   126→   126→  score        Int
+   127→   127→  total        Int
+   128→   128→  answers      String // JSON string of answers
+   129→   129→  completedAt  DateTime @default(now())
+   130→   130→}
+   131→   131→
+   132→   132→model Notebook {
+   133→   133→  id        Int      @id @default(autoincrement())
+   134→   134→  name      String
+   135→   135→  cells     String   // JSON string of cell contents
+   136→   136→  createdAt DateTime @default(now())
+   137→   137→  updatedAt DateTime @default(now())
+   138→   138→}
+   139→   139→
+   140→   140→model Settings {
+   141→   141→  id        Int   @id @default(1)
+   142→   142→  darkMode  Boolean @default(false)
+   143→   143→  fontSize  Int    @default(16)
+   144→   144→  apiKeys   String @default("{}") // JSON string of API keys
+   145→   145→}
+   146→   146→
+   147→   147→DATABASE SEEDING
+   148→   148→- Create default Settings row on first run
+   149→   149→- No other seed data needed (all content is in TypeScript data files)
+   150→   150→
+   151→   151→IMPORTANT SECURITY RULE
+   152→   152→- The OpenRouter API key must NEVER be hardcoded anywhere in the source code
+   153→   153→- Store API keys only in the Settings table in the database
+   154→   154→- The Settings page must have a form where the user enters their OpenRouter API key
+   155→   155→- The key is used at runtime only when executing AI-related code in the playground
+   156→   156→- The key is never logged, never sent to any third party, never included in any response
+   157→   157→- For all lesson code examples in the data files, show the key as "YOUR_OPENROUTER_API_KEY"
+   158→   158→
+   159→   159→CONTENT RULES
+   160→   160→1. No em dashes anywhere in the entire application. Use commas, parentheses, or colons instead.
+   161→   161→2. All variable names, list values, dictionary examples, and practice problems must use child-friendly topics: cars, car models, Aarav, his age (13), favorite foods, sports (cricket, football), games (Minecraft, Roblox), school subjects, superheroes (Spider-Man, Iron Man), animals, colors, phone brands (iPhone, Samsung), etc. No abstract business examples like "employee databases" or "inventory management systems".
+   162→   162→3. Every code example must be complete and runnable. No placeholders, no "..." shortcuts, no missing imports.
+   163→   163→4. The instructor does not have deep AI knowledge. Explain everything simply enough that a non-expert can understand and teach it.
+   164→   164→
+   165→   165→ALL LLM CODE MUST USE THIS EXACT PATTERN
+   166→   166→
+   167→   167→from openai import OpenAI
+   168→   168→
+   169→   169→client = OpenAI(
+   170→   170→    api_key="YOUR_OPENROUTER_API_KEY",
+   171→   171→    base_url="https://openrouter.ai/api/v1"
+   172→   172→)
+   173→   173→
+   174→   174→response = client.chat.completions.create(
+   175→   175→    model="tencent/hy3:free",
+   176→   176→    messages=[
+   177→   177→        {"role": "user", "content": "your prompt here"}
+   178→   178→    ]
+   179→   179→)
+   180→   180→
+   181→   181→print(response.choices[0].message.content)
+   182→   182→
+   183→   183→Free models to reference: tencent/hy3:free, meta-llama/llama-3-8b-instruct:free, google/gemma-2-9b-it:free, mistralai/mistral-7b-instruct:free
+   184→   184→
+   185→   185→APPLICATION PAGES AND FEATURES
+   186→   186→
+   187→   187→PAGE: Home (/)
+   188→   188→- Welcome message with Aarav's name
+   189→   189→- Overall progress bar (X of 48 days complete)
+   190→   190→- Current streak counter
+   191→   191→- Quick links: Continue where you left off, Go to Playground, View Assessments
+   192→   192→- Weekly breakdown showing which days belong to which phase
+   193→   193→- Recent activity feed (last 5 visited days)
+   194→   194→
+   195→   195→PAGE: Days List (/days)
+   196→   196→- All 48 days listed in a clean table or card grid
+   197→   197→- Each day shows: number, title, phase badge (Python Fundamentals / AI Theory / Practical AI), completion status (checkmark or empty circle), bookmark icon
+   198→   198→- Filter by phase
+   199→   199→- Filter by completion status
+   200→   200→- Search by title or topic
+   201→   201→
+   202→   202→PAGE: Individual Day (/days/[dayNumber])
+   203→   203→- Breadcrumbs: Home > Days > Day X
+   204→   204→- Day title and phase badge
+   205→   205→- Learning objectives (numbered list)
+   206→   206→- Main lesson content rendered from Markdown-like data structure with:
+   207→   207→  - Headings (h2, h3)
+   208→   208→  - Paragraphs
+   209→   209→  - Code blocks with language label, copy button, and syntax highlighting via Shiki
+   210→   210→  - Tables with alternating row colors
+   211→   211→  - Bullet lists and numbered lists
+   212→   212→  - Bold and italic text
+   213→   213→  - Callout boxes for "Common Mistakes", "Teacher Notes", "Pro Tips" (each with distinct color: red, blue, green)
+   214→   214→- All code examples have a "Copy to Playground" button that opens the playground with that code pre-loaded
+   215→   215→- Exercise section: numbered exercises with difficulty badges (Easy, Medium, Hard)
+   216→   216→- Quiz section: 5 questions per day with interactive multiple choice or fill-in-the-blank, immediate feedback, score tracking
+   217→   217→- Teacher Notes section (collapsible, distinct background)
+   218→   218→- Navigation: Previous Day / Next Day buttons at bottom
+   219→   219→- "Mark as Complete" button (prominent, top right)
+   220→   220→- "Bookmark this Day" button
+   221→   221→- Notes textarea for instructor to write personal notes (saved to database)
+   222→   222→
+   223→   223→PAGE: Playground (/playground)
+   224→   224→- Full-screen Jupyter Notebook-like interface
+   225→   225→- Left panel: list of saved notebooks with create/rename/delete
+   226→   226→- Main area: vertical stack of code cells, each with:
+   227→   227→  - Cell number label (In [1], In [2], etc.)
+   228→   228→  - Monaco Editor with Python syntax highlighting, line numbers, autocomplete
+   229→   229→  - "Run" button per cell
+   230→   230→  - "Stop" button (for infinite loops)
+   231→   231→  - "Delete" button
+   232→   232→  - Output area below each cell (shows print output, errors, or result)
+   233→   233→- Toolbar at top:
+   234→   234→  - "+ New Cell" button
+   235→   235→  - "Run All" button
+   236→   236→  - "Clear All Outputs" button
+   237→   237→  - "Save" button (saves to database)
+   238→   238→  - "Load" dropdown (list of saved notebooks)
+   239→   239→  - "API Key" indicator (green if set, red if not, with link to settings)
+   240→   240→- Mode toggle: "Python Only" / "Python + AI"
+   241→   241→  - Python Only: uses Pyodide for all execution
+   242→   242→  - Python + AI: for cells containing OpenAI client code, intercept and execute via a Next.js API route that calls OpenRouter (the API route reads the key from the Settings table, makes the HTTP request server-side, and returns the response to the client)
+   243→   243→- Bottom status bar: Pyodide loading status, last execution time, cell count
+   244→   244→
+   245→   245→PAGE: Assessments (/assessments)
+   246→   246→- List of all assessments:
+   247→   247→  - Week 1 Quiz (Days 1-7)
+   248→   248→  - Week 2 Quiz (Days 8-14)
+   249→   249→  - Week 3 Quiz (Days 15-21)
+   250→   250→  - Week 4 Quiz (Days 22-25)
+   251→   251→  - Week 5 Quiz (Days 26-30)
+   252→   252→  - Week 6 Quiz (Days 31-35)
+   253→   253→  - Week 7 Quiz (Days 36-40)
+   254→   254→  - Week 8 Quiz (Days 41-45)
+   255→   255→  - Mid-term Assessment (end of Day 25)
+   256→   256→  - Final Practical Assessment (Day 47)
+   257→   257→  - Final Theory Assessment (Day 48)
+   258→   258→- Each assessment card shows: title, number of questions, previous score (or "Not attempted"), retry button
+   259→   259→- Overall assessment score summary at top
+   260→   260→
+   261→   261→PAGE: Individual Assessment (/assessments/[assessmentId])
+   262→   262→- Assessment title and instructions
+   263→   263→- Question cards rendered one at a time or all at once (toggle)
+   264→   264→- Question types:
+   265→   265→  - Multiple choice (4 options, one correct)
+   266→   266→  - True/False
+   267→   267→  - Fill in the blank (text input, case-insensitive matching)
+   268→   268→  - Code output prediction (show code, ask what it prints)
+   269→   269→- Each question has immediate feedback after answering: correct/incorrect with explanation
+   270→   270→- Progress indicator: "Question 3 of 15"
+   271→   271→- Timer (optional, can be toggled on/off per assessment)
+   272→   272→- Submit button at end
+   273→   273→- Results page: score, percentage, correct/incorrect breakdown with explanations, time taken
+   274→   274→- "Save to Database" automatic on submit
+   275→   275→- "Retry" button that reshuffles question order
+   276→   276→
+   277→   277→PAGE: Progress (/progress)
+   278→   278→- Circular progress indicator showing overall completion percentage
+   279→   279→- Phase-wise breakdown: Python Fundamentals (X/15), AI Theory (X/10), Practical AI (X/23)
+   280→   280→- Bar chart showing days completed per week
+   281→   281→- Streak calendar (like GitHub contribution graph) showing which days were studied
+   282→   282→- Assessment scores plotted over time
+   283→   283→- "Generate Certificate" button (appears when all 48 days are marked complete and all assessments passed above 70%)
+   284→   284→- Certificate: clean A4-sized design with Aarav's name, course title, date, and a unique certificate number. Rendered as HTML/CSS and downloadable as PDF using browser print or html2canvas
+   285→   285→
+   286→   286→PAGE: References (/references)
+   287→   287→- Tabbed interface:
+   288→   288→  - Tab 1: Python Cheat Sheet (all syntax covered in Days 1-15, organized by topic)
+   289→   289→  - Tab 2: LLM Glossary (all AI terms from Days 16-25, alphabetically sorted)
+   290→   290→  - Tab 3: OpenRouter Models (table of free models with name, context window, strengths)
+   291→   291→  - Tab 4: LangChain Quick Reference (main classes and methods used)
+   292→   292→  - Tab 5: MCP Quick Reference (concepts, client/server, tools, resources)
+   293→   293→  - Tab 6: Langfuse Quick Reference (traces, spans, generations, how to read dashboard)
+   294→   294→  - Tab 7: Common Errors and Fixes (Python errors, API errors, Pyodide errors)
+   295→   295→- Each reference page is searchable
+   296→   296→- Each reference page has a "Print" button
+   297→   297→
+   298→   298→PAGE: Settings (accessible from header gear icon)
+   299→   299→- Dark mode toggle
+   300→   300→- Font size slider (14px to 22px)
+   301→   301→- OpenRouter API Key input (password field with show/hide toggle, "Test Connection" button that makes a tiny API call to verify)
+   302→   302→- "Clear All Progress" button with confirmation modal (destructive action, red button)
+   303→   303→- "Export Data" button (exports all progress, notes, notebooks, and assessment scores as JSON)
+   304→   304→- "Import Data" button (imports from JSON file)
+   305→   305→
+   306→   306→GLOBAL FEATURES
+   307→   307→- Header bar on every page: app title ("Python & AI Handbook"), search bar, dark mode toggle, settings gear icon, progress mini-indicator
+   308→   308→- Sidebar (desktop): collapsible, shows all 48 days grouped by phase with completion dots, active day highlighted
+   309→   309→- Mobile navigation: bottom tab bar with 5 tabs (Home, Days, Playground, Assessments, More) where More opens a sheet with Progress, References, Settings
+   310→   310→- Search: searches across day titles, lesson content, code examples, reference material. Results grouped by type
+   311→   311→- Toast notifications for: day marked complete, notebook saved, assessment submitted, settings updated
+   312→   312→- Loading states: skeleton screens for day content, spinner for Pyodide initialization, progress bar for assessment submission
+   313→   313→- Error boundaries: graceful error pages for failed day loads, failed API routes, Pyodide crashes
+   314→   314→- All data persisted to SQLite via Prisma API routes
+   315→   315→
+   316→   316→PYODIDE INTEGRATION (usePyodide hook)
+   317→   317→- Load Pyodide from CDN on first visit to playground
+   318→   318→- Show loading progress ("Loading Python runtime... 45%")
+   319→   319→- Cache the Pyodide instance in module-level variable (never reload)
+   320→   320→- Execute code by calling pyodide.runPythonAsync(code)
+   321→   321→- Capture stdout by redirecting pyodide's stdout to a JS callback
+   322→   322→- Capture stderr for error messages
+   323→   323→- Set a 10-second execution timeout (terminate if exceeded)
+   324→   324→- For "Python + AI" mode: detect if code contains "from openai import OpenAI" or "base_url", and if so, send the code to the /api/playground/run route instead of Pyodide
+   325→   325→
+   326→   326→API ROUTE: POST /api/playground/run
+   327→   327→- Receives: { code: string }
+   328→   328→- Reads API key from Settings table
+   329→   329→- If code contains OpenAI client pattern, extract the model and messages from the code string using regex
+   330→   330→- Make the actual HTTP request to OpenRouter from the server side
+   331→   331→- Return the response text
+   332→   332→- If code does not contain OpenAI pattern, return error asking user to switch to Python Only mode
+   333→   333→- Never expose the API key in the response
+   334→   334→
+   335→   335→API ROUTE: POST /api/progress
+   336→   336→- Receives: { dayNumber: number, completed?: boolean, bookmarked?: boolean, notes?: string }
+   337→   337→- Upserts DayProgress record
+   338→   338→- Returns updated record
+   339→   339→
+   340→   340→API ROUTE: GET /api/progress
+   341→   341→- Returns all DayProgress records
+   342→   342→
+   343→   343→API ROUTE: POST /api/assessments
+   344→   344→- Receives: { assessmentId: string, score: number, total: number, answers: object }
+   345→   345→- Creates AssessmentScore record
+   346→   346→- Returns created record
+   347→   347→
+   348→   348→API ROUTE: GET /api/assessments
+   349→   349→- Returns all AssessmentScore records
+   350→   350→
+   351→   351→API ROUTE: POST /api/notebooks
+   352→   352→- Receives: { name: string, cells: object }
+   353→   353→- Creates Notebook record
+   354→   354→- Returns created record
+   355→   355→
+   356→   356→API ROUTE: GET /api/notebooks
+   357→   357→- Returns all Notebook records
+   358→   358→
+   359→   359→API ROUTE: PUT /api/notebooks/[id]
+   360→   360→- Receives: { name?: string, cells?: object }
+   361→   361→- Updates Notebook record
+   362→   362→- Returns updated record
+   363→   363→
+   364→   364→API ROUTE: DELETE /api/notebooks/[id]
+   365→   365→- Deletes Notebook record
+   366→   366→
+   367→   367→API ROUTE: GET/PUT /api/settings
+   368→   368→- GET returns Settings record
+   369→   369→- PUT receives: { darkMode?: boolean, fontSize?: number, apiKeys?: object }
+   370→   370→- Updates Settings record
+   371→   371→
+   372→   372→CONTENT: DAYS 1-15 PYTHON FUNDAMENTALS
+   373→   373→
+   374→   374→Day 1: What is Python? Installing Jupyter Notebook Desktop. First program: print("Hello, Aarav!")
+   375→   375→Day 2: Variables and Data Types. Examples: name = "Aarav", age = 13, height = 5.4, likes_cricket = True
+   376→   376→Day 3: Input and Output. input() function. f-strings. Example: ask user their favorite car and print a sentence about it.
+   377→   377→Day 4: Operators. Arithmetic, comparison, logical. Examples: calculating cricket scores, comparing car top speeds, checking if Aarav passed his test.
+   378→   378→Day 5: If/Else/Elif. Example: grade calculator based on marks out of 100. Example: traffic signal simulator (red/-yellow/green).
+   379→   379→Day 6: If/Else Practice. Age checker for movie tickets (U, PG, A categories). Weather clothing recommender. Pass/fail for multiple subjects.
+   380→   380→Day 7: While Loops. Counting down from 10. Simple number guessing game. Repeating a menu until user chooses to quit.
+   381→   381→Day 8: For Loops. Printing names of 5 superhero movies. Sum of first 10 numbers. Iterating over a list of Aarav's favorite foods.
+   382→   382→Day 9: Loop Practice. Nested loops. Pattern printing with stars. Printing a cricket scoreboard for 5 players using nested loops.
+   383→   383→Day 10: Functions. def keyword, parameters, return. Function to calculate total price of 3 cars. Function to greet a person by name and age.
+   384→   384→Day 11: Functions Practice. Default parameters (favorite_color="blue"). Multiple return values (return min_speed, max_speed from car list). Functions that call other functions.
+   385→   385→Day 12: Lists. Creating, indexing, slicing, appending, removing. List of Aarav's favorite games. Adding and removing items. Finding the longest name in a list.
+   386→   386→Day 13: Dictionaries. Key-value pairs. Car names and their top speeds. Aarav's report card with subjects and marks. Adding new subjects, updating marks, looping through dictionary.
+   387→   387→Day 14: Tuples, Sets, Strings. When to use which. Tuple: coordinates of Aarav's house (immutable). Set: unique colors in his wardrobe. String methods: upper, lower, reverse, replace, count, find on Aarav's full name.
+   388→   388→Day 15: File Handling and Exceptions. Writing Aarav's friend list to a file. Reading it back. try/except for division by zero. try/except for file not found. Handling invalid user input with exceptions.
+   389→   389→
+   390→   390→Each Python day must include in its data object:
+   391→   391→{
+   392→   392→  dayNumber: 1,
+   393→   393→  title: "...",
+   394→   394→  phase: "python",
+   395→   395→  objectives: ["...", "...", "..."],
+   396→   396→  content: [ // array of content blocks
+   397→   397→    { type: "heading", level: 2, text: "..." },
+   398→   398→    { type: "paragraph", text: "..." },
+   399→   399→    { type: "code", language: "python", code: "complete working code here", caption: "optional caption" },
+   400→   400→    { type: "list", ordered: false, items: ["...", "..."] },
+   401→   401→    { type: "table", headers: ["Concept", "Example", "Output"], rows: [["...", "...", "..."]] },
+   402→   402→    { type: "callout", variant: "mistake" | "teacher" | "tip", title: "...", text: "..." },
+   403→   403→  ],
+   404→   404→  exercises: [
+   405→   405→    { id: 1, difficulty: "easy", description: "...", hint: "..." },
+   406→   406→    { id: 2, difficulty: "medium", description: "...", hint: "..." },
+   407→   407→  ],
+   408→   408→  quiz: [
+   409→   409→    { id: 1, type: "multiple-choice", question: "...", options: ["A", "B", "C", "D"], correct: 0, explanation: "..." },
+   410→   410→    { id: 2, type: "true-false", question: "...", correct: true, explanation: "..." },
+   411→   411→    { id: 3, type: "fill-blank", question: "The ____ function is used to display output in Python.", answer: "print", explanation: "..." },
+   412→   412→    { id: 4, type: "code-output", code: "x = 5\nprint(x * 2)", question: "What does this code print?", answer: "10", explanation: "..." },
+   413→   413→    { id: 5, type: "multiple-choice", question: "...", options: [...], correct: 2, explanation: "..." },
+   414→   414→  ],
+   415→   415→  teacherNotes: "Tips for explaining tricky parts to Aarav..."
+   416→   416→}
+   417→   417→
+   418→   418→CONTENT: DAYS 16-25 AI AND LLM THEORY
+   419→   419→
+   420→   420→Day 16: What is Artificial Intelligence? Examples from daily life: Siri predicting what you ask, YouTube recommending videos, Google Maps finding the fastest route, face unlock on phones. What AI can do (recognize images, translate languages, play games) and cannot do (feel emotions, have original thoughts, understand the world like humans).
+   421→   421→Day 17: Machine Learning vs Deep Learning. ML: learning from examples without being explicitly programmed. Example: how YouTube learns that Aarav likes cricket videos because he watches them often. Deep Learning: ML using neural networks with many layers. Example: how face recognition works by breaking an image into tiny features. Difference: deep learning needs more data and compute but handles complex tasks better.
+   422→   422→Day 18: Neural Networks. What a neuron is in a network (takes input, does math, gives output). How neurons connect in layers (input layer, hidden layers, output layer). Analogy: a group of friends each voting on whether a picture shows a cat or dog, each friend looking at different features (ears, tail, fur). No math. Just the concept.
+   423→   423→Day 19: Transformers and Attention. Why older methods (RNNs) struggled with long sentences (they forgot the beginning). What attention means: when reading "The cat sat on the mat because it was tired", the word "it" pays attention to "cat" not "mat". Why this simple idea revolutionized AI. Transformers process all words at once instead of one by one.
+   424→   424→Day 20: Large Language Models (LLMs). What they are: Transformers trained on massive amounts of text from the internet. How they work at a high level: they predict the next word given previous words. How this simple task leads to seemingly intelligent behavior. GPT means "Generative Pre-trained Transformer". Other LLMs: Gemini (Google), Claude (Anthropic), Llama (Meta), Mistral (Mistral AI), DeepSeek (DeepSeek).
+   425→   425→Day 21: Tokens, Context Window, Embeddings. Tokens: how text is split before the model sees it. "Aarav" might be 1 token. "Unbelievable" might be 3 tokens (un, believ, able). Show examples of tokenization. Context window: the maximum number of tokens a model can process in one conversation. GPT-4 has 128K, some have 1M. Why it matters: longer conversations get cut off. Embeddings: words converted to lists of numbers. Similar words (car and vehicle) have similar numbers. This lets computers compare meaning mathematically.
+   426→   426→Day 22: Prompt Engineering. What makes a good prompt vs bad prompt. Bad: "tell me about cars". Good: "Explain the difference between petrol and electric cars in 3 bullet points, for a 13-year-old". System prompts: instructions that set the AI's behavior. Few-shot: giving examples in the prompt. Zero-shot: no examples. Temperature: 0 = always picks most likely word (precise), 1 = more random (creative). Show same prompt at temperature 0 vs 1 with different outputs.
+   427→   427→Day 23: Hallucinations, RAG, Fine-tuning. Hallucinations: when the AI confidently says something wrong (example: making up a book title that does not exist). Why it happens (LLMs predict plausible text, they do not look up facts). RAG (Retrieval-Augmented Generation): before answering, search a database of real documents, then give those documents to the LLM as context. This reduces hallucinations. Fine-tuning: take a pre-trained model and train it further on your specific data (example: train on medical texts to make a better medical AI). Differences: prompting is cheapest and fastest, RAG adds real data, fine-tuning changes the model itself.
+   428→   428→Day 24: AI Agents and Tool Calling. What an agent is: an LLM that can decide to take actions, not just generate text. Analogy: a regular LLM is like a person who can only talk. An agent is like a person who can also use a phone, calculator, and computer. Tool calling: the LLM outputs a special format saying "I want to call the weather tool with city=Delhi" instead of guessing the weather. The system runs the tool and gives the result back. The LLM then gives a proper answer. This is how AI assistants actually work.
+   429→   429→Day 25: Software Concepts for AI. REST API: a way for programs to talk to each other over the internet. Analogy: a restaurant menu. You (client) look at the menu (API documentation), tell the waiter (HTTP request) what you want, and get food back (response). JSON: a format for structuring data that looks like Python dictionaries. HTTP methods: GET (read data), POST (send data). Client vs Server: your Python code is the client, OpenRouter is the server. API key: like a membership card that proves you have permission. Environment variables: storing secrets like API keys in a separate file, not in your code.
+   430→   430→
+   431→   431→Each theory day must include in its data object:
+   432→   432→{
+   433→   433→  dayNumber: 16,
+   434→   434→  title: "...",
+   435→   435→  phase: "theory",
+   436→   436→  objectives: ["...", "..."],
+   437→   437→  content: [ // same block types as Python days, but mostly headings, paragraphs, tables, callouts, minimal code ],
+   438→   438→  explainToFriend: "How Aarav would explain this to his classmate in simple words",
+   439→   439→  realWorldExamples: ["...", "...", "..."],
+   440→   440→  thingsToGoogle: ["transformers explained simply", "how does GPT work video", "..."],
+   441→   441→  quiz: [ // 5 questions, mostly conceptual ],
+   442→   442→  teacherNotes: "..."
+   443→   443→}
+   444→   444→
+   445→   445→CONTENT: DAYS 26-48 PRACTICAL AI DEVELOPMENT
+   446→   446→
+   447→   447→Day 26: Setting up OpenRouter. Step by step: go to openrouter.ai, create account, go to Keys, create key, copy it. Paste it in the Settings page of this app. Test connection. First API call in playground. Print the response.
+   448→   448→Day 27: Chat Conversations. How messages array works. Role: system, user, assistant. Multi-turn: sending previous messages each time. Building a simple loop that keeps the conversation going until user types "bye".
+   449→   449→Day 28: Prompt Templates. System prompts that set personality. Example: system message makes AI talk like a cricket commentator describing Aarav's batting. User messages change, system stays same. Few-shot examples in the prompt.
+   450→   450→Day 29: Project 1 - AI Chatbot. Build in playground: a chatbot that talks to Aarav about any topic. System prompt gives it a friendly personality. Maintains message history in a list. Allows topic switching. Handles edge cases (empty input, very long input). Save as a notebook.
+   451→   451→Day 30: Working with JSON Responses. Asking the LLM to return JSON. Parsing the response with json.loads(). Handling cases where the LLM returns malformed JSON. Using try/except around JSON parsing. Example: ask LLM to return 5 car names as a JSON array.
+   452→   452→Day 31: What is LangChain? Why it exists (writing raw API calls gets repetitive). What it provides: prompt templates, chains, memory, agents, output parsers. Installing langchain and langchain-openai. First LangChain call using OpenRouter.
+   453→   453→Day 32: LangChain Prompts and Chains. ChatPromptTemplate. How to define variables in templates. SimpleSequentialChain and LLMChain. Example: chain that generates a short story about Aarav's favorite superhero saving a city.
+   454→   454→Day 33: LangChain Memory. ConversationBufferMemory. How it automatically manages message history. Building a chatbot with LangChain that remembers the last 10 messages. ConversationSummaryMemory (brief mention).
+   455→   455→Day 34: LangChain Output Parsing. ResponseSchema and StructuredOutputParser. Getting reliable JSON from LLM. Example: ask LLM about a car and get back structured data: {name, top_speed, price, color}. PydanticOutputParser (brief mention).
+   456→   456→Day 35: Project 2 - AI Story Generator. Using LangChain with memory. User chooses: genre (adventure, mystery, comedy), main character name, setting. LLM generates Chapter 1. User can say "continue" for Chapter 2, and so on. Memory keeps track of the story so far. Save as a notebook.
+   457→   457→Day 36: What is MCP (Model Context Protocol)? Why it exists (before MCP, every AI tool had its own way of connecting to LLMs). What MCP standardizes: a common protocol for LLMs to access external tools and data. Client-server model: the LLM application is the client, the tool provider runs an MCP server. Compare to USB standard: before USB, every printer had a different cable. MCP is like USB for AI tools.
+   458→   458→Day 37: MCP Basics. Installing the MCP Python package. What an MCP server looks like: defines tools (functions the LLM can call) and resources (data the LLM can read). What an MCP client does: connects to servers, lists available tools, calls tools on behalf of the LLM. Simple conceptual example, no complex code yet.
+   459→   459→Day 38: Building a Simple MCP Server. Create a server with three tools: get_weather(city) returns dummy weather data, calculator(operation, a, b) does basic math, get_time() returns current time. Each tool has a name, description, and parameter schema. Explain every line of code. Show how to test the server standalone.
+   460→   460→Day 39: Connecting MCP to LangChain. Using LangChain's MCP adapter. The LLM receives the list of available MCP tools. When the user asks "What is the weather in Delhi?", the LLM decides to call get_weather(city="Delhi"). LangChain executes the tool call, gets the result, sends it back to the LLM. The LLM then gives a natural language answer. Full working code.
+   461→   461→Day 40: What is Langfuse? Why observability matters (when AI apps break, you need to see what happened). What Langfuse tracks: traces (one full user interaction), spans (sub-steps within a trace), generations (each LLM call). Also tracks: token usage, latency (how long each call took), cost, the exact prompts sent, the exact responses received. Installing Langfuse. Getting a free Langfuse cloud account.
+   462→   462→Day 41: Integrating Langfuse with LangChain. Adding Langfuse callback handler to LangChain. Every LLM call now automatically appears in the Langfuse dashboard. Walk through the dashboard: find a trace, see the prompt, see the response, see token count, see latency. Explain how this helps debug problems.
+   463→   463→Day 42: Project 3 - AI Assistant with Tools. Combine everything: LangChain for orchestration, MCP for tools (weather, calculator, time), Langfuse for tracing. Build a chat loop where user can ask questions, request weather, ask for calculations. All interactions visible in Langfuse dashboard. Save as a notebook.
+   464→   464→Day 43: LLM Model Comparison. Using different OpenRouter free models for the same prompt. Comparing: response quality, speed (measure with time.time()), how well they follow instructions, how they handle tool calling. Create a simple comparison table. Discuss when to use which model.
+   465→   465→Day 44: AI System Design (Simple Level). How all the pieces connect in a real application. Draw the flow: User types in browser, browser sends to Python backend, backend uses LangChain, LangChain calls LLM via OpenRouter, LLM decides to call MCP tool, MCP server runs tool, result goes back through the chain, user sees response. Also show: Langfuse receives a copy of everything for monitoring. Keep it high level, no load balancers or microservices.
+   466→   466→Day 45: Project 4 - Final Capstone (Part 1). AI Personal Assistant. Set up the project structure. Implement the chat loop. Add LangChain with memory. Add MCP server with tools: weather, calculator, current time, random fun fact. Add Langfuse tracing. Test each piece individually.
+   467→   467→Day 46: Project 4 - Final Capstone (Part 2). Improve the assistant. Better system prompt. Handle errors gracefully (what if OpenRouter is down, what if MCP tool fails). Add a simple menu system (press 1 to chat, 2 for weather, 3 for calculator, 4 to quit). Test the complete flow. Document the code with comments.
+   468→   468→Day 47: Mock Interview Preparation. Common questions and model answers: "What is Python?" "What is a variable?" "What is an LLM?" "What is a Transformer?" "What is the difference between ML and Deep Learning?" "What is RAG?" "What is MCP and why does it exist?" "What is LangChain?" "What is Langfuse?" "Explain your final project." Practice explaining code line by line.
+   469→   469→Day 48: Final Assessment. Practical test: add a new MCP tool (get_random_joke) to the capstone project. Theory test: 20 questions covering all topics from Days 1-47. Viva questions: explain the entire project architecture to the evaluator. Course completion: generate certificate.
+   470→   470→
+   471→   471→Each practical day must include in its data object:
+   472→   472→{
+   473→   473→  dayNumber: 26,
+   474→   474→  title: "...",
+   475→   475→  phase: "practical",
+   476→   476→  objectives: ["...", "..."],
+   477→   477→  content: [ // same block types, heavy on code ],
+   478→   478→  setupInstructions: "pip install ... or any setup needed",
+   479→   479→  expectedOutput: "Exactly what the code should print or return",
+   480→   480→  debugging: ["If you get error X, do Y", "If Pyodide cannot do Z, use demo mode"],
+   481→   481→  exercises: [...],
+   482→   482→  quiz: [...],
+   483→   483→  teacherNotes: "..."
+   484→   484→}
+   485→   485→
+   486→   486→CONTENT: ASSESSMENTS DATA
+   487→   487→
+   488→   488→Each assessment in the assessments data file:
+   489→   489→{
+   490→   490→  id: "week-1-quiz",
+   491→   491→  title: "Week 1 Quiz: Python Basics",
+   492→   492→  description: "Covers Days 1-7: variables, data types, operators, if/else, while loops",
+   493→   493→  questions: [
+   494→   494→    {
+   495→   495→      id: 1,
+   496→   496→      type: "multiple-choice",
+   497→   497→      question: "What is the output of: print(type(13))?",
+   498→   498→      options: ["<class 'str'>", "<class 'int'>", "<class 'float'>", "<class 'bool'>"],
+   499→   499→      correct: 1,
+   500→   500→      explanation: "13 is a whole number, so its type is int (integer)."
+   501→   501→    },
+   502→   502→    {
+   503→   503→      id: 2,
+   504→   504→      type: "true-false",
+   505→   505→      question: "In Python, variable names can start with a number.",
+   506→   506→      correct: false,
+   507→   507→      explanation: "Variable names must start with a letter or underscore, not a number."
+   508→   508→    },
+   509→   509→    {
+   510→   510→      id: 3,
+   511→   511→      type: "fill-blank",
+   512→   512→      question: "The _______ statement is used to make a decision in Python.",
+   513→   513→      answer: "if",
+   514→   514→      explanation: "The if statement checks a condition and runs code only if the condition is True."
+   515→   515→    },
+   516→   516→    {
+   517→   517→      id: 4,
+   518→   518→      type: "code-output",
+   519→   519→      code: "count = 0\nwhile count < 3:\n    print(count)\n    count = count + 1",
+   520→   520→      question: "What does this code print?",
+   521→   521→      answer: "0\n1\n2",
+   522→   522→      explanation: "The loop runs while count is less than 3, so it prints 0, 1, and 2."
+   523→   523→    },
+   524→   524→    {
+   525→   525→      id: 5,
+   526→   526→      type: "multiple-choice",
+   527→   527→      question: "Which operator is used for 'not equal to' in Python?",
+   528→   528→      options: ["=!=", "<>", "!=", "=/="],
+   529→   529→      correct: 2,
+   530→   530→      explanation: "In Python, != means 'not equal to'."
+   531→   531→    }
+   532→   532→    // ... 10-15 questions per weekly quiz, 20 for mid-term and final
+   533→   533→  ],
+   534→   534→  passingScore: 70 // percentage
+   535→   535→}
+   536→   536→
+   537→   537→Write all questions for all 11 assessments. That is approximately 120-150 questions total.
+   538→   538→
+   539→   539→CONTENT: REFERENCES DATA
+   540→   540→
+   541→   541→Python Cheat Sheet: organized by topic (variables, data types, operators, if/else, loops, functions, lists, dictionaries, strings, files, exceptions). Each entry shows syntax and a one-line example.
+   542→   542→
+   543→   543→LLM Glossary: alphabetically sorted terms (AI Agent, Attention, Chat Prompt, Context Window, Deep Learning, Embedding, Fine-tuning, Hallucination, LLM, Machine Learning, MCP, Neural Network, Parameter, Prompt Engineering, RAG, REST API, System Prompt, Temperature, Token, Transformer, Vector Database). Each term: 2-3 sentence definition.
+   544→   544→
+   545→   545→OpenRouter Models: table with columns (Model Name, Provider, Context Window, Best For, Free Tier). Include at least 8 free models.
+   546→   546→
+   547→   547→LangChain Quick Reference: ChatPromptTemplate, LLMChain, ConversationBufferMemory, StructuredOutputParser, MCP adapter. Each with 2-3 line usage example.
+   548→   548→
+   549→   549→MCP Quick Reference: Tool definition format, Resource definition format, how to start a server, how to connect a client. Minimal working snippets.
+   550→   550→
+   551→   551→Langfuse Quick Reference: How to create a trace, how to add a generation, what appears on the dashboard, how to filter traces.
+   552→   552→
+   553→   553→Common Errors and Fixes: Python errors (SyntaxError, NameError, TypeError, IndexError, KeyError, ZeroDivisionError, FileNotFoundError, ImportError), API errors (401 Unauthorized, 429 Rate Limit, 500 Server Error), Pyodide errors (loading failure, module not found). Each with: error message example, what it means, how to fix it.
+   554→   554→
+   555→   555→DESIGN SPECIFICATIONS
+   556→   556→
+   557→   557→Color palette:
+   558→   558→- Primary: slate-800 (#1e293b) for headers and sidebar
+   559→   559→- Secondary: blue-600 (#2563eb) for buttons, links, active states
+   560→   560→- Accent: emerald-500 (#10b981) for success, completion checkmarks
+   561→   561→- Warning: amber-500 (#f59e0b) for tips
+   562→   562→- Error: red-500 (#ef4444) for mistakes, wrong answers
+   563→   563→- Background: white (#ffffff) in light mode, slate-900 (#0f172a) in dark mode
+   564→   564→- Surface: slate-50 (#f8fafc) in light mode, slate-800 (#1e293b) in dark mode
+   565→   565→- Text: slate-900 (#0f172a) in light mode, slate-100 (#f1f5f9) in dark mode
+   566→   566→- Muted text: slate-500 (#64748b) in both modes
+   567→   567→- Code background: slate-950 (#020617) in both modes
+   568→   568→- Borders: slate-200 (#e2e8f0) in light mode, slate-700 (#334155) in dark mode
+   569→   569→
+   570→   570→Typography:
+   571→   571→- Font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
+   572→   572→- Headings: font-semibold, tracking-tight
+   573→   573→- Body: font-normal, leading-relaxed (line-height 1.625)
+   574→   574→- Code: font-mono (system monospace stack)
+   575→   575→- Sizes: h1 = text-3xl, h2 = text-2xl, h3 = text-xl, body = text-base, small = text-sm, tiny = text-xs
+   576→   576→
+   577→   577→Spacing:
+   578→   578→- Sections: py-8
+   579→   579→- Between blocks: space-y-6
+   580→   580→- Card padding: p-6
+   581→   581→- Sidebar item padding: px-4 py-2
+   582→   582→
+   583→   583→Borders and radius:
+   584→   584→- Cards: rounded-xl border border-slate-200
+   585→   585→- Buttons: rounded-lg
+   586→   586→- Code blocks: rounded-lg
+   587→   587→- Inputs: rounded-lg border border-slate-300
+   588→   588→
+   589→   589→Shadows:
+   590→   590→- Cards: shadow-sm
+   591→   591→- Dropdowns/modals: shadow-lg
+   592→   592→- No heavy shadows anywhere
+   593→   593→
+   594→   594→Animations:
+   595→   595→- Page transitions: none (instant)
+   596→   596→- Sidebar collapse: transition-all duration-200
+   597→   597→- Button hover: slight background color change
+   598→   598→- Toast: slide in from top right, fade out after 3 seconds
+   599→   599→- Progress bar: transition-all duration-500
+   600→   600→- Quiz feedback: fade in
+   601→   601→
+   602→   602→No animations that feel gimmicky, playful, or AI-themed. This should look like a professional training tool.
+   603→   603→
+   604→   604→DARK MODE:
+   605→   605→- Toggle switches all colors per the palette above
+   606→   606→- Code blocks stay dark in both modes
+   607→   607→- Callout boxes adjust colors for contrast
+   608→   608→- Tables adjust alternating row colors
+   609→   609→
+   610→   610→MOBILE LAYOUT (< 768px):
+   611→   611→- Sidebar hidden, accessible via hamburger menu in header
+   612→   612→- Bottom tab bar: Home, Days, Playground, Tests, More (fixed bottom, h-16)
+   613→   613→- Content: single column, full width with px-4 padding
+   614→   614→- Code blocks: horizontal scroll, font-size reduced to text-sm
+   615→   615→- Playground: cells stack vertically, toolbar wraps to two rows
+   616→   616→- Quiz: questions full width, option buttons full width
+   617→   617→- No horizontal scrolling on any page except code blocks
+   618→   618→- Touch targets minimum 44x44px
+   619→   619→
+   620→   620→TABLET LAYOUT (768px - 1024px):
+   621→   621→- Sidebar as overlay (slides in from left, backdrop behind it)
+   622→   622→- Content: max-w-3xl mx-auto
+   623→   623→- Playground: two columns on landscape (editor left, output right)
+   624→   624→
+   625→   625→DESKTOP LAYOUT (> 1024px):
+   626→   626→- Sidebar fixed left, w-72, full height
+   627→   627→- Content: max-w-4xl, ml-72
+   628→   628→- Header spans content area only
+   629→   629→- Playground: can use wider layout if screen allows
+   630→   630→
+   631→   631→READ ME
+   632→   632→
+   633→   633→Include a README.md with:
+   634→   634→- Project description
+   635→   635→- Prerequisites (Node.js 18+, pnpm)
+   636→   636→- Setup steps: clone, pnpm install, cp .env.example .env, npx prisma db push, pnpm dev
+   637→   637→- Environment variables: DATABASE_URL="file:./dev.db"
+   638→   638→- How to deploy to Vercel: connect GitHub repo, add DATABASE_URL environment variable, deploy
+   639→   639→- Project structure overview
+   640→   640→- How to add or modify day content (edit src/data/days.ts)
+   641→   641→- How to add new assessments (edit src/data/assessments.ts)
+   642→   642→- How to customize the color scheme (edit tailwind.config.ts)
+   643→   643→
+   644→   644→OUTPUT FORMAT
+   645→   645→
+   646→   646→Generate the complete project as a series of code blocks, one per file, in this exact order:
+   647→   647→1. README.md
+   648→   648→2. package.json
+   649→   649→3. .env.example
+   650→   650→4. tsconfig.json
+   651→   651→5. next.config.mjs
+   652→   652→6. tailwind.config.ts
+   653→   653→7. prisma/schema.prisma
+   654→   654→8. src/app/globals.css
+   655→   655→9. src/app/layout.tsx
+   656→   656→10. src/app/page.tsx
+   657→   657→11. src/types/index.ts
+   658→   658→12. src/lib/prisma.ts
+   659→   659→13. src/lib/utils.ts
+   660→   660→14. src/lib/pyodide.ts
+   661→   661→15. src/hooks/usePyodide.ts
+   662→   662→16. src/hooks/useProgress.ts
+   663→   663→17. src/hooks/useNotebook.ts
+   664→   664→18. src/hooks/useSearch.ts
+   665→   665→19. src/components/ui/ (all UI components)
+   666→   666→20. src/components/layout/ (all layout components)
+   667→   667→21. src/components/lesson/ (all lesson components)
+   668→   668→22. src/components/playground/ (all playground components)
+   669→   669→23. src/components/assessment/ (all assessment components)
+   670→   670→24. src/components/progress/ (all progress components)
+   671→   671→25. src/data/days.ts (ALL 48 DAYS OF CONTENT)
+   672→   672→26. src/data/assessments.ts (ALL 11 ASSESSMENTS WITH ALL QUESTIONS)
+   673→   673→27. src/data/references.ts (ALL REFERENCE MATERIAL)
+   674→   674→28. src/app/api/progress/route.ts
+   675→   675→29. src/app/api/assessments/route.ts
+   676→   676→30. src/app/api/notebooks/route.ts
+   677→   677→31. src/app/api/settings/route.ts
+   678→   678→32. src/app/api/playground/route.ts
+   679→   679→33. src/app/days/page.tsx
+   680→   680→34. src/app/days/[dayNumber]/page.tsx
+   681→   681→35. src/app/playground/page.tsx
+   682→   682→36. src/app/assessments/page.tsx
+   683→   683→37. src/app/assessments/[assessmentId]/page.tsx
+   684→   684→38. src/app/progress/page.tsx
+   685→   685→39. src/app/references/page.tsx
+   686→   686→
+   687→   687→CRITICAL RULES
+   688→   688→- Generate EVERY file completely. No "remaining code follows same pattern" or "similar to above".
+   689→   689→- The days.ts file will be very large. Generate all 48 days completely.
+   690→   690→- The assessments.ts file will be very large. Generate all 120-150 questions completely.
+   691→   691→- Every component must be fully implemented, not stubbed.
+   692→   692→- Every API route must have proper error handling with try/catch.
+   693→   693→- All TypeScript types must be properly defined, no "any" types except where absolutely unavoidable (like Pyodide's global type).
+   694→   694→- Use Next.js 14 App Router patterns: server components by default, "use client" only where needed (interactive components, hooks, event handlers).
+   695→   695→- All API routes are Next.js Route Handlers (export async function GET/POST/PUT/DELETE).
+   696→   696→- Use Prisma client for all database operations.
+   697→   697→- Do not use em dashes anywhere in any file.
+   698→   698→
+   699→   699→Start generating from file 1 (README.md) and continue sequentially through file 39. If you reach the response length limit, stop at a clean file boundary and say "CONTINUE FROM FILE [next number]" so I can prompt you to continue.
+   700→   700→Here is the exact note you should copy and paste at the very top of the previous prompt, right before "You are an expert fullstack developer..."
+   701→   701→
+   702→   702→***
+   703→   703→
+   704→   704→**IMPORTANT APPEND NOTE: VISUAL DIAGRAMS AND FLOWCHARTS**
+   705→   705→
+   706→   706→You must use the best flowcharts, sequence diagrams, and visual representations to explain every concept and integration across the entire handbook. A 13-year-old learns best visually, so text-only explanations are not enough.
+   707→   707→
+   708→   708→HOW TO IMPLEMENT DIAGRAMS
+   709→   709→- Use **Mermaid.js** (install `mermaid` package) to render all diagrams dynamically in the React frontend.
+   710→   710→- Create a new content block type for the lesson data: `{ type: "mermaid", code: "graph TD; A-->B" }`
+   711→   711→- In the `LessonContent.tsx` component, detect this block type and render it using Mermaid's React integration.
+   712→   712→- Do NOT use external image files (no .png, .jpg, or SVG files). All diagrams must be generated via Mermaid code strings so they stay inside the codebase, render perfectly at any size, and match the app's color theme.
+   713→   713→
+   714→   714→WHERE DIAGRAMS ARE MANDATORY (include at least one Mermaid diagram on these specific days):
+   715→   715→- **Day 18 (Neural Networks):** A flowchart showing Input Layer -> Hidden Layers -> Output Layer with labeled nodes (e.g., "Car Image" -> "Wheels?", "Shape?" -> "Car or Bike?").
+   716→   716→- **Day 19 (Transformers):** A diagram showing how the Attention mechanism connects words to other words in a sentence.
+   717→   717→- **Day 21 (Tokens & Embeddings):** A visual block diagram showing the sentence "Aarav likes cars" being split into tokens, then converted into number grids (embeddings).
+   718→   718→- **Day 23 (RAG vs Fine-tuning):** Two side-by-side flowcharts comparing the data flow of RAG (User Query -> Search DB -> Inject Context -> LLM) vs Fine-tuning (Training Data -> Update Model Weights -> LLM).
+   719→   719→- **Day 24 (AI Agents & Tool Calling):** A sequence diagram showing the back-and-forth between User, LLM, and Tool (Weather API).
+   720→   720→- **Day 25 (Software Concepts):** A sequence diagram showing Client (Python) -> HTTP Request -> Server (OpenRouter) -> HTTP Response -> Client.
+   721→   721→- **Day 31 (LangChain Intro):** A flowchart showing how Prompt Template -> LLM -> Output Parser connect.
+   722→   722→- **Day 36 (MCP Concepts):** A diagram showing the MCP Client/Server architecture (LLM App <-> MCP Client <-> MCP Server <-> External Tool).
+   723→   723→- **Day 39 (MCP + LangChain):** A detailed sequence diagram showing the exact API calls when an LLM decides to use an MCP tool.
+   724→   724→- **Day 41 (Langfuse):** A tree diagram showing a Trace branching into Spans and Generations.
+   725→   725→- **Day 44 (System Design):** The ultimate full-stack architecture diagram showing Browser -> Next.js Backend -> LangChain -> OpenRouter API, with a branch going to MCP Server, and a dotted line going to Langfuse for logging.
+   726→   726→
+   727→   727→HOW TO HANDLE "IMAGES" FOR NON-FLOWCHART CONCEPTS
+   728→   728→Since external image files are forbidden and no AI-generated artwork is allowed, use styled Tailwind CSS components to create visual representations:
+   729→   729→- **For Tokenization (Day 21):** Use a flexbox row of colored badges/pills showing how a word splits (e.g., `[Un]` `[believ]` `[able]`).
+   730→   730→- **For JSON Structure (Day 25/30):** Use a styled, indented code block with color-coded keys (blue) and values (green) to visually represent the JSON tree.
+   731→   731→- **For Data Structures (Days 12-14):** Use CSS grids and borders to visually draw a List (vertical stack of boxes) vs a Dictionary (two-column table with arrows).
+   732→   732→
+   733→   733→Remember: Every major integration (how LangChain connects to OpenRouter, how MCP tools get triggered, how Langfuse catches the logs) MUST have a Mermaid diagram explaining the flow before the code is shown. Code first, explain later is wrong here. Concept -> Diagram -> Code -> Output is the correct teaching flow.

@@ -1,0 +1,2002 @@
+     1→NewsAPI
+     2→Get started Documentation Pricing
+     3→10ambae@gmail.com
+     4→Search worldwide news with code
+     5→Locate articles and breaking news headlines from news sources and blogs across the web with our JSON API
+     6→Get API Key
+     7→arrow_forward
+     8→All articles mentioning Apple from yesterday, sorted by popular publishers first
+     9→
+    10→arrow_forward
+    11→GET
+    12→https://newsapi.org/v2/everything?q=apple&from=2026-07-07&to=2026-07-07&sortBy=popularity&apiKey=4e496a4e881b46f798c6f6cea8de09a4
+    13→{
+    14→"status": "ok",
+    15→"totalResults": 1293,
+    16→-"articles": [
+    17→-{
+    18→-"source": {
+    19→"id": "wired",
+    20→"name": "Wired"
+    21→},
+    22→"author": "Elana Klein",
+    23→"title": "Pete Holmes Is Not Reading Your Email",
+    24→"description": "“You can make a living, you can have a life, and leave 55,000 emails unread with a big fuck off.”",
+    25→"url": "https://www.wired.com/story/pete-holmes-user-behavior/",
+    26→"urlToImage": "https://media.wired.com/photos/6a4c392002bd100f6dc9d608/191:100/w_1280,c_limit/pete_holmes_final_social.jpg",
+    27→"publishedAt": "2026-07-07T10:00:00Z",
+    28→"content": "So much of modern life is manufactured urgency. We perpetuate that by taking it seriously. So we're passing this hot potato back and forth. If anybody could just snap you out of it, you'd be like, Th… [+5639 chars]"
+    29→},
+    30→-{
+    31→-"source": {
+    32→"id": "wired",
+    33→"name": "Wired"
+    34→},
+    35→"author": "Boone Ashworth",
+    36→"title": "These New Smart Glasses From Solos Come With a Privacy Shield for the Cameras",
+    37→"description": "You can clip a cover over the cameras, which could be a double-edged sword.",
+    38→"url": "https://www.wired.com/story/these-new-smart-glasses-from-solos-come-with-a-privacy-shield-for-the-cameras/",
+    39→"urlToImage": "https://media.wired.com/photos/6a4bd7c758fe114a7a5cba2a/191:100/w_1280,c_limit/Solos-Smart-Glasses-Gear-10.jpg",
+    40→"publishedAt": "2026-07-07T13:00:00Z",
+    41→"content": "Smart glasses company Solos has long focused on audio-only smart glasses. On Tuesday, it announced two new pairs of glasses, one of which has a camerabut you can buy a separate accessory to hide the … [+3286 chars]"
+    42→},
+    43→-{
+    44→-"source": {
+    45→"id": null,
+    46→"name": "Android Central"
+    47→},
+    48→"author": "sanujb6@gmail.com (Sanuj Bhatia) , Sanuj Bhatia",
+    49→"title": "Google sets August 12 date for the Pixel 11 reveal",
+    50→"description": "Google has confirmed a Made by Google event in New York on August 12 at 6 p.m. ET for the Pixel 11 series.",
+    51→"url": "https://www.androidcentral.com/phones/google-pixel/pixel-11-event-announced",
+    52→"urlToImage": "https://cdn.mos.cms.futurecdn.net/sNcLVBd4KQqwb8S9fpazg8-2048-80.jpg",
+    53→"publishedAt": "2026-07-07T17:17:56Z",
+    54→"content": "What you need to know\r\n<ul><li>Google has confirmed a Made by Google event in New York on August 12 at 6 p.m. ET for the Pixel 11 series.</li><li>The Pixel Watch 5 series is also expected to be annou… [+2548 chars]"
+    55→},
+    56→-{
+    57→-"source": {
+    58→"id": null,
+    59→"name": "Android Central"
+    60→},
+    61→"author": "derrek.lee@futurenet.com (Derrek Lee) , Derrek Lee",
+    62→"title": "Let us know: Are you Team Google, Team Android, or both?",
+    63→"description": "Google is one of the largest companies in the world, and Android is the most widely used OS. But are you a fan of either? Let us know in our latest poll.",
+    64→"url": "https://www.androidcentral.com/apps-software/android-os/poll-are-you-team-google-team-android-or-both",
+    65→"urlToImage": "https://cdn.mos.cms.futurecdn.net/7aJYt9ZU8HBbLeTAGx7ZTD-2500-80.jpg",
+    66→"publishedAt": "2026-07-07T07:52:00Z",
+    67→"content": "Google and Android are pretty much synonymous, given that the former owns and develops the latter. However, over the years, Android has more or less grown into its own entity, spanning not just your … [+2910 chars]"
+    68→},
+    69→-{
+    70→-"source": {
+    71→"id": null,
+    72→"name": "Android Central"
+    73→},
+    74→"author": "nickodiaz@sbcglobal.net (Nickolas Diaz) , Nickolas Diaz",
+    75→"title": "Budget phones projected to take a hit amid pressure from soaring memory prices",
+    76→"description": "Researchers tell how memory costs in 2026 will continue to wound the budget phone market, as companies scramble to turn a profit.",
+    77→"url": "https://www.androidcentral.com/phones/budget-phones-projected-to-take-a-hit-amid-pressure-from-soaring-memory-prices",
+    78→"urlToImage": "https://cdn.mos.cms.futurecdn.net/QFtqHgtyYkUbpzpMBL5YsS-2560-80.jpg",
+    79→"publishedAt": "2026-07-07T16:27:00Z",
+    80→"content": "What you need to know\r\n<ul><li>Omdia's latest research suggests rising memory costs will wound the budget phone market this year.</li><li>Data says the budget phone market could drop by 22%, as compa… [+3519 chars]"
+    81→},
+    82→-{
+    83→-"source": {
+    84→"id": null,
+    85→"name": "MacRumors"
+    86→},
+    87→"author": "Tim Hardwick",
+    88→"title": "iPhone Air 2 Could Get an 11% Battery Capacity Boost",
+    89→"description": "Apple is reportedly working on a second-generation iPhone Air that's expected to launch in spring 2027, and one of Apple's main aims is to improve battery life. We now have the first rumor suggesting what kind of improvement could be coming.\n\n\n\n\n\nIn a post on…",
+    90→"url": "https://www.macrumors.com/2026/07/07/iphone-air-2-battery-capacity-3500mah/",
+    91→"urlToImage": "https://images.macrumors.com/t/_BM3WvQmnhsAKgHBPyn6qOWsvN4=/1958x/article-new/2025/09/iphone-air-thinness.jpg",
+    92→"publishedAt": "2026-07-07T10:04:21Z",
+    93→"content": "Apple is reportedly working on a second-generation iPhone Air that's expected to launch in spring 2027, and one of Apple's main aims is to improve battery life. We now have the first rumor suggesting… [+1872 chars]"
+    94→},
+    95→-{
+    96→-"source": {
+    97→"id": null,
+    98→"name": "MacRumors"
+    99→},
+   100→"author": "Tim Hardwick",
+   101→"title": "AirPods Max Condensation Lawsuit Largely Dismissed by NY Judge",
+   102→"description": "A federal judge has thrown out most of the claims in a proposed class action accusing Apple's AirPods Max of a condensation defect, ruling that the $549 headphones do what they were built for even if they fall short of a buyer's expectations (via Law360).\n\n\n\n…",
+   103→"url": "https://www.macrumors.com/2026/07/07/airpods-max-condensation-lawsuit-largely-dismissed/",
+   104→"urlToImage": "https://images.macrumors.com/t/Y03m5p1XhIqs6ZPorcJr5k--xnY=/1920x/article-new/2023/08/airpods-max-condensation.jpg",
+   105→"publishedAt": "2026-07-07T13:14:02Z",
+   106→"content": "A federal judge has thrown out most of the claims in a proposed class action accusing Apple's AirPods Max of a condensation defect, ruling that the $549 headphones do what they were built for even if… [+3832 chars]"
+   107→},
+   108→-{
+   109→-"source": {
+   110→"id": null,
+   111→"name": "MacRumors"
+   112→},
+   113→"author": "Eric Slivka",
+   114→"title": "Beats Charging Cables Now Available in 'Power Pink'",
+   115→"description": "Back in April 2025, Apple's Beats brand debuted a collection of woven charging cables in a variety of colors, initially offering varying combinations of USB-C to USB-C, USB-A, and Lightning in 1.5-meter and 20-centimeter lengths. The lineup was expanded earli…",
+   116→"url": "https://www.macrumors.com/2026/07/07/beats-cables-power-pink/",
+   117→"urlToImage": "https://images.macrumors.com/t/p4MyO7IhvI07Ho21DoZdbTZXbhg=/2500x/article-new/2026/07/Beats-Power-Pink-Feature.jpg",
+   118→"publishedAt": "2026-07-07T14:00:00Z",
+   119→"content": "Back in April 2025, Apple's Beats brand debuted a collection of woven charging cables in a variety of colors, initially offering varying combinations of USB-C to USB-C, USB-A, and Lightning in 1.5-me… [+964 chars]"
+   120→},
+   121→-{
+   122→-"source": {
+   123→"id": null,
+   124→"name": "CNET"
+   125→},
+   126→"author": "Marshall Gunnell",
+   127→"title": "7 Habits That Are More Important Than Using Antivirus on Your Phone",
+   128→"description": "The biggest threat to your phone isn't malware, it's how you conduct yourself online.",
+   129→"url": "https://www.cnet.com/tech/services-and-software/7-habits-more-important-than-antivirus-for-your-phone/",
+   130→"urlToImage": "https://www.cnet.com/a/img/resize/e81d3262feb49afac4b1a5cb442bc79070055310/hub/2026/07/06/d811e064-ed1a-4744-928c-9c82e16afe09/antivirus-on-phone-cybersecurity.jpg?auto=webp&fit=crop&height=675&width=1200",
+   131→"publishedAt": "2026-07-07T15:02:00Z",
+   132→"content": "Using antivirus software on every device you own made sense in the early days of personal computing, but modern smartphones are built to be more secure. Both Apple and Google include extensive protec… [+5133 chars]"
+   133→},
+   134→-{
+   135→-"source": {
+   136→"id": null,
+   137→"name": "CNET"
+   138→},
+   139→"author": "Katelyn Chedraoui",
+   140→"title": "Texas Can Keep Enforcing Its Age Verification Law for Mobile Apps, Supreme Court Says",
+   141→"description": "Texas' controversial age verification law remains in effect while free speech advocates and tech critics fight it in court.",
+   142→"url": "https://www.cnet.com/news/social-media/supreme-court-texas-enforce-age-verification-law-mobile-apps/",
+   143→"urlToImage": "https://www.cnet.com/a/img/resize/ad25080ad671bccf18a858fc33754192563fc0d2/hub/2025/07/25/20b2689c-1b42-4582-aea4-3529f2b572e4/cnet-1.jpg?auto=webp&fit=crop&height=675&width=1200",
+   144→"publishedAt": "2026-07-07T05:57:48Z",
+   145→"content": "The Supreme Court on Monday ruled that Texas can, for now, continue enforcing its age verification law, which mandates app stores to verify minors' ages and secure parental consent before downloading… [+2562 chars]"
+   146→},
+   147→-{
+   148→-"source": {
+   149→"id": null,
+   150→"name": "CNET"
+   151→},
+   152→"author": "Blake Stimac",
+   153→"title": "Google Pixel 11 Leak Hints at Higher Prices, New Colors and More Storage",
+   154→"description": "While Google's official Pixel 11 unveiling is next month, several key features of the next Android phone may have been revealed early.",
+   155→"url": "https://www.cnet.com/tech/mobile/google-pixel-11-leak-hints-at-higher-prices-new-colors-and-more-storage/",
+   156→"urlToImage": "https://www.cnet.com/a/img/resize/67f892782922eb14095b764d2949fdedbb6665f6/hub/2025/08/27/53e0ad41-ddd8-4387-ad5e-feb68485bd0c/pixel-10-pro-xl-review-test-cnet-1.jpg?auto=webp&fit=crop&height=675&width=1200",
+   157→"publishedAt": "2026-07-07T20:39:00Z",
+   158→"content": "Google on Tuesday announced that its next Pixel phone line will be unveiled on Aug. 12, but a number of key features for the Pixel 11 leaked on the same day.\r\nAccording to the French site Deallabs Ma… [+2191 chars]"
+   159→},
+   160→-{
+   161→-"source": {
+   162→"id": null,
+   163→"name": "MacRumors"
+   164→},
+   165→"author": "Juli Clover",
+   166→"title": "Apple Releases New AirPods Beta Firmware With iOS 27 Features",
+   167→"description": "Apple today released a third version of the beta firmware it is testing for the AirPods Pro 2, AirPods Pro 3, AirPods 4, and AirPods Max 2. The firmware is limited to developers at the current time, and it has a build number of 9A5314b.\n\n\n\n\n\nIn iOS 27, iPadOS…",
+   168→"url": "https://www.macrumors.com/2026/07/07/apple-airpods-beta-firmware-9a5314b/",
+   169→"urlToImage": "https://images.macrumors.com/t/w0al4HvgLYLDB-3EcvyJ63Z-lqw=/2250x/article-new/2021/06/AirPods-Pro-Beta-Firmware-2.jpg",
+   170→"publishedAt": "2026-07-07T18:19:08Z",
+   171→"content": "Apple today released a third version of the beta firmware it is testing for the AirPods Pro 2, AirPods Pro 3, AirPods 4, and AirPods Max 2. The firmware is limited to developers at the current time, … [+807 chars]"
+   172→},
+   173→-{
+   174→-"source": {
+   175→"id": null,
+   176→"name": "MacRumors"
+   177→},
+   178→"author": "Juli Clover",
+   179→"title": "Apple Seeds Fourth Public Betas of iOS 26.6, macOS Tahoe 26.6 and More",
+   180→"description": "Apple today provided public beta testers with the fourth betas of iOS 26.6, iPadOS 26.6, macOS Tahoe 26.6, watchOS 26.6, and tvOS 26.6, with the software coming a day after Apple seeded the betas to developers.\n\n\n\n\n\nAfter signing up to beta test the software …",
+   181→"url": "https://www.macrumors.com/2026/07/07/apple-seeds-ios-26-6-public-beta-4/",
+   182→"urlToImage": "https://images.macrumors.com/t/RzJYGwPST2fim75_lRKrQt8RKw8=/2500x/article-new/2026/05/iOS-26.6-Glass-Feature.jpg",
+   183→"publishedAt": "2026-07-07T20:16:43Z",
+   184→"content": "Apple today provided public beta testers with the fourth betas of iOS 26.6, iPadOS 26.6, macOS Tahoe 26.6, watchOS 26.6, and tvOS 26.6, with the software coming a day after Apple seeded the betas to … [+779 chars]"
+   185→},
+   186→-{
+   187→-"source": {
+   188→"id": null,
+   189→"name": "MacRumors"
+   190→},
+   191→"author": "Juli Clover",
+   192→"title": "Google's Pixel 11 Event Set for August 12, a Month Before Apple Debuts Foldable iPhone",
+   193→"description": "Google will introduce its latest Pixel smartphones at an August 12 event, debuting the updated devices about a month ahead of when Apple is expected to announce new iPhone models.\n\n\n\n\n\nGoogle is expected to launch the Pixel 11, Pixel 11 Pro, Pixel 11 Pro XL, …",
+   194→"url": "https://www.macrumors.com/2026/07/07/google-pixel-11-event/",
+   195→"urlToImage": "https://images.macrumors.com/t/KM1Qxcl7FJ9x5sC3Nt-Lxe2IgW8=/1650x/article-new/2025/08/google-pixel-10-fold-1.jpg",
+   196→"publishedAt": "2026-07-07T18:48:20Z",
+   197→"content": "Google will introduce its latest Pixel smartphones at an August 12 event, debuting the updated devices about a month ahead of when Apple is expected to announce new iPhone models.\r\nGoogle is expected… [+2154 chars]"
+   198→},
+   199→-{
+   200→-"source": {
+   201→"id": null,
+   202→"name": "MacRumors"
+   203→},
+   204→"author": "Mitchel Broussard",
+   205→"title": "Amazon Discounts All Wi-Fi iPad Mini 7 Models by Up to $130",
+   206→"description": "Amazon today has a few discounts on the iPad mini 7, starting at $489.00 for the 128GB Wi-Fi tablet, down from $599.00. This is the first time since Prime Day that we've tracked all Wi-Fi models of the tablet on sale with notable discounts.\n\n\n\nNote: MacRumors…",
+   207→"url": "https://www.macrumors.com/2026/07/07/wi-fi-ipad-mini-7-models/",
+   208→"urlToImage": "https://images.macrumors.com/t/Tb7vj-i_X4Gwgh2zRKplGJwn2Rc=/2500x/article-new/2025/10/ipad-mini-blue-prime-day.jpeg",
+   209→"publishedAt": "2026-07-07T14:13:40Z",
+   210→"content": "Amazon today has a few discounts on the iPad mini 7, starting at $489.00 for the 128GB Wi-Fi tablet, down from $599.00. This is the first time since Prime Day that we've tracked all Wi-Fi models of t… [+930 chars]"
+   211→},
+   212→-{
+   213→-"source": {
+   214→"id": null,
+   215→"name": "MacRumors"
+   216→},
+   217→"author": "Hartley Charlton",
+   218→"title": "iPhone 18 Pro Could Be Noticeably Thicker Than iPhone 17 Pro",
+   219→"description": "The iPhone 18 Pro's aluminum frame and camera housing are both set to grow thicker than the iPhone 17 Pro's, according to new posts from the leaker known as \"Fixed Focus Digital.\"\n\n\n\n\n\nIn a post on Weibo today, the leaker said that aluminum alloy mid-frames a…",
+   220→"url": "https://www.macrumors.com/2026/07/07/iphone-18-pro-could-be-noticeably-thicker/",
+   221→"urlToImage": "https://images.macrumors.com/t/2m4KcWA6pS7a-JVsxtfRZQ7UdMY=/1920x/article-new/2025/09/iPhone-17-Pro-Side-Profile.jpg",
+   222→"publishedAt": "2026-07-07T14:56:30Z",
+   223→"content": "The iPhone 18 Pro's aluminum frame and camera housing are both set to grow thicker than the iPhone 17 Pro's, according to new posts from the leaker known as \"Fixed Focus Digital.\"\r\nIn a post on Weibo… [+2049 chars]"
+   224→},
+   225→-{
+   226→-"source": {
+   227→"id": null,
+   228→"name": "NPR"
+   229→},
+   230→"author": "Marielle Segarra",
+   231→"title": "What a divorce coach wishes couples knew before ending a marriage",
+   232→"description": "Divorce is a tool, not a weapon, says Karen McNenny, author of a new book on the subject. She explains how to end a marriage while protecting your family and your mental health.",
+   233→"url": "https://www.npr.org/2026/07/07/nx-s1-5877797/end-marriage-good-terms-divorce",
+   234→"urlToImage": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5333x3000+0+0/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fa2%2F73%2F9af4a13543808b2b0e00cdcbf42e%2F260702-lk-gooddivorcedig-16x9.jpg",
+   235→"publishedAt": "2026-07-07T02:06:13Z",
+   236→"content": "When Karen McNenny was facing divorce about 15 years ago, she was afraid of what it would mean for her future: despair, debt and a lifetime of resentment, she says.\r\nAt the same time, she was thinkin… [+6042 chars]"
+   237→},
+   238→-{
+   239→-"source": {
+   240→"id": "business-insider",
+   241→"name": "Business Insider"
+   242→},
+   243→"author": "Ted Berg",
+   244→"title": "I tried every doughnut I could find at Krispy Kreme and ranked them from worst to best",
+   245→"description": "I tried every doughnut available at Krispy Kreme and ranked them from worst to best. The  original glazed doughnut was my favorite.",
+   246→"url": "https://www.businessinsider.com/krispy-kreme-doughnut-flavors-ranked-worst-best-review#article",
+   247→"urlToImage": "https://i.insider.com/6a4d45c35dc133dbf310dbdf?width=1200&format=jpeg",
+   248→"publishedAt": "2026-07-07T18:44:07Z",
+   249→"content": "I tried 14 different doughnuts from Krispy Kreme.Ted Berg\r\n<ul><li>I tried every doughnut I could find at Krispy Kreme and ranked them from worst to best.</li><li>The seasonal maple-buttercream dough… [+6952 chars]"
+   250→},
+   251→-{
+   252→-"source": {
+   253→"id": "business-insider",
+   254→"name": "Business Insider"
+   255→},
+   256→"author": "Katherine Li",
+   257→"title": "Here are the tech leaders and ultrawealthy descending on rural Idaho as billionaire summer camp begins",
+   258→"description": "Billionaires and tech leaders, including David Zaslav and Bob Iger, meet in Sun Valley for the annual Allen & Co conference.",
+   259→"url": "https://www.businessinsider.com/billionaires-tech-leaders-ceos-sun-valley-conference-photos-2026-7#article",
+   260→"urlToImage": "https://i.insider.com/6a4d4994965805a2c542dbc1?width=1200&format=jpeg",
+   261→"publishedAt": "2026-07-07T21:34:44Z",
+   262→"content": "Kevin Dietsch/Getty Images\r\n<ul><li>Billionaires and CEOs are converging in Idaho for the Allen & Co. conference this week.</li><li>AI and media consolidation are expected to be hot topics at the off… [+4951 chars]"
+   263→},
+   264→-{
+   265→-"source": {
+   266→"id": null,
+   267→"name": "Hipertextual"
+   268→},
+   269→"author": "Quelian Sanz",
+   270→"title": "Nadie quiere actualmente este iPhone, pero todo va a cambiar: así será el próximo móvil estrella de Apple",
+   271→"description": "Quien ha tenido en la mano un iPhone Air sabe que es uno de los móviles más espectaculares, bonitos y avanzados que ha hecho Apple a lo largo de su historia. Ahora bien, un par de días con él bastan para darse cuenta de que las carencias pueden pesar más que …",
+   272→"url": "https://hipertextual.com/apple/nadie-quiere-actualmente-este-iphone-pero-todo-va-a-cambiar-asi-sera-el-proximo-movil-estrella-de-apple/",
+   273→"urlToImage": "https://imgs.hipertextual.com/wp-content/uploads/2025/09/iphone-air-lateral-02.jpg",
+   274→"publishedAt": "2026-07-07T12:44:04Z",
+   275→"content": "Quien ha tenido en la mano un iPhone Air sabe que es uno de los móviles más espectaculares, bonitos y avanzados que ha hecho Apple a lo largo de su historia. Ahora bien, un par de días con él bastan … [+2682 chars]"
+   276→},
+   277→-{
+   278→-"source": {
+   279→"id": null,
+   280→"name": "Hackaday"
+   281→},
+   282→"author": "Tyler August",
+   283→"title": "SB Mini II is a Homebrew Apple II Clone",
+   284→"description": "On the one hand, the original Apple II has been copied over and over again since at least the early 80s, so maybe this hack is old hat to the greybeards around here. On the other hand, this is the …",
+   285→"url": "https://hackaday.com/2026/07/07/sb-mini-ii-is-a-homebrew-apple-ii-clone/",
+   286→"urlToImage": "https://hackaday.com/wp-content/uploads/2026/07/sb-mini-ii-inside.DBeQM3Ou_Z12u12c.webp",
+   287→"publishedAt": "2026-07-07T15:30:46Z",
+   288→"content": "On the one hand, the original Apple II has been copied over and over again since at least the early 80s, so maybe this hack is old hat to the greybeards around here. On the other hand, this is the ye… [+1433 chars]"
+   289→},
+   290→-{
+   291→-"source": {
+   292→"id": null,
+   293→"name": "Xataka.com"
+   294→},
+   295→"author": "Fran León",
+   296→"title": "Las mejores ofertas en tecnología que hemos encontrado hoy (7 de julio) en Amazon",
+   297→"description": "Con las vacaciones a la vuelta de la esquina y las altas temperaturas apretando con fuerza, equipar nuestro hogar y nuestra mochila de viaje con la mejor tecnología se vuelve imprescindible. Para que no pierdas tiempo buscando entre miles de productos, hemos …",
+   298→"url": "https://www.xataka.com/seleccion/mejores-chollos-amazon-hoy-7-julio-descuentos-25-moviles-teles",
+   299→"urlToImage": "https://i.blogs.es/2a06ba/chollos-amazon-7-de-julio-1-/840_560.jpeg",
+   300→"publishedAt": "2026-07-07T13:16:40Z",
+   301→"content": "Con las vacaciones a la vuelta de la esquina y las altas temperaturas apretando con fuerza, equipar nuestro hogar y nuestra mochila de viaje con la mejor tecnología se vuelve imprescindible. Para que… [+3670 chars]"
+   302→},
+   303→-{
+   304→-"source": {
+   305→"id": null,
+   306→"name": "Xataka.com"
+   307→},
+   308→"author": "Juan Lorente",
+   309→"title": "El Pixel 10a de Google recibe hoy su mejor oferta hasta ahora: precio mínimo histórico para la versión de 256 GB",
+   310→"description": "¿Eres de los que prefieren los móviles pequeños? Son dispositivos compactos que se manejan muy bien con una mano, ligeros y que no suponen llevar un armatoste en el bolsillo. Hay muy buenas opciones en las tiendas, aunque pocas que tengan una relación calidad…",
+   311→"url": "https://www.xataka.com/seleccion/pixel-10a-google-recibe-hoy-su-mejor-oferta-ahora-precio-minimo-historico-para-version-256-gb",
+   312→"urlToImage": "https://i.blogs.es/6bdf06/pixel-10a-portada/840_560.jpeg",
+   313→"publishedAt": "2026-07-07T08:30:40Z",
+   314→"content": "¿Eres de los que prefieren los móviles pequeños? Son dispositivos compactos que se manejan muy bien con una mano, ligeros y que no suponen llevar un armatoste en el bolsillo. Hay muy buenas opciones … [+2727 chars]"
+   315→},
+   316→-{
+   317→-"source": {
+   318→"id": null,
+   319→"name": "Socialmediaexaminer.com"
+   320→},
+   321→"author": "Michael Stelzner",
+   322→"title": "Building Agentic Workflows with Manus",
+   323→"description": "Are you tired of manually copying and pasting data between AI tools? Looking for an agentic AI tool that will pass off multi-step processes to other tools without constant input from you? In this article, you'll discover how to get started using Manus to buil…",
+   324→"url": "https://www.socialmediaexaminer.com/?p=279111",
+   325→"urlToImage": "https://www.socialmediaexaminer.com/wp-content/uploads/2026/06/AIP113_PRIMARY.jpg",
+   326→"publishedAt": "2026-07-07T10:00:00Z",
+   327→"content": "Are you tired of manually copying and pasting data between AI tools? Looking for an agentic AI tool that will pass off multi-step processes to other tools without constant input from you?\r\nIn this ar… [+12704 chars]"
+   328→},
+   329→-{
+   330→-"source": {
+   331→"id": null,
+   332→"name": "The Atlantic"
+   333→},
+   334→"author": "Alexandra Petri",
+   335→"title": "Fix This Travesty, FIFA!",
+   336→"description": "Why win fair and square when the president can make a call?",
+   337→"url": "https://www.theatlantic.com/newsletters/2026/07/fifa-travesty-trump-soccer/687832/",
+   338→"urlToImage": "https://cdn.theatlantic.com/thumbor/ZB4zji4AwnEchZdqYpzp6l6CxKM=/0x43:2000x1085/1200x625/media/img/mt/2026/07/2026_07_07_Petri_Fix_this_FIFA_final/original.jpg",
+   339→"publishedAt": "2026-07-07T20:22:00Z",
+   340→"content": "Anyone with eyes can see that Monday night’s World Cup game was rigged. Team USA is winning, 0–0, and then suddenly all these goals start coming in for Belgium? Bang, bang, bang, one after the other,… [+3108 chars]"
+   341→},
+   342→-{
+   343→-"source": {
+   344→"id": null,
+   345→"name": "heise online"
+   346→},
+   347→"author": "Andreas Knobloch",
+   348→"title": "Dienstag: Angriff auf Informationsfreiheit, Microsoft baut Spiele-Sparte Xbox um",
+   349→"description": "Kritik an IFG-Reform + Microsoft bestätigt Entlassungen + China verschärft KI-Regeln + Broadcom beliefert weiter Apple + Geheimdienstbericht in Kanada",
+   350→"url": "https://www.heise.de/news/Dienstag-Angriff-auf-Informationsfreiheit-Microsoft-baut-Spiele-Sparte-Xbox-um-11355711.html",
+   351→"urlToImage": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/2/2/7/7/Wochentage-source-sans-a4d254a7c1c57df6.png",
+   352→"publishedAt": "2026-07-07T04:15:00Z",
+   353→"content": "Die geplanten drastischen Einschnitte im Informationsfreiheitsgesetz des Bundes stoßen auf erbitterten Widerstand der Kontrollbehörden von Bund und Ländern. Statt des im Koalitionsvertrag versprochen… [+3992 chars]"
+   354→},
+   355→-{
+   356→-"source": {
+   357→"id": null,
+   358→"name": "heise online"
+   359→},
+   360→"author": "Daniel Herbig",
+   361→"title": "Mobile Games: Umsatz in Deutschland steigt 2025 auf 2,7 Milliarden Euro",
+   362→"description": "Der Umsatz mit Mobile Games in Deutschland stieg 2025 auf 2,7 Milliarden Euro. Fast alles davon stammt aus In-App-Käufen in kostenlosen Spielen.",
+   363→"url": "https://www.heise.de/news/Mobile-Games-Umsatz-in-Deutschland-steigt-2025-auf-2-7-Milliarden-Euro-11355775.html",
+   364→"urlToImage": "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/1/2/3/0/9/shutterstock_2006036045-86c27e0c74e8dfd4.jpg",
+   365→"publishedAt": "2026-07-07T06:21:00Z",
+   366→"content": "Der Umsatz mit Mobile Games in Deutschland ist 2025 auf rund 2,7 Milliarden Euro gestiegen, ein Plus von 3 Prozent gegenüber dem Vorjahr. Das geht aus einer aktuellen Mitteilung des Branchenverbands … [+1774 chars]"
+   367→},
+   368→-{
+   369→-"source": {
+   370→"id": null,
+   371→"name": "9to5Mac"
+   372→},
+   373→"author": "Bradley C",
+   374→"title": "Apple @ Work Podcast: The 3 pillars of AI for the Apple enterprise",
+   375→"description": "Apple @ Work is exclusively brought to you by Mosyle, the only Apple Unified Platform. Mosyle is the only solution that integrates in a single professional-grade platform all the solutions necessary to seamlessly and automatically deploy, manage & protect App…",
+   376→"url": "https://9to5mac.com/2026/07/07/the-3-pillars-of-ai-for-the-apple-enterprise/",
+   377→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/06/apple-at-work-27.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   378→"publishedAt": "2026-07-07T10:00:00Z",
+   379→"content": "Apple @ Work is exclusively brought to you by Mosyle, the only Apple Unified Platform. Mosyle is the only solution that integrates in a single professional-grade platform all the solutions necessary … [+573 chars]"
+   380→},
+   381→-{
+   382→-"source": {
+   383→"id": null,
+   384→"name": "9to5Mac"
+   385→},
+   386→"author": "Zac Hall",
+   387→"title": "Apple stops signing iOS 26.5.1 after critical security fix release",
+   388→"description": "Apple is no longer signing iOS 26.5 and iOS 26.5.1, preventing downgrades to these software versions from newer releases. The move comes after a critical security fix was issued for iPhone last week.",
+   389→"url": "https://9to5mac.com/2026/07/07/apple-stops-signing-ios-26-5-1-after-critical-security-fix-release/",
+   390→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/05/ios-26-5-1-clear.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   391→"publishedAt": "2026-07-07T13:56:25Z",
+   392→"content": "Apple is no longer signing iOS 26.5 and iOS 26.5.1, preventing downgrades to these software versions from newer releases. The move comes after a critical security fix was issued for iPhone last week.… [+921 chars]"
+   393→},
+   394→-{
+   395→-"source": {
+   396→"id": null,
+   397→"name": "9to5Mac"
+   398→},
+   399→"author": "Marcus Mendes",
+   400→"title": "Apple releases new beta firmware for AirPods Pro 3 and more",
+   401→"description": "Apple is rolling out a new round of beta firmware updates for several AirPods models, including AirPods Pro 3 and AirPods Max 2. Here are the details.",
+   402→"url": "https://9to5mac.com/2026/07/07/apple-releases-new-beta-firmware-for-airpods-pro-3-and-more/",
+   403→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/06/airpods-pro-3-ios-27-FI-dark.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   404→"publishedAt": "2026-07-07T18:25:50Z",
+   405→"content": "Apple is rolling out a new round of beta firmware updates for several AirPods models, including AirPods Pro 3 and AirPods Max 2. Here are the details.\r\nFollowing yesterdays release of iOS 27 beta 3 a… [+1807 chars]"
+   406→},
+   407→-{
+   408→-"source": {
+   409→"id": null,
+   410→"name": "9to5Mac"
+   411→},
+   412→"author": "Marcus Mendes",
+   413→"title": "J.P. Morgan raises Apple stock target to $345 despite hardware price hikes",
+   414→"description": "In a new note to investors, J.P. Morgan maintained its Buy rating on Apple while raising its price target for the company’s stock. Here are the details.",
+   415→"url": "https://9to5mac.com/2026/07/07/j-p-morgan-raises-apple-stock-target-to-345-despite-hardware-price-hikes/",
+   416→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2024/06/apple-stock-up.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   417→"publishedAt": "2026-07-07T14:41:19Z",
+   418→"content": "In a new note to investors, J.P. Morgan maintained its Buy rating on Apple while raising its price target for the companys stock. Here are the details.\r\nOver the past few days, Apples stock has recov… [+1330 chars]"
+   419→},
+   420→-{
+   421→-"source": {
+   422→"id": null,
+   423→"name": "9to5Mac"
+   424→},
+   425→"author": "Marcus Mendes",
+   426→"title": "Tim Cook and John Ternus hold virtual meeting with Minister-President of Bavaria",
+   427→"description": "Earlier today, Apple CEO Tim Cook and his successor, John Ternus held a virtual meeting with Minister-President of Bavaria, Markus Söder. Here are the details.",
+   428→"url": "https://9to5mac.com/2026/07/07/tim-cook-and-john-ternus-hold-virtual-meeting-with-minister-president-of-bavaria/",
+   429→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/04/tim-cook-john-ternus.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   430→"publishedAt": "2026-07-07T20:45:17Z",
+   431→"content": "Earlier today, Apple CEO Tim Cook and his successor, John Ternus held a virtual meeting with Minister-President of Bavaria, Markus Söder. Here are the details.\r\nIn a post shared on X, Söder is pictur… [+2561 chars]"
+   432→},
+   433→-{
+   434→-"source": {
+   435→"id": null,
+   436→"name": "9to5Mac"
+   437→},
+   438→"author": "Marcus Mendes",
+   439→"title": "Lamborghini launches Apple Vision Pro app with interactive full-size cars",
+   440→"description": "Italian carmaker Lamborghini released an Apple Vision Pro app today, offering an immersive look at its latest models inside and out. Here are the details.",
+   441→"url": "https://9to5mac.com/2026/07/07/lamborghini-launches-apple-vision-pro-app-with-interactive-full-size-cars/",
+   442→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/07/lamborghini-avp.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   443→"publishedAt": "2026-07-07T21:18:41Z",
+   444→"content": "Italian carmaker Lamborghini released an Apple Vision Pro app today, offering an immersive look at its latest models inside and out. Here are the details.\r\nIn a press release issued earlier today (vi… [+2294 chars]"
+   445→},
+   446→-{
+   447→-"source": {
+   448→"id": null,
+   449→"name": "9to5Mac"
+   450→},
+   451→"author": "Ben Lovejoy",
+   452→"title": "Apple must continue to age-verify users in Texas, says one-sentence ruling",
+   453→"description": "Apple must continue to carry out age verification of iPhone users in Texas after the Supreme Court denied a request to pause enforcement of the law.\nThe iPhone maker strongly opposed the law, with Tim Cook going as far as to personally lobby state Governor Gr…",
+   454→"url": "https://9to5mac.com/2026/07/07/apple-must-continue-to-age-verify-users-in-texas-says-one-sentence-ruling/",
+   455→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/07/Apple-must-continue-to-age-verify-users-in-Texas-says-one-sentence-ruling.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   456→"publishedAt": "2026-07-07T12:58:40Z",
+   457→"content": "Apple must continue to carry out age verification of iPhone users in Texas after the Supreme Court denied a request to pause enforcement of the law.\r\nThe iPhone maker strongly opposed the law, with T… [+2276 chars]"
+   458→},
+   459→-{
+   460→-"source": {
+   461→"id": null,
+   462→"name": "9to5Mac"
+   463→},
+   464→"author": "Marcus Mendes",
+   465→"title": "Apple TV’s ‘Nocturne’ drama series starring Liev Schreiber gets a premiere date",
+   466→"description": "Apple TV has confirmed the premiere date of Nocturne, an upcoming drama series starring Liev Schreiber (Spotlight), Zazie Beetz (They Will Kill You), and Stephen Graham (Adolescence). Here are the details.",
+   467→"url": "https://9to5mac.com/2026/07/07/apple-tvs-nocturne-drama-series-starring-liev-schreiber-gets-a-premiere-date/",
+   468→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/07/nocturne.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   469→"publishedAt": "2026-07-07T14:21:10Z",
+   470→"content": "Apple TV has confirmed the premiere date of Nocturne, an upcoming drama series starring Liev Schreiber (Spotlight), Zazie Beetz (They Will Kill You), and Stephen Graham (Adolescence). Here are the de… [+2051 chars]"
+   471→},
+   472→-{
+   473→-"source": {
+   474→"id": null,
+   475→"name": "9to5Mac"
+   476→},
+   477→"author": "Fernando Silva",
+   478→"title": "These are my favorite Apple charging accessories of 2026 so far [Video]",
+   479→"description": "There are many different charging accessories to choose from today. There is something for everyone, from fast chargers, multiport chargers, travel-oriented chargers, MagSafe charging accessories, and so much more. I have tested a ton of chargers through the …",
+   480→"url": "https://9to5mac.com/2026/07/07/these-are-my-favorite-apple-charging-accessories-of-2026-so-far-video/",
+   481→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/07/fernando.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   482→"publishedAt": "2026-07-07T18:30:00Z",
+   483→"content": "There are many different charging accessories to choose from today. There is something for everyone, from fast chargers, multiport chargers, travel-oriented chargers, MagSafe charging accessories, an… [+6471 chars]"
+   484→},
+   485→-{
+   486→-"source": {
+   487→"id": null,
+   488→"name": "9to5Mac"
+   489→},
+   490→"author": "Marcus Mendes",
+   491→"title": "Apple asks judge to pause Epic Games case during Supreme Court review",
+   492→"description": "Apple has submitted a request to pause further proceedings in its legal battle with Epic Games in the Northern District of California while the Supreme Court reviews part of the case. Here are the details.",
+   493→"url": "https://9to5mac.com/2026/07/07/apple-asks-judge-to-pause-epic-games-case-during-supreme-court-review/",
+   494→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2024/03/epic-app-store.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   495→"publishedAt": "2026-07-07T13:29:44Z",
+   496→"content": "Apple has submitted a request to pause further proceedings in its legal battle with Epic Games in the Northern District of California while the Supreme Court reviews part of the case. Here are the de… [+3492 chars]"
+   497→},
+   498→-{
+   499→-"source": {
+   500→"id": null,
+   501→"name": "9to5Mac"
+   502→},
+   503→"author": "Marcus Mendes",
+   504→"title": "iPhone discounts lift Apple to second place in China’s shrinking smartphone market",
+   505→"description": "In a report released today, Counterpoint Research says that despite the discounts seen during China’s 618 shopping period, smartphone sales declined 13% from the year-ago period. Here are the details.",
+   506→"url": "https://9to5mac.com/2026/07/07/iphone-discounts-lift-apple-to-second-place-in-chinas-shrinking-smartphone-market/",
+   507→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/05/iphone-17-pro-cosmic-orange-cameras-angle.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   508→"publishedAt": "2026-07-07T13:53:09Z",
+   509→"content": "In a report released today, Counterpoint Research says that despite the discounts seen during Chinas 618 shopping period, smartphone sales declined 13% from the year-ago period. Here are the details.… [+1773 chars]"
+   510→},
+   511→-{
+   512→-"source": {
+   513→"id": null,
+   514→"name": "9to5Mac"
+   515→},
+   516→"author": "Marcus Mendes",
+   517→"title": "Weibo leaker says iPhone 18 Pro thickness will be ‘surprising’",
+   518→"description": "Days after materials from Apple supplier Tata surfaced online, prominent Weibo leaker “Fixed Focus Digital” doubled down on his earlier claim that the iPhone 18 Pro will be thicker than the iPhone 17 Pro. Here are the details.",
+   519→"url": "https://9to5mac.com/2026/07/07/weibo-leaker-says-iphone-18-pro-thickness-will-be-surprising/",
+   520→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/05/iphone-18-pro-colors.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   521→"publishedAt": "2026-07-07T17:42:20Z",
+   522→"content": "Days after materials from Apple supplier Tata surfaced online, prominent Weibo leaker Fixed Focus Digital doubled down on his earlier claim that the iPhone 18 Pro will be thicker than the iPhone 17 P… [+1643 chars]"
+   523→},
+   524→-{
+   525→-"source": {
+   526→"id": null,
+   527→"name": "9to5Mac"
+   528→},
+   529→"author": "Seth Kurkowski",
+   530→"title": "9to5Mac Daily: July 7, 2026 – New iPad Pro and MacBook Pro rumors",
+   531→"description": "Listen to a recap of the top stories of the day from 9to5Mac. 9to5Mac Daily is available on iTunes and Apple’s Podcasts app, Stitcher, TuneIn, Google Play, or through our dedicated RSS feed for Overcast and other podcast players.\nSponsored by Backblaze: Backu…",
+   532→"url": "https://9to5mac.com/2026/07/07/daily-july-7-2026/",
+   533→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/12/9to5Mac-Daily-art-lead.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   534→"publishedAt": "2026-07-07T10:00:00Z",
+   535→"content": "Listen to a recap of the top stories of the day from 9to5Mac. 9to5Mac Daily is available on iTunes and Apples Podcasts app, Stitcher, TuneIn, Google Play, or through our dedicated RSS feed for Overca… [+779 chars]"
+   536→},
+   537→-{
+   538→-"source": {
+   539→"id": null,
+   540→"name": "9to5Mac"
+   541→},
+   542→"author": "Bradley C",
+   543→"title": "MagSafe Monday: The NOCO XGrid XDS3 is the perfect StandBy mode companion",
+   544→"description": "If you look around all the normal wbesites for a 3-in-1 MagSafe charger for iPhone, Apple Watch, and AirPods, you will find hundreds of options made of plastic. They all work well, but sometimes you might want something that is more of a premium feels. The NO…",
+   545→"url": "https://9to5mac.com/2026/07/06/noco-xgrid-xds3/",
+   546→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/06/NOCO-XGrid-XDS3-2.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   547→"publishedAt": "2026-07-07T00:18:10Z",
+   548→"content": "If you look around all the normal wbesites for a 3-in-1 MagSafe charger for iPhone, Apple Watch, and AirPods, you will find hundreds of options made of plastic. They all work well, but sometimes you … [+2690 chars]"
+   549→},
+   550→-{
+   551→-"source": {
+   552→"id": null,
+   553→"name": "9to5Mac"
+   554→},
+   555→"author": "Chance Miller",
+   556→"title": "Beats continues to expand lineup of popular woven USB-C cables",
+   557→"description": "Beats is expanding its popular lineup of USB-C cables today with an all-new “Power Pink” color. “Because your charging cable deserves to be just as expressive as your playlist,” Beats says.",
+   558→"url": "https://9to5mac.com/2026/07/07/beats-continues-to-expand-lineup-of-popular-woven-usb-c-cables/",
+   559→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/07/beats-pink.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   560→"publishedAt": "2026-07-07T14:00:38Z",
+   561→"content": "Beats is expanding its popular lineup of USB-C cables today with an all-new Power Pink color. Because your charging cable deserves to be just as expressive as your playlist, Beats says.\r\nThe new Powe… [+1205 chars]"
+   562→},
+   563→-{
+   564→-"source": {
+   565→"id": null,
+   566→"name": "9to5Mac"
+   567→},
+   568→"author": "Justin Kahn",
+   569→"title": "Deals: M5 Pro MacBook Pro $449 off, MacBook Air $250 off, Ultra 3, iPhone 17 Pro Max $449 off, more",
+   570→"description": "Joining the ongoing AirPods 4 deal at nearly 25% off and a series of Apple Watch Ultra 3 models at nearly $100 off, this morning we spotted this 2TB M5 Pro MacBook Pro at $449 off the new list price and the base model 15-inch M5 MacBook Air at $250 off. Those…",
+   571→"url": "https://9to5mac.com/2026/07/07/deals-macbook-pro-ultra-3-iphone-17-pro-max/",
+   572→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/07/Apple-deals-MacBook-M5-Pro-Apple-Watch-Ultra-3.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   573→"publishedAt": "2026-07-07T15:22:56Z",
+   574→"content": "Joining the ongoing AirPods 4 deal at nearly 25% off and a series of Apple Watch Ultra 3 models at nearly $100 off, this morning we spotted this 2TB M5 Pro MacBook Pro at $449 off the new list price … [+4884 chars]"
+   575→},
+   576→-{
+   577→-"source": {
+   578→"id": null,
+   579→"name": "9to5Mac"
+   580→},
+   581→"author": "Marcus Mendes",
+   582→"title": "AirPods Max condensation lawsuit significantly narrowed by judge",
+   583→"description": "Brooklyn federal judge Orelia E. Merchant has dismissed most claims in a proposed class-action lawsuit alleging that Apple’s AirPods Max suffer from a condensation defect. Here are the details.",
+   584→"url": "https://9to5mac.com/2026/07/07/airpods-max-condensation-lawsuit-significantly-narrowed-by-judge/",
+   585→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/04/airpods-max-usbc-blue.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   586→"publishedAt": "2026-07-07T15:25:36Z",
+   587→"content": "Brooklyn federal judge Orelia E. Merchant has dismissed most claims in a proposed class-action lawsuit alleging that Apples AirPods Max suffer from a condensation defect. Here are the details.\r\nSoon … [+2295 chars]"
+   588→},
+   589→-{
+   590→-"source": {
+   591→"id": null,
+   592→"name": "9to5Mac"
+   593→},
+   594→"author": "Ben Lovejoy",
+   595→"title": "Our choice of AI assistant really matters, says Tony Fadell – and raises big questions",
+   596→"description": "“Father of the iPod” Tony Fadell has written a lengthy column in which he argues that our choice of AI assistant really matters, but also raises some huge questions that need to be addressed.\nHe says the reason the iPhone has stood the test of time is because…",
+   597→"url": "https://9to5mac.com/2026/07/07/our-choice-of-ai-assistant-really-matters-says-tony-fadell-and-raises-big-questions/",
+   598→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/06/siri-ai-dynamic-island-ios-27-design.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   599→"publishedAt": "2026-07-07T11:22:05Z",
+   600→"content": "“Father of the iPod” Tony Fadell has written a lengthy column in which he argues that our choice of AI assistant really matters, but also raises some huge questions that need to be addressed.\r\nHe say… [+2292 chars]"
+   601→},
+   602→-{
+   603→-"source": {
+   604→"id": null,
+   605→"name": "9to5Mac"
+   606→},
+   607→"author": "Zac Hall",
+   608→"title": "Xbox Family Settings for iPhone and iPad expands console parental control tools",
+   609→"description": "Heads up, parents. Microsoft just released an update to their Xbox Family Settings app for iPhone and iPad that adds new console parental controls.",
+   610→"url": "https://9to5mac.com/2026/07/07/xbox-family-settings-for-iphone-and-ipad-expands-console-parental-control-tools/",
+   611→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/07/xbox-family-settings-app.webp?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   612→"publishedAt": "2026-07-07T17:19:03Z",
+   613→"content": "Heads up, parents. Microsoft just released an update to their Xbox Family Settings app for iPhone and iPad that adds new console parental controls.\r\nHere’s what’s new in today’s Xbox Family Settings … [+641 chars]"
+   614→},
+   615→-{
+   616→-"source": {
+   617→"id": null,
+   618→"name": "9to5Mac"
+   619→},
+   620→"author": "Ben Lovejoy",
+   621→"title": "Leaker backs reports of two iPhone Air 2 improvements, with more detail",
+   622→"description": "A leaker with a decent track record has backed earlier reports of two improvements said to be coming to the iPhone Air 2 next year.\nThey’ve provided very specific information on one of the changes, lending additional credibility to earlier claims …",
+   623→"url": "https://9to5mac.com/2026/07/07/leaker-backs-reports-of-two-iphone-air-2-improvements-with-more-detail/",
+   624→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/11/iphone-air-2-cameras.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   625→"publishedAt": "2026-07-07T11:00:35Z",
+   626→"content": "A leaker with a decent track record has backed earlier reports of two improvements said to be coming to the iPhone Air 2 next year.\r\nThey’ve provided very specific information on one of the changes, … [+1515 chars]"
+   627→},
+   628→-{
+   629→-"source": {
+   630→"id": null,
+   631→"name": "9to5Mac"
+   632→},
+   633→"author": "Marcus Mendes",
+   634→"title": "Tim Cook attends Sun Valley Conference alongside Eddy Cue",
+   635→"description": "Tim Cook and Eddy Cue have arrived in Idaho for the 2026 Sun Valley Conference, which is expected to run through July 11. Here are the details.",
+   636→"url": "https://9to5mac.com/2026/07/07/tim-cook-attends-sun-valley-conference-alongside-eddy-cue/",
+   637→"urlToImage": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/05/tim-cook-wwdc26-keynote-wave.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+   638→"publishedAt": "2026-07-07T23:38:06Z",
+   639→"content": "Tim Cook and Eddy Cue have arrived in Idaho for the 2026 Sun Valley Conference, which is expected to run through July 11. Here are the details.\r\nEvery year, the Sun Valley Conference brings together … [+1460 chars]"
+   640→},
+   641→-{
+   642→-"source": {
+   643→"id": null,
+   644→"name": "Android Police"
+   645→},
+   646→"author": "Rajesh Pandey",
+   647→"title": "Pixel 11 leak reveals the trade-off Google is making with its next flagship",
+   648→"description": "More storage, but at a higher price",
+   649→"url": "https://www.androidpolice.com/pixel-11-leak-reveals-trade-off-google-making-next-flagship/",
+   650→"urlToImage": "https://static0.anpoimages.com/wordpress/wp-content/uploads/2026/04/google-pixel-11-seen-from-the-back-with-a-glowing-light-around-the-camera-bar-on-a-dark-blue-background.png?w=1600&h=900&fit=crop",
+   651→"publishedAt": "2026-07-07T15:46:58Z",
+   652→"content": "Leaks have already revealed quite a bit about Google's upcoming Pixel 11 series. A new leak now sheds light on its potential release date, a higher price tag, and storage options. And there's both go… [+2871 chars]"
+   653→},
+   654→-{
+   655→-"source": {
+   656→"id": null,
+   657→"name": "CNET"
+   658→},
+   659→"author": "Blake Stimac",
+   660→"title": "Made by Google Event Invites Show an Aug. 12 Launch for the Pixel 11 Series",
+   661→"description": "Google's next Pixel phones and watch are right around the corner.",
+   662→"url": "https://www.cnet.com/tech/mobile/made-by-google-aug-12-event-invites/",
+   663→"urlToImage": "https://www.cnet.com/a/img/resize/012f7c0c9879ef06d9f4ebe0ded56d587894e69e/hub/2026/07/07/8a3c519b-d3d0-4804-a5c4-0a2a07ae2402/copy-of-promo-image-template-8-1.jpg?auto=webp&fit=crop&height=675&width=1200",
+   664→"publishedAt": "2026-07-07T18:12:26Z",
+   665→"content": "The next generation of Google's Pixel smartphone is on the way, and invitations for a Made By Google event have been sent out to the press. The reveal will take place on Aug. 12 in New York at 6PM ET… [+1868 chars]"
+   666→},
+   667→-{
+   668→-"source": {
+   669→"id": null,
+   670→"name": "Yanko Design"
+   671→},
+   672→"author": "Sarang Sheth",
+   673→"title": "This 3-in-1 Qi2 + MagSafe Charging Dock Is the ‘Bedside Clutter Killer’ Apple Never Built",
+   674→"description": "This 3-in-1 Qi2 + MagSafe Charging Dock Is the ‘Bedside Clutter Killer’ Apple Never BuiltIt has been nearly a decade since Apple stood on stage and showed the world a glimpse of a perfect, seamless charging future. They called...",
+   675→"url": "https://www.yankodesign.com/2026/07/06/this-3-in-1-qi2-magsafe-charging-dock-is-the-bedside-clutter-killer-apple-never-built/",
+   676→"urlToImage": "https://www.yankodesign.com/images/design_news/2026/07/this-3-in-1-magsafe-charging-dock-is-the-bedside-clutter-killer-apple-never-built/ADAM_elements_Mag_3_Ultra_Qi2_25W_3_in_1_Foldable_Charger_hero.jpg",
+   677→"publishedAt": "2026-07-07T01:45:54Z",
+   678→"content": "It has been nearly a decade since Apple stood on stage and showed the world a glimpse of a perfect, seamless charging future. They called it AirPower, a pristine white mat where your iPhone, Apple Wa… [+5707 chars]"
+   679→},
+   680→-{
+   681→-"source": {
+   682→"id": null,
+   683→"name": "Yanko Design"
+   684→},
+   685→"author": "Sarang Sheth",
+   686→"title": "Xiaomi launched a $107 compact photo printer while all other tech is becoming expensive",
+   687→"description": "Xiaomi launched a $107 compact photo printer while all other tech is becoming expensiveXiaomi picked a strange moment to launch cheap hardware, because the global gadget market spent 2024 and early 2025 conditioning buyers to accept higher prices....",
+   688→"url": "https://www.yankodesign.com/2026/07/06/xiaomi-launched-a-107-compact-photo-printer-while-all-other-tech-is-becoming-expensive/",
+   689→"urlToImage": "https://www.yankodesign.com/images/design_news/2026/07/xiaomi-launched-a-107-compact-photo-printer-as-gadget-prices-keep-creeping-up-everywhere-else/xiaomi_mijia_desktop_printer_1.jpeg",
+   690→"publishedAt": "2026-07-07T00:30:55Z",
+   691→"content": "Xiaomi picked a strange moment to launch cheap hardware, because the global gadget market spent 2024 and early 2025 conditioning buyers to accept higher prices. Phones, laptops, tablets, and wearable… [+3326 chars]"
+   692→},
+   693→-{
+   694→-"source": {
+   695→"id": null,
+   696→"name": "Journal du geek"
+   697→},
+   698→"author": "Florent Erculisse",
+   699→"title": "Avec ces produits, Apple devrait faire de 2027 son année la plus folle depuis longtemps !",
+   700→"description": "Un iPhone anniversaire, des lunettes connectées, un MacBook redessiné et une puce M7 en avance : Apple prépare 2027 comme l'une de ses années les plus denses de son histoire, avec notamment l'arrivée en septembre prochain d'un nouveau CEO.",
+   701→"url": "https://www.journaldugeek.com/2026/07/07/avec-ces-produits-apple-devrait-faire-de-2027-son-annee-la-plus-folle-depuis-longtemps/",
+   702→"urlToImage": "https://www.journaldugeek.com/app/uploads/2026/07/amin-zabardast-Eaz3rz5bf5M-unsplash-1600x900.jpg",
+   703→"publishedAt": "2026-07-07T10:02:25Z",
+   704→"content": "L’arrivée de John Ternus, ancien vice-président senior de l’ingénierie matérielle d’Apple, au poste de directeur général de la société le 1er septembre prochain sera-t-il synonyme de renouveau ? Mark… [+3621 chars]"
+   705→},
+   706→-{
+   707→-"source": {
+   708→"id": null,
+   709→"name": "Journal du geek"
+   710→},
+   711→"author": "Elisa Rahouadj",
+   712→"title": "Arrêt du format physique : le vrai problème du jeu vidéo n’est pas celui qu’on croit",
+   713→"description": "Avec l'arrêt des disques chez PlayStation, l'entière industrie du jeu vidéo se pose des questions sur la préservation des jeux, mais avec un prisme légèrement biaisé.",
+   714→"url": "https://www.journaldugeek.com/2026/07/07/arret-du-format-physique-le-vrai-probleme-du-jeu-video-nest-pas-celui-quon-croit/",
+   715→"urlToImage": "https://www.journaldugeek.com/app/uploads/2026/07/jeux-video-physiques-1600x900.jpg",
+   716→"publishedAt": "2026-07-07T16:32:38Z",
+   717→"content": "La disparition progressive des jeux en boîte inquiète, et à raison. Depuis que PlayStation a annoncé vouloir arrêter la production de disques pour ses futurs jeux first-party à partir de 2028, le déb… [+9201 chars]"
+   718→},
+   719→-{
+   720→-"source": {
+   721→"id": null,
+   722→"name": "Journal du geek"
+   723→},
+   724→"author": "Damien",
+   725→"title": "Test projecteur JMGO N3 Ultimate : et si la meilleure place pour la Coupe du Monde était dans votre salon ?",
+   726→"description": "Triple laser, socle motorisé et IA d'installation : le cube de JMGO promet de changer n'importe quel mur en tribune. Mais à 2 999 €, il lorgne aussi sérieusement vers la salle de cinéma. j’ai regardé s'il pouvait mener les deux matchs de front.",
+   727→"url": "https://www.journaldugeek.com/test/test-projecteur-jmgo-n3-ultimate-et-si-la-meilleure-place-pour-la-coupe-du-monde-etait-dans-votre-salon/",
+   728→"urlToImage": "https://www.journaldugeek.com/app/uploads/2026/07/IMG_7829-1600x900.jpeg",
+   729→"publishedAt": "2026-07-07T15:02:16Z",
+   730→"content": "La Coupe du Monde a sonné le coup d’envoi, et avec elle revient l’éternelle question existentielle du supporter français : où diable va-t-on regarder les matchs ? Parce que cette année, le casse-tête… [+18098 chars]"
+   731→},
+   732→-{
+   733→-"source": {
+   734→"id": null,
+   735→"name": "Applesfera.com"
+   736→},
+   737→"author": "Guille Lomener",
+   738→"title": "Alianza de gigantes en el coche: Apple Music se mete de forma nativa en dos millones de Volvo con tres meses gratis",
+   739→"description": "Apple lleva años potenciando Apple Music en el coche a través de CarPlay, pero siempre hacía falta el iPhone conectado para que sonara. Ahora eso cambia, y es Volvo quien da el paso de meter el servicio directamente en el propio coche, sin depender del móvil.…",
+   740→"url": "https://www.applesfera.com/servicios-apple/alianza-gigantes-coche-apple-music-se-mete-forma-nativa-dos-millones-volvo-tres-meses-gratis",
+   741→"urlToImage": "https://i.blogs.es/6c7061/volvo-con-apple-music/840_560.jpeg",
+   742→"publishedAt": "2026-07-07T14:00:41Z",
+   743→"content": "Apple lleva años potenciando Apple Music en el coche a través de CarPlay, pero siempre hacía falta el iPhone conectado para que sonara. Ahora eso cambia, y es Volvo quien da el paso de meter el servi… [+3634 chars]"
+   744→},
+   745→-{
+   746→-"source": {
+   747→"id": null,
+   748→"name": "Applesfera.com"
+   749→},
+   750→"author": "Álvaro García M.",
+   751→"title": "\"El Mac mini es increíble para eso\", Doug Brooks, gerente de Apple Silicon sobre el nuevo potencial de los Mac con la IA",
+   752→"description": "La conversación sobre inteligencia artificial en Apple suele girar alrededor de Apple Intelligence o la nueva Siri AI, pero lo cierto es que su estrategia va más allá de su IA propia. Cada vez hay más desarrolladores usando Mac como plataforma para crear y ej…",
+   753→"url": "https://www.applesfera.com/sobremesa/mac-mini-increible-para-eso-doug-brooks-gerente-apple-silicon-nuevo-potencial-mac-ia",
+   754→"urlToImage": "https://i.blogs.es/fa2336/mac-mini/840_560.jpeg",
+   755→"publishedAt": "2026-07-07T08:00:40Z",
+   756→"content": "La conversación sobre inteligencia artificial en Apple suele girar alrededor de Apple Intelligence o la nueva Siri AI, pero lo cierto es que su estrategia va más allá de su IA propia. Cada vez hay má… [+4270 chars]"
+   757→},
+   758→-{
+   759→-"source": {
+   760→"id": null,
+   761→"name": "Applesfera.com"
+   762→},
+   763→"author": "Isra Fdez, Guille Lomener",
+   764→"title": "Trabajando \"100 horas, los siete días de la semana\". La montaña rusa que vivió este empleado de Apple en los comienzos",
+   765→"description": "Tal vez el nombre de Randy Wigginton no suene familiar ni a los más entusiastas de la tecnología. Sin embargo, fue una de las piezas clave en los inicios de Apple. Tanto es así que fue el empleado número 6 de la compañía, tal como revela su propia tarjeta de …",
+   766→"url": "https://www.applesfera.com/curiosidades/trabajando-100-horas-siete-dias-semana-montana-rusa-que-vivio-este-empleado-apple-comienzos",
+   767→"urlToImage": "https://i.blogs.es/7b9a87/randy/840_560.jpeg",
+   768→"publishedAt": "2026-07-07T16:01:19Z",
+   769→"content": "Tal vez el nombre de Randy Wigginton no suene familiar ni a los más entusiastas de la tecnología. Sin embargo, fue una de las piezas clave en los inicios de Apple. Tanto es así que fue el empleado nú… [+5158 chars]"
+   770→},
+   771→-{
+   772→-"source": {
+   773→"id": null,
+   774→"name": "Applesfera.com"
+   775→},
+   776→"author": "Guille Lomener",
+   777→"title": "Apple \"se ha pasado\" con iOS 27 beta 3: el nuevo efecto visual del fondo de pantalla es una genialidad",
+   778→"description": "Apple se ha pasado, pero en el buen sentido. Con la beta 3 de iOS 27 han conseguido un efecto que solo ellos podrían hacer, ese que pone de manifiesto el arte de Cupertino a la hora de trabajar los detalles visuales. Liquid Glass luce mejor que nunca y aprove…",
+   779→"url": "https://www.applesfera.com/ios/apple-se-ha-pasado-ios-27-beta-3-nuevo-efecto-visual-fondo-pantalla-genialidad",
+   780→"urlToImage": "https://i.blogs.es/dbce9d/ios-27/840_560.jpeg",
+   781→"publishedAt": "2026-07-07T09:00:40Z",
+   782→"content": "Apple se ha pasado, pero en el buen sentido. Con la beta 3 de iOS 27 han conseguido un efecto que solo ellos podrían hacer, ese que pone de manifiesto el arte de Cupertino a la hora de trabajar los d… [+2549 chars]"
+   783→},
+   784→-{
+   785→-"source": {
+   786→"id": null,
+   787→"name": "Applesfera.com"
+   788→},
+   789→"author": "Álvaro García M.",
+   790→"title": "En mi iPhone venían muchas apps ya instaladas. Yo me sigo quedando con esta (incluso si uso Android)",
+   791→"description": "Tengo la firme convicción de que es la aplicación más infravalorada de Apple. De hecho, la ignoré y busqué alternativas a ella durante años hasta que hace unos años empecé a exprimirla y ahora es insustituible. Tanto como para usarla incluso en Android, pese …",
+   792→"url": "https://www.applesfera.com/aplicaciones-ios/mi-iphone-venian-muchas-apps-instaladas-yo-me-sigo-quedando-esta-incluso-uso-android",
+   793→"urlToImage": "https://i.blogs.es/d25775/apps/840_560.jpeg",
+   794→"publishedAt": "2026-07-07T07:30:40Z",
+   795→"content": "Tengo la firme convicción de que es la aplicación más infravalorada de Apple. De hecho, la ignoré y busqué alternativas a ella durante años hasta que hace unos años empecé a exprimirla y ahora es ins… [+7727 chars]"
+   796→},
+   797→-{
+   798→-"source": {
+   799→"id": null,
+   800→"name": "Applesfera.com"
+   801→},
+   802→"author": "Guille Lomener",
+   803→"title": "La temporada 3 de 'Silo' hace historia y logra el ansiado 100% de la crítica. Lo que opina el público ya es otro tema",
+   804→"description": "Apple TV se ha ganado a pulso la etiqueta de mejor plataforma para la ciencia ficción. Separación, Para toda la humanidad, Fundación, Monarch: El legado de los monstruos... todas han funcionado bien con crítica y público a la vez. Por no hablar de Pluribus qu…",
+   805→"url": "https://www.applesfera.com/apple-tv/temporada-3-silo-hace-historia-logra-ansiado-100-critica-que-opina-publico-otro-tema",
+   806→"urlToImage": "https://i.blogs.es/9d6070/silo-apple/840_560.jpeg",
+   807→"publishedAt": "2026-07-07T17:01:19Z",
+   808→"content": "Apple TV se ha ganado a pulso la etiqueta de mejor plataforma para la ciencia ficción. Separación, Para toda la humanidad, Fundación, Monarch: El legado de los monstruos... todas han funcionado bien … [+5076 chars]"
+   809→},
+   810→-{
+   811→-"source": {
+   812→"id": null,
+   813→"name": "Applesfera.com"
+   814→},
+   815→"author": "Alberto García",
+   816→"title": "Hay localizadores más allá del AirTag: el de Xiaomi cuesta 9 euros y funciona con iPhone",
+   817→"description": "El AirTag es un accesorio tan útil que no es de extrañar que con el tiempo le haya salido muchísima competencia. En tiendas como Amazon o MediaMarkt hay muchísimos localizadores, pero uno en concreto suele destacar (mucho) desde su lanzamiento por la relación…",
+   818→"url": "https://www.applesfera.com/seleccion/hay-localizadores-alla-airtag-xiaomi-cuesta-9-euros-funciona-iphone",
+   819→"urlToImage": "https://i.blogs.es/8d2988/xiaomi-tag/840_560.jpeg",
+   820→"publishedAt": "2026-07-07T10:30:40Z",
+   821→"content": "El AirTag es un accesorio tan útil que no es de extrañar que con el tiempo le haya salido muchísima competencia. En tiendas como Amazon o MediaMarkt hay muchísimos localizadores, pero uno en concreto… [+2273 chars]"
+   822→},
+   823→-{
+   824→-"source": {
+   825→"id": null,
+   826→"name": "Applesfera.com"
+   827→},
+   828→"author": "Guille Lomener",
+   829→"title": "¿Cuándo llega la beta pública de iOS 27? Es la mejor versión de prueba que recordamos y está al caer",
+   830→"description": "En junio ya os contamos cómo iba a moverse el calendario de iOS 27 basándonos en el patrón de años anteriores, y la realidad se está ajustando casi al día a esa predicción. Estamos en la beta 3 para desarrolladores, la beta 2 llegó cuando tocaba, y todo apunt…",
+   831→"url": "https://www.applesfera.com/ios/cuando-llega-beta-publica-ios-27-mejor-version-prueba-que-recordamos-esta-al-caer",
+   832→"urlToImage": "https://i.blogs.es/5c2825/ios-27/840_560.jpeg",
+   833→"publishedAt": "2026-07-07T12:00:40Z",
+   834→"content": "En junio ya os contamos cómo iba a moverse el calendario de iOS 27 basándonos en el patrón de años anteriores, y la realidad se está ajustando casi al día a esa predicción. Estamos en la beta 3 para … [+3846 chars]"
+   835→},
+   836→-{
+   837→-"source": {
+   838→"id": null,
+   839→"name": "Applesfera.com"
+   840→},
+   841→"author": "Álvaro García M.",
+   842→"title": "Un enchufe de 10 euros ha conectado mi iPhone con el antimosquitos. Es el mejor truco para dormir con la ventana abierta en verano",
+   843→"description": "Harto de los zumbidos nocturnos de los mosquitos (y de sus picaduras, que son aún peor), soy de los que recurre al clásico difusor de \"aroma antimosquitos\" que se conecta a un enchufe y los ahuyenta. Está demostrado que funcionan, pero también que se agotan r…",
+   844→"url": "https://www.applesfera.com/tutoriales/enchufe-10-euros-ha-conectado-mi-iphone-antimosquitos-mejor-truco-para-dormir-ventana-abierta-verano",
+   845→"urlToImage": "https://i.blogs.es/331d98/enchufe-mosquitos/840_560.png",
+   846→"publishedAt": "2026-07-07T15:00:41Z",
+   847→"content": "Harto de los zumbidos nocturnos de los mosquitos (y de sus picaduras, que son aún peor), soy de los que recurre al clásico difusor de \"aroma antimosquitos\" que se conecta a un enchufe y los ahuyenta.… [+6282 chars]"
+   848→},
+   849→-{
+   850→-"source": {
+   851→"id": null,
+   852→"name": "Applesfera.com"
+   853→},
+   854→"author": "Álvaro García M.",
+   855→"title": "WhatsApp estrenará pronto los \"puntos verdes\" en tu iPhone. Supondrá el adiós de los \"en línea\"",
+   856→"description": "WhatsApp está ya probando un pequeño cambio en su interfaz para mejorar la forma en la que sabemos si un contacto está o no conectado. Desde hace años, esto es algo que se ve fácilmente con los famosos mensajes de \"En línea\" que aparecen bajo su nombre.\n<!-- …",
+   857→"url": "https://www.applesfera.com/aplicaciones-ios/whatsapp-estrenara-pronto-puntos-verdes-tu-iphone-supondra-adios-linea",
+   858→"urlToImage": "https://i.blogs.es/118f78/whatsapp-puntos-verdes/840_560.jpeg",
+   859→"publishedAt": "2026-07-07T10:00:41Z",
+   860→"content": "WhatsApp está ya probando un pequeño cambio en su interfaz para mejorar la forma en la que sabemos si un contacto está o no conectado. Desde hace años, esto es algo que se ve fácilmente con los famos… [+2290 chars]"
+   861→},
+   862→-{
+   863→-"source": {
+   864→"id": null,
+   865→"name": "Applesfera.com"
+   866→},
+   867→"author": "Pedro Aznar",
+   868→"title": "\"La IA te crea clips con lo más importante de tus podcasts pendientes\": hablamos con Fede García sobre Micropod, la \"superapp\" para podcasts",
+   869→"description": "Es verano y probablemente tengamos más tiempo que nunca para escuchar nuestros podcasts favoritos. Pero no tenemos que hacerlo necesariamente con Apple Podcasts... Micropod nace para resolver uno de los problemas más habituales de quienes escuchamos muchos po…",
+   870→"url": "https://www.applesfera.com/analisis/ia-te-crea-clips-importante-tus-podcasts-pendientes-hablamos-fede-garcia-desarrollador-micropod",
+   871→"urlToImage": "https://i.blogs.es/b27711/micropod-review-aps-002/840_560.jpeg",
+   872→"publishedAt": "2026-07-07T11:00:41Z",
+   873→"content": "Es verano y probablemente tengamos más tiempo que nunca para escuchar nuestros podcasts favoritos. Pero no tenemos que hacerlo necesariamente con Apple Podcasts... Micropod nace para resolver uno de … [+8975 chars]"
+   874→},
+   875→-{
+   876→-"source": {
+   877→"id": null,
+   878→"name": "MakeUseOf"
+   879→},
+   880→"author": "Amir Bohlooli",
+   881→"title": "It's officially the end of an era for Adobe",
+   882→"description": "Adobe is no longer inevitable.",
+   883→"url": "https://www.makeuseof.com/end-of-an-era-for-adobe-creative-software/",
+   884→"urlToImage": "https://static0.makeuseofimages.com/wordpress/wp-content/uploads/wm/2026/07/adobe-logo-made-from-vintage-photoshop-floppy-disks.jpg?w=1600&h=900&fit=crop",
+   885→"publishedAt": "2026-07-07T13:41:19Z",
+   886→"content": "There was a time when using Adobe was not really a choice. If you edited images, you used Photoshop. If you worked in vector graphics, you used Illustrator. If you handled layout, you used InDesign. … [+15223 chars]"
+   887→},
+   888→-{
+   889→-"source": {
+   890→"id": null,
+   891→"name": "Presse-citron"
+   892→},
+   893→"author": "Mathilde Rochefort",
+   894→"title": "Apple a-t-elle « volé » des millions de vidéos YouTube pour son IA ? Tout savoir sur l’affaire qui secoue l’écosystème tech",
+   895→"description": "Pour nourrir son intelligence artificielle, Apple a-t-elle le droit de piller gratuitement les vidéos des YouTubeurs ? C'est tout l'enjeu d'une bataille juridique explosive.",
+   896→"url": "https://www.presse-citron.net/apple-vole-millions-videos-youtube-pouria-tout-savoir-affaire-secoue-ecosysteme-tech/",
+   897→"urlToImage": "https://www.presse-citron.net/app/uploads/2025/09/Apple-logo-5-1600x900.jpg",
+   898→"publishedAt": "2026-07-07T16:00:15Z",
+   899→"content": "Lintelligence artificielle a un appétit insatiable, et pour se développer, elle doit ingurgiter dinnombrables données. Mais où les géants de la tech trouvent-ils cette matière première ? Pour plusieu… [+3659 chars]"
+   900→},
+   901→-{
+   902→-"source": {
+   903→"id": null,
+   904→"name": "XDA Developers"
+   905→},
+   906→"author": "Tanveer Singh",
+   907→"title": "Framework proved repairable laptops can work, but almost nobody is willing to buy one",
+   908→"description": "The company proved that there's a demand for modular laptops, but it's not nearly enough",
+   909→"url": "https://www.xda-developers.com/framework-repairable-laptops-work-but-nobody-willing-to-buy/",
+   910→"urlToImage": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2024/10/framework-laptop-13-amd-unboxing-2.jpg?w=1600&h=900&fit=crop",
+   911→"publishedAt": "2026-07-07T00:00:23Z",
+   912→"content": "The right-to-repair movement isn't new, but if you think of a consumer-focused brand selling modular or repairable (or both) devices, that trend is pretty new. Framework's modular laptops lead the PC… [+7165 chars]"
+   913→},
+   914→-{
+   915→-"source": {
+   916→"id": null,
+   917→"name": "Search Engine Journal"
+   918→},
+   919→"author": "Sara Vordermeier",
+   920→"title": "Local Marketing Is Too Complex: What the Data Says & What To Do",
+   921→"description": "Learn how multi-location brands fix complex marketing & GBP challenges with an AI layer and a 4-step local optimization framework.\nThe post Local Marketing Is Too Complex: What the Data Says & What To Do appeared first on Search Engine Journal.",
+   922→"url": "https://www.searchenginejournal.com/local-search-marketing-trends-uberall-spa/581648/",
+   923→"urlToImage": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/featured-644.png",
+   924→"publishedAt": "2026-07-07T18:31:30Z",
+   925→"content": "This post was sponsored by Uberall. The opinions expressed in this article are the sponsor’s own.\r\nShould I add more AI tools to manage local listings and reviews, or is that making it worse?\r\nWho sh… [+11131 chars]"
+   926→},
+   927→-{
+   928→-"source": {
+   929→"id": null,
+   930→"name": "Android Authority"
+   931→},
+   932→"author": "Tushar Mehta",
+   933→"title": "Survey says Android users won’t jump ship to iPhone just for smarter AI",
+   934→"description": "Survey results show AI features like Apple Intelligence aren't convincing Android users to switch to iPhone.",
+   935→"url": "https://www.androidauthority.com/android-switch-to-iphone-for-siri-survey-3684808/",
+   936→"urlToImage": "https://www.androidauthority.com/wp-content/uploads/2026/06/siri-ai-vs-gemini-ai-2-e1781538601462.jpg",
+   937→"publishedAt": "2026-07-07T12:25:55Z",
+   938→"content": "Its fairly common for people to prefer and stick to a single operating system, despite its niggles, just so they can continue using specific features. But with an era where generational OS updates ar… [+2433 chars]"
+   939→},
+   940→-{
+   941→-"source": {
+   942→"id": null,
+   943→"name": "Android Authority"
+   944→},
+   945→"author": "Jay Bonggolto",
+   946→"title": "New iPhone 18 Pro Max battery details leak, and Samsung should be very worried",
+   947→"description": "Apple may finally be matching Android's battery playbook, with the iPhone 18 Pro Max tipped for its biggest battery yet.",
+   948→"url": "https://www.androidauthority.com/apple-iphone-18-pro-battery-leak-3684726/",
+   949→"urlToImage": "https://www.androidauthority.com/wp-content/uploads/2025/09/iPhone-17-Pro-Max-Deep-Blue-rear-side-on.jpg",
+   950→"publishedAt": "2026-07-07T08:08:38Z",
+   951→"content": "<ul><li>Apple may finally be embracing bigger batteries, with the iPhone 18 Pro Max reportedly getting a 5,567mAh cell in the US.</li><li>US models pack larger batteries than Chinese variants thanks … [+2673 chars]"
+   952→},
+   953→-{
+   954→-"source": {
+   955→"id": null,
+   956→"name": "Android Authority"
+   957→},
+   958→"author": "Akshay Gangwar",
+   959→"title": "Never mind Apple and Samsung, this could be the definitive ‘Wide Fold’ to get",
+   960→"description": "HONOR is working on a wide foldable phone with impressive specs including a 7,000mAh battery, Snapdragon 8 Elite Gen 6 series, and more.",
+   961→"url": "https://www.androidauthority.com/honor-wide-fold-battery-processor-display-specs-3684811/",
+   962→"urlToImage": "https://www.androidauthority.com/wp-content/uploads/2026/03/Oppo-Find-N6-Side-on-no-crease.jpg",
+   963→"publishedAt": "2026-07-07T12:24:38Z",
+   964→"content": "<ul><li>A new leak states that HONORs upcoming wide folding phone will feature a ~7,000mAh battery.</li><li>The phone could also come with the Snapdragon 8 Elite Gen 6 series chipset, a 7.6-inch inne… [+2004 chars]"
+   965→},
+   966→-{
+   967→-"source": {
+   968→"id": null,
+   969→"name": "Android Authority"
+   970→},
+   971→"author": "Hadlee Simons",
+   972→"title": "Nothing Phone 4b launched: Unique design for all, big battery for some",
+   973→"description": "Nothing has finally launched the Nothing Phone 4b, bringing a slick design and capable internals. But not everyone will get that huge battery.",
+   974→"url": "https://www.androidauthority.com/nothing-phone-4b-3684722/",
+   975→"urlToImage": "https://www.androidauthority.com/wp-content/uploads/2026/07/Nothing-Phone-4b-blue-scaled.jpg",
+   976→"publishedAt": "2026-07-07T10:30:35Z",
+   977→"content": "<ul><li>Nothing has launched the Nothing Phone 4b in Europe, India, and the UK.</li><li>The new phone has a unique design and dual rear cameras, but battery capacity varies between India and the rest… [+3310 chars]"
+   978→},
+   979→-{
+   980→-"source": {
+   981→"id": null,
+   982→"name": "Presse-citron"
+   983→},
+   984→"author": "Romain Pomian-Bonnemaison",
+   985→"title": "iPhone : que signifie ce point vert que vous voyez apparaître en haut de votre téléphone ?",
+   986→"description": "Peu de gens connaissent la signification du point vert ou orange qui apparaît parfois en haut de l'écran des iPhone. Il s'agit pourtant d'une info très utile pour déceler une tentative de piratage.",
+   987→"url": "https://www.presse-citron.net/iphone-que-signifie-ce-point-vert-que-vous-voyez-apparaitre-en-haut-de-votre-telephone/",
+   988→"urlToImage": "https://www.presse-citron.net/app/uploads/2022/02/iphone-point-vert.jpg",
+   989→"publishedAt": "2026-07-07T13:52:34Z",
+   990→"content": "Depuis iOS 14 Apple a ajouté une série d’indicateurs pour permettre à l’utilisateur de se rendre compte de l’utilisation du smartphone par les applications, en particulier tierces. Or, on s’est surto… [+2855 chars]"
+   991→},
+   992→-{
+   993→-"source": {
+   994→"id": null,
+   995→"name": "BGR"
+   996→},
+   997→"author": "staff@bgr.com (Gaurav Shukla)",
+   998→"title": "Are Samsung Phones MagSafe Compatible?",
+   999→"description": "MagSafe is among the best features introduced by Apple on iPhone devices. But are Samsung phones compatible with it? Here's the answer you're looking for.",
+  1000→"url": "https://www.bgr.com/2206580/are-samsung-phone-magsafe-compatible/",
+  1001→"urlToImage": "https://www.bgr.com/img/gallery/are-samsung-phones-magsafe-compatible/l-intro-1782989777.jpg",
+  1002→"publishedAt": "2026-07-07T01:47:00Z",
+  1003→"content": "One of the biggest benefits of having MagSafe on your phone is the support for fast magnetic wireless charging. Most iPhones support 15W charging via MagSafe, with newer models capable of up to 25W M… [+1100 chars]"
+  1004→},
+  1005→-{
+  1006→-"source": {
+  1007→"id": null,
+  1008→"name": "BGR"
+  1009→},
+  1010→"author": "staff@bgr.com (Chris Smith)",
+  1011→"title": "Why Doesn't Google Maps Work In South Korea?",
+  1012→"description": "Google and South Korea recently came to an agreement allowing Google Maps to use a vital data source, but full driving navigation is still missing from the app.",
+  1013→"url": "https://www.bgr.com/2207179/why-google-maps-doesnt-work-south-korea/",
+  1014→"urlToImage": "https://www.bgr.com/img/gallery/why-doesnt-google-maps-work-in-south-korea/l-intro-1783018434.jpg",
+  1015→"publishedAt": "2026-07-07T15:17:00Z",
+  1016→"content": "In late February 2026, the South Korean government announced that it would let Google export the detailed map data it needs to provide services like driving directions, but only if Google implements … [+1608 chars]"
+  1017→},
+  1018→-{
+  1019→-"source": {
+  1020→"id": null,
+  1021→"name": "BGR"
+  1022→},
+  1023→"author": "staff@bgr.com (Nichols deCourville)",
+  1024→"title": "10 Samsung Wearables That Can Still Work With Your iPhone",
+  1025→"description": "There are 10 different Samsung watches that pair to an iPhone, though users expecting anything from Samsung's modern lineup are likely to be disappointed.",
+  1026→"url": "https://www.bgr.com/2206614/samsung-wearable-still-work-with-iphone/",
+  1027→"urlToImage": "https://www.bgr.com/img/gallery/10-samsung-wearables-that-can-still-work-with-your-iphone/l-intro-1782995034.jpg",
+  1028→"publishedAt": "2026-07-07T02:17:00Z",
+  1029→"content": "For watches that are compatible with an Apple smartphone, the list is rather short. From the Galaxy Watch series, only the original Watch from 2018 is supported. However, both the Galaxy Watch Active… [+1178 chars]"
+  1030→},
+  1031→-{
+  1032→-"source": {
+  1033→"id": null,
+  1034→"name": "Internet"
+  1035→},
+  1036→"author": "info@thehackernews.com (The Hacker News)",
+  1037→"title": "Court Filing Reveals Windows Device ID Helped FBI Trace Alleged Scattered Spider Hacker",
+  1038→"description": "U.S. prosecutors linked an alleged Scattered Spider hacker to a break-in at a luxury jewelry retailer using a persistent Windows device ID, according to a newly unsealed federal complaint.\n\nMicrosoft records tied that ID first to the account the attackers use…",
+  1039→"url": "https://thehackernews.com/2026/07/court-filing-reveals-windows-device-id.html",
+  1040→"urlToImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRD_854zsswRvh7xWklnbEkAjmk7UZy_-dQzlueMbq1ib7deDs-QH0av7XRZ1WEq3vcX57cDDcioIdkebKCiF7qr8xC9Evw7GmFuDS0kQt3mnpXgb3Q2H62eHPIgCy3rk1Mj3uM-Mge0XTfMgSCGaumk3i5KatoyrFnu_PUhg8cZGY1ZAd185qsNqZ1jE/s1700-e365/md-id.jpg",
+  1041→"publishedAt": "2026-07-07T13:27:20Z",
+  1042→"content": "U.S. prosecutors linked an alleged Scattered Spider hacker to a break-in at a luxury jewelry retailer using a persistent Windows device ID, according to a newly unsealed federal complaint.\r\nMicrosoft… [+4775 chars]"
+  1043→},
+  1044→-{
+  1045→-"source": {
+  1046→"id": null,
+  1047→"name": "Torrentfreak.com"
+  1048→},
+  1049→"author": "Ernesto Van der Sar",
+  1050→"title": "‘Tonga’ Suspends Popular Pirate Site Domains Following Indian Court Order",
+  1051→"description": "For years, Tonga's .to domain names have been a popular choice for pirate sites, but that may very well change. Following a restructuring of the domain name operation, the Government of the Kingdom of Tonga appears to have suspended several domains, including…",
+  1052→"url": "https://torrentfreak.com/tonga-suspends-popular-pirate-site-domains-following-indian-court-order/",
+  1053→"urlToImage": "https://torrentfreak.com/images/cards-feat.jpg",
+  1054→"publishedAt": "2026-07-07T08:30:01Z",
+  1055→"content": "Last December, the High Court in New Delhi, India, granted a broad pirate site blocking order in favor of American movie industry giants, including Apple, Warner, Netflix, Disney and Crunchyroll.\r\nIn… [+5194 chars]"
+  1056→},
+  1057→-{
+  1058→-"source": {
+  1059→"id": null,
+  1060→"name": "Faz.net"
+  1061→},
+  1062→"author": "https://www.facebook.com/faz",
+  1063→"title": "Rhein-Main-Feierabendbriefing: Nassauische Heimstätte drohen bis 2030 Millionenverluste",
+  1064→"description": "Herausforderungen der Nassauischen Heimstätte, den Gründungsboom in Hessen, Hitzeschutzmaßnahmen in Wiesbaden und einen vereitelten Auftragsmord in Frankfurt. Der F.A.Z.-Podcast Rhein-Main Feierabend-Briefing informiert über die Themen der Region.",
+  1065→"url": "https://www.faz.net/podcasts/rhein-main-feierabendbriefing/rhein-main-feierabend-briefing-nassauische-heimstaette-drohen-bis-2030-millionenverluste-201007355.html",
+  1066→"urlToImage": "https://media0.faz.net/image/w1200h627/3cf944daaab4/w6000h3135x0y433o/202607/43601.0.2304781664/nassauische-heimstaette.webp",
+  1067→"publishedAt": "2026-07-07T15:00:00Z",
+  1068→"content": "1. Nassauische Heimstätte fürchtet um Millionen aus Berlin: Die Nassauische Heimstätte steht vor finanziellen Herausforderungen, da sie von Förderprogrammen des Bundes ausgeschlossen wurde. Trotz der… [+2153 chars]"
+  1069→},
+  1070→-{
+  1071→-"source": {
+  1072→"id": null,
+  1073→"name": "Faz.net"
+  1074→},
+  1075→"author": "Benjamin Wagener, Ravensburg",
+  1076→"title": "Batteriehersteller in Not: Deutsche Bank lässt möglichen Varta-Retter zappeln",
+  1077→"description": "Das Angebot zur Rettung Vartas liegt seit fast vier Wochen auf dem Tisch. Die Gläubiger haben aber noch immer nicht mit dem Investor gesprochen. Ist eine Zerschlagung des Batterieherstellers geplant?",
+  1078→"url": "https://www.faz.net/aktuell/wirtschaft/unternehmen/varta-rettung-blockiert-die-deutsche-bank-investor-pino-sergio-accg-201004035.html",
+  1079→"urlToImage": "https://media0.faz.net/image/w1200h627/228e8d24d6bf/w3000h1567x0y373o/202306/43600.0.1897735134/batterien-des-baden.webp",
+  1080→"publishedAt": "2026-07-07T10:05:11Z",
+  1081→"content": "Noch immer gibt es keine Verhandlungen zwischen den Gläubigern des angeschlagenen Batterieherstellers Varta und dem Schweizer Investor Pino Sergio, der mit seiner Allswiss-Gruppe die Darlehensgeber a… [+9246 chars]"
+  1082→},
+  1083→-{
+  1084→-"source": {
+  1085→"id": null,
+  1086→"name": "PetaPixel"
+  1087→},
+  1088→"author": "Matt Growcoot",
+  1089→"title": "iPhone 16 Falls Into the Sea, Films Fish and Its Own Rescue",
+  1090→"description": "A woman on holiday in Greece has handed Apple a remarkable advertisement after her iPhone 16 Pro fell into the sea for 11 minutes and kept recording until it was fished out by a diver.\n[Read More]",
+  1091→"url": "https://petapixel.com/2026/07/07/iphone-16-falls-into-the-sea-films-fish-and-its-own-rescue/",
+  1092→"urlToImage": "https://petapixel.com/assets/uploads/2026/07/iPhone-Falls-in-Sea.jpg",
+  1093→"publishedAt": "2026-07-07T19:10:00Z",
+  1094→"content": "The iPhone 16 Pro filmed from the seabed for 11 minutes before it was miraculously recovered\r\nA woman on holiday in Greece has handed Apple a remarkable advertisement after her iPhone 16 Pro fell int… [+2061 chars]"
+  1095→},
+  1096→-{
+  1097→-"source": {
+  1098→"id": null,
+  1099→"name": "PetaPixel"
+  1100→},
+  1101→"author": "Jeremy Gray",
+  1102→"title": "Discord Banned Around 8,200 Users for Posting Inoffensive Images of Grids",
+  1103→"description": "Like many online platforms, Discord has safety systems in place to automatically detect and flag abusive, illegal, and otherwise harmful content. This system bugged out in a very odd way over the past few months, leading to thousands of users being incorrectl…",
+  1104→"url": "https://petapixel.com/2026/07/07/discord-banned-around-8200-users-for-posting-inoffensive-images-of-grids/",
+  1105→"urlToImage": "https://petapixel.com/assets/uploads/2026/07/discord-ban-featured.jpg",
+  1106→"publishedAt": "2026-07-07T19:13:16Z",
+  1107→"content": "Like many online platforms, Discord has safety systems in place to automatically detect and flag abusive, illegal, and otherwise harmful content. This system bugged out in a very odd way over the pas… [+4235 chars]"
+  1108→},
+  1109→-{
+  1110→-"source": {
+  1111→"id": null,
+  1112→"name": "Vox"
+  1113→},
+  1114→"author": "Danielle Hewitt, Noel King",
+  1115→"title": "Democratic socialists have big plans for 2028",
+  1116→"description": "The Democratic Socialists of America have notched some impressive primary wins over the past couple of weeks. In New York, two DSA members beat Democratic establishment candidates — including the sitting chair of the Congressional Hispanic Caucus — in House p…",
+  1117→"url": "https://www.vox.com/podcasts/494522/democratic-socialism-dsa-co-chair-megan-romer-wins-controversies-2028",
+  1118→"urlToImage": "https://platform.vox.com/wp-content/uploads/sites/2/2026/07/gettyimages-2281700082.jpg?quality=90&strip=all&crop=0%2C10.737892056687%2C100%2C78.524215886627&w=1200",
+  1119→"publishedAt": "2026-07-07T20:09:53Z",
+  1120→"content": "Sen. Bernie Sanders (I-VT) and Zohran Mamdani during a \"Get Out The Vote\" rally in Brooklyn on June 18, 2026. | Adam Gray/Bloomberg via Getty Images\r\n\n\nThe Democratic Socialists of America have notch… [+10584 chars]"
+  1121→},
+  1122→-{
+  1123→-"source": {
+  1124→"id": null,
+  1125→"name": "MacRumors"
+  1126→},
+  1127→"author": "Juli Clover",
+  1128→"title": "iOS 27: 13 Ways the Messages App is Smarter and Less Annoying",
+  1129→"description": "The Messages app is arguably the most important app on the iPhone, and in iOS 27, Apple is adding some useful improvements. There are some quality-of-life fixes for longtime issues, and new AI features.\n\n\n\n\n\nContextual Suggestions\n\nMessages uses Apple Intelli…",
+  1130→"url": "https://www.macrumors.com/guide/ios-27-messages/",
+  1131→"urlToImage": "https://images.macrumors.com/t/8uP6lW9Moaij5PHMlEQqkYWnI2M=/1600x/article-new/2026/07/iOS-27-13-Ways-the-Messages-App-is-Smarter-and-Less-Annoying-Vertical.jpg",
+  1132→"publishedAt": "2026-07-07T23:25:08Z",
+  1133→"content": "The Messages app is arguably the most important app on the iPhone, and in iOS 27, Apple is adding some useful improvements. There are some quality-of-life fixes for longtime issues, and new AI featur… [+5003 chars]"
+  1134→},
+  1135→-{
+  1136→-"source": {
+  1137→"id": null,
+  1138→"name": "MacRumors"
+  1139→},
+  1140→"author": "Joe Rossignol",
+  1141→"title": "iOS 27 Public Beta is Coming Soon",
+  1142→"description": "Apple previously announced that the first iOS 27 public beta would be released in July, meaning that it should be available at some point this month.\n\n\n\n\n\nBelow, we have outlined how to get ready for the iOS 27 public beta, which will likely follow the third …",
+  1143→"url": "https://www.macrumors.com/2026/07/07/ios-27-public-beta-is-coming-soon/",
+  1144→"urlToImage": "https://images.macrumors.com/t/H9CMBRmw3tzFTEh1pfzWGGINEcI=/2500x/article-new/2026/06/iOS-27-Install-Beta-Feature.jpg",
+  1145→"publishedAt": "2026-07-07T19:03:37Z",
+  1146→"content": "Apple previously announced that the first iOS 27 public beta would be released in July, meaning that it should be available at some point this month.\r\nBelow, we have outlined how to get ready for the… [+1833 chars]"
+  1147→},
+  1148→-{
+  1149→-"source": {
+  1150→"id": null,
+  1151→"name": "Les Numériques"
+  1152→},
+  1153→"author": "Arthur Letang",
+  1154→"title": "Test Nothing Ear (3a) : la preuve qu'une signature sonore réussie n'est pas une question de prix",
+  1155→"description": "Après avoir bousculé le segment des écouteurs abordables avec les Ear (a), Nothing renouvelle sa formule avec les Ear (3a). Design transparent, compatibilité LDAC, égaliseur paramétrique et promesse d’un excellent rapport qualité-prix : sur le papier, les Ear…",
+  1156→"url": "https://www.lesnumeriques.com/ecouteurs-sans-fil/nothing-ear-3a-p78522/test.html",
+  1157→"urlToImage": "https://cdn.lesnumeriques.com/optim/test/25/258879/61b7231f-nothing-ear-3a__1200_678__220-214-2619-1473_wtmk.jpg",
+  1158→"publishedAt": "2026-07-07T10:30:00Z",
+  1159→"content": "Nothing a déjà prouvé quil savait décliner ses écouteurs premium en versions plus accessibles, sans compromis majeurs. Succédant aux populaires Ear (a), les Ear (3a) reprennent cette recette face aux… [+16528 chars]"
+  1160→},
+  1161→-{
+  1162→-"source": {
+  1163→"id": null,
+  1164→"name": "Xatakamovil.com"
+  1165→},
+  1166→"author": "Pepu Ricca",
+  1167→"title": "He Tingbo, directora de chips de Huawei: \"Es la primera vez que China propone un nuevo principio para la industria global de chips\"",
+  1168→"description": "El escenario dado por las restricciones comerciales impuestas por Estados Unidos pretendía ser un infierno para la industria de semiconductores de China. Sin embargo, la fundición local de SMIC y el músculo de diseño de HiSilicon han terminado por despertar a…",
+  1169→"url": "https://www.xatakamovil.com/movil-y-sociedad/he-tingbo-directora-chips-huawei-primera-vez-que-china-propone-nuevo-principio-para-industria-global-chips",
+  1170→"urlToImage": "https://i.blogs.es/b23138/huawei-kirin-he-tingbo/840_560.jpeg",
+  1171→"publishedAt": "2026-07-07T13:00:41Z",
+  1172→"content": "El escenario dado por las restricciones comerciales impuestas por Estados Unidos pretendía ser un infierno para la industria de semiconductores de China. Sin embargo, la fundición local de SMIC y el … [+3445 chars]"
+  1173→},
+  1174→-{
+  1175→-"source": {
+  1176→"id": null,
+  1177→"name": "Xatakamovil.com"
+  1178→},
+  1179→"author": "Manuel Naranjo",
+  1180→"title": "Kim Yong-kwan, presidente de la división DS de Samsung: \"ganaremos este año más que en 40 años de historia en semiconductores\"",
+  1181→"description": "El pasado 3 de julio, Kim Yong-kwan, presidente y responsable de estrategia corporativa de la división de semiconductores (DS) de Samsung Electronics, reunió a parte de la plantilla en un town hall interno. Lo que dijo entonces no era una cifra oficial ni un …",
+  1182→"url": "https://www.xatakamovil.com/samsung/kim-yong-kwan-presidente-division-ds-samsung-ganaremos-este-ano-que-40-anos-historia-semiconductores",
+  1183→"urlToImage": "https://i.blogs.es/5721b2/kim-yong-kwan-y-los-chips-samsung/840_560.jpeg",
+  1184→"publishedAt": "2026-07-07T14:00:41Z",
+  1185→"content": "El pasado 3 de julio, Kim Yong-kwan, presidente y responsable de estrategia corporativa de la división de semiconductores (DS) de Samsung Electronics, reunió a parte de la plantilla en un town hall i… [+3449 chars]"
+  1186→},
+  1187→-{
+  1188→-"source": {
+  1189→"id": null,
+  1190→"name": "Xatakamovil.com"
+  1191→},
+  1192→"author": "Manuel Naranjo",
+  1193→"title": "Samsung supera a NVIDIA y se convierte en la empresa más rentable del mundo",
+  1194→"description": "Samsung ha presentado este martes sus resultados preliminares del segundo trimestre de 2026, y la cifra que encabeza el informe no deja demasiado espacio para la sorpresa: 89,4 billones de wones de beneficio operativo, unos 51.500 millones de euros.\n<!-- BREA…",
+  1195→"url": "https://www.xatakamovil.com/territorio-samsung/samsung-supera-a-nvidia-se-convierte-empresa-rentable-mundo",
+  1196→"urlToImage": "https://i.blogs.es/141618/samsung-gana-a-nvidia/840_560.jpeg",
+  1197→"publishedAt": "2026-07-07T12:34:39Z",
+  1198→"content": "Samsung ha presentado este martes sus resultados preliminares del segundo trimestre de 2026, y la cifra que encabeza el informe no deja demasiado espacio para la sorpresa: 89,4 billones de wones de b… [+2656 chars]"
+  1199→},
+  1200→-{
+  1201→-"source": {
+  1202→"id": null,
+  1203→"name": "36kr.com"
+  1204→},
+  1205→"author": null,
+  1206→"title": "揭秘字节 Seedance：中国第一台大模型印钞机启动了 | 深氪",
+  1207→"description": "采访 | 邓咏仪 肖思佳 李小霞\n 文 | 张雨忻 邓咏仪\n 编辑 | 张雨忻 杨轩\n 2025 年底，在一次模型团队的聚餐上，Seedance 模型的负责人曾妍向 leader 提到，她还是想试试训一个更大尺寸的模型，至少达到 200B（2000亿参数）。\n 曾妍是字节 Seed 一位非常年轻的研究员，2021 年校招生，研究方向始终聚焦在视频理解与生成上。“她一直都挺有自己的技术判断。” 一位与曾妍打过交道的人告诉 36 氪，“而且很主动，对于相信的事情比较坚持，会想办法争取资源去实现。”\n 这个评价几乎复现…",
+  1208→"url": "https://36kr.com/p/3885177884078083",
+  1209→"urlToImage": "https://img.36krcdn.com/hsossms/20260707/v2_4ac86e2e9ea94d648efec461822a4ed8@1104_oswg1148264oswg1053oswg495_img_png?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center",
+  1210→"publishedAt": "2026-07-07T07:30:26Z",
+  1211→"content": "| \r\n | \r\n | \r\n2025 Seedance leader 200B2000\r\n Seed 2021 36 \r\n Seedance2.0 scale up 200B-300B 100B 36 \r\n Seedance2.0 Seed Seed \r\nSeedance 2.0 \r\n AI Seedance 2.0 2025 1.6Coding 2.1 GLMKimiDeepSeek Seed… [+2040 chars]"
+  1212→},
+  1213→-{
+  1214→-"source": {
+  1215→"id": null,
+  1216→"name": "Rolling Stone"
+  1217→},
+  1218→"author": "Chris Kobiella",
+  1219→"title": "Timothy Olyphant’s Career Is in a ‘Sweet Spot’ — All He Has to Do Is Not Ruin It",
+  1220→"description": "With two new shows out this month, the veteran actor talks about fame and longevity in Hollywood, playing cowboys and bad guys, and the truth about most directors’ notes",
+  1221→"url": "http://www.rollingstone.com/tv-movies/tv-movie-features/timothy-olyphant-five-star-weekend-lucky-interview-1235581823/",
+  1222→"urlToImage": "https://www.rollingstone.com/wp-content/uploads/2026/06/RollingStone_2026_TimothyOlyphant_FINAL-2.jpg?crop=0px%2C77px%2C1174px%2C663px&resize=1600%2C900",
+  1223→"publishedAt": "2026-07-07T14:30:00Z",
+  1224→"content": "He’s not even going to deny it — Timothy Olyphant is having a pretty damn good time. \r\nAt 58, the actor has more than a few memorable roles on his resume. He played stormy lawman Seth Bullock in the … [+11629 chars]"
+  1225→},
+  1226→-{
+  1227→-"source": {
+  1228→"id": null,
+  1229→"name": "Caschys Blog"
+  1230→},
+  1231→"author": "Olli",
+  1232→"title": "Siri AI landet mit watchOS 27 Beta 3 auf der Apple Watch",
+  1233→"description": "Apple bringt die überarbeitete Siri-Erfahrung auf die Apple Watch. Mit der gestern veröffentlichten dritten Entwickler-Beta von watchOS 27 ist Siri AI erstmals auf der Uhr mit an Bord, nachdem Apple das Ganze bereits zur WWDC im Juni angekündigt hatte. In...Z…",
+  1234→"url": "https://stadt-bremerhaven.de/siri-ai-landet-mit-watchos-27-beta-3-auf-der-apple-watch/",
+  1235→"urlToImage": "https://stadt-bremerhaven.de/wp-content/uploads/2025/04/Apple-Watch-Ringe.jpg",
+  1236→"publishedAt": "2026-07-07T17:30:46Z",
+  1237→"content": "Apple bringt die überarbeitete Siri-Erfahrung auf die Apple Watch. Mit der gestern veröffentlichten dritten Entwickler-Beta von watchOS 27 ist Siri AI erstmals auf der Uhr mit an Bord, nachdem Apple … [+1070 chars]"
+  1238→},
+  1239→-{
+  1240→-"source": {
+  1241→"id": null,
+  1242→"name": "Caschys Blog"
+  1243→},
+  1244→"author": "Olli",
+  1245→"title": "macOS 27: Apple ergänzt neue Golden-Gate-Hintergründe",
+  1246→"description": "Apple hat mit der dritten Beta von macOS 27 neue Hintergrundbilder für den Mac nachgelegt. Neben dem bereits aus der ersten Beta bekannten abstrakten Golden-Gate-Wallpaper sind nun auch „Golden Gate Sunset“ und „Golden Gate Night“ mit an Bord. Die beiden...Zu…",
+  1247→"url": "https://stadt-bremerhaven.de/macos-27-apple-ergaenzt-neue-golden-gate-hintergruende/",
+  1248→"urlToImage": "https://stadt-bremerhaven.de/wp-content/uploads/2026/05/ios-27.jpg",
+  1249→"publishedAt": "2026-07-07T06:45:18Z",
+  1250→"content": "Apple hat mit der dritten Beta von macOS 27 neue Hintergrundbilder für den Mac nachgelegt. Neben dem bereits aus der ersten Beta bekannten abstrakten Golden-Gate-Wallpaper sind nun auch Golden Gate S… [+1875 chars]"
+  1251→},
+  1252→-{
+  1253→-"source": {
+  1254→"id": null,
+  1255→"name": "Caschys Blog"
+  1256→},
+  1257→"author": "Olli",
+  1258→"title": "Apple Intelligence in der Home-App: Kamera-Funktionen erfordern iCloud+ mit 2 TB",
+  1259→"description": "Apple wird die neuen Apple-Intelligence-Funktionen für Kameras in der Home-App offenbar an ein größeres iCloud+-Abo koppeln. Laut Apples Hinweisen zur dritten Beta von macOS Golden Gate wird dafür mindestens der 2-TB-Tarif benötigt. Konkret geht es um HomeKit…",
+  1260→"url": "https://stadt-bremerhaven.de/apple-intelligence-in-der-home-app-kamera-funktionen-erfordern-icloud-mit-2-tb/",
+  1261→"urlToImage": "https://stadt-bremerhaven.de/wp-content/uploads/2026/06/apple-home.jpg",
+  1262→"publishedAt": "2026-07-07T06:00:36Z",
+  1263→"content": "Apple wird die neuen Apple-Intelligence-Funktionen für Kameras in der Home-App offenbar an ein größeres iCloud+-Abo koppeln. Laut Apples Hinweisen zur dritten Beta von macOS Golden Gate wird dafür mi… [+1831 chars]"
+  1264→},
+  1265→-{
+  1266→-"source": {
+  1267→"id": null,
+  1268→"name": "Caschys Blog"
+  1269→},
+  1270→"author": "caschy",
+  1271→"title": "Apple Music landet per Update in über zwei Millionen Volvo-Fahrzeugen",
+  1272→"description": "Volvo-Fahrer, die gerne Musik streamen, dürfen sich auf ein neues Update freuen: Der schwedische Autohersteller bringt Apple Music per Over-the-Air-Update (OTA) in weltweit mehr als zwei Millionen Fahrzeuge. Wer sich den neuen, vollelektrischen Premium-SUV Vo…",
+  1273→"url": "https://stadt-bremerhaven.de/apple-music-landet-per-update-in-ueber-zwei-millionen-volvo-fahrzeugen/",
+  1274→"urlToImage": "https://stadt-bremerhaven.de/wp-content/uploads/2026/07/abbc56a1a9463d2c_featured-2.jpg",
+  1275→"publishedAt": "2026-07-07T09:00:46Z",
+  1276→"content": "Volvo-Fahrer, die gerne Musik streamen, dürfen sich auf ein neues Update freuen: Der schwedische Autohersteller bringt Apple Music per Over-the-Air-Update (OTA) in weltweit mehr als zwei Millionen Fa… [+1292 chars]"
+  1277→},
+  1278→-{
+  1279→-"source": {
+  1280→"id": null,
+  1281→"name": "Caschys Blog"
+  1282→},
+  1283→"author": "Olli",
+  1284→"title": "iOS 27: Dritte Beta bringt anpassbare Siri-Stimme und kleine Alltagsverbesserungen",
+  1285→"description": "Apple schraubt weiter an iOS 27, das nach aktuellem Stand im September erscheinen soll. In der dritten Beta sind einige Neuerungen gelandet, die wieder einmal erwähnenswert sind. Siri lässt sich nun auf kompatiblen Geräten (und außerhalb der EU) stärker anpas…",
+  1286→"url": "https://stadt-bremerhaven.de/ios-27-dritte-beta-bringt-anpassbare-siri-stimme-und-kleine-alltagsverbesserungen/",
+  1287→"urlToImage": "https://stadt-bremerhaven.de/wp-content/uploads/2026/05/ios-27.jpg",
+  1288→"publishedAt": "2026-07-07T05:15:17Z",
+  1289→"content": "Apple schraubt weiter an iOS 27, das nach aktuellem Stand im September erscheinen soll. In der dritten Beta sind einige Neuerungen gelandet, die wieder einmal erwähnenswert sind.\r\nSiri lässt sich nun… [+1376 chars]"
+  1290→},
+  1291→-{
+  1292→-"source": {
+  1293→"id": null,
+  1294→"name": "Caschys Blog"
+  1295→},
+  1296→"author": "caschy",
+  1297→"title": "Beats bringt Farbe ins Spiel: Neue geflochtene Ladekabel in „Powerpink“",
+  1298→"description": "Was es nicht alles gibt: Wer im Apple-Kosmos unterwegs ist, stolpert früher oder später über das Zubehör von Beats by Dr. Dre. Die Marke, die sonst eher für auffällige Kopfhörer bekannt ist, bohrt nun ihr Kabel-Sortiment auf. Ab sofort schraubt...Zum Beitrag:…",
+  1299→"url": "https://stadt-bremerhaven.de/beats-bringt-farbe-ins-spiel-neue-geflochtene-ladekabel-in-powerpink/",
+  1300→"urlToImage": "https://stadt-bremerhaven.de/wp-content/uploads/2026/07/MA-Beats-USB-C-auf-USB-C-15m_Powerpink-2.jpg",
+  1301→"publishedAt": "2026-07-07T13:55:10Z",
+  1302→"content": "Was es nicht alles gibt: Wer im Apple-Kosmos unterwegs ist, stolpert früher oder später über das Zubehör von Beats by Dr. Dre. Die Marke, die sonst eher für auffällige Kopfhörer bekannt ist, bohrt nu… [+2602 chars]"
+  1303→},
+  1304→-{
+  1305→-"source": {
+  1306→"id": null,
+  1307→"name": "Caschys Blog"
+  1308→},
+  1309→"author": "caschy",
+  1310→"title": "Xbox Family Settings: Microsoft bringt App-Blockaden und detaillierte Zeitlimits auf iOS",
+  1311→"description": "Kurzer Hinweis für alle Eltern, die die Gaming-Zeiten des Nachwuchses über die Xbox Family Settings-App im Zaum halten: Microsoft hat ein Update für die iOS-Version der App veröffentlicht und bohrt die Kontrollfunktionen spürbar auf. Ab der Version 2026.7.7 z…",
+  1312→"url": "https://stadt-bremerhaven.de/xbox-family-settings-microsoft-bringt-app-blockaden-und-detaillierte-zeitlimits-auf-ios/",
+  1313→"urlToImage": "https://stadt-bremerhaven.de/wp-content/uploads/2026/06/xbox.jpg",
+  1314→"publishedAt": "2026-07-07T17:26:24Z",
+  1315→"content": "Kurzer Hinweis für alle Eltern, die die Gaming-Zeiten des Nachwuchses über die Xbox Family Settings-App im Zaum halten: Microsoft hat ein Update für die iOS-Version der App veröffentlicht und bohrt d… [+1139 chars]"
+  1316→}
+  1317→]
+  1318→}
+  1319→
+  1320→arrow_back
+  1321→All articles about Tesla from the last month, sorted by recent first
+  1322→
+  1323→arrow_forward
+  1324→GET
+  1325→https://newsapi.org/v2/everything?q=tesla&from=2026-06-08&sortBy=publishedAt&apiKey=4e496a4e881b46f798c6f6cea8de09a4
+  1326→{
+  1327→"status": "ok",
+  1328→"totalResults": 3315,
+  1329→-"articles": [
+  1330→-{
+  1331→-"source": {
+  1332→"id": null,
+  1333→"name": "PRNewswire"
+  1334→},
+  1335→"author": null,
+  1336→"title": "Peak Energy Selects Sacramento to Build America's First Sodium-Ion Grid Storage Factory",
+  1337→"description": "New Sacramento facility represents up to $71 million in investment, will create 239 local jobs and produce up to 4 GWh of grid-scale energy storage annually BURLINGAME, Calif., July 8, 2026 /PRNewswire/ -- Peak Energy, a U.S. leader in low-cost, giga-scale gr…",
+  1338→"url": "https://www.prnewswire.com/news-releases/peak-energy-selects-sacramento-to-build-americas-first-sodium-ion-grid-storage-factory-302820192.html",
+  1339→"urlToImage": "https://mmx.prnewswire.com/media/MS1879376/Peak_Factory_0-ID-956a400d2d20.jpg?id=OA2754625&p=facebook",
+  1340→"publishedAt": "2026-07-08T20:00:00Z",
+  1341→"content": "New Sacramento facility represents up to $71 million in investment, will create 239 local jobs and produce up to 4 GWh of grid-scale energy storage annually\r\nBURLINGAME, Calif., July 8, 2026 /PRNewsw… [+5751 chars]"
+  1342→},
+  1343→-{
+  1344→-"source": {
+  1345→"id": null,
+  1346→"name": "Crypto Briefing"
+  1347→},
+  1348→"author": "Estefano Gomez",
+  1349→"title": "SpaceXAI unveils Grok 4.5 AI model ahead of July 2026 public release",
+  1350→"description": "The unveiling of Grok 4.5 signals intensified AI competition, potentially reshaping market dynamics and challenging existing leaders.\nThe post SpaceXAI unveils Grok 4.5 AI model ahead of July 2026 public release appeared first on Crypto Briefing.",
+  1351→"url": "https://cryptobriefing.com/spacexai-unveils-grok-45-ai-model-ahead-of-july-2026-public-release/",
+  1352→"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/07/08153527/elon-musk-in-formal-attire-against-a-blue-world-map-backgrou-6-1-800x420.jpeg",
+  1353→"publishedAt": "2026-07-08T19:35:28Z",
+  1354→"content": "SpaceXAI has unveiled Grok 4.5, an artificial intelligence model that Elon Musk describes as an “Opus-class model.” This release marks the first major AI model from SpaceXAI since the merger of xAI i… [+1448 chars]"
+  1355→},
+  1356→-{
+  1357→-"source": {
+  1358→"id": null,
+  1359→"name": "Electrek"
+  1360→},
+  1361→"author": "Michelle Lewis",
+  1362→"title": "Sunrun wants to pay you to turn your home into an AI data center",
+  1363→"description": "Sunrun wants to turn thousands of solar-powered homes into a giant distributed AI data center – and pay homeowners to help power the AI boom.",
+  1364→"url": "http://electrek.co/2026/07/08/sunrun-wants-to-pay-you-to-turn-your-home-into-an-ai-data-center/",
+  1365→"urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2026/07/sunrun-distributed-compute1.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+  1366→"publishedAt": "2026-07-08T19:27:36Z",
+  1367→"content": "Image: Sunrun\r\nSunrun wants to turn thousands of solar-powered homes into a giant distributed AI data center and pay homeowners to help power the AI boom.\r\nThe residential solar and storage company t… [+3744 chars]"
+  1368→},
+  1369→-{
+  1370→-"source": {
+  1371→"id": null,
+  1372→"name": "HuffPost"
+  1373→},
+  1374→"author": "HuffPost",
+  1375→"title": "Pro-Trump 'Biohacker' Reveals Autoimmune Disease Diagnosis: 'My Stomach Is Eating Itself'",
+  1376→"description": "Bryan Johnson, a 48-year-old biotech entrepreneur determined to live \"multiple lifetimes\" with his teenage son, shared the news on social media.",
+  1377→"url": "https://www.huffpost.com/entry/pro-trump-biohacker-bryan-johnson-reveals-autoimmune-disease-diagnosis_n_6a4e652de4b0c806bbf0b3a0",
+  1378→"urlToImage": "https://img.huffingtonpost.com/asset/6a4e93971a0000cb74a79595.jpeg?cache=8CYUVyz6a7&ops=500_281%2Cscalefit_1200_630",
+  1379→"publishedAt": "2026-07-08T19:09:02Z",
+  1380→"content": "Celebrity biohacker Bryan Johnson, whose efforts to slow aging were chronicled in the 2025 Netflix documentary Dont Die: The Man Who Wants to Live Forever, revealed Tuesday that he has a new autoimmu… [+3447 chars]"
+  1381→},
+  1382→-{
+  1383→-"source": {
+  1384→"id": "the-times-of-india",
+  1385→"name": "The Times of India"
+  1386→},
+  1387→"author": "Gandharv Walia",
+  1388→"title": "Quote of the day by Nikola Tesla: 'One's salvation could only be...' Life lessons on true success, innovation, self-discipline, resilience, accountability and personal success",
+  1389→"description": "Quote of the day by Nikola Tesla: \"One's salvation could only be brought about through his own efforts\" reminds people that lasting success begins with personal responsibility and self-discipline. The quote comes from Tesla's autobiography My Inventions and r…",
+  1390→"url": "https://economictimes.indiatimes.com/news/international/us/quote-of-the-day-by-nikola-tesla-ones-salvation-could-only-be-life-lessons-on-true-success-innovation-self-discipline-resilience-accountability-and-personal-success/articleshow/132267124.cms",
+  1391→"urlToImage": "https://img.etimg.com/thumb/msid-132271031,width-1200,height-630,imgsize-2233696,overlay-economictimes/articleshow.jpg",
+  1392→"publishedAt": "2026-07-08T19:05:09Z",
+  1393→"content": "Quote of the day by Nikola Teslacontinues to inspire people across generations. His words, \"One's salvation could only be brought about through his own efforts,\" focus on the importance of self-disci… [+8731 chars]"
+  1394→},
+  1395→-{
+  1396→-"source": {
+  1397→"id": "the-times-of-india",
+  1398→"name": "The Times of India"
+  1399→},
+  1400→"author": "Reuters",
+  1401→"title": "China car sales Slump for ninth straight month, exports stay strong",
+  1402→"description": "China's car sales have declined for nine consecutive months, impacting domestic demand significantly. Automakers are now increasingly focusing on export markets to offset these local sales slumps. Consumers with higher purchasing power are upgrading to new pr…",
+  1403→"url": "https://economictimes.indiatimes.com/news/international/business/china-car-sales-slump-for-ninth-straight-month-exports-stay-strong/articleshow/132271551.cms",
+  1404→"urlToImage": "https://img.etimg.com/thumb/msid-132271586,width-1200,height-630,imgsize-343120,overlay-economictimes/articleshow.jpg",
+  1405→"publishedAt": "2026-07-08T18:55:46Z",
+  1406→"content": "Car sales in China fell for a ninth consecutive month in June, as automakers increasingly turn to export markets to cushion the impact of sluggish local demand.Domestic passenger vehicle sales fell 2… [+2203 chars]"
+  1407→},
+  1408→-{
+  1409→-"source": {
+  1410→"id": null,
+  1411→"name": "Biztoc.com"
+  1412→},
+  1413→"author": "finance.yahoo.com",
+  1414→"title": "'Big Short' Michael Burry Bets Against Nvidia and Tesla Again",
+  1415→"description": "This article first appeared on GuruFocus.\nInvestor Michael Burry (Trades, Portfolio) disclosed new bearish positions against Tesla (NASDAQ:TSLA), Nvidia (NASDAQ:NVDA), Caterpillar (CAT), Applied Materials (AMAT) and the iShares Semiconductor ETF (SOXX), while…",
+  1416→"url": "https://biztoc.com/x/e689004067d9e7c0",
+  1417→"urlToImage": "https://biztoc.com/cdn/e689004067d9e7c0_s.webp",
+  1418→"publishedAt": "2026-07-08T18:48:33Z",
+  1419→"content": "This article first appeared on GuruFocus.Investor Michael Burry (Trades, Portfolio) disclosed new bearish positions against Tesla (NASDAQ:TSLA), Nvidia (NASDAQ:NVDA), Caterpillar (CAT), Applied Mater… [+143 chars]"
+  1420→},
+  1421→-{
+  1422→-"source": {
+  1423→"id": null,
+  1424→"name": "Electrek"
+  1425→},
+  1426→"author": "Peter Johnson",
+  1427→"title": "Ford admits its $30K midsize EV pickup is actually ‘small’",
+  1428→"description": "Ford’s midsize EV pickup, due out next year, will be smaller than expected. For the first time, Ford referred to it as an “all-new, affordable small electric pickup” built on the UEV platform.",
+  1429→"url": "http://electrek.co/2026/07/08/ford-admits-30k-midsize-ev-pickup-is-small/",
+  1430→"urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2026/06/Ford-30000-EV-pickup-prototype-2.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+  1431→"publishedAt": "2026-07-08T18:41:40Z",
+  1432→"content": "Ford’s midsize EV pickup, due out next year, will be smaller than expected. For the first time, Ford referred to it as an “all-new, affordable small electric pickup” built on the UEV platform.\r\nThe a… [+2634 chars]"
+  1433→},
+  1434→-{
+  1435→-"source": {
+  1436→"id": null,
+  1437→"name": "Crypto Briefing"
+  1438→},
+  1439→"author": "Editorial Team",
+  1440→"title": "Dinari and tZERO partner to build unified tokenized US stock framework for broker-dealers",
+  1441→"description": "The partnership could democratize access to US equities, enhance market liquidity, and potentially reshape traditional brokerage models.\nThe post Dinari and tZERO partner to build unified tokenized US stock framework for broker-dealers appeared first on Crypt…",
+  1442→"url": "https://cryptobriefing.com/dinari-tzero-tokenized-stock-framework/",
+  1443→"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/07/08144011/dinari-inc-and-tzero-partner-to-create-an-operating-framewor-800x420.jpeg",
+  1444→"publishedAt": "2026-07-08T18:40:14Z",
+  1445→"content": "The strategic alliance combines Dinari's tokenized equity issuance platform with tZERO's regulated brokerage infrastructure to create a single integration point for traditional firms entering on-chai… [+1764 chars]"
+  1446→},
+  1447→-{
+  1448→-"source": {
+  1449→"id": null,
+  1450→"name": "Electrek"
+  1451→},
+  1452→"author": "Jameson Dow",
+  1453→"title": "China is bringing buttons back to cars, ending trend led by Tesla",
+  1454→"description": "China will require automakers to include physical buttons for safety-related functions, pushing back on the proliferation of using screens for everything in modern cars.",
+  1455→"url": "http://electrek.co/2026/07/08/china-is-bringing-buttons-back-to-cars-ending-trend-led-by-tesla/",
+  1456→"urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2025/10/Tesla-Cybertruck-interior.png?resize=1200%2C628&quality=82&strip=all&ssl=1",
+  1457→"publishedAt": "2026-07-08T18:36:37Z",
+  1458→"content": "China will require automakers to include physical buttons for safety-related functions, pushing back on the proliferation of using screens for everything in modern cars.\r\nIn recent years, it has beco… [+3704 chars]"
+  1459→},
+  1460→-{
+  1461→-"source": {
+  1462→"id": null,
+  1463→"name": "Crypto Briefing"
+  1464→},
+  1465→"author": "Editorial Team",
+  1466→"title": "Morpho integrates with Robinhood Chain to enable DeFi lending for millions of retail users",
+  1467→"description": "The integration signifies a pivotal shift, potentially accelerating DeFi adoption and pressuring traditional finance to innovate or adapt.\nThe post Morpho integrates with Robinhood Chain to enable DeFi lending for millions of retail users appeared first on Cr…",
+  1468→"url": "https://cryptobriefing.com/morpho-robinhood-chain-defi-lending/",
+  1469→"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/07/08143041/robinhood-strategies-7-800x420.jpeg",
+  1470→"publishedAt": "2026-07-08T18:30:51Z",
+  1471→"content": "Robinhood's new Earn product offers 7% APY on stablecoin lending powered by Morpho's on-chain credit infrastructure, marking a major bridge between traditional brokerage and decentralized finance. Ro… [+6305 chars]"
+  1472→},
+  1473→-{
+  1474→-"source": {
+  1475→"id": null,
+  1476→"name": "Biztoc.com"
+  1477→},
+  1478→"author": "247wallst.com",
+  1479→"title": "Price Prediction: Tesla Will Trade at This Price in 3 Years",
+  1480→"description": "The post Price Prediction: Tesla Will Trade at This Price in 3 Years appeared first on 24/7 Wall St..\nTesla (NASDAQ:TSLA) is the most polarizing stock in the S&P 500. Automotive gross margin snapped back to 21.1% in Q1 2026 from 16.2% a year earlier, FSD acti…",
+  1481→"url": "https://biztoc.com/x/5a5c9f4efac1693e",
+  1482→"urlToImage": "https://biztoc.com/cdn/5a5c9f4efac1693e_s.webp",
+  1483→"publishedAt": "2026-07-08T18:15:44Z",
+  1484→"content": "The post Price Prediction: Tesla Will Trade at This Price in 3 Years appeared first on 24/7 Wall St..Tesla (NASDAQ:TSLA) is the most polarizing stock in the S&amp;P 500. Automotive gross margin snapp… [+147 chars]"
+  1485→},
+  1486→-{
+  1487→-"source": {
+  1488→"id": null,
+  1489→"name": "Biztoc.com"
+  1490→},
+  1491→"author": "finance.yahoo.com",
+  1492→"title": "Is Tesla Stock a Buy as Deliveries Come in Ahead of Expectations and Its Robotaxis Launch in Miami?",
+  1493→"description": "Tesla (NASDAQ: TSLA) stock is down about 7% on the year and off more than 15% from its 52-week high, as of this writing. However, things could be looking up after a dose of good news to start the month.\nFirst, the company announced that it had delivered 480,1…",
+  1494→"url": "https://biztoc.com/x/5ecb335ffd2f9628",
+  1495→"urlToImage": "https://biztoc.com/cdn/5ecb335ffd2f9628_s.webp",
+  1496→"publishedAt": "2026-07-08T18:03:49Z",
+  1497→"content": "Tesla (NASDAQ: TSLA) stock is down about 7% on the year and off more than 15% from its 52-week high, as of this writing. However, things could be looking up after a dose of good news to start the mon… [+147 chars]"
+  1498→},
+  1499→-{
+  1500→-"source": {
+  1501→"id": null,
+  1502→"name": "Electrek"
+  1503→},
+  1504→"author": "Reinette LeJeune",
+  1505→"title": "Lectric XP4 750 e-bike gets FREE $498 flash sale cargo bundle, Navee Summer EV Sale, EGO Select Cut + Touch Drive mower $599, more",
+  1506→"description": "At the front of our midweek Green Deals pack is a cargo-focused flash sale on Lectric’s XP4 750 Folding Utility e-bike with a $498 FREE bundle at $1,299. Coming up behind it is Navee’s Summer Sale lineup of EV deals, like the UT5 Max Electric SuperScooter at …",
+  1507→"url": "http://electrek.co/2026/07/08/lectric-xp4-750-e-bike-navee-summer-ev-sale-ego-select-cut-touch-drive-mower-more/",
+  1508→"urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2026/07/Lectric-EGO-Meross-Navee-GDs-FI.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+  1509→"publishedAt": "2026-07-08T18:00:00Z",
+  1510→"content": "At the front of our midweek Green Deals pack is a cargo-focused flash sale on Lectric’s XP4 750 Folding Utility e-bike with a $498 FREE bundle at $1,299. Coming up behind it is Navee’s Summer Sale li… [+13153 chars]"
+  1511→},
+  1512→-{
+  1513→-"source": {
+  1514→"id": null,
+  1515→"name": "Crypto Briefing"
+  1516→},
+  1517→"author": "Estefano Gomez",
+  1518→"title": "JPMorgan sees SpaceX-Tesla merger as strategically coherent despite hurdles",
+  1519→"description": "A SpaceX-Tesla merger could revolutionize industries but faces regulatory challenges, impacting market dynamics and investor strategies.\nThe post JPMorgan sees SpaceX-Tesla merger as strategically coherent despite hurdles appeared first on Crypto Briefing.",
+  1520→"url": "https://cryptobriefing.com/jpmorgan-sees-spacex-tesla-merger-as-strategically-coherent-despite-hurdles/",
+  1521→"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/07/08135827/the-spacex-falcon-9-rocket-booster-is-seen-just-seconds-befo-9-1-800x420.jpeg",
+  1522→"publishedAt": "2026-07-08T17:58:28Z",
+  1523→"content": "JPMorgan has described a potential merger between SpaceX and Tesla as “strategically coherent,” suggesting that such a move could align with broader business synergies across AI, robotics, energy, tr… [+1383 chars]"
+  1524→},
+  1525→-{
+  1526→-"source": {
+  1527→"id": null,
+  1528→"name": "Crypto Briefing"
+  1529→},
+  1530→"author": "Estefano Gomez",
+  1531→"title": "JPMorgan sees strategic logic in potential SpaceX-Tesla merger despite hurdles",
+  1532→"description": "A SpaceX-Tesla merger could redefine industry landscapes, creating a $4 trillion giant, but faces regulatory and governance challenges.\nThe post JPMorgan sees strategic logic in potential SpaceX-Tesla merger despite hurdles appeared first on Crypto Briefing.",
+  1533→"url": "https://cryptobriefing.com/jpmorgan-sees-strategic-logic-in-potential-spacex-tesla-merger-despite-hurdles/",
+  1534→"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/07/08135819/elon-musk-starship-profile-1-1-800x420.jpeg",
+  1535→"publishedAt": "2026-07-08T17:58:20Z",
+  1536→"content": "JPMorgan has described a potential merger between SpaceX and Tesla as “strategically coherent,” highlighting the potential synergies across AI, robotics, energy, transportation, and space sectors. Th… [+1400 chars]"
+  1537→},
+  1538→-{
+  1539→-"source": {
+  1540→"id": "the-verge",
+  1541→"name": "The Verge"
+  1542→},
+  1543→"author": "Andrew J. Hawkins",
+  1544→"title": "America’s cheapest new EV is smaller than a ping-pong table and tops out at 19mph",
+  1545→"description": "When searching for an affordable electric vehicle these days, there are always tradeoffs. How much range are you willing to sacrifice, how much leg room and storage space, how many features, in the pursuit of that magic sticker price that won't break the bank…",
+  1546→"url": "https://www.theverge.com/transportation/962753/fiat-topolino-ev-us-price-specs-micromobiilty",
+  1547→"urlToImage": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/BU026_098EV_78c507.jpg?quality=90&strip=all&crop=0%2C15.095986038394%2C100%2C69.808027923211&w=1200",
+  1548→"publishedAt": "2026-07-08T17:57:53Z",
+  1549→"content": "<ul><li></li><li></li><li></li></ul>\r\nThe Fiat Topolino may only cost $13,995, but youre not really buying a car for that money.\r\nThe Fiat Topolino may only cost $13,995, but youre not really buying … [+4424 chars]"
+  1550→},
+  1551→-{
+  1552→-"source": {
+  1553→"id": null,
+  1554→"name": "Biztoc.com"
+  1555→},
+  1556→"author": "finance.yahoo.com",
+  1557→"title": "Musk's OpenAI Fight Moves Toward Mediation",
+  1558→"description": "This article first appeared on GuruFocus.\nTesla (NASDAQ:TSLA) CEO Elon Musk's legal fight with OpenAI and Sam Altman is moving toward mediation after a federal judge appointed a mediator to help resolve the dispute.\nBloomberg reported that U.S. District Judge…",
+  1559→"url": "https://biztoc.com/x/634c1298160818b0",
+  1560→"urlToImage": "https://biztoc.com/cdn/634c1298160818b0_s.webp",
+  1561→"publishedAt": "2026-07-08T17:48:35Z",
+  1562→"content": "This article first appeared on GuruFocus.Tesla (NASDAQ:TSLA) CEO Elon Musk's legal fight with OpenAI and Sam Altman is moving toward mediation after a federal judge appointed a mediator to help resol… [+144 chars]"
+  1563→},
+  1564→-{
+  1565→-"source": {
+  1566→"id": null,
+  1567→"name": "Biztoc.com"
+  1568→},
+  1569→"author": "finance.yahoo.com",
+  1570→"title": "Is senior housing sexy? One multimillionaire gambled on it amid COVID — and turned it into a $160 billion business",
+  1571→"description": "Is senior housing sexy? One multimillionaire gambled on it amid COVID — and turned it into a $160 billion business\nWhen Tesla shareholders awarded CEO Elon Musk an unprecedented $1-trillion compensation package, it made international news (1) — and made him t…",
+  1572→"url": "https://biztoc.com/x/b74cc5fe0ced720e",
+  1573→"urlToImage": "https://biztoc.com/cdn/b74cc5fe0ced720e_s.webp",
+  1574→"publishedAt": "2026-07-08T17:48:29Z",
+  1575→"content": "Is senior housing sexy? One multimillionaire gambled on it amid COVID and turned it into a $160 billion businessWhen Tesla shareholders awarded CEO Elon Musk an unprecedented $1-trillion compensation… [+140 chars]"
+  1576→},
+  1577→-{
+  1578→-"source": {
+  1579→"id": null,
+  1580→"name": "Electrek"
+  1581→},
+  1582→"author": "Fred Lambert",
+  1583→"title": "Xiaomi makes Sky Nomad official: new EREV brand to take on Li Auto",
+  1584→"description": "Xiaomi officially confirmed “Sky Nomad,” the name of its new extended-range electric vehicle (EREV) effort, after months of rumors. The first model is a full-size SUV expected to deliver over 1,500 km (932 miles) of combined range.\nThe announcement puts China…",
+  1585→"url": "http://electrek.co/2026/07/08/xiaomi-sky-nomad-erev-brand-official/",
+  1586→"urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2026/06/Xiaomi-electric-suv.jpeg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+  1587→"publishedAt": "2026-07-08T17:44:46Z",
+  1588→"content": "Xiaomi officially confirmed Sky Nomad, the name of its new extended-range electric vehicle (EREV) effort, after months of rumors. The first model is a full-size SUV expected to deliver over 1,500 km … [+4859 chars]"
+  1589→},
+  1590→-{
+  1591→-"source": {
+  1592→"id": null,
+  1593→"name": "Crypto Briefing"
+  1594→},
+  1595→"author": "Editorial Team",
+  1596→"title": "Musk promises daily improvements to Grok Build and 1.5T foundation model as xAI races toward 2T parameter milestone",
+  1597→"description": "xAI's rapid model advancements could disrupt AI tooling economics, pressuring competitors and impacting AI-adjacent crypto markets.\nThe post Musk promises daily improvements to Grok Build and 1.5T foundation model as xAI races toward 2T parameter milestone ap…",
+  1598→"url": "https://cryptobriefing.com/musk-grok-build-daily-improvements-2t-model/",
+  1599→"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/07/08133658/elon-musk-in-formal-attire-against-a-blue-world-map-backgrou-3-800x420.jpeg",
+  1600→"publishedAt": "2026-07-08T17:37:05Z",
+  1601→"content": "The rapid iteration strategy puts xAI on a collision course with OpenAI and Anthropic, with implications for the broader tech investment landscape crypto traders are watching closely Elon Musk announ… [+1964 chars]"
+  1602→},
+  1603→-{
+  1604→-"source": {
+  1605→"id": null,
+  1606→"name": "Electrek"
+  1607→},
+  1608→"author": "Peter Johnson",
+  1609→"title": "This $22K EV coupe has a semi-solid-state battery and a ‘Queen’ makeup station in China",
+  1610→"description": "The MG 07 is the electric coupe we want, but can’t have. It’s about to go on sale in China with a semi-solid-state EV battery offering nearly 400 miles (610 km) of range, the industry’s first “Queen” makeup station, and a bunch of other premium extras for abo…",
+  1611→"url": "http://electrek.co/2026/07/08/22000-ev-semi-solid-state-battery-makeup-station/",
+  1612→"urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2026/07/MG-07-semi-solid-state-battery.jpeg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+  1613→"publishedAt": "2026-07-08T17:32:21Z",
+  1614→"content": "The MG 07 is the electric coupe we want, but can’t have. It’s about to go on sale in China with a semi-solid-state EV battery offering nearly 400 miles (610 km) of range, the industry’s first “Queen”… [+2980 chars]"
+  1615→},
+  1616→-{
+  1617→-"source": {
+  1618→"id": null,
+  1619→"name": "Crypto Briefing"
+  1620→},
+  1621→"author": "Editorial Team",
+  1622→"title": "Prime Intellect raises $130M Series A at $1B valuation, bridging decentralized AI and crypto-native capital",
+  1623→"description": "Prime Intellect's funding success highlights the growing investor interest in decentralized AI, potentially reshaping tech and finance landscapes.\nThe post Prime Intellect raises $130M Series A at $1B valuation, bridging decentralized AI and crypto-native cap…",
+  1624→"url": "https://cryptobriefing.com/prime-intellect-130m-series-a-billion-valuation/",
+  1625→"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/07/08132818/introducing-prime-intellect-compute-the-compute-exchange-800x420.png",
+  1626→"publishedAt": "2026-07-08T17:28:20Z",
+  1627→"content": "The two-year-old startup building a peer-to-peer GPU compute marketplace has now raised over $150M, with early backing from CoinFund and Founders Fund Prime Intellect, a San Francisco-based AI infras… [+2554 chars]"
+  1628→},
+  1629→-{
+  1630→-"source": {
+  1631→"id": null,
+  1632→"name": "Forbes"
+  1633→},
+  1634→"author": "Antonio Pequeño IV, Forbes Staff, \n Antonio Pequeño IV, Forbes Staff\n https://www.forbes.com/sites/antoniopequenoiv/",
+  1635→"title": "Meta Overtakes Tesla In Market Value—Here's Why Both Stocks Are Still Tanking",
+  1636→"description": "Shares of both companies have fallen at least 8% since the start of the year.",
+  1637→"url": "https://www.forbes.com/sites/antoniopequenoiv/2026/07/08/meta-overtakes-tesla-in-market-value-heres-why-both-stocks-are-still-tanking/",
+  1638→"urlToImage": "https://imageio.forbes.com/specials-images/imageserve/68110e4d80d1d7c981314b20/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+  1639→"publishedAt": "2026-07-08T17:26:46Z",
+  1640→"content": "Meta edged past Tesla in market value Wednesdaynot because Meta's stock rose, but because Tesla's fell hardersetting up Metas earnings report later this month as a test of whether the tech giants big… [+2538 chars]"
+  1641→},
+  1642→-{
+  1643→-"source": {
+  1644→"id": null,
+  1645→"name": "24/7 Wall St."
+  1646→},
+  1647→"author": "Joel South",
+  1648→"title": "Elon Musk Could Get a $165 Billion Payday, But There’s Just One Problem: Traders Say It’s Never Going to Happen",
+  1649→"description": "SpaceX’s executive compensation filing reads unlike anything in the history of SEC paperwork. The word “Mars” appears 63 times, including inside the formal e...",
+  1650→"url": "https://247wallst.com/investing/2026/07/08/elon-musk-could-get-a-165-billion-payday-but-theres-just-one-problem-traders-say-its-never-going-to-happen/",
+  1651→"urlToImage": "https://s.yimg.com/lo/mysterio/api/D188811CE562A98734AF3BF1AEDD90B932F7ED303496BAC9EA4BAD98EDAF0D9D/subgraphmysterio/resizefill_w1200_h675;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2F24_7_wall_st__718%2Fb19c72ee430ef3b70139eaa78bf8303d",
+  1652→"publishedAt": "2026-07-08T16:59:27Z",
+  1653→"content": "Quick Read\r\n<ul><li>SpaceX's $165 billion Musk grant vests only when a million people live on Mars; SPCX has already fallen 7% since its June IPO.\r\n</li><li>Musk's 2018 Tesla options produced $116 bi… [+5166 chars]"
+  1654→},
+  1655→-{
+  1656→-"source": {
+  1657→"id": null,
+  1658→"name": "Washington Examiner"
+  1659→},
+  1660→"author": "Victoria Baeza Garcia",
+  1661→"title": "Apple unveils Broadcom chip manufacturing partnership",
+  1662→"description": "Apple committed over $30 billion to its chipmaking agreement with Broadcom, which is expected to produce more than 15 billion U.S.-made chips.",
+  1663→"url": "https://www.washingtonexaminer.com/policy/technology/4640615/apple-broadcom-partnership-domestic-chip-manufacturing/",
+  1664→"urlToImage": "https://www.washingtonexaminer.com/wp-content/uploads/2026/07/AP26092448488027.jpg?resize=1200,683",
+  1665→"publishedAt": "2026-07-08T16:55:04Z",
+  1666→"content": "Apple said Wednesday that it plans to spend more than $30 billion on chips produced in the United States by Broadcom, which is expected to result in more than 15 billion chips.\r\nThe deal includes the… [+1286 chars]"
+  1667→},
+  1668→-{
+  1669→-"source": {
+  1670→"id": null,
+  1671→"name": "Biztoc.com"
+  1672→},
+  1673→"author": "cnbc.com",
+  1674→"title": "Waymo starts driverless rides in four more U.S. markets as expansion accelerates",
+  1675→"description": "Waymo will begin rolling out its driverless vehicles in four new cities in the coming weeks, furthering its U.S. expansion and building on its lead over domestic rivals Tesla and Zoox, which is owned by Amazon.\nAlphabet's robotaxi division will soon start off…",
+  1676→"url": "https://biztoc.com/x/6a96db8084ec19ae",
+  1677→"urlToImage": "https://biztoc.com/cdn/6a96db8084ec19ae_s.webp",
+  1678→"publishedAt": "2026-07-08T16:14:36Z",
+  1679→"content": "Waymo will begin rolling out its driverless vehicles in four new cities in the coming weeks, furthering its U.S. expansion and building on its lead over domestic rivals Tesla and Zoox, which is owned… [+148 chars]"
+  1680→},
+  1681→-{
+  1682→-"source": {
+  1683→"id": null,
+  1684→"name": "Motley Fool Australia"
+  1685→},
+  1686→"author": "Sebastian Bowen",
+  1687→"title": "Betashares Nasdaq 100 ETF: What stocks are actually in NDQ?",
+  1688→"description": "This ETF is packed with tech stars. \nThe post Betashares Nasdaq 100 ETF: What stocks are actually in NDQ? appeared first on The Motley Fool Australia.",
+  1689→"url": "https://www.fool.com.au/2026/07/09/betashares-nasdaq-100-etf-what-stocks-are-actually-in-ndq/",
+  1690→"urlToImage": "https://www.fool.com.au/wp-content/uploads/2022/05/techo-1200x675.jpg",
+  1691→"publishedAt": "2026-07-08T16:00:00Z",
+  1692→"content": "The BetaShares Nasdaq 100 ETF (ASX: NDQ) is one of the most popular exchange-traded funds (ETFs) on the ASX. In fact, it is currently the third-largest ETF covering international shares on our market… [+4372 chars]"
+  1693→},
+  1694→-{
+  1695→-"source": {
+  1696→"id": null,
+  1697→"name": "The Daily Caller"
+  1698→},
+  1699→"author": "Abigail Archer",
+  1700→"title": "Judge Drops Charges Against California Father Who Drove His Family Off A Cliff",
+  1701→"description": "A San Francisco judge dismissed all charges against a radiologist who allegedly attempted to kill his family by driving their car off a cliff in 2023.",
+  1702→"url": "https://dailycaller.com/2026/07/08/judge-drops-charges-california-father-drove-family-cliff-mental-health-diversion-dharmesh-neha-patel-gavin-newsom/",
+  1703→"urlToImage": "https://images.dailycaller.com/image/width=1280,height=549,fit=cover,format=webp,f=auto/https://cdn01.dailycaller.com/wp-content/uploads/2026/07/GettyImages-458051308-scaled-e1783521097437.jpg",
+  1704→"publishedAt": "2026-07-08T15:55:20Z",
+  1705→"content": "A San Francisco judge dismissed all charges Monday against a father who had been accused of attempting to kill his family by driving his car off a cliff in 2023.\r\nProsecutors alleged that Dharmesh Pa… [+4472 chars]"
+  1706→},
+  1707→-{
+  1708→-"source": {
+  1709→"id": null,
+  1710→"name": "Biztoc.com"
+  1711→},
+  1712→"author": "barchart.com",
+  1713→"title": "Lucid Motors’ Woes Run Much Deeper. Saudi Money Alone Won’t Solve Them",
+  1714→"description": "The electric vehicle (EV) industry has been going through turmoil, and barring market leader Tesla (TSLA), no other player has been able to make money in the U.S. market. Legacy automakers, which announced ambitious vehicle electrification plans, have lately …",
+  1715→"url": "https://biztoc.com/x/24c03603f837f896",
+  1716→"urlToImage": "https://biztoc.com/cdn/24c03603f837f896_s.webp",
+  1717→"publishedAt": "2026-07-08T15:29:01Z",
+  1718→"content": "The electric vehicle (EV) industry has been going through turmoil, and barring market leader Tesla (TSLA), no other player has been able to make money in the U.S. market. Legacy automakers, which ann… [+147 chars]"
+  1719→},
+  1720→-{
+  1721→-"source": {
+  1722→"id": null,
+  1723→"name": "Biztoc.com"
+  1724→},
+  1725→"author": "247wallst.com",
+  1726→"title": "Tesla vs. BYD: Here Is My Pick in This EV Showdown",
+  1727→"description": "The post Tesla vs. BYD: Here Is My Pick in This EV Showdown appeared first on 24/7 Wall St..\nTesla (NASDAQ:TSLA) and BYD (OTC:BYDDF) sit at opposite ends of the electric vehicle capital cycle. Tesla just posted Q1 revenue of $22.39B alongside surging AI spend…",
+  1728→"url": "https://biztoc.com/x/c8150c2e105d2127",
+  1729→"urlToImage": "https://biztoc.com/cdn/c8150c2e105d2127_s.webp",
+  1730→"publishedAt": "2026-07-08T15:28:38Z",
+  1731→"content": "The post Tesla vs. BYD: Here Is My Pick in This EV Showdown appeared first on 24/7 Wall St..Tesla (NASDAQ:TSLA) and BYD (OTC:BYDDF) sit at opposite ends of the electric vehicle capital cycle. Tesla j… [+138 chars]"
+  1732→},
+  1733→-{
+  1734→-"source": {
+  1735→"id": null,
+  1736→"name": "Crypto Briefing"
+  1737→},
+  1738→"author": "Editorial Team",
+  1739→"title": "Meta surpasses Tesla’s market cap as tech giants jostle for dominance",
+  1740→"description": "The dynamic shifts in market cap among tech giants and digital assets underscore the volatility and rapid capital rotation in modern markets.\nThe post Meta surpasses Tesla’s market cap as tech giants jostle for dominance appeared first on Crypto Briefing.",
+  1741→"url": "https://cryptobriefing.com/meta-surpasses-tesla-market-cap/",
+  1742→"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/07/08112710/mark-zuckerberg-hd-image-4-800x420.jpeg",
+  1743→"publishedAt": "2026-07-08T15:27:19Z",
+  1744→"content": "The two companies have been trading places in market cap rankings, with Bitcoin occasionally crashing the party. Meta Platforms has overtaken Tesla in market capitalization. The two tech behemoths ha… [+2242 chars]"
+  1745→},
+  1746→-{
+  1747→-"source": {
+  1748→"id": null,
+  1749→"name": "24/7 Wall St."
+  1750→},
+  1751→"author": "Alex Sirois",
+  1752→"title": "Tesla vs. BYD: Here Is My Pick in This EV Showdown",
+  1753→"description": "Tesla (NASDAQ:TSLA) and BYD (OTC:BYDDF) sit at opposite ends of the electric vehicle capital cycle. Tesla just posted Q1 revenue of $22.39B alongside surging...",
+  1754→"url": "https://247wallst.com/investing/2026/07/08/tesla-vs-byd-here-is-my-pick-in-this-ev-showdown/",
+  1755→"urlToImage": "https://s.yimg.com/lo/mysterio/api/27DB7ADD0617421E9CFDE83F1D8BEDB8D5A2EEABDE640F44979B92509C88D016/subgraphmysterio/resizefill_w1200_h800;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2F24_7_wall_st__718%2F9b0cd4e60c4a5dcb43685eaedb615a1e",
+  1756→"publishedAt": "2026-07-08T15:23:21Z",
+  1757→"content": "Quick Read\r\n<ul><li>BYD (BYDDF) self-funds a 1.5M-unit export ramp while Tesla (TSLA) races toward a $25B CapEx cycle that turns free cash flow negative.\r\n</li><li>Prediction markets give Tesla just … [+3708 chars]"
+  1758→},
+  1759→-{
+  1760→-"source": {
+  1761→"id": null,
+  1762→"name": "Yanko Design"
+  1763→},
+  1764→"author": "Gaurav Sood",
+  1765→"title": "BYD Seal 08 is a $29K flagship EV with 905 km range that already secured 65,000 orders",
+  1766→"description": "BYD Seal 08 is a $29K flagship EV with 905 km range that already secured 65,000 ordersSix days after its official debut in China, the BYD Seal 08 is already making headlines for reasons beyond its specifications. The flagship sedan entered...",
+  1767→"url": "https://www.yankodesign.com/2026/07/08/byd-seal-08-is-a-29k-flagship-ev-with-905-km-range-that-already-secured-65000-orders/",
+  1768→"urlToImage": "https://www.yankodesign.com/images/design_news/2026/07/byds-29k-seal-08-is-a-flagship-ev-with-905-km-range-that-already-secured-65000-orders/BYD-Seal-08-Electric-Vehicle-1.jpg",
+  1769→"publishedAt": "2026-07-08T15:20:27Z",
+  1770→"content": "Six days after its official debut in China, the BYD Seal 08 is already making headlines for reasons beyond its specifications. The flagship sedan entered one of the industry’s most competitive segmen… [+4799 chars]"
+  1771→},
+  1772→-{
+  1773→-"source": {
+  1774→"id": null,
+  1775→"name": "Forbes"
+  1776→},
+  1777→"author": "Alan Ohnsman, Forbes Staff, \n Alan Ohnsman, Forbes Staff\n https://www.forbes.com/sites/alanohnsman/",
+  1778→"title": "California Will Give You $3,500 To Buy A New EV",
+  1779→"description": "The incentive is for first-time buyers of new battery-powered models priced below $50,000, with half the amount covered by automakers. Used EVs qualify for $1,750",
+  1780→"url": "https://www.forbes.com/sites/alanohnsman/2026/07/08/california-will-give-you-3500-to-buy-a-new-ev/",
+  1781→"urlToImage": "https://imageio.forbes.com/specials-images/imageserve/6a4e6610bca710aa893a09b2/0x0.jpg?format=jpg&crop=2083,1172,x0,y104,safe&height=900&width=1600&fit=bounds",
+  1782→"publishedAt": "2026-07-08T15:16:20Z",
+  1783→"content": "General Motors' electric Chevrolet Blazer at a dealership in Colma, California.\r\n© 2026 Bloomberg Finance LP\r\nSales of electric vehicles are booming worldwide, but have plunged in the U.S. since the … [+3438 chars]"
+  1784→},
+  1785→-{
+  1786→-"source": {
+  1787→"id": null,
+  1788→"name": "CNBC"
+  1789→},
+  1790→"author": "Michael Wayland",
+  1791→"title": "Used EVs keep getting more expensive amid Iran war, high gas prices",
+  1792→"description": "The Manheim Used Vehicle Value Index for EVs — which tracks prices of used vehicles sold at its U.S. wholesale auctions — increased 12% compared to June 2025.",
+  1793→"url": "https://www.cnbc.com/2026/07/08/used-ev-prices-gas-war.html",
+  1794→"urlToImage": "https://image.cnbcfm.com/api/v1/image/108330311-1783027298825-gettyimages-2284383119-_m0a2923_mlh4qoba.jpeg?v=1783027486&w=1920&h=1080",
+  1795→"publishedAt": "2026-07-08T15:14:54Z",
+  1796→"content": "DETROIT The Iran war and high U.S. gas prices are causing a surge in demand for used all-electric vehicles, which is making the pre-owned vehicles more expensive, according to Cox Automotive.\r\nThe co… [+2722 chars]"
+  1797→},
+  1798→-{
+  1799→-"source": {
+  1800→"id": null,
+  1801→"name": "Jalopnik"
+  1802→},
+  1803→"author": "staff@jalopnik.com (Daniel Golson)",
+  1804→"title": "This Looks Like Poop From A Butt",
+  1805→"description": "It's narrow with a tall greenhouse despite being short, and the crisp shoulder line doesn't do enough to make the surfacing interesting or hide the car's mass.",
+  1806→"url": "https://www.jalopnik.com/2210529/tesla-cybercab-looks-poop-butt/",
+  1807→"urlToImage": "https://www.jalopnik.com/img/gallery/this-looks-like-poop-from-a-butt/l-intro-1783522454.jpg",
+  1808→"publishedAt": "2026-07-08T15:12:52Z",
+  1809→"content": "I don't mind the Cybercab's shape and profile in theory, and I think robotaxis that have only two doors and two seats are fine. But the Tesla looks really bad, y'all. Not even nice gold paint can sav… [+1893 chars]"
+  1810→},
+  1811→-{
+  1812→-"source": {
+  1813→"id": null,
+  1814→"name": "Crypto Briefing"
+  1815→},
+  1816→"author": "Editorial Team",
+  1817→"title": "SpaceX shifts Bitcoin holdings between wallets amid IPO process",
+  1818→"description": "SpaceX's Bitcoin holdings reveal potential for increased corporate crypto transparency and scrutiny, impacting investor perceptions and strategies.\nThe post SpaceX shifts Bitcoin holdings between wallets amid IPO process appeared first on Crypto Briefing.",
+  1819→"url": "https://cryptobriefing.com/spacex-bitcoin-wallet-transfers-ipo/",
+  1820→"urlToImage": "https://static.cryptobriefing.com/wp-content/uploads/2026/07/08105010/the-spacex-falcon-9-rocket-booster-is-seen-just-seconds-befo-8-800x420.jpeg",
+  1821→"publishedAt": "2026-07-08T14:50:13Z",
+  1822→"content": "Three tiny internal transfers worth less than $300 reveal SpaceX's Bitcoin treasury is more than double what anyone previously estimated SpaceX moved Bitcoin for the first time in six months this wee… [+3006 chars]"
+  1823→},
+  1824→-{
+  1825→-"source": {
+  1826→"id": null,
+  1827→"name": "Futurism"
+  1828→},
+  1829→"author": "Victor Tangermann",
+  1830→"title": "Tesla’s Safety Camera Lets Woman Cruising at Highway Speed While Completely Passed Out",
+  1831→"description": "\"You can't let the robot drive your car for you.\"\nThe post Tesla’s Safety Camera Lets Woman Cruising at Highway Speed While Completely Passed Out appeared first on Futurism.",
+  1832→"url": "https://futurism.com/advanced-transport/tesla-safety-camera-woman-cruise-highway-passed-out",
+  1833→"urlToImage": "https://futurism.com/wp-content/uploads/2026/07/tesla-safety-camera-woman-cruise-highway-passed-out.jpg?w=1200",
+  1834→"publishedAt": "2026-07-08T14:49:02Z",
+  1835→"content": "Can’t-miss innovations from the bleeding edge of science and tech\r\nPolice in British Columbia are investigating after a viral video shows a woman fast asleep behind the wheel of a Tesla traveling at … [+2136 chars]"
+  1836→},
+  1837→-{
+  1838→-"source": {
+  1839→"id": null,
+  1840→"name": "Livemint"
+  1841→},
+  1842→"author": "Sanchari Ghosh",
+  1843→"title": "As the Magnificent 7 lose swagger, which stock should you buy now? Experts reveal the right strategy",
+  1844→"description": "The Magnificent Seven tech giants are losing investor interest as their performance lags behind the Nasdaq 100 and S&amp;P 500. Emerging chipmakers like Micron Technology are gaining traction, while stocks like Alphabet show potential amidst differing fortune…",
+  1845→"url": "https://www.livemint.com/money/personal-finance/as-the-magnificent-7-lose-swagger-which-stock-should-you-buy-now-experts-reveal-the-right-strategy-11783517233038.html",
+  1846→"urlToImage": "https://www.livemint.com/lm-img/img/2026/07/08/1600x900/logo/STOCKS_1737288220225_1783520070091_673701e0-5d40-4445-9cfa-e1dc100581bc.jpg",
+  1847→"publishedAt": "2026-07-08T14:30:15Z",
+  1848→"content": "For years, the Magnificent Seven tech giants commanded investors attention, dominating the S&amp;P 500 Index and shaping market movements. Those days are over.\r\nWhile the technology-heavy Nasdaq 100 … [+3320 chars]"
+  1849→},
+  1850→-{
+  1851→-"source": {
+  1852→"id": null,
+  1853→"name": "Electrek"
+  1854→},
+  1855→"author": "Fred Lambert",
+  1856→"title": "Waymo goes driverless in Las Vegas, with Denver, San Diego, Tampa next",
+  1857→"description": "Waymo has activated fully driverless operations in Las Vegas, its riders will now see vehicles with no human at the wheel, and the Alphabet unit says Denver, San Diego, and Tampa are next in line.\nThe move adds four new markets to Waymo’s driverless footprint…",
+  1858→"url": "http://electrek.co/2026/07/08/waymo-driverless-las-vegas-four-new-cities/",
+  1859→"urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2026/05/Waymo-new-Ojai-electric-robotaxis.jpeg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+  1860→"publishedAt": "2026-07-08T14:26:49Z",
+  1861→"content": "Waymo has activated fully driverless operations in Las Vegas, its riders will now see vehicles with no human at the wheel, and the Alphabet unit says Denver, San Diego, and Tampa are next in line.\r\nT… [+4911 chars]"
+  1862→},
+  1863→-{
+  1864→-"source": {
+  1865→"id": null,
+  1866→"name": "Jalopnik"
+  1867→},
+  1868→"author": "staff@jalopnik.com (Andy Kalmowitz)",
+  1869→"title": "Ram's Solid 2026 Could Break Stellantis' Seven-Year Self-Inflicted Bad Luck Streak",
+  1870→"description": "Plus GM's Chinese sales are in free fall, Washington state car dealers are suing Scout's direct sales model and Honda is recalling over 325,000 Odysseys.",
+  1871→"url": "https://www.jalopnik.com/2210474/ram-could-break-stellantis-bad-luck-streak/",
+  1872→"urlToImage": "https://www.jalopnik.com/img/gallery/rams-solid-2026-could-break-stellantis-seven-year-self-inflicted-bad-luck-streak/l-intro-1783519664.jpg",
+  1873→"publishedAt": "2026-07-08T14:23:04Z",
+  1874→"content": "Would you look at that, dealers are whining about someone stepping on their precious turf and trying to sell cars directly to customers rather than going through them. We've seen this many times befo… [+2263 chars]"
+  1875→},
+  1876→-{
+  1877→-"source": {
+  1878→"id": null,
+  1879→"name": "Electrek"
+  1880→},
+  1881→"author": "Fred Lambert",
+  1882→"title": "Tesla leases 683,000 sq ft Austin building in Musk’s Texas sweep",
+  1883→"description": "Tesla has leased a 682,000-square-foot speculative industrial building in the Austin Hills Commerce Center, expanding Elon Musk’s already sprawling Central Texas real estate footprint.\nThe company is set to occupy the second phase of the development at 11801 …",
+  1884→"url": "http://electrek.co/2026/07/08/tesla-leases-683000-sqft-austin-industrial-building/",
+  1885→"urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2026/07/Tesla-new-lease-buidling-austin.jpeg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+  1886→"publishedAt": "2026-07-08T14:16:26Z",
+  1887→"content": "Tesla has leased a 682,000-square-foot speculative industrial building in the Austin Hills Commerce Center, expanding Elon Musk’s already sprawling Central Texas real estate footprint.\r\nThe company i… [+3558 chars]"
+  1888→},
+  1889→-{
+  1890→-"source": {
+  1891→"id": null,
+  1892→"name": "24/7 Wall St."
+  1893→},
+  1894→"author": "Douglas A. McIntyre",
+  1895→"title": "Is Rivian Worth Half Of Ford?",
+  1896→"description": "Rivian’s (NASDAQ: RIVN) stock dropped 18% on news that it would issue new equity to pay off debt. The day before, it was worth half as much as Ford (NYSE: F)...",
+  1897→"url": "https://247wallst.com/investing/2026/07/08/is-rivian-worth-half-of-ford/",
+  1898→"urlToImage": "https://s.yimg.com/lo/mysterio/api/ABE093EB208B5E054551E6288D1CE0BAD268A348934E6EE3CCCB40AFE25CE34F/subgraphmysterio/resizefill_w1200_h900;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2F24_7_wall_st__718%2F24bc032c3fdd40b5b11eb6116883e8a4",
+  1899→"publishedAt": "2026-07-08T14:14:49Z",
+  1900→"content": "Quick Read\r\n<ul><li>RIVN dropped 18% on a dilutive share sale yet still holds a $25 billion market cap while selling just 67,000 vehicles annually.\r\n</li><li>F generates $187 billion in revenue yet h… [+2420 chars]"
+  1901→},
+  1902→-{
+  1903→-"source": {
+  1904→"id": null,
+  1905→"name": "CNBC"
+  1906→},
+  1907→"author": "Jennifer Elias",
+  1908→"title": "Waymo starts driverless rides in four more U.S. markets as expansion accelerates",
+  1909→"description": "Waymo has a big lead in the nascent U.S. robotaxi market, and is opening up in more cities.",
+  1910→"url": "https://www.cnbc.com/2026/07/08/waymo-starts-driverless-rides-in-san-diego-las-vegas-tampa-denver.html",
+  1911→"urlToImage": "https://image.cnbcfm.com/api/v1/image/108331727-1783458801550-gettyimages-2285112992-_04a1429_vnvpqb9y.jpeg?v=1783458850&w=1920&h=1080",
+  1912→"publishedAt": "2026-07-08T14:00:01Z",
+  1913→"content": "Waymo will begin rolling out its driverless vehicles in four new cities in the coming weeks, furthering its U.S. expansion and building on its lead over domestic rivals Tesla and Zoox, which is owned… [+1717 chars]"
+  1914→},
+  1915→-{
+  1916→-"source": {
+  1917→"id": null,
+  1918→"name": "ZyCrypto"
+  1919→},
+  1920→"author": "Newton Gitonga",
+  1921→"title": "Pundit On Why XRP’s Price Structure Mirrors Tesla Before Major Breakout",
+  1922→"description": "Popular crypto analyst EGRAG CRYPTO has highlighted similarities between XRP’s extended consolidation and Tesla’s pre-breakout trading structure.",
+  1923→"url": "https://zycrypto.com/pundit-on-why-xrps-price-structure-mirrors-tesla-before-major-breakout/",
+  1924→"urlToImage": "https://zycrypto.com/wp-content/uploads/2026/03/XRP-Price-Charts-Flash-2017-Style-Surge-Will-A-1500-Explosive-Rally-Follow.jpg",
+  1925→"publishedAt": "2026-07-08T13:27:10Z",
+  1926→"content": "Add ZyCrypto News On GooglePopular crypto analyst EGRAG CRYPTO has highlighted similarities between XRPs extended consolidation and Teslas pre-breakout trading structure, fueling speculation of a pot… [+3631 chars]"
+  1927→},
+  1928→-{
+  1929→-"source": {
+  1930→"id": null,
+  1931→"name": "Electrek"
+  1932→},
+  1933→"author": "Fred Lambert",
+  1934→"title": "Tesla launches ‘Tesla Home’ with Opticaster AI to cut power bills",
+  1935→"description": "Tesla has launched Tesla Home, a home energy management platform powered by an AI engine called Opticaster that it says makes “hundreds of decisions” a day about when to store and use electricity to lower your bill.\nHowever, it’s not an entirely new product a…",
+  1936→"url": "http://electrek.co/2026/07/08/tesla-home-opticaster-ai-energy-platform/",
+  1937→"urlToImage": "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2026/07/Tesla-Home-Opticaster.png?resize=1200%2C628&quality=82&strip=all&ssl=1",
+  1938→"publishedAt": "2026-07-08T13:19:13Z",
+  1939→"content": "Tesla has launched Tesla Home, a home energy management platform powered by an AI engine called Opticaster that it says makes hundreds of decisions a day about when to store and use electricity to lo… [+4430 chars]"
+  1940→},
+  1941→-{
+  1942→-"source": {
+  1943→"id": null,
+  1944→"name": "Brentozar.com"
+  1945→},
+  1946→"author": "Brent Ozar",
+  1947→"title": "[Video] Office Hours at the Black Pebble Beach",
+  1948→"description": "After the PASS Data Community Summit in Frankfurt, Germany, I headed back to Iceland and spent a few more days gallivanting around the country in a Tesla Model Y camper. (Well, “camper” is a glamorous word for it: CampEasy.com puts a mattress in the back. But…",
+  1949→"url": "https://www.brentozar.com/archive/2026/07/video-office-hours-at-the-black-pebble-beach/",
+  1950→"urlToImage": "https://www.brentozar.com/wp-content/uploads/2026/07/video-office-hours-at-the-black-pebble-beach-1781536544.png?omgimg",
+  1951→"publishedAt": "2026-07-08T13:15:49Z",
+  1952→"content": "After the PASS Data Community Summit in Frankfurt, Germany, I headed back to Iceland and spent a few more days gallivanting around the country in a Tesla Model Y camper. (Well, “camper” is a glamorou… [+2054 chars]"
+  1953→},
+  1954→-{
+  1955→-"source": {
+  1956→"id": null,
+  1957→"name": "Biztoc.com"
+  1958→},
+  1959→"author": "finance.yahoo.com",
+  1960→"title": "Prediction: Tesla Stock Will Reach This Price in July (Hint: It's Going to Plummet)",
+  1961→"description": "It's no secret that Tesla (NASDAQ: TSLA) is one of the most narrative-driven stocks in the market. The company's valuation hinges less on its revenue and profitability numbers, and more on whether investors believe it will successfully evolve into an artifici…",
+  1962→"url": "https://biztoc.com/x/cd6a52df42e4193b",
+  1963→"urlToImage": "https://biztoc.com/cdn/cd6a52df42e4193b_s.webp",
+  1964→"publishedAt": "2026-07-08T12:58:06Z",
+  1965→"content": "It's no secret that Tesla (NASDAQ: TSLA) is one of the most narrative-driven stocks in the market. The company's valuation hinges less on its revenue and profitability numbers, and more on whether in… [+152 chars]"
+  1966→},
+  1967→-{
+  1968→-"source": {
+  1969→"id": "the-times-of-india",
+  1970→"name": "The Times of India"
+  1971→},
+  1972→"author": "ETtech",
+  1973→"title": "Elon Musk says Grok 4.5 to launch on July 9, calls it 'Opus-class'",
+  1974→"description": "xAI is speeding up development amid the race for the fastest and cheapest model in the AI space. Grok 4.5 first surfaced in private beta at Tesla and SpaceX in June, with Musk putting its early performance close to, and potentially above, Anthropic's Claude O…",
+  1975→"url": "https://economictimes.indiatimes.com/tech/technology/elon-musk-says-grok-4-5-to-launch-on-july-9-calls-it-opus-class/articleshow/132264231.cms",
+  1976→"urlToImage": "https://img.etimg.com/thumb/width-1200,height-900,imgsize-58186,resizemode-75,msid-132264231/tech/technology/elon-musk-says-grok-4-5-to-launch-on-july-9-calls-it-opus-class.jpg",
+  1977→"publishedAt": "2026-07-08T12:52:29Z",
+  1978→"content": "Elon Musk announced on X on Wednesday that xAI will release Grok 4.5, its latest large language model (LLM), to the public on July 9. \"It is an Opus-class model, but faster, more token-efficient and … [+1285 chars]"
+  1979→},
+  1980→-{
+  1981→-"source": {
+  1982→"id": null,
+  1983→"name": "Yahoo Entertainment"
+  1984→},
+  1985→"author": null,
+  1986→"title": "Prediction: Tesla Stock Will Reach This Price in July (Hint: It's Going to Plummet)",
+  1987→"description": null,
+  1988→"url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_0296a962-82f2-4326-9476-788bdcdbf5d1",
+  1989→"urlToImage": null,
+  1990→"publishedAt": "2026-07-08T12:40:00Z",
+  1991→"content": "If you click 'Accept all', we and our partners, including 249 who are part of the IAB Transparency &amp; Consent Framework, will also store and / or access information on a device (in other words, us… [+1046 chars]"
+  1992→},
+  1993→-{
+  1994→-"source": {
+  1995→"id": null,
+  1996→"name": "Cult of Mac"
+  1997→},
+  1998→"author": "Anurag Chawake",
+  1999→"title": "Siri AI can now talk to your iPhone apps — starting with your car",
+  2000→"description": "Siri AI in iOS 27 beta 3 can now pull data from select third-party apps, hinting at a much bigger shift for Apple’s assistant.\n(via Cult of Mac - Your source for the latest Apple news, rumors, analysis, reviews, how-tos and deals.)",
+
+[showing lines 1-2000 of 3278; use offset=2001 with limit to continue reading]

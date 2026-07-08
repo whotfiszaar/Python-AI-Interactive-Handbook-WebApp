@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="ai" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded background -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- Book base (handbook) -->
+  <rect x="116" y="150" width="280" height="220" rx="20" fill="url(#accent)" opacity="0.95"/>
+  <rect x="116" y="150" width="280" height="220" rx="20" fill="none" stroke="#1e3a8a" stroke-width="2"/>
+  <!-- Book spine line -->
+  <line x1="256" y1="150" x2="256" y2="370" stroke="#1e3a8a" stroke-width="2" opacity="0.5"/>
+  <!-- Code lines on left page -->
+  <rect x="146" y="185" width="80" height="10" rx="5" fill="#dbeafe" opacity="0.9"/>
+  <rect x="146" y="210" width="60" height="10" rx="5" fill="#bfdbfe" opacity="0.8"/>
+  <rect x="146" y="235" width="90" height="10" rx="5" fill="#dbeafe" opacity="0.9"/>
+  <rect x="146" y="260" width="50" height="10" rx="5" fill="#bfdbfe" opacity="0.8"/>
+  <rect x="146" y="285" width="75" height="10" rx="5" fill="#dbeafe" opacity="0.9"/>
+  <rect x="146" y="310" width="65" height="10" rx="5" fill="#bfdbfe" opacity="0.8"/>
+  <!-- AI brain/neural network on right page -->
+  <circle cx="320" cy="200" r="14" fill="url(#ai)"/>
+  <circle cx="360" cy="220" r="14" fill="url(#ai)"/>
+  <circle cx="320" cy="260" r="14" fill="url(#ai)"/>
+  <circle cx="360" cy="280" r="14" fill="url(#ai)"/>
+  <circle cx="320" cy="320" r="14" fill="url(#ai)"/>
+  <circle cx="360" cy="340" r="14" fill="url(#ai)"/>
+  <!-- Neural connections -->
+  <g stroke="#10b981" stroke-width="2" opacity="0.6" fill="none">
+    <line x1="320" y1="214" x2="360" y2="206"/>
+    <line x1="320" y1="214" x2="320" y2="246"/>
+    <line x1="360" y1="234" x2="360" y2="266"/>
+    <line x1="320" y1="274" x2="360" y2="266"/>
+    <line x1="320" y1="274" x2="320" y2="306"/>
+    <line x1="360" y1="294" x2="360" y2="326"/>
+    <line x1="320" y1="334" x2="360" y2="326"/>
+    <line x1="320" y1="214" x2="360" y2="266"/>
+    <line x1="360" y1="234" x2="320" y2="306"/>
+  </g>
+  <!-- "P" letter badge top-left -->
+  <circle cx="140" cy="120" r="36" fill="url(#ai)"/>
+  <text x="140" y="134" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="white" text-anchor="middle">P</text>
+</svg>
