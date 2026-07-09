@@ -59,7 +59,7 @@ export function SearchDialog() {
     } else if (result.type === "assessment") {
       navigate("assessment", { assessmentId: result.assessmentId! });
     } else if (result.type === "reference") {
-      navigate("references", { assessmentId: result.referenceId });
+      navigate("references", { referenceTabId: result.referenceId });
     }
     setOpen(false);
     setQuery("");

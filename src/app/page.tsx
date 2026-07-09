@@ -18,9 +18,12 @@ import { ProgressView } from "@/components/views/ProgressView";
 import { ReferencesView } from "@/components/views/ReferencesView";
 import { AINewsView } from "@/components/views/AINewsView";
 import { SettingsView } from "@/components/views/SettingsView";
+import { AdminView } from "@/components/views/AdminView";
+import { AnnexuresView } from "@/components/views/AnnexuresView";
 import { NamePrompt } from "@/components/NamePrompt";
 import { PWARegister } from "@/components/PWARegister";
 import { PyodidePreloader } from "@/components/PyodidePreloader";
+import { APIKeyDialog } from "@/components/APIKeyDialog";
 
 function CurrentView() {
   const view = useAppStore((s) => s.view);
@@ -45,6 +48,10 @@ function CurrentView() {
       return <AINewsView />;
     case "settings":
       return <SettingsView />;
+    case "admin":
+      return <AdminView />;
+    case "annexures":
+      return <AnnexuresView />;
     default:
       return <HomeView />;
   }
@@ -93,6 +100,7 @@ export default function Home() {
       <NamePrompt />
       <PWARegister />
       <PyodidePreloader />
+      <APIKeyDialog />
     </div>
   );
 }

@@ -277,28 +277,12 @@ Create new files in `src/app/api/`. All routes use Next.js Route Handlers (`expo
 ## Deployment
 
 ### Vercel (Recommended)
+1. Push the repository to GitHub
+2. Connect it to Vercel
+3. Add the `DATABASE_URL` environment variable (use a SQLite file path or switch to a hosted database)
+4. Deploy
 
-The app is fully optimized for Vercel's serverless platform. Since SQLite databases require a writeable filesystem and Vercel functions are read-only (except for `/tmp`), the codebase is configured with an automatic serverless SQLite handler in `src/lib/db.ts`.
-
-On server startup or API invocation:
-1. The app detects if it is running in production/Vercel.
-2. It copies the template database (`db/custom.db`) to `/tmp/custom.db` if it doesn't exist.
-3. It sets `DATABASE_URL` to point to the writeable database file in `/tmp/custom.db`.
-
-**Note on Serverless SQLite**: `/tmp` is ephemeral. While progress, quizzes, and notebooks will save correctly during active sessions, they will reset when the serverless container scales down or is recycled. For persistent production state, you can easily change the Prisma provider in `prisma/schema.prisma` to PostgreSQL (e.g. Neon, Supabase) and set your database connection URL.
-
-To deploy on Vercel:
-1. Push the repository to GitHub:
-   ```bash
-   git remote add origin https://github.com/whotfiszaar/Python-AI-Interactive-Handbook-WebApp.git
-   git add .
-   git commit -m "Initial commit"
-   git push -u origin main
-   ```
-2. Link and deploy to Vercel:
-   ```bash
-   npx vercel --prod --yes
-   ```
+The app is optimized for Vercel's serverless platform. The SQLite database works for single-instance deployments; for production with multiple instances, switch the Prisma datasource to PostgreSQL.
 
 ### Self-Hosted
 ```bash

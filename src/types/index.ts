@@ -147,6 +147,7 @@ export interface NotebookCell {
   error: boolean;
   hasRun: boolean;
   executionMs: number | null;
+  images: string[];
 }
 
 export interface ReferenceItem {
@@ -184,11 +185,15 @@ export type ViewName =
   | "progress"
   | "references"
   | "ai-news"
-  | "settings";
+  | "settings"
+  | "admin"
+  | "annexures";
 
 export interface ViewState {
   view: ViewName;
   dayNumber?: number;
   assessmentId?: string;
   playgroundCode?: string;
+  /** When navigating to references, which tab to auto-select. */
+  referenceTabId?: string;
 }

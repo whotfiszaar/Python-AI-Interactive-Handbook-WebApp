@@ -17,37 +17,120 @@ function extractString(content: unknown): string {
   return String(content ?? "");
 }
 
-// Parse model + messages from Python code that uses the OpenAI client pattern.
+/**
+ * Parse the model and messages from Python code that uses the OpenAI client
+ * pattern. Handles:
+ * - Single and double-quoted strings
+ * - Multi-line content
+ * - Escaped quotes inside strings
+ * - f-strings (strips the f prefix)
+ * - role/content in any order
+ * - Variable references (skips them with a warning)
+ */
 function parseAICall(code: string): {
   model: string;
   messages: { role: string; content: string }[];
   temperature?: number;
 } | null {
-  const modelMatch = code.match(/model\s*=\s*["']([^"']+)["']/);
+  // Extract model
+  const modelMatch = code.match(/model\s*=\s*(?:f?)["']([^"']+)["']/);
   if (!modelMatch) return null;
   const model = modelMatch[1];
 
-  // Find messages=[ ... ] block (multiline)
-  const messagesBlockMatch = code.match(
-    /messages\s*=\s*\[([\s\S]*?)\]\s*\)/,
-  );
-  if (!messagesBlockMatch) return null;
-  const block = messagesBlockMatch[1];
+  // Extract the messages block: messages=[ ... ]
+  // The block ends at the closing ] that is followed by ) or end of line
+  const messagesStart = code.indexOf("messages");
+  if (messagesStart === -1) return null;
 
-  // Each dict like {"role": "user", "content": "..."}
-  const msgRegex =
-    /\{\s*["']role["']\s*:\s*["']([^"']+)["']\s*,\s*["']content["']\s*:\s*["']([\s\S]*?)["']\s*\}/g;
-  const messages: { role: string; content: string }[] = [];
-  let m: RegExpExecArray | null;
-  while ((m = msgRegex.exec(block)) !== null) {
-    // unescape common escapes
-    const content = m[2]
-      .replace(/\\n/g, "\n")
-      .replace(/\\t/g, "\t")
-      .replace(/\\"/g, '"')
-      .replace(/\\'/g, "'");
-    messages.push({ role: m[1], content });
+  // Find the opening [ after messages=
+  const bracketStart = code.indexOf("[", messagesStart);
+  if (bracketStart === -1) return null;
+
+  // Find the matching closing ] by counting brackets
+  let depth = 0;
+  let bracketEnd = -1;
+  for (let i = bracketStart; i < code.length; i++) {
+    if (code[i] === "[") depth++;
+    if (code[i] === "]") {
+      depth--;
+      if (depth === 0) {
+        bracketEnd = i;
+        break;
+      }
+    }
   }
+  if (bracketEnd === -1) return null;
+
+  const block = code.slice(bracketStart + 1, bracketEnd);
+
+  // Extract each message dict. A dict starts with { and ends with }.
+  // We need to match balanced braces.
+  const messages: { role: string; content: string }[] = [];
+  let i = 0;
+  while (i < block.length) {
+    // Find the next opening brace
+    const braceStart = block.indexOf("{", i);
+    if (braceStart === -1) break;
+
+    // Find the matching closing brace
+    let braceDepth = 0;
+    let braceEnd = -1;
+    for (let j = braceStart; j < block.length; j++) {
+      if (block[j] === "{") braceDepth++;
+      if (block[j] === "}") {
+        braceDepth--;
+        if (braceDepth === 0) {
+          braceEnd = j;
+          break;
+        }
+      }
+    }
+    if (braceEnd === -1) break;
+
+    const dictStr = block.slice(braceStart + 1, braceEnd);
+
+    // Extract role
+    const roleMatch = dictStr.match(
+      /["']role["']\s*:\s*(?:f?)["']([^"']+)["']/,
+    );
+    // Extract content - handle both single and double quotes, and escaped quotes
+    // Try double-quoted content first (with escaped quotes inside)
+    let content: string | null = null;
+    let role: string | null = null;
+
+    if (roleMatch) {
+      role = roleMatch[1];
+    }
+
+    // Try to extract content with double quotes (handling escaped \")
+    const contentDoubleMatch = dictStr.match(
+      /["']content["']\s*:\s*(?:f?)"((?:[^"\\]|\\.)*)"/,
+    );
+    const contentSingleMatch = dictStr.match(
+      /["']content["']\s*:\s*(?:f?)'((?:[^'\\]|\\.)*)'/,
+    );
+
+    if (contentDoubleMatch) {
+      content = contentDoubleMatch[1]
+        .replace(/\\n/g, "\n")
+        .replace(/\\t/g, "\t")
+        .replace(/\\"/g, '"')
+        .replace(/\\'/g, "'");
+    } else if (contentSingleMatch) {
+      content = contentSingleMatch[1]
+        .replace(/\\n/g, "\n")
+        .replace(/\\t/g, "\t")
+        .replace(/\\"/g, '"')
+        .replace(/\\'/g, "'");
+    }
+
+    if (role && content !== null) {
+      messages.push({ role, content });
+    }
+
+    i = braceEnd + 1;
+  }
+
   if (messages.length === 0) return null;
 
   const tempMatch = code.match(/temperature\s*=\s*([0-9.]+)/);

@@ -19,10 +19,10 @@ const YOUTUBE_TAB_ID = "youtube-videos";
 
 export function ReferencesView() {
   const studentName = useAppStore((s) => s.studentName);
-  // Allow deep-linking to the YouTube tab (e.g. from a day's "Watch video" button).
-  const deepLink = useAppStore((s) => s.assessmentId);
+  // Allow deep-linking to a specific tab (e.g. from search or a day's video button).
+  const deepLink = useAppStore((s) => s.referenceTabId);
   const [activeTab, setActiveTab] = useState(
-    deepLink === "youtube-videos" ? YOUTUBE_TAB_ID : referenceSections[0]?.id ?? "",
+    deepLink ?? referenceSections[0]?.id ?? "",
   );
   const [query, setQuery] = useState("");
 

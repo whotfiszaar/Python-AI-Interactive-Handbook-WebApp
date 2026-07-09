@@ -4,7 +4,8 @@ import { useAppStore } from "@/lib/store";
 import { days, phaseMeta } from "@/data/days";
 import { useProgress } from "@/hooks/useProgress";
 import { cn } from "@/lib/utils";
-import { Check, Bookmark } from "lucide-react";
+import { Check, Bookmark, Layers } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
@@ -99,6 +100,27 @@ export function Sidebar() {
                         </li>
                       );
                     })}
+                    {phase === "theory" && (
+                      <li>
+                        <button
+                          onClick={() => navigate("annexures")}
+                          className={cn(
+                            "w-full flex items-center gap-2 px-4 py-1.5 text-sm rounded-md text-left transition-colors mt-1",
+                            view === "annexures"
+                              ? "bg-primary text-primary-foreground"
+                              : "hover:bg-accent text-amber-600 dark:text-amber-400",
+                          )}
+                        >
+                          <Layers className="h-4 w-4 shrink-0" />
+                          <span className="truncate flex-1 font-medium">
+                            Course Annexures
+                          </span>
+                          <Badge variant="outline" className="text-[9px]">
+                            Bonus
+                          </Badge>
+                        </button>
+                      </li>
+                    )}
                   </ul>
                 </AccordionContent>
               </AccordionItem>

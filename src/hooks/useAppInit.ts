@@ -8,9 +8,23 @@ export function useAppInit() {
   const setScores = useAppStore((s) => s.setScores);
   const setSettings = useAppStore((s) => s.setSettings);
   const setHydrated = useAppStore((s) => s.setHydrated);
+  const setStudentName = useAppStore((s) => s.setStudentName);
 
   useEffect(() => {
     let active = true;
+
+    // INSTANT HYDRATION: Read the student name from localStorage so the UI
+    // shows the correct name immediately (no "Aarav" flash) before the API
+    // round-trip completes.
+    try {
+      const cachedName = localStorage.getItem("__studentName");
+      if (cachedName) {
+        setStudentName(cachedName);
+      }
+    } catch {
+      /* ignore */
+    }
+
     (async () => {
       try {
         const [progressRes, scoresRes, settingsRes] = await Promise.all([
@@ -30,6 +44,14 @@ export function useAppInit() {
           if (settingsRes.ok) {
             const data = (await settingsRes.json()) as import("@/types").SettingsRow;
             setSettings(data);
+            // Cache the name in localStorage for instant access on next load.
+            if (data.studentName) {
+              try {
+                localStorage.setItem("__studentName", data.studentName);
+              } catch {
+                /* ignore */
+              }
+            }
             // apply font size
             if (data.fontSize) {
               document.documentElement.style.fontSize = `${data.fontSize}px`;
@@ -45,5 +67,5 @@ export function useAppInit() {
     return () => {
       active = false;
     };
-  }, [setProgress, setScores, setSettings, setHydrated]);
+  }, [setProgress, setScores, setSettings, setHydrated, setStudentName]);
 }

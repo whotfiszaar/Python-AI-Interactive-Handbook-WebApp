@@ -15,6 +15,7 @@ interface AppStore {
   dayNumber: number | null;
   assessmentId: string | null;
   playgroundCode: string | null;
+  referenceTabId: string | null;
 
   navigate: (
     view: ViewName,
@@ -22,6 +23,7 @@ interface AppStore {
       dayNumber?: number;
       assessmentId?: string;
       playgroundCode?: string;
+      referenceTabId?: string;
     },
   ) => void;
 
@@ -56,6 +58,16 @@ interface AppStore {
   searchOpen: boolean;
   setSearchOpen: (open: boolean) => void;
 
+  /** Admin mode: password + auth state */
+  isAdmin: boolean;
+  adminPassword: string;
+  setAdminAuth: (password: string) => void;
+  setAdminLogout: () => void;
+
+  /** OpenRouter API key dialog (global, triggered from anywhere) */
+  apiKeyDialogOpen: boolean;
+  setAPIKeyDialogOpen: (open: boolean) => void;
+
   // persisted locally for instant load + offline
   hydrated: boolean;
   setHydrated: (v: boolean) => void;
@@ -66,6 +78,7 @@ export const useAppStore = create<AppStore>((set) => ({
   dayNumber: null,
   assessmentId: null,
   playgroundCode: null,
+  referenceTabId: null,
 
   navigate: (view, opts) =>
     set((s) => ({
@@ -73,6 +86,7 @@ export const useAppStore = create<AppStore>((set) => ({
       dayNumber: opts?.dayNumber ?? null,
       assessmentId: opts?.assessmentId ?? null,
       playgroundCode: opts?.playgroundCode ?? null,
+      referenceTabId: opts?.referenceTabId ?? null,
       // Auto-collapse the desktop lessons sidebar when entering the
       // playground so the editor gets maximum width.
       ...(view === "playground" ? { desktopSidebarOpen: false } : {}),
@@ -96,14 +110,16 @@ export const useAppStore = create<AppStore>((set) => ({
     set({
       settings: row,
       studentName: row.studentName ?? "",
-      displayName: row.studentName?.trim() || DEFAULT_STUDENT_NAME,
+      // Only set displayName if the name is non-empty. If empty, keep it
+      // empty (not the default) so the UI shows nothing until the name is set.
+      displayName: row.studentName?.trim() || "",
     }),
   studentName: "",
-  displayName: DEFAULT_STUDENT_NAME,
+  displayName: "",
   setStudentName: (name) =>
     set((s) => ({
       studentName: name,
-      displayName: name.trim() || DEFAULT_STUDENT_NAME,
+      displayName: name.trim() || "",
       settings: s.settings
         ? { ...s.settings, studentName: name }
         : s.settings,
@@ -114,13 +130,22 @@ export const useAppStore = create<AppStore>((set) => ({
   sidebarOpen: false,
   setSidebarOpen: (open) => set({ sidebarOpen: open }),
 
-  desktopSidebarOpen: true,
+  desktopSidebarOpen: false,
   setDesktopSidebarOpen: (open) => set({ desktopSidebarOpen: open }),
   toggleDesktopSidebar: () =>
     set((s) => ({ desktopSidebarOpen: !s.desktopSidebarOpen })),
 
   searchOpen: false,
   setSearchOpen: (open) => set({ searchOpen: open }),
+
+  isAdmin: false,
+  adminPassword: "",
+  setAdminAuth: (password) =>
+    set({ isAdmin: true, adminPassword: password }),
+  setAdminLogout: () => set({ isAdmin: false, adminPassword: "" }),
+
+  apiKeyDialogOpen: false,
+  setAPIKeyDialogOpen: (open) => set({ apiKeyDialogOpen: open }),
 
   hydrated: false,
   setHydrated: (v) => set({ hydrated: v }),

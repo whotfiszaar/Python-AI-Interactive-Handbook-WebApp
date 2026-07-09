@@ -14,7 +14,6 @@ import {
 import { isAICode, cn } from "@/lib/utils";
 import { useAppStore } from "@/lib/store";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 // Lazy-load shiki highlighter once and cache it.
 let highlighterPromise: Promise<unknown> | null = null;
@@ -72,13 +71,26 @@ export function CodeBlock({
   const [editing, setEditing] = useState(false);
   const [editedCode, setEditedCode] = useState(originalCode);
   const [output, setOutput] = useState<string>("");
+  const [images, setImages] = useState<string[]>([]);
   const [running, setRunning] = useState(false);
   const [hasRun, setHasRun] = useState(false);
   const [error, setError] = useState(false);
   const [execMs, setExecMs] = useState<number | null>(null);
   const [needsInput, setNeedsInput] = useState(0);
+  const [inputPrompts, setInputPrompts] = useState<string[]>([]);
   const [inputValues, setInputValues] = useState<string[]>([]);
   const navigate = useAppStore((s) => s.navigate);
+  const settings = useAppStore((s) => s.settings);
+  const setAPIKeyDialogOpen = useAppStore((s) => s.setAPIKeyDialogOpen);
+
+  const apiKeySet = (() => {
+    try {
+      const keys = JSON.parse(settings?.apiKeys ?? "{}");
+      return Boolean(keys.openrouter);
+    } catch {
+      return false;
+    }
+  })();
 
   const isPython = language === "python" || language === "py";
   const canRunInline = showRunInPlayground && isPython;
@@ -97,15 +109,16 @@ export function CodeBlock({
     };
   }, [originalCode, language]);
 
-  // Detect input() calls and reset state when the original code changes
-  // (e.g. navigating to a different day resets the block).
+  // Detect input() calls and extract their prompt strings for the UI.
   useEffect(() => {
     let active = true;
     (async () => {
-      const { countInputCalls } = await import("@/lib/pyodide-runner");
+      const { extractInputPrompts } = await import("@/lib/pyodide-runner");
       if (active) {
-        const count = countInputCalls(originalCode);
+        const prompts = extractInputPrompts(originalCode);
+        const count = prompts.length;
         setNeedsInput(count);
+        setInputPrompts(prompts.map((p) => p.prompt));
         setInputValues(count > 0 ? Array(count).fill("") : []);
       }
     })();
@@ -119,6 +132,7 @@ export function CodeBlock({
     setEditedCode(originalCode);
     setEditing(false);
     setOutput("");
+    setImages([]);
     setHasRun(false);
     setError(false);
     setExecMs(null);
@@ -138,11 +152,21 @@ export function CodeBlock({
     setEditedCode(originalCode);
     setEditing(false);
     setOutput("");
+    setImages([]);
     setHasRun(false);
     setError(false);
     setExecMs(null);
     if (needsInput > 0) {
       setInputValues(Array(needsInput).fill(""));
+    }
+    // Re-extract prompts from the active code (in case it was edited)
+    if (editing) {
+      import("@/lib/pyodide-runner").then(({ extractInputPrompts }) => {
+        const prompts = extractInputPrompts(editedCode);
+        setNeedsInput(prompts.length);
+        setInputPrompts(prompts.map((p) => p.prompt));
+        setInputValues(prompts.length > 0 ? Array(prompts.length).fill("") : []);
+      });
     }
   };
 
@@ -153,10 +177,19 @@ export function CodeBlock({
   const runInline = useCallback(async () => {
     setRunning(true);
     setOutput("");
+    setImages([]);
     setError(false);
     const startedAt = performance.now();
     try {
       if (isAICode(activeCode)) {
+        // Check if API key is set; if not, trigger the dialog popup.
+        if (!apiKeySet) {
+          setAPIKeyDialogOpen(true);
+          setOutput("OpenRouter API key required. Click the dialog to add your key, then try again.");
+          setError(true);
+          setHasRun(true);
+          return;
+        }
         const res = await fetch("/api/playground", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -177,17 +210,25 @@ export function CodeBlock({
         }
         setExecMs(ms);
       } else {
-        const { runPythonInline, countInputCalls } = await import(
+        const { runPythonInline, extractInputPrompts } = await import(
           "@/lib/pyodide-runner"
         );
+        // Show "Installing packages..." if the code has imports that may
+        // need package installation.
+        const hasImports = /^\s*(?:from\s+\S+\s+import|import\s+\S+)/m.test(activeCode);
+        if (hasImports) {
+          setOutput("Loading packages (if needed)...\n");
+        }
         // Recalculate input count from the (possibly edited) code.
-        const inputCount = countInputCalls(activeCode);
+        const prompts = extractInputPrompts(activeCode);
+        const inputCount = prompts.length;
         const inputs =
           inputCount > 0
             ? inputValues.slice(0, inputCount).map((v) => v || "")
             : [];
         const result = await runPythonInline(activeCode, { inputs, freshGlobals: true });
-        setOutput(result.stdout || result.stderr || result.error || "(no output)");
+        setOutput(result.stdout || result.stderr || result.error || (result.images.length > 0 ? "" : "(no output)"));
+        setImages(result.images || []);
         setError(Boolean(result.error));
         setExecMs(result.durationMs);
       }
@@ -341,34 +382,45 @@ export function CodeBlock({
           </pre>
         )}
 
-        {/* Input fields when the code uses input() */}
+        {/* Input fields when the code uses input() - shows actual prompt text */}
         {canRunInline && needsInput > 0 && (
-          <div className="border-t border-slate-700 bg-slate-800/40 px-3 py-2">
-            <p className="text-[10px] font-mono text-slate-400 uppercase tracking-wide mb-1.5 flex items-center gap-1">
+          <div className="border-t border-slate-700 bg-slate-800/60 px-3 py-2.5">
+            <p className="text-[10px] font-mono text-slate-400 uppercase tracking-wide mb-2 flex items-center gap-1.5">
               <MessageSquareText className="h-3 w-3" />
               This code asks for {needsInput} input{needsInput > 1 ? "s" : ""}. Type {needsInput > 1 ? "them" : "it"} below, then click Run.
             </p>
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               {Array.from({ length: needsInput }).map((_, i) => (
-                <Input
-                  key={i}
-                  value={inputValues[i] ?? ""}
-                  onChange={(e) => {
-                    const next = [...inputValues];
-                    next[i] = e.target.value;
-                    setInputValues(next);
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" && !running) {
-                      const allFilled =
-                        needsInput === 0 ||
-                        inputValues.slice(0, needsInput).every((v) => v.trim());
-                      if (allFilled) void runInline();
-                    }
-                  }}
-                  placeholder={`Input ${i + 1}`}
-                  className="h-7 text-xs font-mono bg-slate-900 border-slate-600 text-slate-100 placeholder:text-slate-500"
-                />
+                <div key={i} className="flex items-start gap-2">
+                  <span className="text-[10px] font-mono text-slate-500 shrink-0 w-5 text-right pt-1.5">
+                    {i + 1}.
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    {inputPrompts[i] && (
+                      <p className="text-[10px] text-slate-400 font-mono mb-1 truncate italic">
+                        {inputPrompts[i]}
+                      </p>
+                    )}
+                    <input
+                      value={inputValues[i] ?? ""}
+                      onChange={(e) => {
+                        const next = [...inputValues];
+                        next[i] = e.target.value;
+                        setInputValues(next);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && !running) {
+                          const allFilled =
+                            needsInput === 0 ||
+                            inputValues.slice(0, needsInput).every((v) => v.trim());
+                          if (allFilled) void runInline();
+                        }
+                      }}
+                      placeholder={inputPrompts[i] ? `Type your answer...` : `Input ${i + 1}`}
+                      className="h-8 w-full px-3 text-xs font-mono bg-[#0d1117] border border-slate-600 rounded-md text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-colors"
+                    />
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -398,12 +450,24 @@ export function CodeBlock({
             </div>
             <pre
               className={cn(
-                "p-3 text-xs font-mono whitespace-pre-wrap break-words max-h-64 overflow-y-auto",
+                "p-3 text-xs font-mono whitespace-pre text-slate-100 max-h-64 overflow-auto",
                 error ? "text-red-400" : "text-slate-100",
               )}
             >
-              {output || (running ? "" : "(no output)")}
+              {output || (running ? "" : images.length > 0 ? "" : "(no output)")}
             </pre>
+            {images.length > 0 && (
+              <div className="p-3 space-y-2 bg-[#0d1117]">
+                {images.map((img, idx) => (
+                  <img
+                    key={idx}
+                    src={`data:image/png;base64,${img}`}
+                    alt={`Figure ${idx + 1}`}
+                    className="max-w-full rounded border border-slate-700"
+                  />
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>

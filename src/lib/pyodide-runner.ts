@@ -11,6 +11,7 @@ export interface RunResult {
   stderr: string;
   error: string | null;
   durationMs: number;
+  images: string[]; // base64-encoded PNG images (from matplotlib)
 }
 
 type PyodideInstance = {
@@ -76,16 +77,57 @@ async function getPyodide(): Promise<PyodideInstance> {
  * the learner for the right number of values before running.
  */
 export function countInputCalls(code: string): number {
-  // Match `input(` not inside a string literal or comment (best-effort).
-  // Strip strings and comments first, then count `input(` occurrences.
-  const stripped = code
-    .replace(/#[^\n]*/g, "") // strip comments
-    .replace(/"""[\s\S]*?"""/g, "") // strip triple-quoted strings
-    .replace(/'''[\s\S]*?'''/g, "")
-    .replace(/"(?:[^"\\]|\\.)*"/g, '""') // strip single-quoted strings
-    .replace(/'(?:[^'\\]|\\.)*'/g, "''");
-  const matches = stripped.match(/\binput\s*\(/g);
-  return matches ? matches.length : 0;
+  return extractInputPrompts(code).length;
+}
+
+/**
+ * Extract the prompt strings from each `input("...")` call in the code.
+ * Returns an array of { prompt, index } objects. If the input() call has
+ * no prompt string, the prompt is empty.
+ *
+ * Example: input("What is your name? ") -> { prompt: "What is your name? " }
+ * Example: input() -> { prompt: "" }
+ */
+export function extractInputPrompts(code: string): { prompt: string }[] {
+  // We need to find input() calls and extract their string argument.
+  // This is a best-effort regex that handles:
+  // - input("prompt")
+  // - input('prompt')
+  // - input() with no argument
+  // - input(variable) (can't extract, returns empty prompt)
+  const results: { prompt: string }[] = [];
+  // Match input( followed by an optional string argument
+  const inputRegex = /\binput\s*\(\s*/g;
+  let match: RegExpExecArray | null;
+  while ((match = inputRegex.exec(code)) !== null) {
+    const afterInput = code.slice(match.index + match[0].length);
+    // Check if the next character is a string quote
+    let prompt = "";
+    if (afterInput[0] === '"' || afterInput[0] === "'") {
+      const quote = afterInput[0];
+      // Find the closing quote (handle escaped quotes)
+      let end = 1;
+      while (end < afterInput.length) {
+        if (afterInput[end] === "\\") {
+          end += 2;
+          continue;
+        }
+        if (afterInput[end] === quote) break;
+        end++;
+      }
+      if (end < afterInput.length) {
+        // Extract the string content and unescape
+        prompt = afterInput
+          .slice(1, end)
+          .replace(/\\n/g, "\n")
+          .replace(/\\t/g, "\t")
+          .replace(/\\"/g, '"')
+          .replace(/\\'/g, "'");
+      }
+    }
+    results.push({ prompt });
+  }
+  return results;
 }
 
 /**
@@ -110,8 +152,8 @@ export async function runPythonInline(
   let stdout = "";
   let stderr = "";
 
-  py.setStdout({ batched: (s) => (stdout += s) });
-  py.setStderr({ batched: (s) => (stderr += s) });
+  py.setStdout({ batched: (s: string) => { stdout += s + "\n"; } });
+  py.setStderr({ batched: (s: string) => { stderr += s + "\n"; } });
 
   // Set up stdin: return each input value followed by a newline, then null.
   let inputIndex = 0;
@@ -130,11 +172,59 @@ export async function runPythonInline(
 
   const start = performance.now();
   try {
+    // Auto-install packages: first try Pyodide's built-in package loader
+    // (handles numpy, pandas, matplotlib, etc.), then use micropip for
+    // pure-Python packages not bundled with Pyodide.
     try {
       await py.loadPackagesFromImports(code);
     } catch {
       // ignore package load errors
     }
+
+    // Detect imports and try to install any missing packages via micropip.
+    // This handles packages like 'requests', 'pyyaml', etc. that are not
+    // bundled with Pyodide but are pure Python.
+    const importRegex = /^\s*(?:from\s+(\S+)\s+import|import\s+(\S+))/gm;
+    const packagesToInstall: string[] = [];
+    let match: RegExpExecArray | null;
+    while ((match = importRegex.exec(code)) !== null) {
+      const pkg = (match[1] || match[2] || "").split(".")[0];
+      if (
+        pkg &&
+        !packagesToInstall.includes(pkg) &&
+        !["builtins", "os", "sys", "math", "random", "json", "re",
+          "datetime", "time", "io", "collections", "itertools",
+          "functools", "pathlib", "typing", "abc", "copy",
+          "string", "textwrap", "unicodedata", "struct",
+        ].includes(pkg)
+      ) {
+        packagesToInstall.push(pkg);
+      }
+    }
+
+    // Try to install missing packages via micropip (pure Python only).
+    if (packagesToInstall.length > 0) {
+      try {
+        await py.runPythonAsync(
+          `import micropip\nawait micropip.install(${JSON.stringify(packagesToInstall)})`,
+        );
+      } catch {
+        // Some packages are not installable (C extensions, non-pure-Python).
+        // The error will surface naturally when the code runs.
+      }
+    }
+    // For matplotlib: set Agg backend before running so figures are created
+    // in non-interactive mode (no GUI needed).
+    if (code.includes("matplotlib") || code.includes("pyplot") || code.includes("plt.")) {
+      try {
+        await py.runPythonAsync(
+          `import matplotlib\nmatplotlib.use('Agg')\nimport matplotlib.pyplot as _plt\n_plt.show = lambda *a, **k: None`,
+        );
+      } catch {
+        // ignore
+      }
+    }
+
     // For freshGlobals (lesson code blocks), run in an isolated namespace
     // so lesson runs don't pollute the Playground's shared global scope.
     if (freshGlobals) {
@@ -159,11 +249,34 @@ export async function runPythonInline(
       ]);
     }
     const durationMs = Math.round(performance.now() - start);
-    return { stdout, stderr, error: null, durationMs };
+
+    // Capture matplotlib figures as base64 PNG images.
+    const images: string[] = [];
+    if (code.includes("matplotlib") || code.includes("pyplot") || code.includes("plt.")) {
+      try {
+        const imgProxy = await py.runPythonAsync(
+          `import base64, io\ntry:\n    import matplotlib.pyplot as _plt\n    _imgs = []\n    _nums = _plt.get_fignums()\n    for _fig_num in _nums:\n        _fig = _plt.figure(_fig_num)\n        _buf = io.BytesIO()\n        _fig.savefig(_buf, format='png', dpi=100, bbox_inches='tight')\n        _buf.seek(0)\n        _imgs.append(base64.b64encode(_buf.read()).decode('utf-8'))\n        _plt.close(_fig)\n    _imgs\nexcept Exception as _e:\n    []`,
+        );
+        // Convert PyProxy to JS array
+        let imgData: string[] = [];
+        if (imgProxy && typeof imgProxy === "object" && "toJs" in imgProxy) {
+          imgData = (imgProxy as { toJs: () => string[] }).toJs();
+        } else if (Array.isArray(imgProxy)) {
+          imgData = imgProxy as string[];
+        }
+        if (Array.isArray(imgData) && imgData.length > 0) {
+          images.push(...imgData);
+        }
+      } catch (e) {
+        console.warn("Matplotlib image capture failed:", e);
+      }
+    }
+
+    return { stdout, stderr, error: null, durationMs, images };
   } catch (e) {
     const durationMs = Math.round(performance.now() - start);
     const msg = e instanceof Error ? e.message : String(e);
-    return { stdout, stderr, error: stderr || msg, durationMs };
+    return { stdout, stderr, error: stderr || msg, durationMs, images: [] };
   }
 }
 

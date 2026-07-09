@@ -15,7 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Check, Bookmark, Search, Youtube } from "lucide-react";
+import { Check, Bookmark, Search, Youtube, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getVideosForDay } from "@/data/youtube";
 
@@ -156,6 +156,33 @@ export function DaysListView() {
           );
         })}
       </div>
+
+      {/* Annexures card (always shown, after the day grid) */}
+      {(phaseFilter === "all" || phaseFilter === "theory") && !query && (
+        <Card
+          className="p-4 cursor-pointer hover:border-amber-400/50 transition-colors group relative border-amber-200 dark:border-amber-900/50 bg-gradient-to-br from-amber-50/50 to-transparent dark:from-amber-950/10"
+          onClick={() => navigate("annexures")}
+        >
+          <div className="flex items-center gap-2 mb-2 flex-wrap">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-500 text-white text-xs">
+              <Layers className="h-4 w-4" />
+            </span>
+            <Badge
+              variant="outline"
+              className="text-[10px] text-amber-600 border-amber-300 dark:border-amber-900/50"
+            >
+              AI Theory, Bonus
+            </Badge>
+          </div>
+          <h3 className="font-semibold text-sm group-hover:text-amber-600 transition-colors">
+            Course Annexures: System Design and Software Concepts
+          </h3>
+          <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+            Deep-dives into how real AI apps are built at scale. Interactive diagrams, analogies, and code examples for core understanding.
+          </p>
+        </Card>
+      )}
+
       {filtered.length === 0 && (
         <p className="text-center text-muted-foreground py-12">
           No days match your filters.

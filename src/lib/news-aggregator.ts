@@ -588,13 +588,11 @@ export async function fetchPerplexity(): Promise<NewsArticle[]> {
 }
 
 export async function aggregateNews(): Promise<NewsArticle[]> {
-  const [hn, reddit, rss] = await Promise.all([
+  const [hn] = await Promise.all([
     fetchHackerNews(),
-    fetchReddit(),
-    fetchRSS(),
   ]);
 
-  const all = [...hn, ...reddit, ...rss];
+  const all = [...hn];
 
   // Dedupe by URL (normalized) and by normalized title.
   const seenUrl = new Set<string>();

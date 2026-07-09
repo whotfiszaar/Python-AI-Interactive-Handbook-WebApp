@@ -7,6 +7,7 @@ import { getDay, phaseMeta } from "@/data/days";
 import { personalizeDay } from "@/hooks/useSubstitute";
 import { getVideosForDay, type YouTubeVideo } from "@/data/youtube";
 import { LessonContent } from "@/components/lesson/LessonContent";
+import { LeaderboardCard } from "@/components/lesson/LeaderboardCard";
 import { QuizBlock } from "@/components/lesson/QuizBlock";
 import { ExerciseBlock } from "@/components/lesson/ExerciseBlock";
 import { DayNavigation } from "@/components/lesson/DayNavigation";
@@ -228,6 +229,21 @@ export function DayDetailView() {
         <LessonContent blocks={day.content} />
       </article>
 
+      {/* Live LLM Leaderboard — shown on AI/LLM-related days */}
+      {(dayNumber === 20 || dayNumber === 21 || dayNumber === 43) && (
+        <LeaderboardCard
+          name="text"
+          title={
+            dayNumber === 43
+              ? "Live LLM Leaderboard (for comparison)"
+              : "Live LLM Leaderboard"
+          }
+        />
+      )}
+      {dayNumber === 43 && (
+        <LeaderboardCard name="code" title="Live Code Generation Leaderboard" />
+      )}
+
       {/* Theory day extras */}
       {day.phase === "theory" && (
         <div className="space-y-4">
@@ -333,7 +349,11 @@ export function DayDetailView() {
             <Dumbbell className="h-5 w-5 text-primary" />
             Exercises
           </h2>
-          <ExerciseBlock exercises={day.exercises} />
+          <ExerciseBlock
+            exercises={day.exercises ?? []}
+            dayNumber={dayNumber}
+            dayTitle={day.title}
+          />
         </section>
       )}
 

@@ -3,8 +3,71 @@
 import type { ContentBlock } from "@/types";
 import { CodeBlock } from "./CodeBlock";
 import { MermaidBlock } from "./MermaidBlock";
+import { DayReferenceText } from "./DayReference";
 import { cn } from "@/lib/utils";
 import { AlertTriangle, Lightbulb, GraduationCap } from "lucide-react";
+
+// Standard library modules that don't need pip install.
+const STDLIB_MODULES = new Set([
+  "os", "sys", "math", "random", "json", "re", "datetime", "time", "io",
+  "collections", "itertools", "functools", "pathlib", "typing", "abc",
+  "copy", "string", "textwrap", "unicodedata", "struct", "csv", "hashlib",
+  "base64", "urllib", "http", "xml", "html", "email", "sqlite3", "socket",
+  "threading", "multiprocessing", "logging", "warnings", "traceback",
+  "inspect", "ast", "operator", "decimal", "fractions", "statistics",
+  "bisect", "heapq", "queue", "enum", "dataclasses", "contextlib",
+  "unittest", "doctest", "pickle", "shelve", "dbm", "zipfile", "tarfile",
+  "gzip", "bz2", "lzma", "tempfile", "shutil", "glob", "fnmatch",
+  "argparse", "getopt", "configparser", "netrc", "xmlrpc", "platform",
+  "getpass", "secrets", "uuid", "weakref", "types", "numbers",
+]);
+
+// Map of import names to pip package names (when they differ).
+const IMPORT_TO_PIP: Record<string, string> = {
+  yaml: "pyyaml",
+  cv2: "opencv-python",
+  PIL: "Pillow",
+  sklearn: "scikit-learn",
+  dateutil: "python-dateutil",
+  bs4: "beautifulsoup4",
+  dotenv: "python-dotenv",
+  jinja2: "jinja2",
+  requests: "requests",
+  numpy: "numpy",
+  pandas: "pandas",
+  matplotlib: "matplotlib",
+  scipy: "scipy",
+  openai: "openai",
+  pydantic: "pydantic",
+  pytest: "pytest",
+};
+
+/**
+ * Detect if a code block has imports that need pip install. If so, return
+ * the pip install command. Returns null if no install is needed.
+ * Only triggers for non-standard-library imports.
+ */
+function detectInstallCommand(code: string): string | null {
+  const importRegex = /^\s*(?:from\s+(\S+)\s+import|import\s+(\S+))/gm;
+  const packages: string[] = [];
+  let match: RegExpExecArray | null;
+  while ((match = importRegex.exec(code)) !== null) {
+    const pkg = (match[1] || match[2] || "").split(".")[0];
+    if (
+      pkg &&
+      !STDLIB_MODULES.has(pkg) &&
+      !packages.includes(pkg)
+    ) {
+      // Map to pip package name
+      const pipName = IMPORT_TO_PIP[pkg] || pkg;
+      if (!packages.includes(pipName)) {
+        packages.push(pipName);
+      }
+    }
+  }
+  if (packages.length === 0) return null;
+  return `pip install ${packages.join(" ")}`;
+}
 
 const calloutStyles = {
   mistake: {
@@ -59,18 +122,31 @@ export function LessonContent({ blocks }: { blocks: ContentBlock[] }) {
                 key={i}
                 className="text-base leading-relaxed text-foreground/90 my-3"
               >
-                {block.text}
+                <DayReferenceText text={block.text} />
               </p>
             );
-          case "code":
+          case "code": {
+            // Detect if this code block has imports that need pip install.
+            // If so, render a prerequisite "install" cell before it.
+            const installCmd = detectInstallCommand(block.code);
             return (
-              <CodeBlock
-                key={i}
-                code={block.code}
-                language={block.language}
-                caption={block.caption}
-              />
+              <div key={i}>
+                {installCmd && (
+                  <CodeBlock
+                    code={installCmd}
+                    language="bash"
+                    caption="Prerequisite: run this first to install required packages"
+                    showRunInPlayground={false}
+                  />
+                )}
+                <CodeBlock
+                  code={block.code}
+                  language={block.language}
+                  caption={block.caption}
+                />
+              </div>
             );
+          }
           case "mermaid":
             return (
               <MermaidBlock
@@ -87,7 +163,7 @@ export function LessonContent({ blocks }: { blocks: ContentBlock[] }) {
               >
                 {block.items.map((it, j) => (
                   <li key={j} className="leading-relaxed">
-                    {it}
+                    <DayReferenceText text={it} />
                   </li>
                 ))}
               </ol>
@@ -98,7 +174,7 @@ export function LessonContent({ blocks }: { blocks: ContentBlock[] }) {
               >
                 {block.items.map((it, j) => (
                   <li key={j} className="leading-relaxed">
-                    {it}
+                    <DayReferenceText text={it} />
                   </li>
                 ))}
               </ul>
@@ -163,7 +239,7 @@ export function LessonContent({ blocks }: { blocks: ContentBlock[] }) {
                     {block.title}
                   </p>
                   <p className="text-sm text-foreground/80 leading-relaxed">
-                    {block.text}
+                    <DayReferenceText text={block.text} />
                   </p>
                 </div>
               </div>

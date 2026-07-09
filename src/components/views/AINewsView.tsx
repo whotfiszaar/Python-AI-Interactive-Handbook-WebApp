@@ -146,7 +146,7 @@ export function AINewsView() {
             <h1 className="text-2xl font-bold tracking-tight">AI News</h1>
           </div>
           <p className="text-sm text-muted-foreground">
-            Latest AI, Python, and LLM headlines from Hacker News, Reddit, RSS, GitHub, and PyPI. No API keys.
+            Latest AI headlines from Hacker News.
           </p>
         </div>
         <Button

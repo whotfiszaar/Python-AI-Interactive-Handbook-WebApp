@@ -5,14 +5,6 @@ import { assessments } from "@/data/assessments";
 import { personalizeAssessment } from "@/hooks/useSubstitute";
 import { Quiz } from "@/components/assessment/Quiz";
 import { Button } from "@/components/ui/button";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { ArrowLeft, Clock, ClipboardList } from "lucide-react";
 import { toast } from "sonner";
 import { useCallback, useMemo } from "react";
@@ -70,24 +62,6 @@ export function AssessmentDetailView() {
 
   return (
     <div className="space-y-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink onClick={() => navigate("home")}>Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink onClick={() => navigate("assessments")}>
-              Assessments
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>{assessment.title}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-
       <div>
         <Button
           variant="ghost"
@@ -107,12 +81,20 @@ export function AssessmentDetailView() {
             <ClipboardList className="h-3.5 w-3.5" />
             {assessment.questions.length} questions
           </span>
-          {assessment.timerMinutes && (
-            <span className="flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5" />
-              {assessment.timerMinutes} minute limit
-            </span>
-          )}
+          <span className="flex items-center gap-1">
+            <Clock className="h-3.5 w-3.5" />
+            {Math.ceil(
+              assessment.questions.reduce((total, q) => {
+                switch (q.type) {
+                  case "multiple-choice": return total + 45;
+                  case "true-false": return total + 20;
+                  case "fill-blank": return total + 60;
+                  case "code-output": return total + 90;
+                  default: return total + 45;
+                }
+              }, 0) / 60,
+            )} minute limit
+          </span>
           <span>Pass mark: {assessment.passingScore}%</span>
         </div>
       </div>

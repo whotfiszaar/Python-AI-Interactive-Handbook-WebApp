@@ -87,11 +87,19 @@ export function useSearch() {
     }
 
     for (const section of referenceSections) {
-      if (sub(section.title).toLowerCase().includes(q)) {
+      const sectionMatch = sub(section.title).toLowerCase().includes(q);
+      // Also search within items for a more useful reference search.
+      const itemMatch = section.items.some((item) => {
+        const haystack = `${item.term ?? ""} ${item.description ?? ""} ${item.syntax ?? ""}`.toLowerCase();
+        return haystack.includes(q);
+      });
+      if (sectionMatch || itemMatch) {
         out.push({
           type: "reference",
           label: sub(section.title),
-          description: `Reference: ${sub(section.title)}`,
+          description: sectionMatch
+            ? `Reference: ${sub(section.title)}`
+            : `Found in ${section.items.length} items`,
           referenceId: section.id,
         });
       }

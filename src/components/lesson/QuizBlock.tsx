@@ -6,7 +6,8 @@ import { CodeBlock } from "./CodeBlock";
 import { Check, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import { Textarea } from "@/components/ui/textarea";
+import { cn, answersMatch } from "@/lib/utils";
 import {
   Collapsible,
   CollapsibleContent,
@@ -38,10 +39,7 @@ function QuestionRunner({ question: q }: { question: QuizQuestion }) {
         return boolAnswer === q.correctBool;
       case "fill-blank":
       case "code-output":
-        return (
-          textAnswer.trim().toLowerCase() ===
-          (q.answer ?? "").trim().toLowerCase()
-        );
+        return answersMatch(textAnswer, q.answer ?? "");
       default:
         return null;
     }
@@ -143,19 +141,58 @@ function QuestionRunner({ question: q }: { question: QuizQuestion }) {
           </div>
         )}
 
-        {(q.type === "fill-blank" || q.type === "code-output") && (
+        {q.type === "fill-blank" && (
           <Input
             value={textAnswer}
             onChange={(e) => setTextAnswer(e.target.value)}
             disabled={submitted}
             onKeyDown={(e) => e.key === "Enter" && submit()}
-            placeholder={q.type === "code-output" ? "Type the exact output" : "Type your answer"}
+            placeholder="Type your answer"
             className={cn(
               "font-mono text-sm",
               submitted && isCorrect && "border-emerald-500",
               submitted && !isCorrect && "border-red-500",
             )}
           />
+        )}
+
+        {q.type === "code-output" && (
+          <div className="space-y-1.5">
+            <Textarea
+              value={textAnswer}
+              onChange={(e) => setTextAnswer(e.target.value)}
+              disabled={submitted}
+              onKeyDown={(e) => {
+                if (e.key !== "Enter") return;
+                // Ctrl/Cmd+Enter inserts a literal newline so multi-line
+                // outputs can be typed. Plain Enter submits the answer.
+                if (e.ctrlKey || e.metaKey) {
+                  e.preventDefault();
+                  const el = e.currentTarget;
+                  const start = el.selectionStart;
+                  const end = el.selectionEnd;
+                  const next = textAnswer.slice(0, start) + "\n" + textAnswer.slice(end);
+                  setTextAnswer(next);
+                  requestAnimationFrame(() => {
+                    el.selectionStart = el.selectionEnd = start + 1;
+                  });
+                } else if (!e.shiftKey) {
+                  e.preventDefault();
+                  submit();
+                }
+              }}
+              placeholder={"Type the exact output (Ctrl+Enter for a new line)"}
+              rows={3}
+              className={cn(
+                "font-mono text-sm min-h-[80px] resize-y",
+                submitted && isCorrect && "border-emerald-500",
+                submitted && !isCorrect && "border-red-500",
+              )}
+            />
+            <p className="text-[10px] text-muted-foreground">
+              Tip: press <kbd className="px-1 py-0.5 rounded bg-muted border text-[9px] font-mono">Ctrl</kbd> + <kbd className="px-1 py-0.5 rounded bg-muted border text-[9px] font-mono">Enter</kbd> for a new line, <kbd className="px-1 py-0.5 rounded bg-muted border text-[9px] font-mono">Enter</kbd> to check.
+            </p>
+          </div>
         )}
       </div>
 
@@ -176,7 +213,7 @@ function QuestionRunner({ question: q }: { question: QuizQuestion }) {
           {(q.type === "fill-blank" || q.type === "code-output") && !isCorrect && q.answer && (
             <p className="text-xs text-muted-foreground">
               Expected answer:{" "}
-              <code className="font-mono bg-muted px-1 py-0.5 rounded">
+              <code className="font-mono bg-muted px-1.5 py-1 rounded whitespace-pre-wrap break-words block">
                 {q.answer}
               </code>
             </p>

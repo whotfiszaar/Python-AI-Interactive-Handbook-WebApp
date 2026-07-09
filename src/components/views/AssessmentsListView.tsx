@@ -88,12 +88,20 @@ export function AssessmentsListView() {
               </p>
               <div className="flex items-center gap-3 text-xs text-muted-foreground flex-wrap">
                 <span>{a.questions.length} questions</span>
-                {a.timerMinutes && (
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-3 w-3" />
-                    {a.timerMinutes} min
-                  </span>
-                )}
+                <span className="flex items-center gap-1">
+                  <Clock className="h-3 w-3" />
+                  {Math.ceil(
+                    a.questions.reduce((total, q) => {
+                      switch (q.type) {
+                        case "multiple-choice": return total + 45;
+                        case "true-false": return total + 20;
+                        case "fill-blank": return total + 60;
+                        case "code-output": return total + 90;
+                        default: return total + 45;
+                      }
+                    }, 0) / 60,
+                  )} min
+                </span>
                 <span>Pass: {a.passingScore}%</span>
               </div>
               {best ? (

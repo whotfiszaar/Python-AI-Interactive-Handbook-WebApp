@@ -20,6 +20,7 @@ import {
   Trash2,
   Sun,
   Moon,
+  Shield,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { toast } from "sonner";
@@ -43,6 +44,7 @@ export function SettingsView() {
   const settings = useAppStore((s) => s.settings);
   const setSettings = useAppStore((s) => s.setSettings);
   const setStudentName = useAppStore((s) => s.setStudentName);
+  const navigate = useAppStore((s) => s.navigate);
   const { theme, setTheme } = useTheme();
 
   const [darkMode, setDarkMode] = useState(false);
@@ -403,6 +405,23 @@ print(response.choices[0].message.content)`,
             .
           </p>
         </div>
+      </Card>
+
+      {/* Admin access */}
+      <Card className="p-5">
+        <h2 className="font-semibold mb-1">Admin</h2>
+        <p className="text-xs text-muted-foreground mb-3">
+          Access the admin panel to manage content, videos, references, and view
+          progress reports.
+        </p>
+        <Button
+          onClick={() => navigate("admin")}
+          size="sm"
+          className="gap-1.5"
+        >
+          <Shield className="h-4 w-4" />
+          Open Admin Panel
+        </Button>
       </Card>
 
       {/* Data management */}

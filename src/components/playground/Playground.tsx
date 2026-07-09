@@ -19,6 +19,7 @@ import {
   Code2,
   KeyRound,
   X,
+  Pencil,
 } from "lucide-react";
 import type { NotebookCell } from "@/types";
 import { genId, isAICode, cn } from "@/lib/utils";
@@ -52,6 +53,7 @@ export function Playground() {
   const settings = useAppStore((s) => s.settings);
   const playgroundCode = useAppStore((s) => s.playgroundCode);
   const navigate = useAppStore((s) => s.navigate);
+  const setAPIKeyDialogOpen = useAppStore((s) => s.setAPIKeyDialogOpen);
 
   const [cells, setCells] = useState<NotebookCell[]>([
     { id: genId(), code: DEFAULT_CODE, output: "", running: false, error: false, hasRun: false, executionMs: null },
@@ -62,6 +64,8 @@ export function Playground() {
   const [saveDialogOpen, setSaveDialogOpen] = useState(false);
   const [notebookName, setNotebookName] = useState("");
   const [panelOpen, setPanelOpen] = useState(false);
+  const [renaming, setRenaming] = useState(false);
+  const [renameValue, setRenameValue] = useState("");
   const stopRef = useRef(false);
 
   // Load code from lesson "Run in playground" action
@@ -75,7 +79,7 @@ export function Playground() {
           running: false,
           error: false,
           hasRun: false,
-          executionMs: null,
+          executionMs: null, images: []
         },
       ]);
       // clear the pending code so it doesn't reload on re-render
@@ -83,6 +87,71 @@ export function Playground() {
       toast.success("Code loaded from lesson");
     }
   }, [playgroundCode]);
+
+  // Load a specific notebook when arriving from the Exercises "Go to Playground"
+  // button. The notebook ID and focus cell index are passed via sessionStorage.
+  const [pendingNotebookId, setPendingNotebookId] = useState<number | null>(null);
+  const [pendingFocusIdx, setPendingFocusIdx] = useState<number | null>(null);
+
+  useEffect(() => {
+    const loadId = sessionStorage.getItem("__loadNotebookId");
+    const focusIdx = sessionStorage.getItem("__focusCellIndex");
+    if (loadId) {
+      sessionStorage.removeItem("__loadNotebookId");
+      sessionStorage.removeItem("__focusCellIndex");
+      setPendingNotebookId(Number(loadId));
+      setPendingFocusIdx(focusIdx != null ? Number(focusIdx) : null);
+    }
+  }, []);
+
+  // When pendingNotebookId is set, fetch the notebook directly and load its cells.
+  useEffect(() => {
+    if (pendingNotebookId == null) return;
+    void (async () => {
+      try {
+        const res = await fetch(`/api/notebooks/${pendingNotebookId}`);
+        if (!res.ok) return;
+        const nb = await res.json();
+        const parsed = JSON.parse(nb.cells) as { code: string }[];
+        const makeCell = (code: string): NotebookCell => ({
+          id: genId(),
+          code,
+          output: "",
+          running: false,
+          error: false,
+          hasRun: false,
+          executionMs: null, images: []
+        });
+        setCells(
+          parsed.length > 0 ? parsed.map((c) => makeCell(c.code)) : [makeCell("")],
+        );
+        setCurrentNotebookId(nb.id);
+        toast.success(`Loaded "${nb.name}"`);
+
+        // Focus the target cell after a short delay so Monaco editors mount.
+        if (pendingFocusIdx != null) {
+          setTimeout(() => {
+            const editors = window.monaco?.editor?.getEditors?.() || [];
+            const idx = pendingFocusIdx;
+            if (editors[idx]) {
+              editors[idx].focus();
+              const model = editors[idx].getModel();
+              if (model) {
+                const lineCount = model.getLineCount();
+                editors[idx].setPosition({ lineNumber: lineCount, column: 1 });
+                editors[idx].revealLine(lineCount);
+              }
+            }
+          }, 800);
+        }
+      } catch {
+        toast.error("Could not load exercise notebook");
+      } finally {
+        setPendingNotebookId(null);
+        setPendingFocusIdx(null);
+      }
+    })();
+  }, [pendingNotebookId, pendingFocusIdx]);
 
   const apiKeySet = (() => {
     try {
@@ -101,11 +170,12 @@ export function Playground() {
     output: string,
     error: boolean,
     executionMs: number | null = null,
+    images: string[] = [],
   ) =>
     setCells((prev) =>
       prev.map((c) =>
         c.id === id
-          ? { ...c, output, error, running: false, hasRun: true, executionMs }
+          ? { ...c, output, error, running: false, hasRun: true, executionMs, images }
           : c,
       ),
     );
@@ -124,7 +194,7 @@ export function Playground() {
       running: false,
       error: false,
       hasRun: false,
-      executionMs: null,
+      executionMs: null, images: []
     };
     setCells((prev) => {
       const idx = prev.findIndex((c) => c.id === id);
@@ -143,7 +213,7 @@ export function Playground() {
       running: false,
       error: false,
       hasRun: false,
-      executionMs: null,
+      executionMs: null, images: []
     };
     setCells((prev) => {
       const idx = prev.findIndex((c) => c.id === id);
@@ -175,12 +245,12 @@ export function Playground() {
         output: "",
         error: false,
         hasRun: false,
-        executionMs: null,
+        executionMs: null, images: []
       })),
     );
 
   const runCell = useCallback(
-    async (cell: NotebookCell) => {
+    async (cell: NotebookCell, cellInputs?: string[]) => {
       if (!cell.code.trim()) return;
       stopRef.current = false;
       setRunningCellId(cell.id);
@@ -217,7 +287,7 @@ export function Playground() {
             );
           }
         } else {
-          const result = await pyodide.run(cell.code, { timeoutMs: 10000 });
+          const result = await pyodide.run(cell.code, { timeoutMs: 10000, inputs: cellInputs ?? [] });
           let out = result.stdout;
           if (result.stderr) {
             out += (out ? "\n" : "") + result.stderr;
@@ -225,7 +295,7 @@ export function Playground() {
           if (result.error && !out) {
             out = result.error;
           }
-          setCellOutput(cell.id, out, Boolean(result.error), result.durationMs);
+          setCellOutput(cell.id, out, Boolean(result.error), result.durationMs, result.images || []);
         }
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e);
@@ -292,6 +362,15 @@ export function Playground() {
     setSaveDialogOpen(false);
   };
 
+  const handleRename = async () => {
+    if (!currentNotebookId || !renameValue.trim()) return;
+    const row = await update(currentNotebookId, { name: renameValue.trim() });
+    if (row) {
+      toast.success("Notebook renamed");
+      setRenaming(false);
+    }
+  };
+
   const loadNotebook = async (id: number) => {
     const nb = notebooks.find((n) => n.id === id);
     if (!nb) return;
@@ -304,7 +383,7 @@ export function Playground() {
         running: false,
         error: false,
         hasRun: false,
-        executionMs: null,
+        executionMs: null, images: []
       });
       setCells(
         parsed.length > 0
@@ -361,6 +440,62 @@ export function Playground() {
           Save
         </Button>
 
+        {/* Current notebook name with inline rename */}
+        <div className="flex items-center gap-1.5 h-8 px-2 rounded-md bg-muted/50 max-w-[200px]">
+          {renaming ? (
+            <>
+              <Input
+                value={renameValue}
+                onChange={(e) => setRenameValue(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") handleRename();
+                  if (e.key === "Escape") setRenaming(false);
+                }}
+                className="h-6 text-xs"
+                autoFocus
+              />
+              <Button
+                size="sm"
+                variant="ghost"
+                className="h-6 w-6 p-0"
+                onClick={handleRename}
+              >
+                <Save className="h-3 w-3" />
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                className="h-6 w-6 p-0"
+                onClick={() => setRenaming(false)}
+              >
+                <X className="h-3 w-3" />
+              </Button>
+            </>
+          ) : (
+            <>
+              <span className="text-xs text-muted-foreground truncate flex-1">
+                {currentNotebookId
+                  ? notebooks.find((n) => n.id === currentNotebookId)?.name ?? "Untitled"
+                  : "Unsaved notebook"}
+              </span>
+              {currentNotebookId && (
+                <button
+                  onClick={() => {
+                    setRenaming(true);
+                    setRenameValue(
+                      notebooks.find((n) => n.id === currentNotebookId)?.name ?? "",
+                    );
+                  }}
+                  className="text-muted-foreground hover:text-foreground shrink-0"
+                  title="Rename notebook"
+                >
+                  <Pencil className="h-3 w-3" />
+                </button>
+              )}
+            </>
+          )}
+        </div>
+
         {/* Notebooks panel toggle */}
         <Button
           size="sm"
@@ -408,12 +543,12 @@ export function Playground() {
           </button>
         </div>
 
-        {/* API key indicator */}
+        {/* API key indicator - opens dialog popup */}
         <Button
           size="sm"
           variant="ghost"
           className="h-8 gap-1.5"
-          onClick={() => navigate("settings")}
+          onClick={() => setAPIKeyDialogOpen(true)}
           title={apiKeySet ? "API key is set" : "No API key set, click to add one"}
         >
           <KeyRound
@@ -450,8 +585,8 @@ export function Playground() {
       {mode === "ai" && !apiKeySet && (
         <div className="px-4 py-2 bg-amber-50 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-900 text-xs text-amber-700 dark:text-amber-400">
           AI mode is on but no OpenRouter API key is set.{" "}
-          <button onClick={() => navigate("settings")} className="underline font-medium">
-            Add your key in Settings
+          <button onClick={() => setAPIKeyDialogOpen(true)} className="underline font-medium">
+            Add your API key
           </button>
           .
         </div>
@@ -460,7 +595,7 @@ export function Playground() {
       {/* Main area: cells + optional notebooks side panel */}
       <div className="flex-1 flex min-h-0">
         {/* Cells - marimo style with left gutter for cell numbers */}
-        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 space-y-2">
+        <div className="flex-1 overflow-y-auto px-8 sm:px-12 lg:px-16 py-4 space-y-3">
           {cells.map((cell, i) => (
             <CodeCell
               key={cell.id}
@@ -471,6 +606,7 @@ export function Playground() {
               hasRun={cell.hasRun}
               onChange={(code) => updateCell(cell.id, code)}
               onRun={() => runCell(cell)}
+              onRunWithInputs={(inputs) => runCell(cell, inputs)}
               onStop={stopCell}
               onDelete={() => deleteCell(cell.id)}
               onAddAbove={() => addCellAbove(cell.id)}
@@ -574,7 +710,7 @@ export function Playground() {
                       running: false,
                       error: false,
                       hasRun: false,
-                      executionMs: null,
+                      executionMs: null, images: []
                     },
                   ]);
                 }}
@@ -601,6 +737,9 @@ export function Playground() {
         </span>
         <span>Cells: {cells.length}</span>
         <span>Mode: {mode === "python" ? "Python Only" : "Python + AI"}</span>
+        <span className="hidden md:inline text-muted-foreground/60">
+          Ctrl+Enter: Run | Shift+Enter: Run+Next | Alt+Up/Down: Navigate
+        </span>
       </div>
 
       {/* Save dialog */}

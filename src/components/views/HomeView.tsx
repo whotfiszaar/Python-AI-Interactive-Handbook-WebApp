@@ -63,7 +63,7 @@ export function HomeView() {
               Welcome back,
             </p>
             <h1 className="text-3xl font-bold tracking-tight">
-              Hi {displayName}! Ready to learn Python &amp; AI?
+              {displayName ? `Hi ${displayName}! Ready to learn Python & AI?` : "Ready to learn Python & AI?"}
             </h1>
             <p className="text-muted-foreground mt-2">
               You are on a 48-day journey from Python basics to building AI

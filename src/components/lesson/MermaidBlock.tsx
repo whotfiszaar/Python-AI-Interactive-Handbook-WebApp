@@ -1,19 +1,82 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
+import { cn } from "@/lib/utils";
 
-let mermaidPromise: Promise<{ default: { render: (code: string) => Promise<{ svg: string }>, initialize: (config: any) => void } }> | null = null;
+let mermaidPromise: Promise<typeof import("mermaid")> | null = null;
 
 async function getMermaid() {
   if (mermaidPromise) return mermaidPromise;
-  mermaidPromise = import("mermaid").then((m) => {
-    m.default.initialize({ startOnLoad: false });
-    return m;
-  });
+  mermaidPromise = import("mermaid");
   return mermaidPromise;
 }
+
+/** Light mode color palette (readable on white/light backgrounds). */
+const LIGHT_VARS = {
+  primaryColor: "#e2e8f0",
+  primaryTextColor: "#0f172a",
+  primaryBorderColor: "#64748b",
+  lineColor: "#475569",
+  secondaryColor: "#f1f5f9",
+  tertiaryColor: "#f8fafc",
+  background: "#ffffff",
+  mainBkg: "#e2e8f0",
+  secondBkg: "#f1f5f9",
+  textColor: "#0f172a",
+  nodeBorder: "#64748b",
+  clusterBkg: "#f8fafc",
+  clusterBorder: "#cbd5e1",
+  edgeLabelBackground: "#ffffff",
+  actorBkg: "#e2e8f0",
+  actorBorder: "#64748b",
+  actorTextColor: "#0f172a",
+  actorLineColor: "#475569",
+  signalColor: "#334155",
+  signalTextColor: "#0f172a",
+  labelBoxBkgColor: "#f1f5f9",
+  labelBoxBorderColor: "#64748b",
+  labelTextColor: "#0f172a",
+  loopTextColor: "#0f172a",
+  noteBkgColor: "#fef3c7",
+  noteBorderColor: "#f59e0b",
+  noteTextColor: "#78350f",
+  activationBorderColor: "#64748b",
+  sequenceNumberColor: "#ffffff",
+};
+
+/** Dark mode color palette (readable on dark backgrounds). */
+const DARK_VARS = {
+  primaryColor: "#1e293b",
+  primaryTextColor: "#f1f5f9",
+  primaryBorderColor: "#475569",
+  lineColor: "#94a3b8",
+  secondaryColor: "#334155",
+  tertiaryColor: "#1e293b",
+  background: "#0f172a",
+  mainBkg: "#1e293b",
+  secondBkg: "#334155",
+  textColor: "#f1f5f9",
+  nodeBorder: "#475569",
+  clusterBkg: "#0f172a",
+  clusterBorder: "#334155",
+  edgeLabelBackground: "#1e293b",
+  actorBkg: "#1e293b",
+  actorBorder: "#475569",
+  actorTextColor: "#f1f5f9",
+  actorLineColor: "#94a3b8",
+  signalColor: "#cbd5e1",
+  signalTextColor: "#f1f5f9",
+  labelBoxBkgColor: "#334155",
+  labelBoxBorderColor: "#475569",
+  labelTextColor: "#f1f5f9",
+  loopTextColor: "#f1f5f9",
+  noteBkgColor: "#422006",
+  noteBorderColor: "#f59e0b",
+  noteTextColor: "#fef3c7",
+  activationBorderColor: "#475569",
+  sequenceNumberColor: "#0f172a",
+};
 
 interface MermaidBlockProps {
   code: string;
@@ -26,64 +89,54 @@ export function MermaidBlock({ code, caption, className }: MermaidBlockProps) {
   const [error, setError] = useState<string>("");
   const idRef = useRef(`mmd-${Math.random().toString(36).slice(2, 9)}`);
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => setMounted(true), []);
+
+  const isDark = mounted && resolvedTheme === "dark";
+
+  // Re-render the diagram whenever the code or theme changes.
   useEffect(() => {
     let active = true;
+    const renderId = `${idRef.current}-${isDark ? "d" : "l"}`;
+
     (async () => {
       try {
         const m = await getMermaid();
-        
-        // Dynamically initialize Mermaid based on current theme
-        const isDark = resolvedTheme === "dark";
+        const vars = isDark ? DARK_VARS : LIGHT_VARS;
         m.default.initialize({
           startOnLoad: false,
           theme: "base",
-          themeVariables: isDark
-            ? {
-                primaryColor: "#1e293b",
-                primaryTextColor: "#f1f5f9",
-                primaryBorderColor: "#475569",
-                lineColor: "#94a3b8",
-                secondaryColor: "#334155",
-                tertiaryColor: "#0f172a",
-                background: "#0f172a",
-                mainBkg: "#1e293b",
-                secondBkg: "#334155",
-                textColor: "#f1f5f9",
-                nodeBorder: "#475569",
-                clusterBkg: "#1e293b",
-                clusterBorder: "#334155",
-                edgeLabelBackground: "#0f172a",
-              }
-            : {
-                primaryColor: "#f8fafc",
-                primaryTextColor: "#0f172a",
-                primaryBorderColor: "#cbd5e1",
-                lineColor: "#475569",
-                secondaryColor: "#e2e8f0",
-                tertiaryColor: "#f8fafc",
-                background: "#ffffff",
-                mainBkg: "#f8fafc",
-                secondBkg: "#e2e8f0",
-                textColor: "#0f172a",
-                nodeBorder: "#cbd5e1",
-                clusterBkg: "#f8fafc",
-                clusterBorder: "#cbd5e1",
-                edgeLabelBackground: "#ffffff",
-              },
-          flowchart: { curve: "basis", htmlLabels: true },
+          themeVariables: vars,
+          flowchart: {
+            curve: "basis",
+            htmlLabels: true,
+            nodeSpacing: 40,
+            rankSpacing: 40,
+          },
           sequence: {
-            actorBkg: isDark ? "#1e293b" : "#f8fafc",
-            actorTextColor: isDark ? "#f1f5f9" : "#0f172a",
-            signalColor: isDark ? "#94a3b8" : "#475569",
-            signalTextColor: isDark ? "#f1f5f9" : "#0f172a",
-            labelBkgColor: isDark ? "#334155" : "#e2e8f0",
-            labelTextColor: isDark ? "#f1f5f9" : "#0f172a",
-            loopBkgColor: isDark ? "#1e293b" : "#f8fafc",
+            actorBkg: vars.actorBkg,
+            actorBorder: vars.actorBorder,
+            actorTextColor: vars.actorTextColor,
+            actorLineColor: vars.actorLineColor,
+            signalColor: vars.signalColor,
+            signalTextColor: vars.signalTextColor,
+            labelBoxBkgColor: vars.labelBoxBkgColor,
+            labelBoxBorderColor: vars.labelBoxBorderColor,
+            labelTextColor: vars.labelTextColor,
+            loopTextColor: vars.loopTextColor,
+            noteBkgColor: vars.noteBkgColor,
+            noteBorderColor: vars.noteBorderColor,
+            noteTextColor: vars.noteTextColor,
+            activationBorderColor: vars.activationBorderColor,
+            sequenceNumberColor: vars.sequenceNumberColor,
           },
         });
-
-        const { svg: out } = await m.default.render(idRef.current, code);
+        // Mermaid requires a unique ID for each render. Clear any previous
+        // rendered element with this ID to avoid collisions.
+        const old = document.getElementById(renderId);
+        if (old) old.remove();
+        const { svg: out } = await m.default.render(renderId, code);
         if (active) {
           setSvg(out);
           setError("");
@@ -98,12 +151,12 @@ export function MermaidBlock({ code, caption, className }: MermaidBlockProps) {
     return () => {
       active = false;
     };
-  }, [code, resolvedTheme]);
+  }, [code, isDark]);
 
   return (
     <figure
       className={cn(
-        "my-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-4",
+        "my-4 rounded-lg border border-border bg-muted/30 p-4",
         className,
       )}
     >

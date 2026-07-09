@@ -10,6 +10,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// --- User progress (single-user local, cloud-ready for multi-user) ---
+
 model DayProgress {
   id          Int      @id @default(autoincrement())
   dayNumber   Int      @unique
@@ -42,4 +44,77 @@ model Settings {
   fontSize    Int    @default(16)
   apiKeys     String @default("{}") // JSON string of API keys
   studentName String @default("") // the learner's name, asked on first visit
+  adminPassword String @default("admin123") // default admin password, change in settings
+}
+
+// --- Content models (admin-managed, cloud-ready) ---
+
+model Day {
+  id          Int    @id @default(autoincrement())
+  dayNumber   Int    @unique
+  title       String
+  phase       String // "python" | "theory" | "practical"
+  objectives  String // JSON array of strings
+  content     String // JSON array of content blocks
+  exercises   String // JSON array of exercises (or empty)
+  quiz        String // JSON array of quiz questions
+  teacherNotes String
+  explainToFriend  String @default("")
+  realWorldExamples String @default("") // JSON array
+  thingsToGoogle    String @default("") // JSON array
+  setupInstructions String @default("")
+  expectedOutput    String @default("")
+  debugging         String @default("") // JSON array
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Video {
+  id            Int    @id @default(autoincrement())
+  videoId       String @default("") // YouTube video ID (11 chars)
+  playlistId    String @default("") // YouTube playlist ID (or empty)
+  title         String
+  channel       String
+  durationLabel String @default("")
+  topicRange    String
+  dayRange      String
+  days          String // JSON array of numbers
+  why           String
+  topics        String // JSON array of strings
+  sortOrder     Int    @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model ReferenceSection {
+  id          Int    @id @default(autoincrement())
+  sectionId   String @unique // e.g. "python-cheatsheet"
+  title       String
+  description String
+  kind        String // "cheatsheet" | "glossary" | "models" | "snippets" | "errors"
+  sortOrder   Int    @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  items       ReferenceItem[]
+}
+
+model ReferenceItem {
+  id          Int    @id @default(autoincrement())
+  sectionId   Int // FK to ReferenceSection.id
+  term        String @default("")
+  syntax      String @default("")
+  example     String @default("")
+  description String @default("")
+  code        String @default("")
+  language    String @default("python")
+  model       String @default("")
+  provider    String @default("")
+  contextWindow String @default("")
+  bestFor     String @default("")
+  free        Boolean @default(false)
+  error       String @default("")
+  meaning     String @default("")
+  fix         String @default("")
+  sortOrder   Int    @default(0)
+  section     ReferenceSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
 }

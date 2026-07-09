@@ -69,6 +69,44 @@ export function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
 }
 
+/**
+ * Normalize a text answer for comparison.
+ *
+ * Pyodide's `setStdout({ batched })` callback fires once per `print()` call
+ * WITHOUT the trailing newline, so the runner re-adds `"\n"` after each batch.
+ * That means a program with two `print()` statements produces output like
+ * `"Hello\nWorld\n"` while the stored expected answer is `"Hello\nWorld"`.
+ *
+ * To make grading robust regardless of trailing-newline quirks, line-ending
+ * differences (\r\n vs \n), or accidental trailing spaces on individual lines,
+ * this helper:
+ *   1. Normalizes all line breaks to `\n`
+ *   2. Removes trailing whitespace from every line
+ *   3. Collapses trailing blank lines
+ *   4. Trims the overall string
+ *   5. Lowercases it (keeps the existing case-insensitive grading behavior)
+ */
+export function normalizeAnswer(text: string): string {
+  if (!text) return "";
+  return text
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .split("\n")
+    .map((line) => line.replace(/\s+$/g, ""))
+    .join("\n")
+    .replace(/\n+$/g, "")
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * Compare a user's answer to the expected answer using the normalized form.
+ * Used by fill-blank and code-output quiz questions.
+ */
+export function answersMatch(user: string, expected: string): boolean {
+  return normalizeAnswer(user) === normalizeAnswer(expected);
+}
+
 export function genId(): string {
   return Math.random().toString(36).slice(2, 11);
 }
