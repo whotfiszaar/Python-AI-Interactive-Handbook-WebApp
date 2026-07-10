@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { db, ensureReady } from "@/lib/db";
 import { hashPassword, verifyPassword } from "@/lib/auth";
 import { logQdrantInteraction } from "@/lib/qdrant";
 
@@ -8,6 +8,7 @@ import { logQdrantInteraction } from "@/lib/qdrant";
  */
 export async function GET(req: NextRequest) {
   try {
+    await ensureReady();
     const { searchParams } = new URL(req.url);
     const username = searchParams.get("username");
 
@@ -38,6 +39,7 @@ export async function GET(req: NextRequest) {
  */
 export async function POST(req: NextRequest) {
   try {
+    await ensureReady();
     const { username, answer, newPassword } = await req.json();
 
     if (!username || !answer || !newPassword) {

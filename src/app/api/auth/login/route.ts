@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { db, ensureReady } from "@/lib/db";
 import { verifyPassword, setSessionCookie } from "@/lib/auth";
 import { logQdrantInteraction } from "@/lib/qdrant";
 
 export async function POST(req: NextRequest) {
   try {
+    await ensureReady();
     const { username, password } = await req.json();
 
     if (!username || !password) {

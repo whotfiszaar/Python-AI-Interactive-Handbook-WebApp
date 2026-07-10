@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { db, ensureReady } from "@/lib/db";
 import { isAICode } from "@/lib/utils";
 import { getSessionUser } from "@/lib/auth";
 import { logQdrantInteraction } from "@/lib/qdrant";
@@ -143,6 +143,7 @@ function parseAICall(code: string): {
 
 export async function POST(req: NextRequest) {
   try {
+    await ensureReady();
     const user = getSessionUser(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

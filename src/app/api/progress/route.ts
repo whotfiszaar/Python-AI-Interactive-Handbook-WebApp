@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { db, ensureReady } from "@/lib/db";
 import { getSessionUser } from "@/lib/auth";
 import { logQdrantInteraction } from "@/lib/qdrant";
 import type { ProgressPayload } from "@/types";
 
 export async function GET(req: NextRequest) {
   try {
+    await ensureReady();
     const user = getSessionUser(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -27,6 +28,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
+    await ensureReady();
     const user = getSessionUser(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
