@@ -6,9 +6,11 @@ let databaseUrl = process.env.DATABASE_URL;
 
 // Support copying SQLite DB to /tmp in Vercel environments to allow writes
 if (process.env.NODE_ENV === "production" || process.env.VERCEL || process.env.SQLITE_WRITABLE_DATABASE_URL) {
-  const configuredTarget = process.env.SQLITE_WRITABLE_DATABASE_URL
-    ? process.env.SQLITE_WRITABLE_DATABASE_URL.replace(/^file:/, "")
-    : "/tmp/custom.db";
+  const configuredTarget = process.env.VERCEL
+    ? "/tmp/custom.db"
+    : (process.env.SQLITE_WRITABLE_DATABASE_URL
+        ? process.env.SQLITE_WRITABLE_DATABASE_URL.replace(/^file:/, "")
+        : "/tmp/custom.db");
   const targetDbPath = path.isAbsolute(configuredTarget)
     ? configuredTarget
     : path.resolve(process.cwd(), configuredTarget);
