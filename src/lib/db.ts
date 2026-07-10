@@ -21,10 +21,33 @@ if (process.env.NODE_ENV === "production" || process.env.VERCEL || process.env.S
         fs.mkdirSync(dir, { recursive: true });
       }
       fs.copyFileSync(sourceDbPath, targetDbPath);
-      console.log(`Successfully copied database to ${targetDbPath}`);
+      fs.chmodSync(targetDbPath, 0o666);
+      console.log(`Successfully copied database to ${targetDbPath} with write permissions`);
     } catch (error) {
       console.error("Failed to copy SQLite database to /tmp:", error);
     }
+  } else if (fs.existsSync(targetDbPath)) {
+    try {
+      fs.chmodSync(targetDbPath, 0o666);
+    } catch (error) {
+      console.error("Failed to set write permissions on existing database:", error);
+    }
+  }
+
+  // Ensure journal files are writable if they exist
+  try {
+    const journalFiles = [
+      targetDbPath + "-journal",
+      targetDbPath + "-wal",
+      targetDbPath + "-shm",
+    ];
+    for (const j of journalFiles) {
+      if (fs.existsSync(j)) {
+        fs.chmodSync(j, 0o666);
+      }
+    }
+  } catch (err) {
+    console.error("Failed to set SQLite journal file permissions:", err);
   }
   
   databaseUrl = `file:${targetDbPath.replace(/\\/g, "/")}`;
