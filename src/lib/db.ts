@@ -2,11 +2,13 @@ import { PrismaClient } from "@prisma/client";
 import fs from "fs";
 import path from "path";
 
-// Some deployments and packaged/local runs expose the bundled database as
-// read-only. When a writable SQLite URL is supplied, seed it once from the
-// bundled DB and point Prisma at the writable copy before the client starts.
-if (process.env.SQLITE_WRITABLE_DATABASE_URL) {
-  const configuredTarget = process.env.SQLITE_WRITABLE_DATABASE_URL.replace(/^file:/, "");
+let databaseUrl = process.env.DATABASE_URL;
+
+// Support copying SQLite DB to /tmp in Vercel environments to allow writes
+if (process.env.NODE_ENV === "production" || process.env.VERCEL || process.env.SQLITE_WRITABLE_DATABASE_URL) {
+  const configuredTarget = process.env.SQLITE_WRITABLE_DATABASE_URL
+    ? process.env.SQLITE_WRITABLE_DATABASE_URL.replace(/^file:/, "")
+    : "/tmp/custom.db";
   const targetDbPath = path.isAbsolute(configuredTarget)
     ? configuredTarget
     : path.resolve(process.cwd(), configuredTarget);
@@ -25,7 +27,8 @@ if (process.env.SQLITE_WRITABLE_DATABASE_URL) {
     }
   }
   
-  process.env.DATABASE_URL = `file:${targetDbPath.replace(/\\/g, "/")}`;
+  databaseUrl = `file:${targetDbPath.replace(/\\/g, "/")}`;
+  process.env.DATABASE_URL = databaseUrl;
 }
 
 const globalForPrisma = globalThis as unknown as {
@@ -36,6 +39,7 @@ export const db =
   globalForPrisma.prisma ??
   new PrismaClient({
     log: ["error", "warn"],
+    datasources: databaseUrl ? { db: { url: databaseUrl } } : undefined,
   });
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = db;
