@@ -67,7 +67,7 @@ model Notebook {
 }
 
 model Settings {
-  id          Int    @id @default(1)
+  id          Int    @id @default(autoincrement())
   darkMode    Boolean @default(false)
   fontSize    Int    @default(16)
   apiKeys     String @default("{}") // JSON string of API keys
