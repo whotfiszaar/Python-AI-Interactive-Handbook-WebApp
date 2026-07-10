@@ -16,10 +16,15 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Username is required" }, { status: 400 });
     }
 
-    const user = await db.user.findUnique({
-      where: { username: username.trim().toLowerCase() },
-      select: { securityQuestion: true },
+    const normalizedUsername = username.trim().toLowerCase();
+    let user = await db.user.findUnique({
+      where: { username: normalizedUsername },
     });
+
+    if (!user) {
+      const { syncUserFromQdrant } = await import("@/lib/qdrant");
+      user = await syncUserFromQdrant(normalizedUsername);
+    }
 
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -48,9 +53,14 @@ export async function POST(req: NextRequest) {
 
     const normalizedUsername = username.trim().toLowerCase();
 
-    const user = await db.user.findUnique({
+    let user = await db.user.findUnique({
       where: { username: normalizedUsername },
     });
+
+    if (!user) {
+      const { syncUserFromQdrant } = await import("@/lib/qdrant");
+      user = await syncUserFromQdrant(normalizedUsername);
+    }
 
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -64,9 +74,20 @@ export async function POST(req: NextRequest) {
 
     // Hash and update password
     const passwordHash = hashPassword(newPassword);
-    await db.user.update({
+    const updatedUser = await db.user.update({
       where: { id: user.id },
       data: { passwordHash },
+    });
+
+    // Backup the updated user credentials to Qdrant
+    const { backupUserToQdrant } = await import("@/lib/qdrant");
+    await backupUserToQdrant({
+      id: updatedUser.id,
+      username: updatedUser.username,
+      passwordHash: updatedUser.passwordHash,
+      name: updatedUser.name,
+      securityQuestion: updatedUser.securityQuestion,
+      securityAnswer: updatedUser.securityAnswer
     });
 
     // Log password reset to Qdrant

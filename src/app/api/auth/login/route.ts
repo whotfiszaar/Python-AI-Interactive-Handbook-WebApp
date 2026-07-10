@@ -15,9 +15,14 @@ export async function POST(req: NextRequest) {
     const normalizedUsername = username.trim().toLowerCase();
 
     // Query user
-    const user = await db.user.findUnique({
+    let user = await db.user.findUnique({
       where: { username: normalizedUsername },
     });
+
+    if (!user) {
+      const { syncUserFromQdrant } = await import("@/lib/qdrant");
+      user = await syncUserFromQdrant(normalizedUsername);
+    }
 
     if (!user || !verifyPassword(password, user.passwordHash)) {
       return NextResponse.json({ error: "Invalid username or password" }, { status: 401 });

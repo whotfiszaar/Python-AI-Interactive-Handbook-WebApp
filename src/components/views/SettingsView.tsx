@@ -209,27 +209,79 @@ print(response.choices[0].message.content)`,
         notebooks?: unknown[];
         settings?: unknown;
       };
+      
       // Restore progress
       if (Array.isArray(data.progress)) {
-        for (const p of data.progress as Array<Record<string, unknown>>) {
+        for (const p of data.progress as Array<Record<string, any>>) {
           await fetch("/api/progress", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(p),
+            body: JSON.stringify({
+              dayNumber: p.dayNumber,
+              completed: p.completed,
+              bookmarked: p.bookmarked,
+              notes: p.notes,
+              quizAnswers: p.quizAnswers
+            }),
           });
         }
       }
+
+      // Restore assessments
       if (Array.isArray(data.assessments)) {
-        for (const s of data.assessments as Array<Record<string, unknown>>) {
+        for (const s of data.assessments as Array<Record<string, any>>) {
+          let answers = s.answers;
+          if (typeof answers === "string") {
+            try {
+              answers = JSON.parse(answers);
+            } catch {}
+          }
           await fetch("/api/assessments", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(s),
+            body: JSON.stringify({
+              assessmentId: s.assessmentId,
+              score: s.score,
+              total: s.total,
+              answers: answers
+            }),
           });
         }
       }
-      toast.success("Data imported. Reload to see updates.");
-    } catch {
+
+      // Restore notebooks
+      if (Array.isArray(data.notebooks)) {
+        for (const n of data.notebooks as Array<Record<string, any>>) {
+          let cells = n.cells;
+          if (typeof cells === "string") {
+            try {
+              cells = JSON.parse(cells);
+            } catch {}
+          }
+          await fetch("/api/notebooks", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: n.name,
+              cells: cells
+            }),
+          });
+        }
+      }
+
+      // Restore settings
+      if (data.settings) {
+        await fetch("/api/settings", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data.settings),
+        });
+      }
+
+      toast.success("All data imported successfully! Reloading to apply...");
+      setTimeout(() => window.location.reload(), 1500);
+    } catch (err) {
+      console.error("Import error:", err);
       toast.error("Import failed. Check the file format.");
     }
   };

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db, ensureReady } from "@/lib/db";
 import { hashPassword, setSessionCookie } from "@/lib/auth";
-import { logQdrantInteraction } from "@/lib/qdrant";
+import { logQdrantInteraction, backupUserToQdrant } from "@/lib/qdrant";
 
 export async function POST(req: NextRequest) {
   try {
@@ -20,6 +20,12 @@ export async function POST(req: NextRequest) {
     });
 
     if (existingUser) {
+      return NextResponse.json({ error: "Username is already taken" }, { status: 400 });
+    }
+
+    const { syncUserFromQdrant } = await import("@/lib/qdrant");
+    const qdrantUser = await syncUserFromQdrant(normalizedUsername);
+    if (qdrantUser) {
       return NextResponse.json({ error: "Username is already taken" }, { status: 400 });
     }
 
@@ -60,6 +66,16 @@ export async function POST(req: NextRequest) {
       `New user registered: ${user.username}`,
       { name: user.name }
     );
+
+    // Backup credentials to Qdrant
+    await backupUserToQdrant({
+      id: user.id,
+      username: user.username,
+      passwordHash: user.passwordHash,
+      name: user.name,
+      securityQuestion: user.securityQuestion,
+      securityAnswer: user.securityAnswer
+    });
 
     const response = NextResponse.json({
       success: true,

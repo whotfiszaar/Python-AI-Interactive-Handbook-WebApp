@@ -102,3 +102,107 @@ export async function logQdrantInteraction(
     console.error("Error logging interaction to Qdrant:", error);
   }
 }
+
+/**
+ * Back up user credentials to Qdrant.
+ */
+export async function backupUserToQdrant(user: {
+  id: number;
+  username: string;
+  passwordHash: string;
+  name: string;
+  securityQuestion: string;
+  securityAnswer: string;
+}) {
+  await logQdrantInteraction(
+    user.id,
+    user.username,
+    "user_account_backup",
+    `Backup credentials for user: ${user.username}`,
+    {
+      passwordHash: user.passwordHash,
+      name: user.name,
+      securityQuestion: user.securityQuestion,
+      securityAnswer: user.securityAnswer
+    }
+  );
+}
+
+/**
+ * Retrieve and reconstruct a user from Qdrant backup if missing from local SQLite.
+ */
+export async function syncUserFromQdrant(username: string): Promise<any> {
+  try {
+    const { db } = await import("./db");
+    
+    const res = await fetch(`${QDRANT_HOST}/collections/${COLLECTION_NAME}/points/scroll`, {
+      method: "POST",
+      headers: {
+        "api-key": QDRANT_API_KEY,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        filter: {
+          must: [
+            { key: "eventType", match: { value: "user_account_backup" } },
+            { key: "username", match: { value: username.trim().toLowerCase() } }
+          ]
+        },
+        limit: 1,
+        with_payload: true
+      }),
+    });
+
+    if (!res.ok) {
+      console.error(`Qdrant scroll failed: ${await res.text()}`);
+      return null;
+    }
+
+    const data = await res.json();
+    const point = data.result?.points?.[0];
+    if (!point) return null;
+
+    const payload = point.payload;
+    let details: any = {};
+    if (payload.details) {
+      try {
+        details = typeof payload.details === "string" ? JSON.parse(payload.details) : payload.details;
+      } catch (e) {
+        console.error("Failed to parse details payload:", e);
+      }
+    }
+
+    // Recreate the user in local SQLite database
+    const createdUser = await db.user.create({
+      data: {
+        id: payload.userId,
+        username: payload.username,
+        passwordHash: details.passwordHash || "",
+        name: details.name || "",
+        securityQuestion: details.securityQuestion || "",
+        securityAnswer: details.securityAnswer || "",
+      }
+    });
+
+    // Recreate default settings
+    await db.settings.upsert({
+      where: { userId: createdUser.id },
+      update: {
+        studentName: createdUser.name,
+      },
+      create: {
+        userId: createdUser.id,
+        darkMode: false,
+        fontSize: 16,
+        apiKeys: "{}",
+        studentName: createdUser.name,
+      }
+    });
+
+    console.log(`Successfully synced user ${username} from Qdrant to SQLite.`);
+    return createdUser;
+  } catch (error) {
+    console.error("Error syncing user from Qdrant:", error);
+    return null;
+  }
+}
