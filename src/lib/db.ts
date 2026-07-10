@@ -5,21 +5,32 @@ import path from "path";
 // Support copying SQLite DB to /tmp in Vercel environments to allow writes
 if (process.env.NODE_ENV === "production" || process.env.VERCEL) {
   const targetDbPath = "/tmp/custom.db";
+  const sourceDbPath = path.resolve(process.cwd(), "db/custom.db");
   
+  let shouldCopy = false;
   if (!fs.existsSync(targetDbPath)) {
+    shouldCopy = true;
+  } else if (fs.existsSync(sourceDbPath)) {
     try {
-      const sourceDbPath = path.resolve(process.cwd(), "db/custom.db");
-      if (fs.existsSync(sourceDbPath)) {
-        // Ensure /tmp directory exists (though Vercel always has it)
-        const dir = path.dirname(targetDbPath);
-        if (!fs.existsSync(dir)) {
-          fs.mkdirSync(dir, { recursive: true });
-        }
-        fs.copyFileSync(sourceDbPath, targetDbPath);
-        console.log(`Successfully copied database to ${targetDbPath}`);
-      } else {
-        console.warn(`Source SQLite database not found at ${sourceDbPath}`);
+      const sourceStat = fs.statSync(sourceDbPath);
+      const targetStat = fs.statSync(targetDbPath);
+      // Overwrite if source is newer or size changed (indicating a new deployment or schema change)
+      if (sourceStat.mtimeMs > targetStat.mtimeMs || sourceStat.size !== targetStat.size) {
+        shouldCopy = true;
       }
+    } catch {
+      shouldCopy = true;
+    }
+  }
+
+  if (shouldCopy && fs.existsSync(sourceDbPath)) {
+    try {
+      const dir = path.dirname(targetDbPath);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      fs.copyFileSync(sourceDbPath, targetDbPath);
+      console.log(`Successfully copied database to ${targetDbPath}`);
     } catch (error) {
       console.error("Failed to copy SQLite database to /tmp:", error);
     }
