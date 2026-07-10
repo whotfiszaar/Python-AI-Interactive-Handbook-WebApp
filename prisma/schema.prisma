@@ -36,6 +36,7 @@ model DayProgress {
   bookmarked  Boolean  @default(false)
   lastVisited DateTime @default(now())
   notes       String   @default("")
+  quizAnswers String   @default("{}")
   
   userId      Int?
   user        User?    @relation(fields: [userId], references: [id], onDelete: Cascade)

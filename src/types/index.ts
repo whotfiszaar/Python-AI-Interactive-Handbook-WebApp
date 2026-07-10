@@ -86,6 +86,7 @@ export interface DayProgressRow {
   bookmarked: boolean;
   lastVisited: string;
   notes: string;
+  quizAnswers: string;
 }
 
 export interface AssessmentScoreRow {
@@ -118,6 +119,7 @@ export interface ProgressPayload {
   completed?: boolean;
   bookmarked?: boolean;
   notes?: string;
+  quizAnswers?: string;
 }
 
 export interface AssessmentPayload {

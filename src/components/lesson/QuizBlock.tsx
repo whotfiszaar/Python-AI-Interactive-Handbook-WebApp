@@ -1,34 +1,103 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { QuizQuestion } from "@/types";
 import { CodeBlock } from "./CodeBlock";
-import { Check, X, ChevronDown } from "lucide-react";
+import { Check, X, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn, answersMatch, logInteraction } from "@/lib/utils";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { useProgress } from "@/hooks/useProgress";
+import { toast } from "sonner";
 
-export function QuizBlock({ questions }: { questions: QuizQuestion[] }) {
+export function QuizBlock({ questions, dayNumber }: { questions: QuizQuestion[]; dayNumber: number }) {
+  const { progress, saveQuizAnswers } = useProgress();
+  
+  const savedAnswersString = progress[dayNumber]?.quizAnswers ?? "{}";
+  
+  const savedAnswers = useMemo(() => {
+    try {
+      return JSON.parse(savedAnswersString);
+    } catch {
+      return {};
+    }
+  }, [savedAnswersString]);
+
+  const handleAnswer = async (qId: number, userAnswer: any) => {
+    const updated = {
+      ...savedAnswers,
+      [qId]: { userAnswer, submitted: true }
+    };
+    await saveQuizAnswers(dayNumber, JSON.stringify(updated));
+  };
+
+  const handleReset = async (qId: number) => {
+    const updated = { ...savedAnswers };
+    delete updated[qId];
+    await saveQuizAnswers(dayNumber, JSON.stringify(updated));
+  };
+
+  const handleResetAll = async () => {
+    await saveQuizAnswers(dayNumber, "{}");
+    toast.success("Quiz answers reset!");
+  };
+
   return (
     <div className="space-y-4">
       {questions.map((q) => (
-        <QuestionRunner key={q.id} question={q} />
+        <QuestionRunner
+          key={q.id}
+          question={q}
+          savedState={savedAnswers[q.id]}
+          onAnswer={(ans) => handleAnswer(q.id, ans)}
+          onReset={() => handleReset(q.id)}
+        />
       ))}
+      <div className="flex justify-end pt-1">
+        <Button variant="outline" size="sm" onClick={handleResetAll} className="text-xs gap-1.5">
+          <RefreshCw className="h-3 w-3" />
+          Reset All Answers
+        </Button>
+      </div>
     </div>
   );
 }
 
-function QuestionRunner({ question: q }: { question: QuizQuestion }) {
+function QuestionRunner({
+  question: q,
+  savedState,
+  onAnswer,
+  onReset,
+}: {
+  question: QuizQuestion;
+  savedState?: { userAnswer: any; submitted: boolean };
+  onAnswer: (userAns: any) => void;
+  onReset: () => void;
+}) {
   const [selected, setSelected] = useState<number | null>(null);
   const [boolAnswer, setBoolAnswer] = useState<boolean | null>(null);
   const [textAnswer, setTextAnswer] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  // Sync state when database loaded state changes
+  useEffect(() => {
+    if (savedState) {
+      if (q.type === "multiple-choice") {
+        setSelected(savedState.userAnswer !== undefined ? (savedState.userAnswer as number) : null);
+      } else if (q.type === "true-false") {
+        setBoolAnswer(savedState.userAnswer !== undefined ? (savedState.userAnswer as boolean) : null);
+      } else if (q.type === "fill-blank" || q.type === "code-output") {
+        setTextAnswer(savedState.userAnswer !== undefined ? String(savedState.userAnswer) : "");
+      }
+      setSubmitted(savedState.submitted);
+    } else {
+      setSelected(null);
+      setBoolAnswer(null);
+      setTextAnswer("");
+      setSubmitted(false);
+    }
+  }, [savedState, q.type]);
 
   const isCorrect = (() => {
     if (!submitted) return null;
@@ -46,23 +115,20 @@ function QuestionRunner({ question: q }: { question: QuizQuestion }) {
   })();
 
   const submit = () => {
-    if (
-      q.type === "multiple-choice" && selected === null
-    )
-      return;
+    if (q.type === "multiple-choice" && selected === null) return;
     if (q.type === "true-false" && boolAnswer === null) return;
-    if (
-      (q.type === "fill-blank" || q.type === "code-output") &&
-      !textAnswer.trim()
-    )
-      return;
+    if ((q.type === "fill-blank" || q.type === "code-output") && !textAnswer.trim()) return;
+
     setSubmitted(true);
 
-    // Log the quiz check interaction to Qdrant
     const userAns = q.type === "multiple-choice" ? selected : q.type === "true-false" ? boolAnswer : textAnswer;
     const correctVal = q.type === "multiple-choice" ? q.correct : q.type === "true-false" ? q.correctBool : q.answer;
     const isCorrectVal = q.type === "multiple-choice" ? selected === q.correct : q.type === "true-false" ? boolAnswer === q.correctBool : answersMatch(textAnswer, q.answer ?? "");
     
+    // Save to DB
+    onAnswer(userAns);
+
+    // Log the quiz check interaction to Qdrant
     void logInteraction("quiz_check", `Submitted answer for quiz question ${q.id}`, {
       questionId: q.id,
       questionText: q.question,
@@ -73,11 +139,16 @@ function QuestionRunner({ question: q }: { question: QuizQuestion }) {
     });
   };
 
-  const reset = () => {
+  const handleResetClick = () => {
     setSelected(null);
     setBoolAnswer(null);
     setTextAnswer("");
     setSubmitted(false);
+    onReset();
+    
+    void logInteraction("quiz_reset", `Reset quiz question ${q.id}`, {
+      questionId: q.id,
+    });
   };
 
   return (
@@ -178,8 +249,6 @@ function QuestionRunner({ question: q }: { question: QuizQuestion }) {
               disabled={submitted}
               onKeyDown={(e) => {
                 if (e.key !== "Enter") return;
-                // Ctrl/Cmd+Enter inserts a literal newline so multi-line
-                // outputs can be typed. Plain Enter submits the answer.
                 if (e.ctrlKey || e.metaKey) {
                   e.preventDefault();
                   const el = e.currentTarget;
@@ -232,7 +301,8 @@ function QuestionRunner({ question: q }: { question: QuizQuestion }) {
               </code>
             </p>
           )}
-          <Button size="sm" variant="ghost" className="h-7 text-xs" onClick={reset}>
+          <Button size="sm" variant="ghost" className="h-7 text-xs gap-1" onClick={handleResetClick}>
+            <RefreshCw className="h-3 w-3" />
             Try again
           </Button>
         </div>

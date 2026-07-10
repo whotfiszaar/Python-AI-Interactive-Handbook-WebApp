@@ -55,6 +55,9 @@ export async function POST(req: NextRequest) {
           ? { bookmarked: body.bookmarked }
           : {}),
         ...(typeof body.notes === "string" ? { notes: body.notes } : {}),
+        ...(typeof body.quizAnswers === "string"
+          ? { quizAnswers: body.quizAnswers }
+          : {}),
         lastVisited: new Date(),
       },
       create: {
@@ -62,6 +65,7 @@ export async function POST(req: NextRequest) {
         completed: body.completed ?? false,
         bookmarked: body.bookmarked ?? false,
         notes: body.notes ?? "",
+        quizAnswers: body.quizAnswers ?? "{}",
         userId: user.userId,
         lastVisited: new Date(),
       },
@@ -72,6 +76,7 @@ export async function POST(req: NextRequest) {
     if (typeof body.completed === "boolean") changeDesc += `completed=${body.completed} `;
     if (typeof body.bookmarked === "boolean") changeDesc += `bookmarked=${body.bookmarked} `;
     if (typeof body.notes === "string") changeDesc += `notes updated `;
+    if (typeof body.quizAnswers === "string") changeDesc += `quiz answers updated `;
 
     await logQdrantInteraction(
       user.userId,
@@ -83,6 +88,7 @@ export async function POST(req: NextRequest) {
         completed: body.completed,
         bookmarked: body.bookmarked,
         notesLength: body.notes?.length ?? 0,
+        hasQuizAnswers: typeof body.quizAnswers === "string",
       }
     );
 

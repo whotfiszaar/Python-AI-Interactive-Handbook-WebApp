@@ -18,6 +18,7 @@ import { toast } from "sonner";
 
 export function NamePrompt() {
   const studentName = useAppStore((s) => s.studentName);
+  const user = useAppStore((s) => s.user);
   const hydrated = useAppStore((s) => s.hydrated);
   const dismissed = useAppStore((s) => s.namePromptDismissed);
   const setDismissed = useAppStore((s) => s.setNamePromptDismissed);
@@ -25,7 +26,7 @@ export function NamePrompt() {
   const [value, setValue] = useState("");
   const [saving, setSaving] = useState(false);
 
-  const open = hydrated && !studentName.trim() && !dismissed;
+  const open = hydrated && !studentName.trim() && !user?.name?.trim() && !dismissed;
 
   // Reset the input when the prompt becomes visible again.
   useEffect(() => {

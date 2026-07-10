@@ -364,7 +364,7 @@ export function DayDetailView() {
             <HelpCircle className="h-5 w-5 text-primary" />
             Quick quiz
           </h2>
-          <QuizBlock questions={day.quiz} />
+          <QuizBlock questions={day.quiz} dayNumber={dayNumber} />
         </section>
       )}
 

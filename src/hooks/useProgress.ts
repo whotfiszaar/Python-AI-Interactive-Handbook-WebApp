@@ -63,6 +63,11 @@ export function useProgress() {
     [save],
   );
 
+  const saveQuizAnswers = useCallback(
+    (dayNumber: number, quizAnswers: string) => save({ dayNumber, quizAnswers }),
+    [save],
+  );
+
   useEffect(() => {
     void load();
   }, [load]);
@@ -74,5 +79,6 @@ export function useProgress() {
     toggleComplete,
     toggleBookmark,
     saveNotes,
+    saveQuizAnswers,
   };
 }
