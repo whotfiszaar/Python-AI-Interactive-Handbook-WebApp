@@ -83,6 +83,30 @@ export function getSessionUser(req: NextRequest): { userId: number; username: st
 }
 
 /**
+ * Extract, verify, and sync user session from a NextRequest.
+ * If the user is missing from the local SQLite database, it syncs them from Qdrant backup.
+ */
+export async function getSessionUserAndSync(req: NextRequest): Promise<{ userId: number; username: string; name: string } | null> {
+  const user = getSessionUser(req);
+  if (!user) return null;
+
+  try {
+    const { db } = await import("./db");
+    const existing = await db.user.findUnique({
+      where: { id: user.userId },
+    });
+    if (!existing) {
+      const { syncUserFromQdrant } = await import("./qdrant");
+      await syncUserFromQdrant(user.username);
+    }
+  } catch (e) {
+    console.error("Session sync error:", e);
+  }
+
+  return user;
+}
+
+/**
  * Set session cookie in response headers.
  */
 export function setSessionCookie(res: NextResponse, payload: { userId: number; username: string; name: string }) {

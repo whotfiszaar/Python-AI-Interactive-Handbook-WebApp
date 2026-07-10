@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db, ensureReady } from "@/lib/db";
-import { getSessionUser } from "@/lib/auth";
+import { getSessionUserAndSync } from "@/lib/auth";
 import { logQdrantInteraction } from "@/lib/qdrant";
 import type { AssessmentPayload } from "@/types";
 
 export async function GET(req: NextRequest) {
   try {
     await ensureReady();
-    const user = getSessionUser(req);
+    const user = await getSessionUserAndSync(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     await ensureReady();
-    const user = getSessionUser(req);
+    const user = await getSessionUserAndSync(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

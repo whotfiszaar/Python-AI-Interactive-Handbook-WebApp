@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db, ensureReady } from "@/lib/db";
 import { isAICode } from "@/lib/utils";
-import { getSessionUser } from "@/lib/auth";
+import { getSessionUserAndSync } from "@/lib/auth";
 import { logQdrantInteraction } from "@/lib/qdrant";
 
 interface ApiKeysMap {
@@ -144,7 +144,7 @@ function parseAICall(code: string): {
 export async function POST(req: NextRequest) {
   try {
     await ensureReady();
-    const user = getSessionUser(req);
+    const user = await getSessionUserAndSync(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
