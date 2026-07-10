@@ -115,24 +115,34 @@ export const useAppStore = create<AppStore>((set) => ({
   addScore: (row) => set((s) => ({ scores: [row, ...s.scores] })),
 
   settings: null,
-  setSettings: (row) =>
+  setSettings: (row) => {
+    if (row.studentName) {
+      try {
+        localStorage.setItem("__studentName", row.studentName);
+      } catch {}
+    }
     set({
       settings: row,
       studentName: row.studentName ?? "",
-      // Only set displayName if the name is non-empty. If empty, keep it
-      // empty (not the default) so the UI shows nothing until the name is set.
       displayName: row.studentName?.trim() || "",
-    }),
+    });
+  },
   studentName: "",
   displayName: "",
-  setStudentName: (name) =>
+  setStudentName: (name) => {
+    if (name) {
+      try {
+        localStorage.setItem("__studentName", name);
+      } catch {}
+    }
     set((s) => ({
       studentName: name,
       displayName: name.trim() || "",
       settings: s.settings
         ? { ...s.settings, studentName: name }
         : s.settings,
-    })),
+    }));
+  },
   namePromptDismissed: false,
   setNamePromptDismissed: (v) => set({ namePromptDismissed: v }),
 

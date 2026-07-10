@@ -7,23 +7,7 @@ if (process.env.NODE_ENV === "production" || process.env.VERCEL) {
   const targetDbPath = "/tmp/custom.db";
   const sourceDbPath = path.resolve(process.cwd(), "db/custom.db");
   
-  let shouldCopy = false;
-  if (!fs.existsSync(targetDbPath)) {
-    shouldCopy = true;
-  } else if (fs.existsSync(sourceDbPath)) {
-    try {
-      const sourceStat = fs.statSync(sourceDbPath);
-      const targetStat = fs.statSync(targetDbPath);
-      // Overwrite if source is newer or size changed (indicating a new deployment or schema change)
-      if (sourceStat.mtimeMs > targetStat.mtimeMs || sourceStat.size !== targetStat.size) {
-        shouldCopy = true;
-      }
-    } catch {
-      shouldCopy = true;
-    }
-  }
-
-  if (shouldCopy && fs.existsSync(sourceDbPath)) {
+  if (!fs.existsSync(targetDbPath) && fs.existsSync(sourceDbPath)) {
     try {
       const dir = path.dirname(targetDbPath);
       if (!fs.existsSync(dir)) {
