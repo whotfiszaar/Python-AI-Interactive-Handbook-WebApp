@@ -360,10 +360,6 @@ export function DayDetailView() {
       {/* Quiz */}
       {day.quiz.length > 0 && (
         <section>
-          <h2 className="flex items-center gap-2 text-xl font-semibold mb-3">
-            <HelpCircle className="h-5 w-5 text-primary" />
-            Quick quiz
-          </h2>
           <QuizBlock questions={day.quiz} dayNumber={dayNumber} />
         </section>
       )}

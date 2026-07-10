@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import type { QuizQuestion } from "@/types";
 import { CodeBlock } from "./CodeBlock";
-import { Check, X, RefreshCw } from "lucide-react";
+import { Check, X, RefreshCw, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,6 +13,7 @@ import { toast } from "sonner";
 
 export function QuizBlock({ questions, dayNumber }: { questions: QuizQuestion[]; dayNumber: number }) {
   const { progress, saveQuizAnswers } = useProgress();
+  const [resetKey, setResetKey] = useState(0);
   
   const savedAnswersString = progress[dayNumber]?.quizAnswers ?? "{}";
   
@@ -40,26 +41,38 @@ export function QuizBlock({ questions, dayNumber }: { questions: QuizQuestion[];
 
   const handleResetAll = async () => {
     await saveQuizAnswers(dayNumber, "{}");
+    setResetKey((prev) => prev + 1);
     toast.success("Quiz answers reset!");
   };
 
   return (
     <div className="space-y-4">
+      {/* Quiz Header & Side Reset Button */}
+      <div className="flex items-center justify-between mb-3 border-b border-border/40 pb-2">
+        <h2 className="flex items-center gap-2 text-lg font-bold text-foreground">
+          <HelpCircle className="h-5 w-5 text-primary" />
+          Quick quiz
+        </h2>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleResetAll}
+          className="h-8 text-xs gap-1.5 text-muted-foreground hover:text-destructive hover:border-destructive/50 transition-colors"
+        >
+          <RefreshCw className="h-3 w-3" />
+          Reset All
+        </Button>
+      </div>
+
       {questions.map((q) => (
         <QuestionRunner
-          key={q.id}
+          key={`${q.id}_${resetKey}`}
           question={q}
           savedState={savedAnswers[q.id]}
           onAnswer={(ans) => handleAnswer(q.id, ans)}
           onReset={() => handleReset(q.id)}
         />
       ))}
-      <div className="flex justify-end pt-1">
-        <Button variant="outline" size="sm" onClick={handleResetAll} className="text-xs gap-1.5">
-          <RefreshCw className="h-3 w-3" />
-          Reset All Answers
-        </Button>
-      </div>
     </div>
   );
 }
@@ -75,12 +88,18 @@ function QuestionRunner({
   onAnswer: (userAns: any) => void;
   onReset: () => void;
 }) {
-  const [selected, setSelected] = useState<number | null>(null);
-  const [boolAnswer, setBoolAnswer] = useState<boolean | null>(null);
-  const [textAnswer, setTextAnswer] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [selected, setSelected] = useState<number | null>(
+    q.type === "multiple-choice" && savedState ? (savedState.userAnswer as number) : null
+  );
+  const [boolAnswer, setBoolAnswer] = useState<boolean | null>(
+    q.type === "true-false" && savedState ? (savedState.userAnswer as boolean) : null
+  );
+  const [textAnswer, setTextAnswer] = useState(
+    (q.type === "fill-blank" || q.type === "code-output") && savedState ? String(savedState.userAnswer) : ""
+  );
+  const [submitted, setSubmitted] = useState(savedState ? savedState.submitted : false);
 
-  // Sync state when database loaded state changes
+  // Sync state if initial database load changes later
   useEffect(() => {
     if (savedState) {
       if (q.type === "multiple-choice") {
@@ -91,11 +110,6 @@ function QuestionRunner({
         setTextAnswer(savedState.userAnswer !== undefined ? String(savedState.userAnswer) : "");
       }
       setSubmitted(savedState.submitted);
-    } else {
-      setSelected(null);
-      setBoolAnswer(null);
-      setTextAnswer("");
-      setSubmitted(false);
     }
   }, [savedState, q.type]);
 
@@ -125,10 +139,8 @@ function QuestionRunner({
     const correctVal = q.type === "multiple-choice" ? q.correct : q.type === "true-false" ? q.correctBool : q.answer;
     const isCorrectVal = q.type === "multiple-choice" ? selected === q.correct : q.type === "true-false" ? boolAnswer === q.correctBool : answersMatch(textAnswer, q.answer ?? "");
     
-    // Save to DB
     onAnswer(userAns);
 
-    // Log the quiz check interaction to Qdrant
     void logInteraction("quiz_check", `Submitted answer for quiz question ${q.id}`, {
       questionId: q.id,
       questionText: q.question,
