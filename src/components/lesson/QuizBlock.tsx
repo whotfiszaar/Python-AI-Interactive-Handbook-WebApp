@@ -7,7 +7,7 @@ import { Check, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { cn, answersMatch } from "@/lib/utils";
+import { cn, answersMatch, logInteraction } from "@/lib/utils";
 import {
   Collapsible,
   CollapsibleContent,
@@ -57,6 +57,20 @@ function QuestionRunner({ question: q }: { question: QuizQuestion }) {
     )
       return;
     setSubmitted(true);
+
+    // Log the quiz check interaction to Qdrant
+    const userAns = q.type === "multiple-choice" ? selected : q.type === "true-false" ? boolAnswer : textAnswer;
+    const correctVal = q.type === "multiple-choice" ? q.correct : q.type === "true-false" ? q.correctBool : q.answer;
+    const isCorrectVal = q.type === "multiple-choice" ? selected === q.correct : q.type === "true-false" ? boolAnswer === q.correctBool : answersMatch(textAnswer, q.answer ?? "");
+    
+    void logInteraction("quiz_check", `Submitted answer for quiz question ${q.id}`, {
+      questionId: q.id,
+      questionText: q.question,
+      questionType: q.type,
+      userAnswer: userAns,
+      correctAnswer: correctVal,
+      isCorrect: isCorrectVal
+    });
   };
 
   const reset = () => {

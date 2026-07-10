@@ -9,6 +9,9 @@ export function useAppInit() {
   const setSettings = useAppStore((s) => s.setSettings);
   const setHydrated = useAppStore((s) => s.setHydrated);
   const setStudentName = useAppStore((s) => s.setStudentName);
+  const loginUser = useAppStore((s) => s.loginUser);
+  const logoutUser = useAppStore((s) => s.logoutUser);
+  const isLoggedIn = useAppStore((s) => s.isLoggedIn);
 
   useEffect(() => {
     let active = true;
@@ -27,11 +30,37 @@ export function useAppInit() {
 
     (async () => {
       try {
+        // Step 1: Check session status first
+        const sessionRes = await fetch("/api/auth/session", { cache: "no-store" });
+        if (!sessionRes.ok) {
+          logoutUser();
+          if (active) setHydrated(true);
+          return;
+        }
+
+        const sessionData = (await sessionRes.json()) as {
+          authenticated: boolean;
+          user?: { id: number; username: string; name: string };
+        };
+
+        if (!sessionData.authenticated || !sessionData.user) {
+          logoutUser();
+          if (active) setHydrated(true);
+          return;
+        }
+
+        // Set logged-in state
+        if (active) {
+          loginUser(sessionData.user);
+        }
+
+        // Step 2: Fetch user-specific progress, scores, and settings
         const [progressRes, scoresRes, settingsRes] = await Promise.all([
           fetch("/api/progress", { cache: "no-store" }),
           fetch("/api/assessments", { cache: "no-store" }),
           fetch("/api/settings", { cache: "no-store" }),
         ]);
+
         if (active) {
           if (progressRes.ok) {
             const data = (await progressRes.json()) as import("@/types").DayProgressRow[];
@@ -60,6 +89,7 @@ export function useAppInit() {
         }
       } catch (e) {
         console.error("App init failed", e);
+        logoutUser();
       } finally {
         if (active) setHydrated(true);
       }
@@ -67,5 +97,5 @@ export function useAppInit() {
     return () => {
       active = false;
     };
-  }, [setProgress, setScores, setSettings, setHydrated, setStudentName]);
+  }, [setProgress, setScores, setSettings, setHydrated, setStudentName, loginUser, logoutUser]);
 }

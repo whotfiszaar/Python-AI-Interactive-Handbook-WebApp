@@ -10,15 +10,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// --- User progress (single-user local, cloud-ready for multi-user) ---
+// --- User progress (multi-user cloud-ready isolation) ---
+
+model User {
+  id               Int      @id @default(autoincrement())
+  username         String   @unique
+  passwordHash     String
+  name             String   @default("")
+  securityQuestion String   @default("")
+  securityAnswer   String   @default("")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  settings         Settings?
+  progress         DayProgress[]
+  scores           AssessmentScore[]
+  notebooks        Notebook[]
+}
 
 model DayProgress {
   id          Int      @id @default(autoincrement())
-  dayNumber   Int      @unique
+  dayNumber   Int
   completed   Boolean  @default(false)
   bookmarked  Boolean  @default(false)
   lastVisited DateTime @default(now())
   notes       String   @default("")
+  
+  userId      Int?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([dayNumber, userId])
 }
 
 model AssessmentScore {
@@ -28,6 +50,9 @@ model AssessmentScore {
   total        Int
   answers      String // JSON string of answers
   completedAt  DateTime @default(now())
+  
+  userId      Int?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Notebook {
@@ -36,6 +61,9 @@ model Notebook {
   cells     String   // JSON string of cell contents
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  
+  userId    Int?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Settings {
@@ -45,6 +73,9 @@ model Settings {
   apiKeys     String @default("{}") // JSON string of API keys
   studentName String @default("") // the learner's name, asked on first visit
   adminPassword String @default("admin123") // default admin password, change in settings
+  
+  userId      Int?   @unique
+  user        User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // --- Content models (admin-managed, cloud-ready) ---

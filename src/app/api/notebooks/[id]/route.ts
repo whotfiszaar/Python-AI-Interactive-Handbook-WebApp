@@ -1,15 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { getSessionUser } from "@/lib/auth";
+import { logQdrantInteraction } from "@/lib/qdrant";
 import type { NotebookPayload } from "@/types";
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const user = getSessionUser(req);
+    if (!user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { id } = await params;
     const record = await db.notebook.findUnique({ where: { id: Number(id) } });
-    if (!record) {
+    if (!record || record.userId !== user.userId) {
       return NextResponse.json(
         { error: "Notebook not found" },
         { status: 404 },
@@ -30,12 +37,17 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const user = getSessionUser(req);
+    if (!user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { id } = await params;
     const body = (await req.json()) as NotebookPayload;
     const existing = await db.notebook.findUnique({
       where: { id: Number(id) },
     });
-    if (!existing) {
+    if (!existing || existing.userId !== user.userId) {
       return NextResponse.json(
         { error: "Notebook not found" },
         { status: 404 },
@@ -50,6 +62,20 @@ export async function PUT(
           : {}),
       },
     });
+
+    // Log to Qdrant
+    await logQdrantInteraction(
+      user.userId,
+      user.username,
+      "notebook_update",
+      `Updated custom notebook: ${record.name}`,
+      {
+        notebookId: record.id,
+        name: record.name,
+        cellsCount: body.cells?.length ?? 0,
+      }
+    );
+
     return NextResponse.json(record);
   } catch (e) {
     console.error("PUT /api/notebooks/[id] error", e);
@@ -61,12 +87,40 @@ export async function PUT(
 }
 
 export async function DELETE(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const user = getSessionUser(req);
+    if (!user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { id } = await params;
+    const existing = await db.notebook.findUnique({
+      where: { id: Number(id) },
+    });
+    if (!existing || existing.userId !== user.userId) {
+      return NextResponse.json(
+        { error: "Notebook not found" },
+        { status: 404 },
+      );
+    }
+
     await db.notebook.delete({ where: { id: Number(id) } });
+
+    // Log to Qdrant
+    await logQdrantInteraction(
+      user.userId,
+      user.username,
+      "notebook_delete",
+      `Deleted custom notebook: ${existing.name}`,
+      {
+        notebookId: existing.id,
+        name: existing.name,
+      }
+    );
+
     return NextResponse.json({ success: true });
   } catch (e) {
     console.error("DELETE /api/notebooks/[id] error", e);

@@ -1,4 +1,5 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { getSessionUser } from "@/lib/auth";
 
 /**
  * Same-origin proxy for the Perplexity Discover feed.
@@ -33,8 +34,13 @@ interface PerplexityItem {
   bullet_summary_web_results_preload?: PerplexityWebResult[];
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
+    const user = getSessionUser(req);
+    if (!user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const res = await fetch(
       "https://www.perplexity.ai/rest/discover/feed?limit=100&offset=0&topic=top&version=2.18&source=default",
       {

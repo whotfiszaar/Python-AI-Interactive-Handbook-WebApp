@@ -1,10 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { getSessionUser } from "@/lib/auth";
+import { logQdrantInteraction } from "@/lib/qdrant";
 import type { ProgressPayload } from "@/types";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
+    const user = getSessionUser(req);
+    if (!user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const records = await db.dayProgress.findMany({
+      where: { userId: user.userId },
       orderBy: { dayNumber: "asc" },
     });
     return NextResponse.json(records);
@@ -19,6 +27,11 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
+    const user = getSessionUser(req);
+    if (!user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const body = (await req.json()) as ProgressPayload;
     if (typeof body.dayNumber !== "number") {
       return NextResponse.json(
@@ -26,8 +39,14 @@ export async function POST(req: NextRequest) {
         { status: 400 },
       );
     }
+    
     const record = await db.dayProgress.upsert({
-      where: { dayNumber: body.dayNumber },
+      where: {
+        dayNumber_userId: {
+          dayNumber: body.dayNumber,
+          userId: user.userId,
+        },
+      },
       update: {
         ...(typeof body.completed === "boolean"
           ? { completed: body.completed }
@@ -43,9 +62,30 @@ export async function POST(req: NextRequest) {
         completed: body.completed ?? false,
         bookmarked: body.bookmarked ?? false,
         notes: body.notes ?? "",
+        userId: user.userId,
         lastVisited: new Date(),
       },
     });
+
+    // Log to Qdrant
+    let changeDesc = `Updated progress for Day ${body.dayNumber}: `;
+    if (typeof body.completed === "boolean") changeDesc += `completed=${body.completed} `;
+    if (typeof body.bookmarked === "boolean") changeDesc += `bookmarked=${body.bookmarked} `;
+    if (typeof body.notes === "string") changeDesc += `notes updated `;
+
+    await logQdrantInteraction(
+      user.userId,
+      user.username,
+      "progress_update",
+      changeDesc.trim(),
+      {
+        dayNumber: body.dayNumber,
+        completed: body.completed,
+        bookmarked: body.bookmarked,
+        notesLength: body.notes?.length ?? 0,
+      }
+    );
+
     return NextResponse.json(record);
   } catch (e) {
     console.error("POST /api/progress error", e);

@@ -6,6 +6,8 @@
  * with the proper rules-of-hooks context).
  */
 
+import { logInteraction } from "@/lib/utils";
+
 export interface RunResult {
   stdout: string;
   stderr: string;
@@ -272,11 +274,24 @@ export async function runPythonInline(
       }
     }
 
-    return { stdout, stderr, error: null, durationMs, images };
+    const result = { stdout, stderr, error: null, durationMs, images };
+    void logInteraction("python_run_local", `Ran local Python code using Pyodide`, {
+      codeLength: code.length,
+      durationMs,
+      hasError: false,
+    });
+    return result;
   } catch (e) {
     const durationMs = Math.round(performance.now() - start);
     const msg = e instanceof Error ? e.message : String(e);
-    return { stdout, stderr, error: stderr || msg, durationMs, images: [] };
+    const errText = stderr || msg;
+    void logInteraction("python_run_local", `Ran local Python code using Pyodide`, {
+      codeLength: code.length,
+      durationMs,
+      hasError: true,
+      errorText: errText,
+    });
+    return { stdout, stderr, error: errText, durationMs, images: [] };
   }
 }
 

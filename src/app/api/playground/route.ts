@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { isAICode } from "@/lib/utils";
+import { getSessionUser } from "@/lib/auth";
+import { logQdrantInteraction } from "@/lib/qdrant";
 
 interface ApiKeysMap {
   openrouter?: string;
@@ -141,6 +143,11 @@ function parseAICall(code: string): {
 
 export async function POST(req: NextRequest) {
   try {
+    const user = getSessionUser(req);
+    if (!user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { code } = (await req.json()) as { code: string };
 
     if (!isAICode(code)) {
@@ -154,8 +161,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Load API key from settings (never from client)
-    const settings = await db.settings.findUnique({ where: { id: 1 } });
+    // Load API key from user's settings (never from client)
+    const settings = await db.settings.findUnique({
+      where: { userId: user.userId },
+    });
     let apiKeys: ApiKeysMap = {};
     try {
       apiKeys = JSON.parse(settings?.apiKeys ?? "{}") as ApiKeysMap;
@@ -222,6 +231,20 @@ export async function POST(req: NextRequest) {
     const content = extractString(
       data?.choices?.[0]?.message?.content ?? "",
     );
+
+    // Log this execution to Qdrant
+    await logQdrantInteraction(
+      user.userId,
+      user.username,
+      "playground_ai_run",
+      `Executed AI Playground model ${parsed.model}`,
+      {
+        model: parsed.model,
+        promptLength: JSON.stringify(parsed.messages).length,
+        responseLength: content.length,
+      }
+    );
+
     return NextResponse.json({ ok: true, output: content });
   } catch (e) {
     console.error("POST /api/playground error", e);
@@ -232,3 +255,5 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+

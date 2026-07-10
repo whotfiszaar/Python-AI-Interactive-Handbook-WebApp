@@ -7,7 +7,7 @@ import type {
   SettingsRow,
   ViewName,
 } from "@/types";
-import { DEFAULT_STUDENT_NAME } from "@/lib/utils";
+import { DEFAULT_STUDENT_NAME, logInteraction } from "@/lib/utils";
 
 interface AppStore {
   // view routing
@@ -71,6 +71,12 @@ interface AppStore {
   // persisted locally for instant load + offline
   hydrated: boolean;
   setHydrated: (v: boolean) => void;
+
+  // Logged in user state
+  user: { id: number; username: string; name: string } | null;
+  isLoggedIn: boolean;
+  loginUser: (user: { id: number; username: string; name: string }) => void;
+  logoutUser: () => void;
 }
 
 export const useAppStore = create<AppStore>((set) => ({
@@ -80,7 +86,9 @@ export const useAppStore = create<AppStore>((set) => ({
   playgroundCode: null,
   referenceTabId: null,
 
-  navigate: (view, opts) =>
+  navigate: (view, opts) => {
+    // Log navigation client-side
+    void logInteraction("view_navigate", `Navigated to ${view}`, { opts });
     set((s) => ({
       view,
       dayNumber: opts?.dayNumber ?? null,
@@ -90,7 +98,8 @@ export const useAppStore = create<AppStore>((set) => ({
       // Auto-collapse the desktop lessons sidebar when entering the
       // playground so the editor gets maximum width.
       ...(view === "playground" ? { desktopSidebarOpen: false } : {}),
-    })),
+    }));
+  },
 
   progress: {},
   setProgress: (rows) => {
@@ -149,4 +158,9 @@ export const useAppStore = create<AppStore>((set) => ({
 
   hydrated: false,
   setHydrated: (v) => set({ hydrated: v }),
+
+  user: null,
+  isLoggedIn: false,
+  loginUser: (user) => set({ user, isLoggedIn: true }),
+  logoutUser: () => set({ user: null, isLoggedIn: false, settings: null, progress: {}, scores: [], studentName: "", displayName: "" }),
 }));

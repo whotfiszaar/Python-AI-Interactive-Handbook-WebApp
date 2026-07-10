@@ -54,3 +54,5 @@ server.log
 /skills/
 .vercel
 /tool-results/
+
+.vercel

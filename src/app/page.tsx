@@ -24,6 +24,8 @@ import { NamePrompt } from "@/components/NamePrompt";
 import { PWARegister } from "@/components/PWARegister";
 import { PyodidePreloader } from "@/components/PyodidePreloader";
 import { APIKeyDialog } from "@/components/APIKeyDialog";
+import { LoginView } from "@/components/auth/LoginView";
+import { Loader2 } from "lucide-react";
 
 function CurrentView() {
   const view = useAppStore((s) => s.view);
@@ -61,6 +63,8 @@ export default function Home() {
   useAppInit();
   const view = useAppStore((s) => s.view);
   const navigate = useAppStore((s) => s.navigate);
+  const hydrated = useAppStore((s) => s.hydrated);
+  const isLoggedIn = useAppStore((s) => s.isLoggedIn);
   const isPlayground = view === "playground";
 
   // Deep-link support: read the initial view from ?view= on first load
@@ -78,6 +82,18 @@ export default function Home() {
       window.history.replaceState({}, "", "/");
     }
   }, []);
+
+  if (!hydrated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!isLoggedIn) {
+    return <LoginView />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

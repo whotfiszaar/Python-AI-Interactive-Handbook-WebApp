@@ -257,6 +257,18 @@ print(response.choices[0].message.content)`,
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      const res = await fetch("/api/auth/logout", { method: "POST" });
+      if (!res.ok) throw new Error();
+      useAppStore.getState().logoutUser();
+      localStorage.removeItem("__studentName");
+      toast.success("Logged out successfully");
+    } catch {
+      toast.error("Logout failed");
+    }
+  };
+
   return (
     <div className="space-y-6 max-w-2xl">
       <div>
@@ -265,6 +277,23 @@ print(response.choices[0].message.content)`,
           Customize your learning experience.
         </p>
       </div>
+
+      {/* Session Info */}
+      <Card className="p-5 flex justify-between items-center">
+        <div>
+          <h2 className="font-semibold mb-1">Logged in as</h2>
+          <p className="text-xs text-muted-foreground">
+            Username: <span className="font-medium text-foreground">{settings?.studentName ? `${name} (@${useAppStore.getState().user?.username})` : `@${useAppStore.getState().user?.username}`}</span>
+          </p>
+        </div>
+        <Button
+          onClick={handleLogout}
+          variant="outline"
+          className="text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 shrink-0"
+        >
+          Log out
+        </Button>
+      </Card>
 
       {/* Profile */}
       <Card className="p-5">

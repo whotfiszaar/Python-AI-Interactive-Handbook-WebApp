@@ -140,3 +140,26 @@ export function computeStreak(visitedDates: string[]): number {
   }
   return streak;
 }
+
+/**
+ * Log client-side user interaction to the server which upserts to Qdrant.
+ */
+export async function logInteraction(
+  eventType: string,
+  description: string,
+  details: any = {}
+) {
+  try {
+    await fetch("/api/log-interaction", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        eventType,
+        description,
+        details,
+      }),
+    });
+  } catch (error) {
+    console.error("Failed to log interaction client-side:", error);
+  }
+}
