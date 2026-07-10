@@ -220,208 +220,91 @@ export function LoginView() {
 
 
   return (
-    <div className="min-h-screen relative flex flex-col justify-center items-center px-4 select-none overflow-hidden">
-      {/* ── Animated gradient background ── */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10"
-        style={{
-          background: "linear-gradient(135deg, #0a0a1a 0%, #0d1b35 30%, #0a1628 55%, #0d0a1e 80%, #050510 100%)",
-        }}
-      />
+    <div className="min-h-screen relative flex flex-col justify-center items-center px-4 bg-[#f4f1ea] text-[#1c1b1a] select-none overflow-hidden font-sans">
+      
+      {/* ── ZephyrAtlas Cartographic Editorial Background ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none p-4 sm:p-6 flex flex-col justify-between">
+        {/* Outer Hairline Border */}
+        <div className="absolute inset-4 sm:inset-6 border border-[#1c1b1a]/15 pointer-events-none" />
 
-      {/* ── Animated mesh grid overlay ── */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(99,179,237,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,179,237,1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* ── Glowing orbs ── */}
-      <div
-        aria-hidden="true"
-        className="absolute -z-10 pointer-events-none"
-        style={{
-          top: "10%", left: "8%",
-          width: 360, height: 360,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)",
-          filter: "blur(40px)",
-          animation: "orb1 8s ease-in-out infinite alternate",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="absolute -z-10 pointer-events-none"
-        style={{
-          bottom: "8%", right: "6%",
-          width: 420, height: 420,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)",
-          filter: "blur(50px)",
-          animation: "orb2 10s ease-in-out infinite alternate",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="absolute -z-10 pointer-events-none"
-        style={{
-          top: "55%", left: "50%", transform: "translate(-50%,-50%)",
-          width: 500, height: 200,
-          borderRadius: "50%",
-          background: "radial-gradient(ellipse, rgba(14,165,233,0.09) 0%, transparent 70%)",
-          filter: "blur(30px)",
-        }}
-      />
-
-      {/* ── Floating code snippets ── */}
-      {[
-        { text: "print('Hello, World!')", top: "12%", left: "3%", delay: "0s",  dur: "14s" },
-        { text: "for i in range(10):",   top: "22%", right: "4%", delay: "2s",  dur: "17s" },
-        { text: "import numpy as np",    top: "65%", left: "2%",  delay: "4s",  dur: "13s" },
-        { text: "model.fit(X, y)",       top: "75%", right: "3%", delay: "1s",  dur: "16s" },
-        { text: "def train(epochs=10):", top: "42%", left: "1%",  delay: "3s",  dur: "18s" },
-        { text: "llm.predict(prompt)",   top: "48%", right: "2%", delay: "5s",  dur: "15s" },
-        { text: "loss.backward()",       top: "85%", left: "12%", delay: "6s",  dur: "12s" },
-        { text: "x = torch.tensor([])",  top: "8%",  right:"12%", delay: "1.5s",dur: "19s" },
-      ].map((s, i) => (
-        <div
-          key={i}
-          aria-hidden="true"
-          className="absolute font-mono text-[11px] pointer-events-none hidden lg:block"
-          style={{
-            top: s.top,
-            left: (s as any).left,
-            right: (s as any).right,
-            color: "rgba(147,197,253,0.25)",
-            animation: `floatCode ${s.dur} ease-in-out ${s.delay} infinite alternate`,
-            whiteSpace: "nowrap",
-            userSelect: "none",
-          }}
-        >
-          {s.text}
+        {/* Top Header Bar */}
+        <div className="w-full flex justify-between items-center text-[9px] font-mono tracking-wider text-[#1c1b1a]/60 z-10 border-b border-[#1c1b1a]/10 pb-2">
+          <div>ATLAS &bull; SPECIMEN 014</div>
+          <div className="hidden md:block">EDITION 04 &bull; 2026 &bull; NORTHERN SHELF</div>
+          <div className="flex items-center gap-1.5">
+            <span>N 64.13&deg; // E 17.04&deg;</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[8px] font-bold text-emerald-600">LIVE</span>
+          </div>
         </div>
-      ))}
 
-      {/* ── Keyframe styles ── */}
+        {/* Center Crosshairs */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#1c1b1a]/5 text-xl font-light">
+          +
+        </div>
+
+        {/* Bottom Footer Bar */}
+        <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-3 text-[9px] font-mono tracking-wider text-[#1c1b1a]/60 z-10 border-t border-[#1c1b1a]/10 pt-2">
+          {/* Color Palette Swatches */}
+          <div className="flex gap-1.5">
+            {["#f4f1ea", "#ffffff", "#b3b0a8", "#4e4c46", "#1c1b1a", "#d84b7a", "#2fa7c8", "#c85324"].map((color, idx) => (
+              <div 
+                key={idx} 
+                className="w-3.5 h-3.5 border border-[#1c1b1a]/15 rounded-[2px]" 
+                style={{ backgroundColor: color }} 
+              />
+            ))}
+          </div>
+          <div className="text-center sm:text-left">
+            ZEPHYR ATLAS &bull; LIGHT EDITION &bull; HAIRLINE &bull; PRISM
+          </div>
+          <div className="hidden sm:block">
+            412 STATIONS &bull; 18 PLATES
+          </div>
+        </div>
+      </div>
+
+      {/* Scope styles for the 3D flipping card */}
       <style>{`
-        @keyframes orb1 {
-          from { transform: translate(0, 0) scale(1); }
-          to   { transform: translate(40px, 30px) scale(1.15); }
-        }
-        @keyframes orb2 {
-          from { transform: translate(0, 0) scale(1); }
-          to   { transform: translate(-35px, -25px) scale(1.12); }
-        }
-        @keyframes floatCode {
-          from { opacity: 0.18; transform: translateY(0px); }
-          to   { opacity: 0.35; transform: translateY(-18px); }
-        }
-        @keyframes shimmer {
-          0%   { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
-        @keyframes pulse-ring {
-          0%   { transform: scale(0.92); opacity: 0.6; }
-          50%  { transform: scale(1.05); opacity: 0.25; }
-          100% { transform: scale(0.92); opacity: 0.6; }
-        }
         @keyframes fadeSlideDown {
           from { opacity: 0; transform: translateY(-16px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        /* Preserve the 3-D flip card */
-        .flip-card-container { perspective: 1000px; }
+        .flip-card-container {
+          perspective: 1000px;
+          z-index: 10;
+        }
         .flip-card-inner {
           position: relative;
           width: 330px;
           transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
           transform-style: preserve-3d;
         }
-        .flip-card-inner.flipped { transform: rotateY(180deg); }
+        .flip-card-inner.flipped {
+          transform: rotateY(180deg);
+        }
         .flip-card-front, .flip-card-back {
           position: absolute;
           width: 100%;
           backface-visibility: hidden;
           -webkit-backface-visibility: hidden;
         }
-        .flip-card-back { transform: rotateY(180deg); }
+        .flip-card-back {
+          transform: rotateY(180deg);
+        }
       `}</style>
 
-      {/* ── Premium branding header ── */}
-      <div
-        className="flex flex-col items-center gap-2 mb-8 text-center"
-        style={{ animation: "fadeSlideDown 0.7s ease both" }}
+      {/* Redesigned Minimal Branding Header */}
+      <div 
+        className="flex flex-col items-center gap-1 mb-8 text-center z-10 relative"
+        style={{ animation: "fadeSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both" }}
       >
-        {/* Icon badge */}
-        <div className="relative mb-1">
-          <div
-            className="absolute inset-0 rounded-2xl"
-            style={{
-              background: "radial-gradient(circle, rgba(59,130,246,0.45), transparent 70%)",
-              animation: "pulse-ring 3s ease-in-out infinite",
-            }}
-          />
-          <div
-            className="relative flex items-center justify-center w-14 h-14 rounded-2xl text-2xl"
-            style={{
-              background: "linear-gradient(135deg, rgba(59,130,246,0.25) 0%, rgba(139,92,246,0.25) 100%)",
-              border: "1px solid rgba(99,179,237,0.25)",
-              backdropFilter: "blur(8px)",
-            }}
-          >
-            🐍
-          </div>
+        <div className="text-[9px] font-mono tracking-[0.2em] text-[#1c1b1a]/55 uppercase mb-1">
+          &mdash; PLATE 04 / 18
         </div>
-
-        {/* Title */}
-        <h1
-          className="text-4xl sm:text-5xl font-black tracking-tight"
-          style={{
-            background: "linear-gradient(135deg, #e2e8f0 0%, #93c5fd 40%, #c4b5fd 70%, #e2e8f0 100%)",
-            backgroundSize: "200% auto",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            animation: "shimmer 4s linear infinite",
-            fontFamily: "Georgia, serif",
-            fontStyle: "italic",
-          }}
-        >
-          Python &amp; AI
+        <h1 className="text-4xl sm:text-5xl font-normal font-serif text-[#1c1b1a] tracking-tight">
+          Python<span className="italic font-serif">Atlas</span>
         </h1>
-
-        {/* Subtitle row */}
-        <div className="flex items-center gap-2">
-          <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500/50" />
-          <p className="text-[10px] font-bold tracking-[0.25em] uppercase"
-             style={{ color: "rgba(147,197,253,0.6)" }}>
-            Interactive Handbook
-          </p>
-          <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500/50" />
-        </div>
-
-        {/* Tag pills */}
-        <div className="flex items-center gap-2 mt-1">
-          {["Python", "Machine Learning", "LLMs"].map((tag) => (
-            <span
-              key={tag}
-              className="text-[9px] font-semibold px-2 py-0.5 rounded-full"
-              style={{
-                background: "rgba(59,130,246,0.12)",
-                border: "1px solid rgba(99,179,237,0.2)",
-                color: "rgba(147,197,253,0.7)",
-                letterSpacing: "0.08em",
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
 
       {/* ── Login panel (flip card — completely unchanged) ── */}
