@@ -16,8 +16,11 @@ export async function POST(req: NextRequest) {
 
     // Standalone Admin Login Check
     if (normalizedUsername === "admin") {
-      const settings = await db.settings.findFirst();
-      const adminPassword = settings?.adminPassword ?? "admin123";
+      // Use the global settings row (userId IS NULL) for admin password.
+      // Fall back to any row if none exists yet.
+      const globalSettings = await db.settings.findFirst({ where: { userId: null } })
+        ?? await db.settings.findFirst();
+      const adminPassword = globalSettings?.adminPassword ?? "admin123";
 
       if (password !== adminPassword) {
         return NextResponse.json({ error: "Invalid username or password" }, { status: 401 });

@@ -96,24 +96,38 @@ async function migrateSchema() {
 let migrated = false;
 
 /**
- * Ensure the database schema is up to date and default settings exist.
+ * Ensure the database schema is up to date.
  * Call this from API routes before any database operations.
  */
 export async function ensureReady() {
   if (!migrated) {
     await migrateSchema();
+    // Ensure the global admin settings row exists (userId IS NULL)
+    try {
+      const globalSettings = await db.settings.findFirst({ where: { userId: null } });
+      if (!globalSettings) {
+        await db.settings.create({
+          data: { darkMode: false, fontSize: 16, apiKeys: "{}", studentName: "", adminPassword: "admin123" },
+        });
+        console.log("Created global admin settings row");
+      }
+    } catch (err) {
+      console.error("Failed to create global admin settings:", err);
+    }
     migrated = true;
   }
-  await ensureDefaultSettings();
 }
 
-// Ensure default settings row exists
-export async function ensureDefaultSettings() {
+/**
+ * Ensure a per-user settings row exists. Called lazily from settings API.
+ * Do NOT call this globally — settings must be user-scoped.
+ */
+export async function ensureUserSettings(userId: number, name: string) {
   try {
-    const existing = await db.settings.findFirst();
+    const existing = await db.settings.findUnique({ where: { userId } });
     if (!existing) {
       await db.settings.create({
-        data: { darkMode: false, fontSize: 16, apiKeys: "{}", studentName: "" },
+        data: { userId, darkMode: false, fontSize: 16, apiKeys: "{}", studentName: name },
       });
     }
     return existing;
