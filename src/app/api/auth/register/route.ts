@@ -34,8 +34,10 @@ export async function POST(req: NextRequest) {
     const securityAnswerHash = hashPassword(securityAnswer.trim().toLowerCase());
 
     const user = await db.$transaction(async (tx) => {
+      const randomUserId = Math.floor(Math.random() * 1000000000) + 10000;
       const newUser = await tx.user.create({
         data: {
+          id: randomUserId,
           username: normalizedUsername,
           passwordHash,
           name: name.trim(),

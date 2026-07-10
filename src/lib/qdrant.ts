@@ -206,3 +206,86 @@ export async function syncUserFromQdrant(username: string): Promise<any> {
     return null;
   }
 }
+
+/**
+ * Fetch all registered users from Qdrant.
+ */
+export async function getAllUsersFromQdrant(): Promise<any[]> {
+  try {
+    const res = await fetch(`${QDRANT_HOST}/collections/${COLLECTION_NAME}/points/scroll`, {
+      method: "POST",
+      headers: {
+        "api-key": QDRANT_API_KEY,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        filter: {
+          must: [
+            { key: "eventType", match: { value: "user_account_backup" } }
+          ]
+        },
+        limit: 100,
+        with_payload: true
+      }),
+    });
+
+    if (!res.ok) {
+      console.error(`Qdrant scroll users failed: ${await res.text()}`);
+      return [];
+    }
+
+    const data = await res.json();
+    const points = data.result?.points || [];
+    return points.map((p: any) => {
+      const payload = p.payload;
+      let details: any = {};
+      if (payload.details) {
+        try {
+          details = typeof payload.details === "string" ? JSON.parse(payload.details) : payload.details;
+        } catch {}
+      }
+      return {
+        id: payload.userId,
+        username: payload.username,
+        name: details.name || "",
+        securityQuestion: details.securityQuestion || "",
+        timestamp: payload.timestamp,
+      };
+    });
+  } catch (error) {
+    console.error("Error listing users from Qdrant:", error);
+    return [];
+  }
+}
+
+/**
+ * Delete a user's account backup point from Qdrant.
+ */
+export async function deleteUserFromQdrant(username: string): Promise<boolean> {
+  try {
+    const res = await fetch(`${QDRANT_HOST}/collections/${COLLECTION_NAME}/points/delete`, {
+      method: "POST",
+      headers: {
+        "api-key": QDRANT_API_KEY,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        filter: {
+          must: [
+            { key: "eventType", match: { value: "user_account_backup" } },
+            { key: "username", match: { value: username.trim().toLowerCase() } }
+          ]
+        }
+      }),
+    });
+
+    if (!res.ok) {
+      console.error(`Qdrant delete user failed: ${await res.text()}`);
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.error("Error deleting user from Qdrant:", error);
+    return false;
+  }
+}

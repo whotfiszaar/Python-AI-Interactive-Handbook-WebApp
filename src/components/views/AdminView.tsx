@@ -29,11 +29,12 @@ import {
   LogOut,
   Save,
   Loader2,
+  Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
-type AdminTab = "days" | "videos" | "references" | "progress";
+type AdminTab = "days" | "videos" | "references" | "progress" | "users";
 
 export function AdminView() {
   const isAdmin = useAppStore((s) => s.isAdmin);
@@ -118,11 +119,12 @@ export function AdminView() {
     );
   }
 
-  const tabs: { id: AdminTab; label: string; icon: typeof BookOpen }[] = [
+  const tabs: { id: AdminTab; label: string; icon: any }[] = [
     { id: "days", label: "Days", icon: BookOpen },
     { id: "videos", label: "Videos", icon: Youtube },
     { id: "references", label: "References", icon: BookMarked },
     { id: "progress", label: "Progress", icon: BarChart3 },
+    { id: "users", label: "Users", icon: Users },
   ];
 
   return (
@@ -136,7 +138,7 @@ export function AdminView() {
           <div>
             <h1 className="text-2xl font-bold tracking-tight">Admin Panel</h1>
             <p className="text-xs text-muted-foreground">
-              Manage all content. Changes are saved to the database.
+              Manage all content and student accounts. Changes are synced with the database.
             </p>
           </div>
         </div>
@@ -181,6 +183,7 @@ export function AdminView() {
         <ReferencesManager adminPassword={adminPassword} />
       )}
       {activeTab === "progress" && <ProgressViewer />}
+      {activeTab === "users" && <UsersManager adminPassword={adminPassword} />}
     </div>
   );
 }
@@ -959,6 +962,206 @@ function ProgressViewer() {
           </div>
         </Card>
       )}
+    </div>
+  );
+}
+
+// ===========================================================================
+// USERS MANAGER
+// ===========================================================================
+
+interface UserRow {
+  id: number;
+  username: string;
+  name: string;
+  securityQuestion: string;
+  createdAt: string;
+}
+
+function UsersManager({ adminPassword }: { adminPassword: string }) {
+  const [users, setUsers] = useState<UserRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedUser, setSelectedUser] = useState<UserRow | null>(null);
+  const [newPassword, setNewPassword] = useState("");
+  const [updating, setUpdating] = useState(false);
+  const [resetDialogOpen, setResetDialogOpen] = useState(false);
+
+  const loadUsers = useCallback(async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/admin/users", {
+        headers: { "x-admin-password": adminPassword },
+      });
+      if (res.ok) {
+        setUsers(await res.json());
+      } else {
+        toast.error("Failed to load users");
+      }
+    } catch {
+      toast.error("Failed to load users");
+    } finally {
+      setLoading(false);
+    }
+  }, [adminPassword]);
+
+  useEffect(() => {
+    void loadUsers();
+  }, [loadUsers]);
+
+  const handleUpdatePassword = async () => {
+    if (!selectedUser || !newPassword.trim()) return;
+    setUpdating(true);
+    try {
+      const res = await fetch("/api/admin/users", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-admin-password": adminPassword,
+        },
+        body: JSON.stringify({
+          username: selectedUser.username,
+          newPassword: newPassword.trim(),
+        }),
+      });
+      if (res.ok) {
+        toast.success(`Password updated for user @${selectedUser.username}`);
+        setResetDialogOpen(false);
+        setNewPassword("");
+      } else {
+        const data = await res.json();
+        toast.error(data.error ?? "Failed to update password");
+      }
+    } catch {
+      toast.error("Failed to update password");
+    } finally {
+      setUpdating(false);
+    }
+  };
+
+  const handleDeleteUser = async (username: string) => {
+    if (!confirm(`Are you sure you want to permanently delete the account @${username}? This will also delete all their progress, notes, notebooks, and assessment scores.`)) {
+      return;
+    }
+    try {
+      const res = await fetch(`/api/admin/users?username=${encodeURIComponent(username)}`, {
+        method: "DELETE",
+        headers: {
+          "x-admin-password": adminPassword,
+        },
+      });
+      if (res.ok) {
+        toast.success(`Account @${username} deleted successfully`);
+        setUsers((prev) => prev.filter((u) => u.username !== username));
+      } else {
+        const data = await res.json();
+        toast.error(data.error ?? "Failed to delete account");
+      }
+    } catch {
+      toast.error("Failed to delete account");
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center py-8">
+        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      <Card className="p-6">
+        <div className="flex justify-between items-center mb-4">
+          <div>
+            <h2 className="text-lg font-semibold">User Manager</h2>
+            <p className="text-sm text-muted-foreground">
+              Monitor active users, update passwords, or delete student accounts. All changes are synced with the servers.
+            </p>
+          </div>
+          <Badge variant="secondary" className="font-mono">
+            {users.length} Registered
+          </Badge>
+        </div>
+
+        {users.length === 0 ? (
+          <p className="text-sm text-muted-foreground text-center py-6">No users registered yet.</p>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm text-left border-collapse">
+              <thead>
+                <tr className="border-b border-border text-muted-foreground text-xs uppercase">
+                  <th className="py-3 px-4 font-medium">Username</th>
+                  <th className="py-3 px-4 font-medium">Full Name</th>
+                  <th className="py-3 px-4 font-medium">Security Challenge</th>
+                  <th className="py-3 px-4 font-medium">Joined Date</th>
+                  <th className="py-3 px-4 font-medium text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((user) => (
+                  <tr key={user.id} className="border-b border-border hover:bg-accent/20 transition-colors">
+                    <td className="py-3 px-4 font-mono font-medium text-foreground">@{user.username}</td>
+                    <td className="py-3 px-4">{user.name}</td>
+                    <td className="py-3 px-4 text-xs text-muted-foreground">
+                      <span className="font-medium text-foreground">Q:</span> {user.securityQuestion}
+                    </td>
+                    <td className="py-3 px-4 text-xs text-muted-foreground">
+                      {new Date(user.createdAt).toLocaleDateString()}
+                    </td>
+                    <td className="py-3 px-4 text-right space-x-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => {
+                          setSelectedUser(user);
+                          setResetDialogOpen(true);
+                        }}
+                      >
+                        Reset Password
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
+                        onClick={() => handleDeleteUser(user.username)}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </Card>
+
+      <Dialog open={resetDialogOpen} onOpenChange={setResetDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Reset Password for @{selectedUser?.username}</DialogTitle>
+          </DialogHeader>
+          <div className="py-4 space-y-3">
+            <Label htmlFor="admin-new-pw">New Password</Label>
+            <Input
+              id="admin-new-pw"
+              type="password"
+              placeholder="Enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setResetDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handleUpdatePassword} disabled={updating || !newPassword.trim()}>
+              {updating ? "Saving..." : "Update Password"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
