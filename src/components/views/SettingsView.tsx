@@ -488,23 +488,6 @@ print(response.choices[0].message.content)`,
         </div>
       </Card>
 
-      {/* Admin access */}
-      <Card className="p-5">
-        <h2 className="font-semibold mb-1">Admin</h2>
-        <p className="text-xs text-muted-foreground mb-3">
-          Access the admin panel to manage content, videos, references, and view
-          progress reports.
-        </p>
-        <Button
-          onClick={() => navigate("admin")}
-          size="sm"
-          className="gap-1.5"
-        >
-          <Shield className="h-4 w-4" />
-          Open Admin Panel
-        </Button>
-      </Card>
-
       {/* Data management */}
       <Card className="p-5">
         <h2 className="font-semibold mb-4">Data</h2>

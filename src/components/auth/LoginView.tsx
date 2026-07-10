@@ -89,15 +89,21 @@ export function LoginView() {
         toast.error(data.error ?? "Login failed");
         return;
       }
-      toast.success(`Welcome back, ${data.user.name}!`);
       
-      // Auto cache the name instantly locally
-      try {
-        localStorage.setItem("__studentName", data.user.name);
-      } catch {}
-
-      loginUser(data.user);
-      await fetchUserData();
+      if (data.user.isAdmin) {
+        toast.success("Logged in as Administrator");
+        useAppStore.getState().setAdminAuth(password);
+        loginUser(data.user);
+        navigate("admin");
+      } else {
+        toast.success(`Welcome back, ${data.user.name}!`);
+        // Auto cache the name instantly locally
+        try {
+          localStorage.setItem("__studentName", data.user.name);
+        } catch {}
+        loginUser(data.user);
+        await fetchUserData();
+      }
     } catch {
       toast.error("An error occurred. Please try again.");
     } finally {

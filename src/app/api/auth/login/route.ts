@@ -14,6 +14,34 @@ export async function POST(req: NextRequest) {
 
     const normalizedUsername = username.trim().toLowerCase();
 
+    // Standalone Admin Login Check
+    if (normalizedUsername === "admin") {
+      const settings = await db.settings.findFirst();
+      const adminPassword = settings?.adminPassword ?? "admin123";
+
+      if (password !== adminPassword) {
+        return NextResponse.json({ error: "Invalid username or password" }, { status: 401 });
+      }
+
+      const response = NextResponse.json({
+        success: true,
+        user: {
+          id: 99999,
+          username: "admin",
+          name: "Admin User",
+          isAdmin: true,
+        },
+      });
+
+      setSessionCookie(response, {
+        userId: 99999,
+        username: "admin",
+        name: "Admin User",
+      });
+
+      return response;
+    }
+
     // Query user
     let user = await db.user.findUnique({
       where: { username: normalizedUsername },

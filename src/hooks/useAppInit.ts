@@ -51,6 +51,9 @@ export function useAppInit() {
 
         // Set logged-in state
         if (active) {
+          if (sessionData.user.username === "admin") {
+            useAppStore.getState().setAdminAuth("session");
+          }
           loginUser(sessionData.user);
         }
 

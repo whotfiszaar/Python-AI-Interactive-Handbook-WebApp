@@ -146,10 +146,15 @@ export function AdminView() {
           variant="outline"
           size="sm"
           className="gap-1.5"
-          onClick={() => {
+          onClick={async () => {
+            try {
+              await fetch("/api/auth/logout", { method: "POST" });
+            } catch {}
             setAdminLogout();
+            useAppStore.getState().logoutUser();
+            localStorage.removeItem("__studentName");
             navigate("home");
-            toast.info("Logged out of admin");
+            toast.info("Logged out of admin session");
           }}
         >
           <LogOut className="h-4 w-4" />

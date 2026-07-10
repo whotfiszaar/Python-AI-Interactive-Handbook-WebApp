@@ -9,7 +9,23 @@ export async function isAdminAuthorized(
   req: Request,
 ): Promise<boolean> {
   try {
-    // Check Authorization header: Bearer <password>
+    // 1. Check session cookie first (for logged-in admin sessions)
+    const cookieHeader = req.headers.get("cookie") || "";
+    const sessionCookie = cookieHeader
+      .split("; ")
+      .find((row) => row.startsWith("session="))
+      ?.split("=")[1];
+    
+    if (sessionCookie) {
+      const { verifyToken } = await import("@/lib/auth");
+      const decoded = decodeURIComponent(sessionCookie);
+      const sessionUser = verifyToken(decoded);
+      if (sessionUser?.username === "admin") {
+        return true;
+      }
+    }
+
+    // 2. Check Authorization header: Bearer <password>
     const authHeader = req.headers.get("authorization");
     if (authHeader?.startsWith("Bearer ")) {
       const token = authHeader.slice(7);
