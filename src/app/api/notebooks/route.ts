@@ -11,6 +11,9 @@ export async function GET(req: NextRequest) {
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    if (user.username === "admin") {
+      return NextResponse.json({ error: "Student account required" }, { status: 403 });
+    }
 
     const records = await db.notebook.findMany({
       where: { userId: user.userId },
@@ -32,6 +35,9 @@ export async function POST(req: NextRequest) {
     const user = await getSessionUserAndSync(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    if (user.username === "admin") {
+      return NextResponse.json({ error: "Student account required" }, { status: 403 });
     }
 
     const body = (await req.json()) as NotebookPayload;
@@ -55,7 +61,7 @@ export async function POST(req: NextRequest) {
       {
         notebookId: record.id,
         name: body.name,
-        cellsCount: body.cells?.length ?? 0,
+        cellsCount: Array.isArray(body.cells) ? body.cells.length : 0,
       }
     );
 

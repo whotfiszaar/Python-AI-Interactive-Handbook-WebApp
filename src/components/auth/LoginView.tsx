@@ -22,6 +22,7 @@ export function LoginView() {
   const setSettings = useAppStore((s) => s.setSettings);
   const setProgress = useAppStore((s) => s.setProgress);
   const setScores = useAppStore((s) => s.setScores);
+  const navigate = useAppStore((s) => s.navigate);
 
   const [isSignUp, setIsSignUp] = useState(false);
   const [isForgot, setIsForgot] = useState(false);
@@ -99,7 +100,7 @@ export function LoginView() {
         toast.success(`Welcome back, ${data.user.name}!`);
         // Auto cache the name instantly locally
         try {
-          localStorage.setItem("__studentName", data.user.name);
+          localStorage.setItem(`__studentName:${data.user.username}`, data.user.name);
         } catch {}
         loginUser(data.user);
         await fetchUserData();
@@ -143,7 +144,7 @@ export function LoginView() {
 
       // Auto cache the name instantly locally
       try {
-        localStorage.setItem("__studentName", data.user.name);
+        localStorage.setItem(`__studentName:${data.user.username}`, data.user.name);
       } catch {}
 
       loginUser(data.user);

@@ -87,23 +87,41 @@ export function getSessionUser(req: NextRequest): { userId: number; username: st
  * If the user is missing from the local SQLite database, it syncs them from Qdrant backup.
  */
 export async function getSessionUserAndSync(req: NextRequest): Promise<{ userId: number; username: string; name: string } | null> {
-  const user = getSessionUser(req);
-  if (!user) return null;
+  const sessionUser = getSessionUser(req);
+  if (!sessionUser) return null;
+
+  if (sessionUser.username === "admin") {
+    return sessionUser;
+  }
 
   try {
     const { db } = await import("./db");
-    const existing = await db.user.findUnique({
-      where: { id: user.userId },
+    let existing = await db.user.findUnique({
+      where: { id: sessionUser.userId },
     });
+
+    if (!existing || existing.username !== sessionUser.username) {
+      existing = await db.user.findUnique({
+        where: { username: sessionUser.username },
+      });
+    }
+
     if (!existing) {
       const { syncUserFromQdrant } = await import("./qdrant");
-      await syncUserFromQdrant(user.username);
+      existing = await syncUserFromQdrant(sessionUser.username);
     }
+
+    if (!existing) return null;
+
+    return {
+      userId: existing.id,
+      username: existing.username,
+      name: existing.name,
+    };
   } catch (e) {
     console.error("Session sync error:", e);
+    return null;
   }
-
-  return user;
 }
 
 /**

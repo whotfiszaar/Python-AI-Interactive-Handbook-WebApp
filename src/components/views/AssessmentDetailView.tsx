@@ -34,7 +34,10 @@ export function AssessmentDetailView() {
           answers,
         }),
       })
-        .then((r) => r.json())
+        .then(async (r) => {
+          if (!r.ok) throw new Error("Failed to save score");
+          return r.json();
+        })
         .then((row) => {
           addScore(row);
           const pct = Math.round((score / total) * 100);

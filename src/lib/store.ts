@@ -9,6 +9,8 @@ import type {
 } from "@/types";
 import { DEFAULT_STUDENT_NAME, logInteraction } from "@/lib/utils";
 
+const studentNameKey = (username: string) => `__studentName:${username}`;
+
 interface AppStore {
   // view routing
   view: ViewName;
@@ -115,26 +117,22 @@ export const useAppStore = create<AppStore>((set) => ({
   addScore: (row) => set((s) => ({ scores: [row, ...s.scores] })),
 
   settings: null,
-  setSettings: (row) => {
-    if (row.studentName) {
-      try {
-        localStorage.setItem("__studentName", row.studentName);
-      } catch {}
-    }
-    set({
+  setSettings: (row) =>
+    set((s) => {
+      if (row.studentName && s.user?.username) {
+        try {
+          localStorage.setItem(studentNameKey(s.user.username), row.studentName);
+        } catch {}
+      }
+      return {
       settings: row,
       studentName: row.studentName ?? "",
       displayName: row.studentName?.trim() || "",
-    });
-  },
+      };
+    }),
   studentName: "",
   displayName: "",
   setStudentName: (name) => {
-    if (name) {
-      try {
-        localStorage.setItem("__studentName", name);
-      } catch {}
-    }
     set((s) => ({
       studentName: name,
       displayName: name.trim() || "",
@@ -171,6 +169,26 @@ export const useAppStore = create<AppStore>((set) => ({
 
   user: null,
   isLoggedIn: false,
-  loginUser: (user) => set({ user, isLoggedIn: true }),
-  logoutUser: () => set({ user: null, isLoggedIn: false, settings: null, progress: {}, scores: [], studentName: "", displayName: "" }),
+  loginUser: (user) =>
+    set({
+      user,
+      isLoggedIn: true,
+      settings: null,
+      progress: {},
+      scores: [],
+      studentName: user.name ?? "",
+      displayName: user.name?.trim() || "",
+    }),
+  logoutUser: () =>
+    set({
+      user: null,
+      isLoggedIn: false,
+      isAdmin: false,
+      adminPassword: "",
+      settings: null,
+      progress: {},
+      scores: [],
+      studentName: "",
+      displayName: "",
+    }),
 }));

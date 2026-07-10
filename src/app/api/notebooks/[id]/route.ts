@@ -14,6 +14,9 @@ export async function GET(
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    if (user.username === "admin") {
+      return NextResponse.json({ error: "Student account required" }, { status: 403 });
+    }
 
     const { id } = await params;
     const record = await db.notebook.findUnique({ where: { id: Number(id) } });
@@ -42,6 +45,9 @@ export async function PUT(
     const user = await getSessionUserAndSync(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    if (user.username === "admin") {
+      return NextResponse.json({ error: "Student account required" }, { status: 403 });
     }
 
     const { id } = await params;
@@ -74,7 +80,7 @@ export async function PUT(
       {
         notebookId: record.id,
         name: record.name,
-        cellsCount: body.cells?.length ?? 0,
+        cellsCount: Array.isArray(body.cells) ? body.cells.length : 0,
       }
     );
 
@@ -97,6 +103,9 @@ export async function DELETE(
     const user = await getSessionUserAndSync(req);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    if (user.username === "admin") {
+      return NextResponse.json({ error: "Student account required" }, { status: 403 });
     }
 
     const { id } = await params;

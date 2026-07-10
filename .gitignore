@@ -50,6 +50,7 @@ test
 prompt
 
 server.log
+runtime-custom.db
 # Skills directory
 /skills/
 .vercel

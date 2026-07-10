@@ -11,22 +11,9 @@ export function useAppInit() {
   const setStudentName = useAppStore((s) => s.setStudentName);
   const loginUser = useAppStore((s) => s.loginUser);
   const logoutUser = useAppStore((s) => s.logoutUser);
-  const isLoggedIn = useAppStore((s) => s.isLoggedIn);
 
   useEffect(() => {
     let active = true;
-
-    // INSTANT HYDRATION: Read the student name from localStorage so the UI
-    // shows the correct name immediately (no "Aarav" flash) before the API
-    // round-trip completes.
-    try {
-      const cachedName = localStorage.getItem("__studentName");
-      if (cachedName) {
-        setStudentName(cachedName);
-      }
-    } catch {
-      /* ignore */
-    }
 
     (async () => {
       try {
@@ -53,8 +40,20 @@ export function useAppInit() {
         if (active) {
           if (sessionData.user.username === "admin") {
             useAppStore.getState().setAdminAuth("session");
+            useAppStore.getState().navigate("admin");
+            loginUser(sessionData.user);
+            setHydrated(true);
+            return;
           }
           loginUser(sessionData.user);
+          try {
+            const cachedName = localStorage.getItem(`__studentName:${sessionData.user.username}`);
+            if (cachedName) {
+              setStudentName(cachedName);
+            }
+          } catch {
+            /* ignore */
+          }
         }
 
         // Step 2: Fetch user-specific progress, scores, and settings
@@ -79,7 +78,7 @@ export function useAppInit() {
             // Cache the name in localStorage for instant access on next load.
             if (data.studentName) {
               try {
-                localStorage.setItem("__studentName", data.studentName);
+                localStorage.setItem(`__studentName:${sessionData.user.username}`, data.studentName);
               } catch {
                 /* ignore */
               }
