@@ -77,9 +77,9 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=[
-        {"role": "user", "content": "Hello! My name is Aarav. I am 13 years old and I am learning Python. Can you say hi back in one sentence?"}
+        {"role": "user", "content": "Hello! My name is Aarav. I am 10 years old and I am learning Python. Can you say hi back in one sentence?"}
     ]
 )
 
@@ -128,7 +128,7 @@ print(response.choices[0].message.content)`,
     setupInstructions:
       "Run in Python + AI mode in the playground. Add your OpenRouter API key in Settings first. The playground intercepts the string 'YOUR_OPENROUTER_API_KEY' and replaces it with your real key on the server, so never put your real key in the code box.",
     expectedOutput:
-      "A friendly one-sentence reply from the LLM, for example: 'Hi Aarav! It is awesome that you are learning Python at 13. Ready to build something cool?'",
+      "A friendly one-sentence reply from the LLM, for example: 'Hi Aarav! It is awesome that you are learning Python at 10. Ready to build something cool?'",
     debugging: [
       "If you get a 401 error, your API key is wrong or missing. Go to Settings and paste it again carefully.",
       "If you get a 404 error, the model name is wrong. Check the exact model string on openrouter.ai/models.",
@@ -151,7 +151,7 @@ print(response.choices[0].message.content)`,
       {
         id: 3,
         difficulty: "medium",
-        description: "Make the LLM greet Aarav by name AND recommend one Python project for a 13-year-old.",
+        description: "Make the LLM greet Aarav by name AND recommend one Python project for a 10-year-old.",
         hint: "Be specific in your prompt. Tell the model Aarav is 13 and likes games.",
       },
       {
@@ -197,7 +197,7 @@ print(response.choices[0].message.content)`,
         type: "code-output",
         question: "What gets printed by this code if the model replies 'Hi there!'?",
         code: `response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=[{"role": "user", "content": "say hi"}]
 )
 print(response.choices[0].message.content)`,
@@ -286,7 +286,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=[
         {"role": "user", "content": "Name one Minecraft mob."}
     ]
@@ -317,7 +317,7 @@ messages = [
 ]
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=messages
 )
 
@@ -350,7 +350,7 @@ client = OpenAI(
 )
 
 messages = [
-    {"role": "system", "content": "You are a friendly tutor for a 13-year-old named Aarav. Keep answers short, two sentences max."}
+    {"role": "system", "content": "You are a friendly tutor for a 10-year-old named Aarav. Keep answers short, two sentences max."}
 ]
 
 print("Chatbot ready. Type 'bye' to quit.")
@@ -366,7 +366,7 @@ while True:
     messages.append({"role": "user", "content": user_input})
 
     response = client.chat.completions.create(
-        model="tencent/hy3:free",
+        model="YOUR_OPENROUTER_MODEL",
         messages=messages
     )
 
@@ -537,7 +537,7 @@ print(len(messages))`,
         type: "table",
         headers: ["Weak system prompt", "Strong system prompt", "Result difference"],
         rows: [
-          ["You are helpful", "You are a friendly cricket coach for a 13-year-old named Aarav. Answer in 2 short sentences. Use cricket terms.", "Specific, on-topic, sized right"],
+          ["You are helpful", "You are a friendly cricket coach for a 10-year-old named Aarav. Answer in 2 short sentences. Use cricket terms.", "Specific, on-topic, sized right"],
           ["Be funny", "You are a stand-up comedian who tells clean robot jokes. Each joke is under 30 words. No sarcasm.", "Clean, short, on theme"],
           ["Answer questions", "You are a Minecraft guide. Only answer about Minecraft. If asked about other games, say you only know Minecraft.", "Stays in scope"],
         ],
@@ -560,7 +560,7 @@ client = OpenAI(
 
 SYSTEM_PROMPT = (
     "You are an excited cricket commentator like Harsha Bhogle. "
-    "You are describing the batting of a 13-year-old named Aarav Singh. "
+    "You are describing the batting of a 10-year-old named Aarav Singh. "
     "Use cricket terms like 'cover drive', 'square cut', and 'yorker'. "
     "Always sound thrilled. Keep each answer to 3 sentences max."
 )
@@ -573,7 +573,7 @@ messages = [
 ]
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=messages
 )
 
@@ -615,7 +615,7 @@ messages = [
 ]
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=messages
 )
 
@@ -650,7 +650,7 @@ client = OpenAI(
 def ask_character(character_name, user_question):
     system_prompt = (
         "You are " + character_name + ". "
-        "Stay fully in character. Talk to a 13-year-old named Aarav. "
+        "Stay fully in character. Talk to a 10-year-old named Aarav. "
         "Keep answers under 3 sentences."
     )
     messages = [
@@ -658,7 +658,7 @@ def ask_character(character_name, user_question):
         {"role": "user", "content": user_question}
     ]
     response = client.chat.completions.create(
-        model="tencent/hy3:free",
+        model="YOUR_OPENROUTER_MODEL",
         messages=messages
     )
     return response.choices[0].message.content
@@ -830,7 +830,7 @@ client = OpenAI(
 )
 
 SYSTEM_PROMPT = (
-    "You are Bolt, a friendly AI buddy for a 13-year-old student named Aarav Singh. "
+    "You are Bolt, a friendly AI buddy for a 10-year-old student named Aarav Singh. "
     "Aarav likes cricket, Minecraft, Spider-Man, iPhones, and pizza. "
     "Rules: "
     "1. Always be kind and encouraging. "
@@ -878,7 +878,7 @@ while True:
 
     try:
         response = client.chat.completions.create(
-            model="tencent/hy3:free",
+            model="YOUR_OPENROUTER_MODEL",
             messages=messages
         )
         reply = response.choices[0].message.content
@@ -1067,7 +1067,7 @@ if user_input.strip().lower() in ("quit", "exit", "bye"):
       { type: "heading", level: 2, text: "What is JSON?" },
       {
         type: "paragraph",
-        text: "JSON (JavaScript Object Notation) is a way to write data as text so that any programming language can read it. A JSON list looks like [\"larva\", \"creeper\", \"enderman\"]. A JSON object looks like {\"name\": \"Aarav\", \"age\": 13}. Python has a built-in module called json that turns JSON text into Python dicts and lists.",
+        text: "JSON (JavaScript Object Notation) is a way to write data as text so that any programming language can read it. A JSON list looks like [\"larva\", \"creeper\", \"enderman\"]. A JSON object looks like {\"name\": \"Aarav\", \"age\": 10}. Python has a built-in module called json that turns JSON text into Python dicts and lists.",
       },
       {
         type: "code",
@@ -1111,7 +1111,7 @@ messages = [
 ]
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=messages
 )
 
@@ -1174,7 +1174,7 @@ messages = [
 ]
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=messages
 )
 
@@ -1435,13 +1435,13 @@ pip install langchain-community`,
 from langchain_core.prompts import ChatPromptTemplate
 
 llm = ChatOpenAI(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1"
 )
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a friendly AI buddy for a 13-year-old named Aarav."),
+    ("system", "You are a friendly AI buddy for a 10-year-old named Aarav."),
     ("user", "{question}")
 ])
 
@@ -1478,9 +1478,9 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=[
-        {"role": "system", "content": "You are a friendly AI buddy for a 13-year-old named Aarav."},
+        {"role": "system", "content": "You are a friendly AI buddy for a 10-year-old named Aarav."},
         {"role": "user", "content": "Name one cool fact about Spider-Man in one sentence."}
     ]
 )
@@ -1639,7 +1639,7 @@ print(response.______)`,
         code: `from langchain_core.prompts import ChatPromptTemplate
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a creative storyteller for a 13-year-old named Aarav."),
+    ("system", "You are a creative storyteller for a 10-year-old named Aarav."),
     ("user", "Write a 2-sentence story where {hero} eats {food} and then {problem}.")
 ])
 
@@ -1676,13 +1676,13 @@ for msg in filled:
 from langchain_core.prompts import ChatPromptTemplate
 
 llm = ChatOpenAI(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1"
 )
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a creative storyteller for a 13-year-old named Aarav. Keep stories short, 3 to 4 sentences. Use vivid action verbs."),
+    ("system", "You are a creative storyteller for a 10-year-old named Aarav. Keep stories short, 3 to 4 sentences. Use vivid action verbs."),
     ("user", "Write a short story where {hero} saves {city} from {villain}. Include one surprising twist.")
 ])
 
@@ -1759,11 +1759,11 @@ client = OpenAI(
 )
 
 def make_story(hero, city, villain):
-    system_msg = "You are a creative storyteller for a 13-year-old named Aarav. Keep stories short, 3 to 4 sentences. Use vivid action verbs."
+    system_msg = "You are a creative storyteller for a 10-year-old named Aarav. Keep stories short, 3 to 4 sentences. Use vivid action verbs."
     user_msg = f"Write a short story where {hero} saves {city} from {villain}. Include one surprising twist."
 
     response = client.chat.completions.create(
-        model="tencent/hy3:free",
+        model="YOUR_OPENROUTER_MODEL",
         messages=[
             {"role": "system", "content": system_msg},
             {"role": "user", "content": user_msg}
@@ -1947,13 +1947,13 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import LLMChain
 
 llm = ChatOpenAI(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1"
 )
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are Bolt, a friendly AI buddy for a 13-year-old named Aarav. Aarav likes cricket, Minecraft, and Spider-Man. Keep answers short."),
+    ("system", "You are Bolt, a friendly AI buddy for a 10-year-old named Aarav. Aarav likes cricket, Minecraft, and Spider-Man. Keep answers short."),
     MessagesPlaceholder(variable_name="history"),
     ("user", "{input}")
 ])
@@ -2049,13 +2049,13 @@ client = OpenAI(
 )
 
 messages = [
-    {"role": "system", "content": "You are Bolt, a friendly AI buddy for a 13-year-old named Aarav. Aarav likes cricket, Minecraft, and Spider-Man. Keep answers short."}
+    {"role": "system", "content": "You are Bolt, a friendly AI buddy for a 10-year-old named Aarav. Aarav likes cricket, Minecraft, and Spider-Man. Keep answers short."}
 ]
 
 def chat(user_input):
     messages.append({"role": "user", "content": user_input})
     response = client.chat.completions.create(
-        model="tencent/hy3:free",
+        model="YOUR_OPENROUTER_MODEL",
         messages=messages
     )
     reply = response.choices[0].message.content
@@ -2279,7 +2279,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1"
 )
@@ -2292,7 +2292,7 @@ color_schema = ResponseSchema(name="color", description="A famous color for this
 parser = StructuredOutputParser.from_response_schemas([name_schema, top_speed_schema, price_schema, color_schema])
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a car expert for a 13-year-old named Aarav. Always return JSON matching the format instructions exactly."),
+    ("system", "You are a car expert for a 10-year-old named Aarav. Always return JSON matching the format instructions exactly."),
     ("user", "Tell me about a famous sports car.\\n\\n{format_instructions}")
 ])
 
@@ -2373,7 +2373,7 @@ messages = [
 ]
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     messages=messages
 )
 
@@ -2556,14 +2556,14 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import LLMChain
 
 llm = ChatOpenAI(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1"
 )
 
 prompt = ChatPromptTemplate.from_messages([
     ("system",
-     "You are a creative story writer for a 13-year-old named Aarav. "
+     "You are a creative story writer for a 10-year-old named Aarav. "
      "Genre: {genre}. Main character: {character}. Setting: {setting}. "
      "Each chapter is 4 to 6 sentences long and ends on a small cliffhanger. "
      "Keep the story consistent with what has happened in previous chapters."),
@@ -2628,14 +2628,14 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import LLMChain
 
 llm = ChatOpenAI(
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1"
 )
 
 prompt = ChatPromptTemplate.from_messages([
     ("system",
-     "You are a creative story writer for a 13-year-old named Aarav. "
+     "You are a creative story writer for a 10-year-old named Aarav. "
      "Genre: {genre}. Main character: {character}. Setting: {setting}. "
      "Each chapter is 4 to 6 sentences and ends on a small cliffhanger."),
     MessagesPlaceholder(variable_name="history"),
@@ -2729,7 +2729,7 @@ character = "Aarav"
 setting = "an abandoned Minecraft stronghold"
 
 system_msg = (
-    f"You are a creative story writer for a 13-year-old named Aarav. "
+    f"You are a creative story writer for a 10-year-old named Aarav. "
     f"Genre: {genre}. Main character: {character}. Setting: {setting}. "
     f"Each chapter is 4 to 6 sentences and ends on a small cliffhanger. "
     f"Keep the story consistent with previous chapters."
@@ -2740,7 +2740,7 @@ messages = [{"role": "system", "content": system_msg}]
 def generate_chapter(instruction):
     messages.append({"role": "user", "content": instruction})
     response = client.chat.completions.create(
-        model="tencent/hy3:free",
+        model="YOUR_OPENROUTER_MODEL",
         messages=messages
     )
     reply = response.choices[0].message.content

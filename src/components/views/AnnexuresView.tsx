@@ -43,7 +43,7 @@ export function AnnexuresView() {
           <HelpCircle className="h-5 w-5 text-primary" />
           Annexure A Quiz
         </h2>
-        <QuizBlock questions={systemDesignQuiz} />
+        <QuizBlock dayNumber={0} questions={systemDesignQuiz} />
       </div>
 
       {/* Annexure B: Software Concepts */}
@@ -61,7 +61,7 @@ export function AnnexuresView() {
           <HelpCircle className="h-5 w-5 text-primary" />
           Annexure B Quiz
         </h2>
-        <QuizBlock questions={softwareConceptsQuiz} />
+        <QuizBlock dayNumber={0} questions={softwareConceptsQuiz} />
       </div>
     </div>
   );

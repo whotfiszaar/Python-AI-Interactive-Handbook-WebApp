@@ -25,6 +25,7 @@ import { PWARegister } from "@/components/PWARegister";
 import { PyodidePreloader } from "@/components/PyodidePreloader";
 import { APIKeyDialog } from "@/components/APIKeyDialog";
 import { LoginView } from "@/components/auth/LoginView";
+import { CodingChallengesView } from "@/components/views/CodingChallengesView";
 import { Loader2 } from "lucide-react";
 
 function CurrentView() {
@@ -46,18 +47,19 @@ function CurrentView() {
       return <ProgressView />;
     case "references":
       return <ReferencesView />;
-    case "ai-news":
-      return <AINewsView />;
     case "settings":
       return <SettingsView />;
     case "admin":
       return <AdminView />;
     case "annexures":
       return <AnnexuresView />;
+    case "coding-challenges":
+      return <CodingChallengesView />;
     default:
       return <HomeView />;
   }
 }
+
 
 export default function Home() {
   useAppInit();
@@ -65,12 +67,14 @@ export default function Home() {
   const navigate = useAppStore((s) => s.navigate);
   const hydrated = useAppStore((s) => s.hydrated);
   const isLoggedIn = useAppStore((s) => s.isLoggedIn);
-  const isPlayground = view === "playground";
+  const isFullWidth = view === "playground" || view === "coding-challenges";
 
   // Deep-link support: read the initial view from ?view= on first load
   // (used by PWA manifest shortcuts) and keep the URL in sync on navigation.
+  // Also restores the last view from sessionStorage on page refresh.
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (!isLoggedIn) return; // only restore after login
     const params = new URLSearchParams(window.location.search);
     const v = params.get("view") as import("@/types").ViewName | null;
     if (v) {
@@ -80,8 +84,28 @@ export default function Home() {
       });
       // Clean the URL so refreshes don't re-trigger navigation.
       window.history.replaceState({}, "", "/");
+    } else {
+      // Restore last view from sessionStorage (survives refresh, not tab close)
+      try {
+        const saved = sessionStorage.getItem("__lastView");
+        if (saved) {
+          const parsed = JSON.parse(saved) as {
+            view: import("@/types").ViewName;
+            dayNumber: number | null;
+            assessmentId: string | null;
+          };
+          // Don't restore admin or login views
+          if (parsed.view && parsed.view !== "admin") {
+            navigate(parsed.view, {
+              dayNumber: parsed.dayNumber ?? undefined,
+              assessmentId: parsed.assessmentId ?? undefined,
+            });
+          }
+        }
+      } catch { /* ignore */ }
     }
-  }, []);
+  }, [isLoggedIn]);
+
 
   if (!hydrated) {
     return (
@@ -102,7 +126,7 @@ export default function Home() {
         <Sidebar />
         <MobileSidebar />
         <main className="flex-1 min-w-0 flex flex-col">
-          {isPlayground ? (
+          {isFullWidth ? (
             <CurrentView />
           ) : (
             <div className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-24 md:pb-12">

@@ -118,7 +118,7 @@ export const extraQuizzes25to48: Record<number, QuizQuestion[]> = {
       id: 13,
       type: "code-output",
       question: "What does this code print if the LLM replies 'Hello Aarav!'?",
-      code: 'response = client.chat.completions.create(\n    model="tencent/hy3:free",\n    messages=[{"role": "user", "content": "Say hi"}]\n)\nprint(response.choices[0].message.content)',
+      code: 'response = client.chat.completions.create(\n    model="YOUR_OPENROUTER_MODEL",\n    messages=[{"role": "user", "content": "Say hi"}]\n)\nprint(response.choices[0].message.content)',
       answer: "Hello Aarav!",
       explanation:
         "response.choices[0].message.content extracts the text of the LLM reply, which in this case is 'Hello Aarav!'.",

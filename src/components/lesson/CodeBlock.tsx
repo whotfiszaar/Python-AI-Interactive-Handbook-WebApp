@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useLayoutEffect } from "react";
 import {
   Check,
   Copy,
@@ -20,7 +20,6 @@ let highlighterPromise: Promise<unknown> | null = null;
 
 async function getHighlighter() {
   if (highlighterPromise) return highlighterPromise;
-  // @ts-expect-error shiki dynamic import
   const shiki = await import("shiki");
   const hl = await shiki.createHighlighter({
     themes: ["github-dark"],
@@ -82,15 +81,6 @@ export function CodeBlock({
   const navigate = useAppStore((s) => s.navigate);
   const settings = useAppStore((s) => s.settings);
   const setAPIKeyDialogOpen = useAppStore((s) => s.setAPIKeyDialogOpen);
-
-  const apiKeySet = (() => {
-    try {
-      const keys = JSON.parse(settings?.apiKeys ?? "{}");
-      return Boolean(keys.openrouter);
-    } catch {
-      return false;
-    }
-  })();
 
   const isPython = language === "python" || language === "py";
   const canRunInline = showRunInPlayground && isPython;
@@ -182,12 +172,21 @@ export function CodeBlock({
     const startedAt = performance.now();
     try {
       if (isAICode(activeCode)) {
-        // Check if API key is set; if not, trigger the dialog popup.
-        if (!apiKeySet) {
+        // Check if API key is set in latest store settings
+        const currentSettings = useAppStore.getState().settings;
+        let hasKey = false;
+        try {
+          const keys = JSON.parse(currentSettings?.apiKeys ?? "{}");
+          hasKey = Boolean(keys.openrouter && keys.openrouter.trim());
+        } catch {
+          hasKey = false;
+        }
+        if (!hasKey) {
           setAPIKeyDialogOpen(true);
           setOutput("OpenRouter API key required. Click the dialog to add your key, then try again.");
           setError(true);
           setHasRun(true);
+          setRunning(false);
           return;
         }
         const res = await fetch("/api/playground", {
@@ -350,10 +349,21 @@ export function CodeBlock({
         {/* Code area: either highlighted (read-only) or editable textarea */}
         {editing ? (
           <textarea
+            ref={(el) => {
+              if (el) {
+                el.style.height = "auto";
+                el.style.height = `${el.scrollHeight}px`;
+              }
+            }}
             value={editedCode}
-            onChange={(e) => setEditedCode(e.target.value)}
+            onChange={(e) => {
+              setEditedCode(e.target.value);
+              // auto-grow
+              e.target.style.height = "auto";
+              e.target.style.height = `${e.target.scrollHeight}px`;
+            }}
             spellCheck={false}
-            className="w-full p-4 bg-[#0d1117] text-slate-100 text-sm font-mono leading-relaxed border-0 outline-none resize-y min-h-[120px] focus:ring-1 focus:ring-primary/30"
+            className="w-full p-4 bg-[#0d1117] text-slate-100 text-sm font-mono leading-relaxed border-0 outline-none resize-none min-h-[80px] focus:ring-1 focus:ring-primary/30"
             style={{ tabSize: 4 }}
             onKeyDown={(e) => {
               if (e.key === "Tab") {
@@ -366,6 +376,8 @@ export function CodeBlock({
                 setEditedCode(newVal);
                 requestAnimationFrame(() => {
                   target.selectionStart = target.selectionEnd = start + 4;
+                  target.style.height = "auto";
+                  target.style.height = `${target.scrollHeight}px`;
                 });
               }
             }}
@@ -450,7 +462,7 @@ export function CodeBlock({
             </div>
             <pre
               className={cn(
-                "p-3 text-xs font-mono whitespace-pre text-slate-100 max-h-64 overflow-auto",
+                "p-3 text-xs font-mono whitespace-pre-wrap break-words text-slate-100",
                 error ? "text-red-400" : "text-slate-100",
               )}
             >

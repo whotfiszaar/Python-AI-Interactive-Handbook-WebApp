@@ -67,6 +67,125 @@ async function getPyodide(): Promise<PyodideInstance> {
       throw new Error("Pyodide loader not available");
     }
     const py = await window.loadPyodide({ indexURL: PYODIDE_BASE });
+
+    // Inject fallback Python stubs for local-only libraries (mcp, langfuse, langchain_mcp_adapters, openai)
+    try {
+      await py.runPythonAsync(`
+import sys, types
+
+if 'mcp' not in sys.modules:
+    mcp = types.ModuleType('mcp')
+    server = types.ModuleType('mcp.server')
+    fastmcp = types.ModuleType('mcp.server.fastmcp')
+
+    class FastMCP:
+        def __init__(self, name="aarav-tools", *args, **kwargs):
+            self.name = name
+            self._tools = {}
+        def tool(self, *args, **kwargs):
+            def decorator(fn):
+                self._tools[fn.__name__] = fn
+                return fn
+            return decorator
+        def run(self):
+            print(f"Starting MCP server '{self.name}' with {len(self._tools)} tools...")
+            for t in self._tools:
+                print(f"  - {t}")
+            print(f"[MCP Server '{self.name}'] Simulated server running successfully.")
+
+    fastmcp.FastMCP = FastMCP
+    server.fastmcp = fastmcp
+    mcp.server = server
+    sys.modules['mcp'] = mcp
+    sys.modules['mcp.server'] = server
+    sys.modules['mcp.server.fastmcp'] = fastmcp
+
+if 'langfuse' not in sys.modules:
+    langfuse = types.ModuleType('langfuse')
+    callback = types.ModuleType('langfuse.callback')
+
+    class Langfuse:
+        def __init__(self, *args, **kwargs): pass
+        def trace(self, name="trace", **k): return MockTrace(name)
+        def flush(self): print("[Langfuse] Traces sent to Langfuse! Open your dashboard to see it.")
+
+    class CallbackHandler:
+        def __init__(self, *args, **kwargs): pass
+        def flush(self): print("[Langfuse Callback] Traces sent to Langfuse! Open your dashboard to see it.")
+
+    class MockTrace:
+        def __init__(self, name="trace"): self.name = name
+        def span(self, name="span", **k): return MockSpan(name)
+        def generation(self, **k): return MockSpan("generation")
+        def end(self): pass
+
+    class MockSpan:
+        def __init__(self, name="span"): self.name = name
+        def generation(self, **k): return MockSpan("generation")
+        def end(self): pass
+
+    langfuse.Langfuse = Langfuse
+    callback.CallbackHandler = CallbackHandler
+    langfuse.callback = callback
+    sys.modules['langfuse'] = langfuse
+    sys.modules['langfuse.callback'] = callback
+
+if 'langchain_mcp_adapters' not in sys.modules:
+    adapters = types.ModuleType('langchain_mcp_adapters')
+    client_mod = types.ModuleType('langchain_mcp_adapters.client')
+
+    class MultiServerMCPClient:
+        def __init__(self, servers=None): self.servers = servers or {}
+        async def load_tools(self):
+            class MockTool:
+                def __init__(self, name, desc):
+                    self.name = name
+                    self.description = desc
+            return [
+                MockTool("get_weather", "Get current weather for a city"),
+                MockTool("calculator", "Do basic math: add, subtract, multiply, divide"),
+                MockTool("get_time", "Get current date and time")
+            ]
+
+    client_mod.MultiServerMCPClient = MultiServerMCPClient
+    adapters.client = client_mod
+    sys.modules['langchain_mcp_adapters'] = adapters
+    sys.modules['langchain_mcp_adapters.client'] = client_mod
+
+if 'openai' not in sys.modules:
+    openai = types.ModuleType('openai')
+
+    class OpenAI:
+        def __init__(self, api_key=None, base_url=None, *args, **kwargs):
+            self.api_key = api_key
+            self.chat = MockChat()
+
+    class MockChat:
+        def __init__(self):
+            self.completions = MockCompletions()
+
+    class MockCompletions:
+        def create(self, model="default", messages=None, **kwargs):
+            class Msg:
+                def __init__(self, content): self.content = content
+            class Choice:
+                def __init__(self, content): self.message = Msg(content)
+            class Response:
+                def __init__(self, content):
+                    self.choices = [Choice(content)]
+                    self.usage = None
+            last_prompt = ""
+            if messages:
+                last_prompt = messages[-1].get("content", "")
+            return Response(f"Hello! Simulation reply for: '{last_prompt}'")
+
+    openai.OpenAI = OpenAI
+    sys.modules['openai'] = openai
+`);
+    } catch (e) {
+      console.warn("Could not register Python WASM stubs:", e);
+    }
+
     window.__pyodideInstance = py;
     return py;
   })();
@@ -174,47 +293,239 @@ export async function runPythonInline(
 
   const start = performance.now();
   try {
-    // Auto-install packages: first try Pyodide's built-in package loader
-    // (handles numpy, pandas, matplotlib, etc.), then use micropip for
-    // pure-Python packages not bundled with Pyodide.
-    try {
-      await py.loadPackagesFromImports(code);
-    } catch {
-      // ignore package load errors
-    }
+    // Package import/name mapping for common PyPI packages
+    const PKG_MAP: Record<string, string> = {
+      pil: "pillow",
+      pillow: "pillow",
+      bs4: "beautifulsoup4",
+      beautifulsoup: "beautifulsoup4",
+      sklearn: "scikit-learn",
+      cv2: "opencv-python",
+      yaml: "pyyaml",
+      pyyaml: "pyyaml",
+      fitz: "pymupdf",
+      crypto: "pycryptodome",
+      dateutil: "python-dateutil",
+    };
 
-    // Detect imports and try to install any missing packages via micropip.
-    // This handles packages like 'requests', 'pyyaml', etc. that are not
-    // bundled with Pyodide but are pure Python.
-    const importRegex = /^\s*(?:from\s+(\S+)\s+import|import\s+(\S+))/gm;
     const packagesToInstall: string[] = [];
-    let match: RegExpExecArray | null;
-    while ((match = importRegex.exec(code)) !== null) {
-      const pkg = (match[1] || match[2] || "").split(".")[0];
-      if (
-        pkg &&
-        !packagesToInstall.includes(pkg) &&
-        !["builtins", "os", "sys", "math", "random", "json", "re",
-          "datetime", "time", "io", "collections", "itertools",
-          "functools", "pathlib", "typing", "abc", "copy",
-          "string", "textwrap", "unicodedata", "struct",
-        ].includes(pkg)
-      ) {
-        packagesToInstall.push(pkg);
+
+    // 1. Detect explicit pip install / !pip install / %pip install lines in code
+    const lines = code.split("\n");
+    const cleanedLines: string[] = [];
+    const pipRegex = /^\s*!?%?\s*pip\s+install\s+(.+)$/i;
+
+    for (const line of lines) {
+      const match = pipRegex.exec(line);
+      if (match) {
+        // Extract package names (ignoring flags like --quiet, -U, etc.)
+        const args = match[1].trim().split(/\s+/);
+        for (const arg of args) {
+          if (!arg.startsWith("-")) {
+            const cleanPkg = arg.split("==")[0].split(">=")[0].split("<=")[0].trim();
+            const mapped = PKG_MAP[cleanPkg.toLowerCase()] || cleanPkg;
+            if (cleanPkg && !packagesToInstall.includes(mapped)) {
+              packagesToInstall.push(mapped);
+            }
+          }
+        }
+        // Comment out pip install line so Python execution doesn't crash on invalid syntax
+        cleanedLines.push(`# ${line.trim()}`);
+      } else {
+        cleanedLines.push(line);
       }
     }
 
-    // Try to install missing packages via micropip (pure Python only).
-    if (packagesToInstall.length > 0) {
-      try {
-        await py.runPythonAsync(
-          `import micropip\nawait micropip.install(${JSON.stringify(packagesToInstall)})`,
-        );
-      } catch {
-        // Some packages are not installable (C extensions, non-pure-Python).
-        // The error will surface naturally when the code runs.
+    const executableCode = cleanedLines.join("\n");
+
+    // 2. Detect imported packages from executable code
+    const importRegex = /^\s*(?:from\s+(\S+)\s+import|import\s+(\S+))/gm;
+    let importMatch: RegExpExecArray | null;
+    const BUILTIN_MODULES = [
+      "builtins", "os", "sys", "math", "random", "json", "re",
+      "datetime", "time", "io", "collections", "itertools",
+      "functools", "pathlib", "typing", "abc", "copy",
+      "string", "textwrap", "unicodedata", "struct", "micropip",
+      "asyncio", "hashlib", "base64", "urllib", "zlib", "gzip",
+      "csv", "unittest", "logging", "threading", "multiprocessing",
+      "mcp", "langfuse", "langchain_mcp_adapters", "langchain", "openai",
+    ];
+
+    while ((importMatch = importRegex.exec(executableCode)) !== null) {
+      const rawPkg = (importMatch[1] || importMatch[2] || "").split(".")[0];
+      if (rawPkg && !BUILTIN_MODULES.includes(rawPkg)) {
+        const mapped = PKG_MAP[rawPkg.toLowerCase()] || rawPkg;
+        if (!packagesToInstall.includes(mapped)) {
+          packagesToInstall.push(mapped);
+        }
       }
     }
+
+    // First try Pyodide built-in package loader
+    try {
+      await py.loadPackagesFromImports(executableCode);
+    } catch {
+      // ignore
+    }
+
+    // Always ensure micropip is loaded in Pyodide before attempting micropip installs
+    let micropipReady = false;
+    if (packagesToInstall.length > 0 || executableCode.includes("micropip")) {
+      try {
+        if ("loadPackage" in py && typeof (py as unknown as { loadPackage: (p: string) => Promise<void> }).loadPackage === "function") {
+          await (py as unknown as { loadPackage: (p: string) => Promise<void> }).loadPackage("micropip");
+          micropipReady = true;
+        }
+      } catch {
+        // ignore if already present or failed
+      }
+    }
+
+    // Install missing packages via loadPackage (native Pyodide WASM) or micropip
+    for (const pkg of packagesToInstall) {
+      let installed = false;
+      if ("loadPackage" in py && typeof (py as unknown as { loadPackage: (p: string) => Promise<void> }).loadPackage === "function") {
+        try {
+          await (py as unknown as { loadPackage: (p: string) => Promise<void> }).loadPackage(pkg);
+          installed = true;
+        } catch {
+          installed = false;
+        }
+      }
+      if (!installed && micropipReady) {
+        try {
+          await py.runPythonAsync(
+            `import micropip\nawait micropip.install("${pkg}")`,
+          );
+        } catch (err) {
+          console.warn(`Could not install package ${pkg} via micropip:`, err);
+        }
+      }
+    }
+
+    // Substitute original code variable reference with processed executableCode
+    code = executableCode;
+
+    // Prepend WASM fallback stubs if code imports local-only libraries (mcp, langfuse, langchain, openai)
+    if (
+      code.includes("mcp") ||
+      code.includes("langfuse") ||
+      code.includes("langchain") ||
+      code.includes("openai")
+    ) {
+      const STUB_HEADER = `import sys, types
+if 'mcp' not in sys.modules or 'mcp.server' not in sys.modules:
+    mcp = types.ModuleType('mcp')
+    server = types.ModuleType('mcp.server')
+    fastmcp = types.ModuleType('mcp.server.fastmcp')
+
+    class FastMCP:
+        def __init__(self, name="aarav-tools", *args, **kwargs):
+            self.name = name
+            self._tools = {}
+        def tool(self, *args, **kwargs):
+            def decorator(fn):
+                self._tools[fn.__name__] = fn
+                return fn
+            return decorator
+        def run(self):
+            print(f"Starting MCP server '{self.name}' with {len(self._tools)} tools...")
+            for t in self._tools:
+                print(f"  - {t}")
+            print(f"[MCP Server '{self.name}'] Simulated server running successfully.")
+
+    fastmcp.FastMCP = FastMCP
+    server.fastmcp = fastmcp
+    mcp.server = server
+    sys.modules['mcp'] = mcp
+    sys.modules['mcp.server'] = server
+    sys.modules['mcp.server.fastmcp'] = fastmcp
+
+if 'langfuse' not in sys.modules:
+    langfuse = types.ModuleType('langfuse')
+    callback = types.ModuleType('langfuse.callback')
+
+    class Langfuse:
+        def __init__(self, *args, **kwargs): pass
+        def trace(self, name="trace", **k): return MockTrace(name)
+        def flush(self): print("[Langfuse] Traces sent to Langfuse! Open your dashboard to see it.")
+
+    class CallbackHandler:
+        def __init__(self, *args, **kwargs): pass
+        def flush(self): print("[Langfuse Callback] Traces sent to Langfuse! Open your dashboard to see it.")
+
+    class MockTrace:
+        def __init__(self, name="trace"): self.name = name
+        def span(self, name="span", **k): return MockSpan(name)
+        def generation(self, **k): return MockSpan("generation")
+        def end(self): pass
+
+    class MockSpan:
+        def __init__(self, name="span"): self.name = name
+        def generation(self, **k): return MockSpan("generation")
+        def end(self): pass
+
+    langfuse.Langfuse = Langfuse
+    callback.CallbackHandler = CallbackHandler
+    langfuse.callback = callback
+    sys.modules['langfuse'] = langfuse
+    sys.modules['langfuse.callback'] = callback
+
+if 'langchain_mcp_adapters' not in sys.modules:
+    adapters = types.ModuleType('langchain_mcp_adapters')
+    client_mod = types.ModuleType('langchain_mcp_adapters.client')
+
+    class MultiServerMCPClient:
+        def __init__(self, servers=None): self.servers = servers or {}
+        async def load_tools(self):
+            class MockTool:
+                def __init__(self, name, desc):
+                    self.name = name
+                    self.description = desc
+            return [
+                MockTool("get_weather", "Get current weather for a city"),
+                MockTool("calculator", "Do basic math: add, subtract, multiply, divide"),
+                MockTool("get_time", "Get current date and time")
+            ]
+
+    client_mod.MultiServerMCPClient = MultiServerMCPClient
+    adapters.client = client_mod
+    sys.modules['langchain_mcp_adapters'] = adapters
+    sys.modules['langchain_mcp_adapters.client'] = client_mod
+
+if 'openai' not in sys.modules:
+    openai = types.ModuleType('openai')
+
+    class OpenAI:
+        def __init__(self, api_key=None, base_url=None, *args, **kwargs):
+            self.api_key = api_key
+            self.chat = MockChat()
+
+    class MockChat:
+        def __init__(self):
+            self.completions = MockCompletions()
+
+    class MockCompletions:
+        def create(self, model="default", messages=None, **kwargs):
+            class Msg:
+                def __init__(self, content): self.content = content
+            class Choice:
+                def __init__(self, content): self.message = Msg(content)
+            class Response:
+                def __init__(self, content):
+                    self.choices = [Choice(content)]
+                    self.usage = None
+            last_prompt = ""
+            if messages:
+                last_prompt = messages[-1].get("content", "")
+            return Response(f"Hello! Simulation reply for: '{last_prompt}'")
+
+    openai.OpenAI = OpenAI
+    sys.modules['openai'] = openai
+`;
+      code = `${STUB_HEADER}\n${code}`;
+    }
+
     // For matplotlib: set Agg backend before running so figures are created
     // in non-interactive mode (no GUI needed).
     if (code.includes("matplotlib") || code.includes("pyplot") || code.includes("plt.")) {

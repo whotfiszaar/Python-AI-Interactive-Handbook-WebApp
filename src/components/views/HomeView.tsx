@@ -16,7 +16,6 @@ import {
   Bookmark,
   CheckCircle2,
   Circle,
-  Newspaper,
 } from "lucide-react";
 import { cn, computeStreak, daysAgo, percentage } from "@/lib/utils";
 
@@ -171,14 +170,14 @@ export function HomeView() {
         </Card>
         <Card
           className="p-5 cursor-pointer hover:border-primary/40 transition-colors group"
-          onClick={() => navigate("ai-news")}
+          onClick={() => navigate("references")}
         >
           <div className="flex items-center justify-between mb-2">
-            <Newspaper className="h-5 w-5 text-primary" />
+            <Bookmark className="h-5 w-5 text-primary" />
             <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
           </div>
-          <p className="text-xs text-muted-foreground mb-1">Stay updated</p>
-          <p className="font-semibold text-sm">Latest AI News</p>
+          <p className="text-xs text-muted-foreground mb-1">Quick lookups &amp; snippets</p>
+          <p className="font-semibold text-sm">Python &amp; AI References</p>
         </Card>
       </div>
 

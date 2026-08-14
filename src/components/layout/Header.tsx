@@ -17,7 +17,6 @@ import {
   ClipboardCheck,
   BarChart3,
   BookMarked,
-  Newspaper,
   PanelLeftClose,
   PanelLeftOpen,
 } from "lucide-react";
@@ -29,7 +28,6 @@ const navItems = [
   { view: "days" as const, label: "Days", icon: BookOpen },
   { view: "playground" as const, label: "Playground", icon: Code2 },
   { view: "assessments" as const, label: "Tests", icon: ClipboardCheck },
-  { view: "ai-news" as const, label: "AI News", icon: Newspaper },
   { view: "progress" as const, label: "Progress", icon: BarChart3 },
   { view: "references" as const, label: "References", icon: BookMarked },
 ];

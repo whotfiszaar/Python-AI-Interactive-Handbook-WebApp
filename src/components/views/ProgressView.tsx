@@ -46,7 +46,7 @@ export function ProgressView() {
 
   // weeks bar chart (days 1-48 grouped into ~7 day weeks)
   const weekData = useMemo(() => {
-    const weeks = [];
+    const weeks: { name: string; days: string; completed: number }[] = [];
     for (let w = 0; w < 7; w++) {
       const start = w * 7 + 1;
       const end = Math.min(start + 6, 48);

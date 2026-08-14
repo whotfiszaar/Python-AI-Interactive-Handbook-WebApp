@@ -52,7 +52,7 @@ export async function PUT(
     });
 
     // 🔁 Backup updated state to Qdrant
-    void backupNotebookToQdrant(user.userId, user.username, {
+    await backupNotebookToQdrant(user.userId, user.username, {
       localId: record.id,
       name: record.name,
       cells: record.cells,
@@ -86,7 +86,7 @@ export async function DELETE(
     await db.notebook.delete({ where: { id: Number(id) } });
 
     // 🔁 Mark notebook as deleted in Qdrant so it won't be restored
-    void backupNotebookToQdrant(user.userId, user.username, {
+    await backupNotebookToQdrant(user.userId, user.username, {
       localId: existing.id,
       name: existing.name,
       cells: existing.cells,

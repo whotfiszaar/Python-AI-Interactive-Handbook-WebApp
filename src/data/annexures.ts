@@ -66,7 +66,7 @@ export const systemDesignAnnexure: ContentBlock[] = [
       ")",
       "",
       "response = client.chat.completions.create(",
-      '    model="tencent/hy3:free",',
+      '    model="YOUR_OPENROUTER_MODEL",',
       '    messages=[{"role": "user", "content": "Tell me a joke about cricket"}]',
       ")",
       "",
@@ -207,7 +207,7 @@ export const softwareConceptsAnnexure: ContentBlock[] = [
     headers: ["Type", "Python name", "Example", "Analogy"],
     rows: [
       ["Text", "str", "name = 'Aarav'", "A label on a jar"],
-      ["Whole number", "int", "age = 13", "Counting fingers"],
+      ["Whole number", "int", "age = 10", "Counting fingers"],
       ["Decimal", "float", "height = 5.4", "Measuring with a ruler"],
       ["True/False", "bool", "likes_cricket = True", "A light switch"],
       ["List", "list", "cars = ['McLaren']", "A row of boxes"],
@@ -226,7 +226,7 @@ export const softwareConceptsAnnexure: ContentBlock[] = [
     code: [
       "{",
       '  "name": "Aarav",',
-      '  "age": 13,',
+      '  "age": 10,',
       '  "favorite_cars": ["McLaren", "Ferrari", "Bugatti"],',
       '  "likes_cricket": true,',
       '  "height": 5.4',

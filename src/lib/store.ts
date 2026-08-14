@@ -91,6 +91,17 @@ export const useAppStore = create<AppStore>((set) => ({
   navigate: (view, opts) => {
     // Log navigation client-side
     void logInteraction("view_navigate", `Navigated to ${view}`, { opts });
+    // Persist current view to sessionStorage so page refresh restores it
+    try {
+      sessionStorage.setItem(
+        "__lastView",
+        JSON.stringify({
+          view,
+          dayNumber: opts?.dayNumber ?? null,
+          assessmentId: opts?.assessmentId ?? null,
+        }),
+      );
+    } catch { /* ignore */ }
     set((s) => ({
       view,
       dayNumber: opts?.dayNumber ?? null,

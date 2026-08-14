@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Home, BookOpen, Code2, ClipboardCheck, MoreHorizontal, BarChart3, BookMarked, Settings, Newspaper } from "lucide-react";
+import { Home, BookOpen, Code2, ClipboardCheck, MoreHorizontal, BarChart3, BookMarked, Settings } from "lucide-react";
 import { navItems } from "./Header";
 import { cn } from "@/lib/utils";
 
@@ -21,8 +21,8 @@ export function BottomTabBar() {
     { view: "home" as const, label: "Home", icon: Home },
     { view: "days" as const, label: "Days", icon: BookOpen },
     { view: "playground" as const, label: "Code", icon: Code2 },
-    { view: "ai-news" as const, label: "News", icon: Newspaper },
     { view: "assessments" as const, label: "Tests", icon: ClipboardCheck },
+    { view: "references" as const, label: "Library", icon: BookMarked },
   ];
 
   return (

@@ -6,6 +6,7 @@ import { logQdrantInteraction } from "@/lib/qdrant";
 
 interface ApiKeysMap {
   openrouter?: string;
+  openrouterModel?: string;
 }
 
 function extractString(content: unknown): string {
@@ -199,6 +200,10 @@ export async function POST(req: NextRequest) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 30000);
 
+    // Use configured model from settings if set; if parsed model is generic, use selected model
+    const userSelectedModel = apiKeys.openrouterModel && apiKeys.openrouterModel.trim();
+    const effectiveModel = userSelectedModel || (parsed.model && parsed.model !== "YOUR_OPENROUTER_MODEL" ? parsed.model : "meta-llama/llama-3.3-70b-instruct:free");
+
     const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       signal: controller.signal,
@@ -209,7 +214,7 @@ export async function POST(req: NextRequest) {
         "X-Title": "Python AI Handbook",
       },
       body: JSON.stringify({
-        model: parsed.model,
+        model: effectiveModel,
         messages: parsed.messages,
         ...(parsed.temperature !== undefined
           ? { temperature: parsed.temperature }

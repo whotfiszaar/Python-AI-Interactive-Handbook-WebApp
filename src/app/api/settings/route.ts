@@ -83,12 +83,12 @@ export async function PUT(req: NextRequest) {
       const dbUser = await db.user.findUnique({ where: { id: user.userId } });
       if (dbUser) {
         const { backupUserToQdrant } = await import("@/lib/qdrant");
-        void backupUserToQdrant(dbUser);
+        await backupUserToQdrant(dbUser);
       }
     }
 
     // 🔁 Backup settings to Qdrant so they survive container restarts
-    void backupSettingsToQdrant(user.userId, user.username, {
+    await backupSettingsToQdrant(user.userId, user.username, {
       darkMode: updated.darkMode,
       fontSize: updated.fontSize,
       apiKeys: updated.apiKeys,

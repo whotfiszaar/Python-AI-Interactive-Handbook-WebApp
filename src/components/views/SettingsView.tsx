@@ -38,6 +38,13 @@ import {
 
 interface ApiKeys {
   openrouter?: string;
+  openrouterModel?: string;
+}
+
+interface OpenRouterModel {
+  id: string;
+  name: string;
+  context_length: number;
 }
 
 export function SettingsView() {
@@ -50,10 +57,37 @@ export function SettingsView() {
   const [darkMode, setDarkMode] = useState(false);
   const [fontSize, setFontSize] = useState(16);
   const [apiKey, setApiKey] = useState("");
+  const [selectedModel, setSelectedModel] = useState("meta-llama/llama-3.3-70b-instruct:free");
+  const [models, setModels] = useState<OpenRouterModel[]>([]);
+  const [loadingModels, setLoadingModels] = useState(false);
   const [showKey, setShowKey] = useState(false);
   const [testing, setTesting] = useState(false);
   const [testResult, setTestResult] = useState<"ok" | "fail" | null>(null);
   const [name, setName] = useState("");
+
+  // Fetch free OpenRouter models list
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      setLoadingModels(true);
+      try {
+        const res = await fetch("/api/openrouter/models");
+        if (res.ok) {
+          const data = await res.json();
+          if (mounted && Array.isArray(data.models)) {
+            setModels(data.models);
+          }
+        }
+      } catch (e) {
+        console.warn("Could not fetch models list:", e);
+      } finally {
+        if (mounted) setLoadingModels(false);
+      }
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     if (settings) {
@@ -63,6 +97,9 @@ export function SettingsView() {
       try {
         const keys = JSON.parse(settings.apiKeys) as ApiKeys;
         setApiKey(keys.openrouter ?? "");
+        if (keys.openrouterModel) {
+          setSelectedModel(keys.openrouterModel);
+        }
       } catch {
         setApiKey("");
       }
@@ -93,9 +130,12 @@ export function SettingsView() {
   };
 
   const saveApiKey = async () => {
-    const keys: ApiKeys = { openrouter: apiKey.trim() };
+    const keys: ApiKeys = {
+      openrouter: apiKey.trim(),
+      openrouterModel: selectedModel,
+    };
     await saveSettings({ apiKeys: keys });
-    toast.success("API key saved");
+    toast.success("API key & selected model saved");
   };
 
   const testConnection = async () => {
@@ -107,7 +147,10 @@ export function SettingsView() {
     setTestResult(null);
     try {
       // save first, then test via playground route
-      const keys: ApiKeys = { openrouter: apiKey.trim() };
+      const keys: ApiKeys = {
+        openrouter: apiKey.trim(),
+        openrouterModel: selectedModel,
+      };
       await saveSettings({ apiKeys: keys });
       const res = await fetch("/api/playground", {
         method: "POST",
@@ -121,7 +164,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="${selectedModel}",
     messages=[{"role": "user", "content": "Reply with exactly: OK"}]
 )
 
@@ -135,7 +178,7 @@ print(response.choices[0].message.content)`,
       };
       if (data.ok) {
         setTestResult("ok");
-        toast.success("Connection works! The API responded.");
+        toast.success(`Connection works with ${selectedModel}!`);
       } else {
         setTestResult("fail");
         toast.error(data.error ?? "Connection failed");
@@ -152,6 +195,7 @@ print(response.choices[0].message.content)`,
     darkMode: boolean;
     fontSize: number;
     apiKeys: unknown;
+    studentName: string;
   }>) => {
     try {
       const res = await fetch("/api/settings", {
@@ -449,9 +493,45 @@ print(response.choices[0].message.content)`,
               )}
             </button>
           </div>
-          <div className="flex gap-2">
+
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <Label htmlFor="settings-model-select">Default Free OpenRouter Model (LOV)</Label>
+              {loadingModels && (
+                <span className="text-[10px] text-muted-foreground flex items-center gap-1">
+                  <Loader2 className="h-2.5 w-2.5 animate-spin" /> Loading free models...
+                </span>
+              )}
+            </div>
+            <select
+              id="settings-model-select"
+              value={selectedModel}
+              onChange={(e) => setSelectedModel(e.target.value)}
+              className="w-full h-9 px-3 py-1.5 text-xs rounded-md border border-input bg-background font-mono focus:outline-none focus:ring-1 focus:ring-ring truncate cursor-pointer shadow-sm"
+              title={selectedModel}
+            >
+              {models.length > 0 ? (
+                models.map((m) => (
+                  <option key={m.id} value={m.id} title={m.id}>
+                    {m.name}
+                  </option>
+                ))
+              ) : (
+                <>
+                  <option value="meta-llama/llama-3.3-70b-instruct:free">Meta: Llama 3.3 70B Instruct (Free)</option>
+                  <option value="deepseek/deepseek-r1:free">DeepSeek: R1 (Free)</option>
+                  <option value="google/gemma-2-9b-it:free">Google: Gemma 2 9B (Free)</option>
+                  <option value="qwen/qwen-2.5-coder-32b-instruct:free">Qwen: Qwen 2.5 Coder 32B (Free)</option>
+                  <option value="tencent/hy3:free">Tencent: Hunyuan 3 (Free)</option>
+                  <option value="mistralai/mistral-7b-instruct:free">Mistral: Mistral 7B Instruct (Free)</option>
+                </>
+              )}
+            </select>
+          </div>
+
+          <div className="flex gap-2 pt-1">
             <Button onClick={saveApiKey} variant="outline" size="sm">
-              Save key
+              Save settings
             </Button>
             <Button
               onClick={testConnection}

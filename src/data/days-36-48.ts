@@ -1014,7 +1014,7 @@ from langchain_core.prompts import ChatPromptTemplate
 llm = ChatOpenAI(
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1",
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
 )
 
 # Define how to reach the MCP server.
@@ -1451,7 +1451,7 @@ span = trace.span(
 # Create a generation (an LLM call inside the span)
 span.generation(
     name="llm-decision",
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
     input="User wants weather in Delhi",
     output="Calling get_weather(city=Delhi)",
     usage={"input": 12, "output": 8},
@@ -1660,7 +1660,7 @@ from langfuse.callback import CallbackHandler
 llm = ChatOpenAI(
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1",
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
 )
 
 # 2. Create the Langfuse callback handler
@@ -2008,7 +2008,7 @@ from langfuse.callback import CallbackHandler
 llm = ChatOpenAI(
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1",
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
 )
 
 # 2. Set up the Langfuse callback handler
@@ -3101,7 +3101,7 @@ from langfuse.callback import CallbackHandler
 llm = ChatOpenAI(
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1",
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
 )
 
 # 2. Set up Langfuse
@@ -3504,7 +3504,7 @@ Examples:
 llm = ChatOpenAI(
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1",
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
 )
 
 # Set up Langfuse for tracing
@@ -3734,7 +3734,7 @@ Goodbye! Check your Langfuse dashboard for all traces.`,
       },
       {
         type: "paragraph",
-        text: "Aarav has now built a complete, robust AI Personal Assistant. It uses an open standard (MCP) for tools, a popular framework (LangChain) for orchestration with memory, a professional observability tool (Langfuse) for tracing, a clear system prompt for quality, and graceful error handling for robustness. This is a portfolio-worthy project for a 13-year-old.",
+        text: "Aarav has now built a complete, robust AI Personal Assistant. It uses an open standard (MCP) for tools, a popular framework (LangChain) for orchestration with memory, a professional observability tool (Langfuse) for tracing, a clear system prompt for quality, and graceful error handling for robustness. This is a portfolio-worthy project for a 10-year-old.",
       },
     ],
     setupInstructions:
@@ -3966,7 +3966,7 @@ from langfuse.callback import CallbackHandler
 llm = ChatOpenAI(
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1",
-    model="tencent/hy3:free",
+    model="YOUR_OPENROUTER_MODEL",
 )
 
 langfuse_handler = CallbackHandler()
@@ -4371,7 +4371,7 @@ def get_random_joke() -> str:
         type: "callout",
         variant: "teacher",
         title: "Congratulations, Aarav",
-        text: "You have completed a 48-day journey from Python basics to a full-stack AI Personal Assistant. You learned Python, object-oriented programming, machine learning theory, LLMs, prompt engineering, RAG, LangChain, MCP, Langfuse, system design, and you built two real projects. This is a huge accomplishment for a 13-year-old. Be proud.",
+        text: "You have completed a 48-day journey from Python basics to a full-stack AI Personal Assistant. You learned Python, object-oriented programming, machine learning theory, LLMs, prompt engineering, RAG, LangChain, MCP, Langfuse, system design, and you built two real projects. This is a huge accomplishment for a 10-year-old. Be proud.",
       },
       {
         type: "heading",

@@ -250,7 +250,7 @@ export const days1to15: Day[] = [
       {
         type: "code",
         language: "python",
-        code: 'name = "Aarav"\nage = 13\nheight = 5.4\nlikes_cricket = True\n\nprint(name)\nprint(age)\nprint(height)\nprint(likes_cricket)',
+        code: 'name = "Aarav"\nage = 10\nheight = 5.4\nlikes_cricket = True\n\nprint(name)\nprint(age)\nprint(height)\nprint(likes_cricket)',
         caption: "Storing four different pieces of information about Aarav"
       },
       { type: "heading", level: 2, text: "The Four Basic Data Types" },
@@ -263,7 +263,7 @@ export const days1to15: Day[] = [
         headers: ["Type", "Keyword", "What it stores", "Example"],
         rows: [
           ["String", "str", "text (words, sentences)", "name = \"Aarav\""],
-          ["Integer", "int", "whole numbers", "age = 13"],
+          ["Integer", "int", "whole numbers", "age = 10"],
           ["Float", "float", "numbers with decimals", "height = 5.4"],
           ["Boolean", "bool", "True or False", "likes_cricket = True"]
         ]
@@ -282,7 +282,7 @@ export const days1to15: Day[] = [
       {
         type: "code",
         language: "python",
-        code: 'name = "Aarav"\nage = 13\nheight = 5.4\nlikes_cricket = True\n\nprint(type(name))\nprint(type(age))\nprint(type(height))\nprint(type(likes_cricket))'
+        code: 'name = "Aarav"\nage = 10\nheight = 5.4\nlikes_cricket = True\n\nprint(type(name))\nprint(type(age))\nprint(type(height))\nprint(type(likes_cricket))'
       },
       {
         type: "paragraph",
@@ -296,7 +296,7 @@ export const days1to15: Day[] = [
       {
         type: "code",
         language: "python",
-        code: 'name = "Aarav"\nage = 13\nfavorite_car = "Lamborghini"\n\nprint("My name is", name)\nprint("I am", age, "years old")\nprint("My dream car is a", favorite_car)'
+        code: 'name = "Aarav"\nage = 10\nfavorite_car = "Lamborghini"\n\nprint("My name is", name)\nprint("I am", age, "years old")\nprint("My dream car is a", favorite_car)'
       },
       { type: "heading", level: 2, text: "Variable Naming Rules" },
       {
@@ -397,7 +397,7 @@ export const days1to15: Day[] = [
     teacherNotes:
       "The biggest idea today is that variables are labeled boxes for values. Have Aarav physically write variable assignments on paper before typing them, so he sees name equals value in his own handwriting. Watch out for the case-sensitivity trap: he will likely write Age and age interchangeably at first and get a NameError. Show him how to read a NameError (it literally tells you the missing name). Also show that reassigning a variable replaces the old value, which surprises some students who expect the old value to be remembered.",
     explainToFriend:
-      "A variable is a labeled box that holds a value. You make one by writing name = value, like age = 13. Python has four main types: strings for text, ints for whole numbers, floats for decimals, and bools for True/False.",
+      "A variable is a labeled box that holds a value. You make one by writing name = value, like age = 10. Python has four main types: strings for text, ints for whole numbers, floats for decimals, and bools for True/False.",
     realWorldExamples: [
       "A cricket scoreboard stores each player's runs in a variable",
       "A phone's battery percentage is a variable that updates over time",
@@ -482,7 +482,7 @@ export const days1to15: Day[] = [
       {
         type: "code",
         language: "python",
-        code: 'name = "Aarav"\nage = 13\nfavorite_car = "Lamborghini"\n\nmessage = f"My name is {name}, I am {age} years old, and I love the {favorite_car}."\nprint(message)'
+        code: 'name = "Aarav"\nage = 10\nfavorite_car = "Lamborghini"\n\nmessage = f"My name is {name}, I am {age} years old, and I love the {favorite_car}."\nprint(message)'
       },
       {
         type: "paragraph",
@@ -693,7 +693,7 @@ export const days1to15: Day[] = [
         type: "callout",
         variant: "mistake",
         title: "== vs =",
-        text: "A single = assigns a value (age = 13). A double == compares two values (age == 13). Mixing these up is the most common beginner mistake. = stores, == asks."
+        text: "A single = assigns a value (age = 10). A double == compares two values (age == 13). Mixing these up is the most common beginner mistake. = stores, == asks."
       },
       { type: "heading", level: 2, text: "Logical Operators" },
       {
@@ -729,8 +729,40 @@ export const days1to15: Day[] = [
         variant: "teacher",
         title: "Use parentheses even when not strictly needed",
         text: "Python has rules for the order of operations, but humans forget them. Adding parentheses for clarity costs nothing and prevents subtle bugs. Tell Aarav: if you have to think about the order, just use parentheses."
+      },
+      { type: "heading", level: 2, text: "Operator Precedence — Who Goes First?" },
+      {
+        type: "paragraph",
+        text: "Operator precedence means: when Python sees multiple operators in one line, which one does it calculate FIRST? Just like in maths class, multiplication happens before addition. Python has a strict order — memorise the top few and use parentheses for everything else."
+      },
+      {
+        type: "table",
+        headers: ["Priority", "Operator(s)", "What it does", "Example"],
+        rows: [
+          ["1 (Highest)", "()", "Parentheses — always first", "(2 + 3) * 4 → 20"],
+          ["2", "**", "Exponent (power)", "2 ** 3 → 8"],
+          ["3", "+x, -x, ~x", "Unary plus, minus, bitwise NOT", "-5, +3"],
+          ["4", "*, /, //, %", "Multiply, divide, floor divide, modulo", "10 // 3 → 3"],
+          ["5", "+, -", "Addition and subtraction", "5 + 3 - 2 → 6"],
+          ["6", "==, !=, <, >, <=, >=", "Comparison operators", "5 > 3 → True"],
+          ["7", "not", "Logical NOT", "not True → False"],
+          ["8", "and", "Logical AND — both must be True", "True and False → False"],
+          ["9 (Lowest)", "or", "Logical OR — at least one True", "True or False → True"]
+        ]
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        title: "Remember: PEMDAS in Python",
+        text: "You already know BODMAS/PEMDAS from maths: Brackets → Orders (powers) → Division/Multiplication → Addition/Subtraction. Python follows the exact same rule! Then come comparisons (>, ==) and finally logic (and, or). When in doubt, wrap in parentheses — Python will never misunderstand parentheses."
+      },
+      {
+        type: "code",
+        language: "python",
+        code: '# Precedence in action — guess the answers BEFORE running!\nprint(2 + 3 * 4)       # * before +  →  14  (not 20)\nprint((2 + 3) * 4)     # parens first →  20\nprint(2 ** 3 + 1)      # ** before + →   9\nprint(10 / 2 + 3 * 4)  # / and * first, then + → 5.0 + 12 → 17.0\nprint(5 > 3 and 2 < 1) # comparisons first, then and → True and False → False'
       }
     ],
+
     exercises: [
       {
         id: 1,
@@ -798,7 +830,7 @@ export const days1to15: Day[] = [
       }
     ],
     teacherNotes:
-      "Aarav has likely seen + - * / in math class, so spend less time on those and more on //, %, and **. The modulo operator is unfamiliar and is worth several examples. For comparison, drill the difference between = (assign) and == (compare) with a quick typo exercise where he intentionally writes if age = 13 to see the SyntaxError. For logical operators, use real Aarav scenarios: can I play cricket? (homework done AND weather sunny). The and/or truth tables will click faster with personal examples.",
+      "Aarav has likely seen + - * / in math class, so spend less time on those and more on //, %, and **. The modulo operator is unfamiliar and is worth several examples. For comparison, drill the difference between = (assign) and == (compare) with a quick typo exercise where he intentionally writes if age = 10 to see the SyntaxError. For logical operators, use real Aarav scenarios: can I play cricket? (homework done AND weather sunny). The and/or truth tables will click faster with personal examples.",
     explainToFriend:
       "Operators are math and comparison symbols. The usual + - * / work like in math. Two new ones: // gives whole-number division, % gives the remainder. Comparison operators like == and > return True or False. Logical operators and, or, not combine True/False values.",
     realWorldExamples: [
@@ -895,7 +927,7 @@ export const days1to15: Day[] = [
       {
         type: "code",
         language: "python",
-        code: 'age = 13\nhas_id = True\n\nif age >= 13:\n    if has_id:\n        print("Welcome! You can watch this PG movie.")\n    else:\n        print("You are old enough, but please bring an ID.")\nelse:\n    print("Sorry, you must be at least 13 years old.")'
+        code: 'age = 10\nhas_id = True\n\nif age >= 13:\n    if has_id:\n        print("Welcome! You can watch this PG movie.")\n    else:\n        print("You are old enough, but please bring an ID.")\nelse:\n    print("Sorry, you must be at least 13 years old.")'
       },
       {
         type: "callout",
@@ -1087,7 +1119,7 @@ export const days1to15: Day[] = [
         type: "callout",
         variant: "mistake",
         title: "Using = instead of == inside if",
-        text: "Writing if age = 13 gives a SyntaxError because = assigns. Always use == to compare. Many beginners stare at this error for ages before noticing the missing equals sign."
+        text: "Writing if age = 10 gives a SyntaxError because = assigns. Always use == to compare. Many beginners stare at this error for ages before noticing the missing equals sign."
       }
     ],
     exercises: [

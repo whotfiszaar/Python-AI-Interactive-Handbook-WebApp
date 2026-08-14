@@ -79,6 +79,27 @@ export interface Assessment {
   timerMinutes?: number;
 }
 
+export interface TestCase {
+  id: number;
+  input: string;      // stdin input (empty string if none)
+  expected: string;   // expected stdout output (trimmed)
+  hidden?: boolean;   // hidden test cases not shown to student
+  label?: string;     // e.g. "Basic", "Edge case"
+}
+
+export interface CodingChallenge {
+  id: number;
+  title: string;
+  difficulty: "easy" | "medium" | "hard";
+  topic: string;      // e.g. "Variables", "Loops", "Functions"
+  description: string;
+  constraints?: string[];
+  examples: { input: string; output: string; explanation?: string }[];
+  starterCode: string;
+  testCases: TestCase[];
+  hints?: string[];
+}
+
 export interface DayProgressRow {
   id: number;
   dayNumber: number;
@@ -189,7 +210,9 @@ export type ViewName =
   | "ai-news"
   | "settings"
   | "admin"
-  | "annexures";
+  | "annexures"
+  | "coding-challenges";
+
 
 export interface ViewState {
   view: ViewName;

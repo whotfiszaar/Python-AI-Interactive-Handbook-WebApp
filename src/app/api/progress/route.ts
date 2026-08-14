@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     });
 
     // 🔁 Backup to Qdrant so data survives container restarts
-    void backupProgressToQdrant(user.userId, user.username, body.dayNumber, {
+    await backupProgressToQdrant(user.userId, user.username, body.dayNumber, {
       completed: record.completed,
       bookmarked: record.bookmarked,
       notes: record.notes,

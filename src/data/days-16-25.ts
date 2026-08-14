@@ -965,7 +965,7 @@ export const days16to25: Day[] = [
         rows: [
           ["Be specific about the topic", "The model knows exactly what to focus on"],
           ["Mention the format, like bullet points or a table", "The answer comes out ready to use"],
-          ["State the audience, like a 13-year-old", "The language level is right"],
+          ["State the audience, like a 10-year-old", "The language level adjusts"],
           ["Give length limits, like 3 points or 100 words", "The answer is not too long or too short"],
           ["Give examples if the task is tricky", "The model copies the pattern you showed"],
         ],
@@ -1034,7 +1034,7 @@ export const days16to25: Day[] = [
       },
     ],
     explainToFriend:
-      "Prompt engineering is just asking the AI the right way. A bad prompt like 'tell me about cars' gives a vague answer. A good prompt like 'explain petrol vs electric cars in 3 bullet points for a 13-year-old' gives a sharp one. You can also give the AI examples first, called few-shot. And temperature controls if the AI is serious or creative.",
+      "Prompt engineering is just asking the AI the right way. A bad prompt like 'tell me about cars' gives a vague answer. For example, sending 'Summarize the history of cars in 3 bullet points, for a 10-year-old.' tells the model both the length (3 bullet points) and the reading level (10-year-old). You can also give the AI examples first, called few-shot. And temperature controls if the AI is serious or creative.",
     realWorldExamples: [
       "A teacher using a clear prompt to get a lesson plan from ChatGPT",
       "A cricket coach asking an LLM for drills in bullet points for under-14 players",
@@ -1054,7 +1054,7 @@ export const days16to25: Day[] = [
         question: "Which is the better prompt?",
         options: [
           "tell me about cars",
-          "Explain the difference between petrol and electric cars in 3 bullet points, for a 13-year-old",
+          "Explain the difference between petrol and electric cars in 3 bullet points, for a 10-year-old",
           "cars info",
           "what is car",
         ],
@@ -1456,7 +1456,7 @@ export const days16to25: Day[] = [
       {
         type: "code",
         language: "json",
-        code: '{\n  "name": "Aarav",\n  "age": 13,\n  "hobbies": ["cricket", "Minecraft", "coding"],\n  "favourite_food": "pizza"\n}',
+        code: '{\n  "name": "Aarav",\n  "age": 10,\n  "hobbies": ["cricket", "Minecraft", "coding"],\n  "favourite_food": "pizza"\n}',
         caption: "A simple JSON object describing Aarav",
       },
       { type: "heading", level: 2, text: "HTTP Methods: GET and POST" },

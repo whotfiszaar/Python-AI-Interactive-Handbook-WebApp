@@ -125,12 +125,11 @@ export function MermaidBlock({ code, caption, className }: MermaidBlockProps) {
             labelBoxBorderColor: vars.labelBoxBorderColor,
             labelTextColor: vars.labelTextColor,
             loopTextColor: vars.loopTextColor,
-            noteBkgColor: vars.noteBkgColor,
             noteBorderColor: vars.noteBorderColor,
+            noteBkgColor: vars.noteBkgColor,
             noteTextColor: vars.noteTextColor,
             activationBorderColor: vars.activationBorderColor,
-            sequenceNumberColor: vars.sequenceNumberColor,
-          },
+          } as unknown as import("mermaid").MermaidConfig["sequence"],
         });
         // Mermaid requires a unique ID for each render. Clear any previous
         // rendered element with this ID to avoid collisions.

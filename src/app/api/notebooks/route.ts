@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     });
 
     // 🔁 Backup to Qdrant so data survives container restarts
-    void backupNotebookToQdrant(user.userId, user.username, {
+    await backupNotebookToQdrant(user.userId, user.username, {
       localId: record.id,
       name: record.name,
       cells: record.cells,

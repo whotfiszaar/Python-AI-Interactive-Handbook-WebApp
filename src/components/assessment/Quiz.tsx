@@ -381,7 +381,7 @@ export function Quiz({ assessment, onComplete }: QuizProps) {
             {showOneAtATime ? `Question ${current + 1} of ${questions.length}` : `${questions.length} questions`}
           </Badge>
           {fmtTime !== null && (
-            <Badge variant={timeLeft < 60 ? "destructive" : "outline"} className="gap-1">
+            <Badge variant={(timeLeft ?? 0) < 60 ? "destructive" : "outline"} className="gap-1">
               <Clock className="h-3 w-3" />
               {fmtTime}
             </Badge>

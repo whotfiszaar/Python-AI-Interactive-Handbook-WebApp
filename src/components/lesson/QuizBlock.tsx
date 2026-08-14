@@ -25,6 +25,21 @@ export function QuizBlock({ questions, dayNumber }: { questions: QuizQuestion[];
     }
   }, [savedAnswersString]);
 
+  // Deduplicate questions by normalized text (removes rephrased duplicates)
+  const uniqueQuestions = useMemo(() => {
+    const seen = new Set<string>();
+    return questions.filter((q) => {
+      const normalized = q.question
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+      if (seen.has(normalized)) return false;
+      seen.add(normalized);
+      return true;
+    });
+  }, [questions]);
+
   const handleAnswer = async (qId: number, userAnswer: any) => {
     const updated = {
       ...savedAnswers,
@@ -64,7 +79,7 @@ export function QuizBlock({ questions, dayNumber }: { questions: QuizQuestion[];
         </Button>
       </div>
 
-      {questions.map((q) => (
+      {uniqueQuestions.map((q) => (
         <QuestionRunner
           key={`${q.id}_${resetKey}`}
           question={q}
@@ -73,6 +88,7 @@ export function QuizBlock({ questions, dayNumber }: { questions: QuizQuestion[];
           onReset={() => handleReset(q.id)}
         />
       ))}
+
     </div>
   );
 }

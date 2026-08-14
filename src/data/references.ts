@@ -19,7 +19,7 @@ export const referenceSections: ReferenceSection[] = [
       },
       {
         syntax: "a, b, c = 1, 2, 3",
-        example: 'name, age, city = "Aarav", 13, "Mumbai"',
+        example: 'name, age, city = "Aarav", 10, "Mumbai"',
         description:
           "Assigns several variables in one line. The number of values must match the number of names.",
       },
@@ -395,7 +395,7 @@ export const referenceSections: ReferenceSection[] = [
       {
         term: "System Prompt",
         description:
-          "The first message that sets the model's role, tone, and rules. Example: 'You are a friendly cricket coach for a 13-year-old player.'",
+          "The first message that sets the model's role, tone, and rules. Example: 'You are a friendly cricket coach for a 10-year-old player.'",
       },
       {
         term: "Temperature",

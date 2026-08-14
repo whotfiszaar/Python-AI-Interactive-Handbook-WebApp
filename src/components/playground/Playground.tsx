@@ -56,7 +56,7 @@ export function Playground() {
   const setAPIKeyDialogOpen = useAppStore((s) => s.setAPIKeyDialogOpen);
 
   const [cells, setCells] = useState<NotebookCell[]>([
-    { id: genId(), code: DEFAULT_CODE, output: "", running: false, error: false, hasRun: false, executionMs: null },
+    { id: genId(), code: DEFAULT_CODE, output: "", running: false, error: false, hasRun: false, executionMs: null, images: [] },
   ]);
   const [mode, setMode] = useState<Mode>("python");
   const [runningCellId, setRunningCellId] = useState<string | null>(null);
@@ -79,7 +79,8 @@ export function Playground() {
           running: false,
           error: false,
           hasRun: false,
-          executionMs: null, images: []
+          executionMs: null,
+          images: [],
         },
       ]);
       // clear the pending code so it doesn't reload on re-render
@@ -131,7 +132,8 @@ export function Playground() {
         // Focus the target cell after a short delay so Monaco editors mount.
         if (pendingFocusIdx != null) {
           setTimeout(() => {
-            const editors = window.monaco?.editor?.getEditors?.() || [];
+            const monaco = (window as unknown as { monaco?: { editor?: { getEditors?: () => Array<{ focus: () => void; getModel: () => { getLineCount: () => number } | null; setPosition: (pos: { lineNumber: number; column: number }) => void; revealLine?: (line: number) => void }> } } }).monaco;
+            const editors = monaco?.editor?.getEditors?.() || [];
             const idx = pendingFocusIdx;
             if (editors[idx]) {
               editors[idx].focus();
@@ -139,7 +141,7 @@ export function Playground() {
               if (model) {
                 const lineCount = model.getLineCount();
                 editors[idx].setPosition({ lineNumber: lineCount, column: 1 });
-                editors[idx].revealLine(lineCount);
+                editors[idx].revealLine?.(lineCount);
               }
             }
           }, 800);
@@ -183,7 +185,7 @@ export function Playground() {
   const addCell = () =>
     setCells((prev) => [
       ...prev,
-      { id: genId(), code: "", output: "", running: false, error: false, hasRun: false, executionMs: null },
+      { id: genId(), code: "", output: "", running: false, error: false, hasRun: false, executionMs: null, images: [] },
     ]);
 
   const addCellBelow = (id: string) => {
@@ -265,6 +267,24 @@ export function Playground() {
 
       try {
         if (useAIMode) {
+          const currentSettings = useAppStore.getState().settings;
+          let hasKey = false;
+          try {
+            const keys = JSON.parse(currentSettings?.apiKeys ?? "{}");
+            hasKey = Boolean(keys.openrouter && keys.openrouter.trim());
+          } catch {
+            hasKey = false;
+          }
+          if (!hasKey) {
+            setAPIKeyDialogOpen(true);
+            setCellOutput(
+              cell.id,
+              "OpenRouter API key required. Click the dialog to add your key, then try again.",
+              true,
+              Math.round(performance.now() - startedAt)
+            );
+            return;
+          }
           const res = await fetch("/api/playground", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

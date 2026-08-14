@@ -82,6 +82,7 @@ export async function GET() {
     return NextResponse.json(
       {
         status: "error",
+        count: 0,
         error: "Failed to fetch news",
         articles: [],
       } satisfies NewsResponse,

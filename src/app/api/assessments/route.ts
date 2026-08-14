@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     });
 
     // 🔁 Backup to Qdrant so data survives container restarts
-    void backupAssessmentToQdrant(user.userId, user.username, {
+    await backupAssessmentToQdrant(user.userId, user.username, {
       localId: record.id,
       assessmentId: record.assessmentId,
       score: record.score,

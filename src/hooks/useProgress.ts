@@ -68,9 +68,7 @@ export function useProgress() {
     [save],
   );
 
-  useEffect(() => {
-    void load();
-  }, [load]);
+
 
   return {
     progress,

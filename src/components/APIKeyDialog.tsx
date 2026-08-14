@@ -23,6 +23,17 @@ import { cn } from "@/lib/utils";
  * (stored in the Settings DB table, read by both the playground and the
  * server-side /api/playground route).
  */
+interface ApiKeysMap {
+  openrouter?: string;
+  openrouterModel?: string;
+}
+
+interface OpenRouterModel {
+  id: string;
+  name: string;
+  context_length: number;
+}
+
 export function APIKeyDialog() {
   const open = useAppStore((s) => s.apiKeyDialogOpen);
   const setOpen = useAppStore((s) => s.setAPIKeyDialogOpen);
@@ -30,16 +41,46 @@ export function APIKeyDialog() {
   const setSettings = useAppStore((s) => s.setSettings);
 
   const [key, setKey] = useState("");
+  const [selectedModel, setSelectedModel] = useState("meta-llama/llama-3.3-70b-instruct:free");
+  const [models, setModels] = useState<OpenRouterModel[]>([]);
+  const [loadingModels, setLoadingModels] = useState(false);
   const [showKey, setShowKey] = useState(false);
   const [testing, setTesting] = useState(false);
   const [testResult, setTestResult] = useState<"ok" | "fail" | null>(null);
 
-  // Sync the input with the current stored key when the dialog opens.
+  // Fetch free models list
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      setLoadingModels(true);
+      try {
+        const res = await fetch("/api/openrouter/models");
+        if (res.ok) {
+          const data = await res.json();
+          if (mounted && Array.isArray(data.models)) {
+            setModels(data.models);
+          }
+        }
+      } catch (err) {
+        console.warn("Failed to load models list:", err);
+      } finally {
+        if (mounted) setLoadingModels(false);
+      }
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  // Sync input & model with current stored settings when dialog opens
   useEffect(() => {
     if (open) {
       try {
-        const keys = JSON.parse(settings?.apiKeys ?? "{}");
+        const keys = JSON.parse(settings?.apiKeys ?? "{}") as ApiKeysMap;
         setKey(keys.openrouter ?? "");
+        if (keys.openrouterModel) {
+          setSelectedModel(keys.openrouterModel);
+        }
       } catch {
         setKey("");
       }
@@ -51,7 +92,11 @@ export function APIKeyDialog() {
     const trimmed = key.trim();
     try {
       const currentKeys = JSON.parse(settings?.apiKeys ?? "{}");
-      const newKeys = { ...currentKeys, openrouter: trimmed };
+      const newKeys = {
+        ...currentKeys,
+        openrouter: trimmed,
+        openrouterModel: selectedModel,
+      };
       const res = await fetch("/api/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -60,10 +105,10 @@ export function APIKeyDialog() {
       if (!res.ok) throw new Error("Failed");
       const row = await res.json();
       setSettings(row);
-      toast.success(trimmed ? "API key saved" : "API key cleared");
+      toast.success(trimmed ? "API key and model saved" : "API key cleared");
       if (trimmed) setOpen(false);
     } catch {
-      toast.error("Could not save API key");
+      toast.error("Could not save settings");
     }
   };
 
@@ -75,9 +120,12 @@ export function APIKeyDialog() {
     setTesting(true);
     setTestResult(null);
     try {
-      // Save first, then test via the playground route.
       const currentKeys = JSON.parse(settings?.apiKeys ?? "{}");
-      const newKeys = { ...currentKeys, openrouter: key.trim() };
+      const newKeys = {
+        ...currentKeys,
+        openrouter: key.trim(),
+        openrouterModel: selectedModel,
+      };
       await fetch("/api/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -95,7 +143,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="tencent/hy3:free",
+    model="${selectedModel}",
     messages=[{"role": "user", "content": "Reply with exactly: OK"}]
 )
 
@@ -105,8 +153,7 @@ print(response.choices[0].message.content)`,
       const data = await res.json();
       if (data.ok) {
         setTestResult("ok");
-        toast.success("Connection works!");
-        // Persist the key since the test passed.
+        toast.success(`Connection verified with ${selectedModel}!`);
         const settingsRes = await fetch("/api/settings", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -135,7 +182,7 @@ print(response.choices[0].message.content)`,
               <KeyRound className="h-5 w-5 text-primary" />
             </div>
             <div>
-              <DialogTitle>OpenRouter API Key</DialogTitle>
+              <DialogTitle>OpenRouter API Key & Free Model</DialogTitle>
               <DialogDescription>
                 Required to run AI code. Get a free key at{" "}
                 <a
@@ -153,7 +200,7 @@ print(response.choices[0].message.content)`,
         </DialogHeader>
         <div className="space-y-3">
           <div>
-            <Label>API Key</Label>
+            <Label className="mb-1 block">API Key</Label>
             <div className="relative">
               <Input
                 type={showKey ? "text" : "password"}
@@ -177,21 +224,55 @@ print(response.choices[0].message.content)`,
               </button>
             </div>
           </div>
+
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <Label htmlFor="model-select">Select Free OpenRouter Model (LOV)</Label>
+              {loadingModels && (
+                <span className="text-[10px] text-muted-foreground flex items-center gap-1">
+                  <Loader2 className="h-2.5 w-2.5 animate-spin" /> Loading free models...
+                </span>
+              )}
+            </div>
+            <select
+              id="model-select"
+              value={selectedModel}
+              onChange={(e) => setSelectedModel(e.target.value)}
+              className="w-full h-9 px-3 py-1.5 text-xs rounded-md border border-input bg-background font-mono focus:outline-none focus:ring-1 focus:ring-ring truncate cursor-pointer shadow-sm"
+              title={selectedModel}
+            >
+              {models.length > 0 ? (
+                models.map((m) => (
+                  <option key={m.id} value={m.id} title={m.id}>
+                    {m.name}
+                  </option>
+                ))
+              ) : (
+                <>
+                  <option value="meta-llama/llama-3.3-70b-instruct:free">Meta: Llama 3.3 70B Instruct (Free)</option>
+                  <option value="deepseek/deepseek-r1:free">DeepSeek: R1 (Free)</option>
+                  <option value="google/gemma-2-9b-it:free">Google: Gemma 2 9B (Free)</option>
+                  <option value="qwen/qwen-2.5-coder-32b-instruct:free">Qwen: Qwen 2.5 Coder 32B (Free)</option>
+                  <option value="tencent/hy3:free">Tencent: Hunyuan 3 (Free)</option>
+                  <option value="mistralai/mistral-7b-instruct:free">Mistral: Mistral 7B Instruct (Free)</option>
+                </>
+              )}
+            </select>
+          </div>
+
           <p className="text-xs text-muted-foreground">
-            Your key is stored only in this browser's database and used
-            server-side. It is never exposed to the client or sent to any third
-            party.
+            Your key & selected model are stored locally in your database.
           </p>
           {testResult === "ok" && (
             <div className="flex items-center gap-2 text-sm text-emerald-600">
               <CheckCircle2 className="h-4 w-4" />
-              Connection verified
+              Connection verified!
             </div>
           )}
           {testResult === "fail" && (
             <div className="flex items-center gap-2 text-sm text-red-500">
               <KeyRound className="h-4 w-4" />
-              Connection failed. Check your key.
+              Connection failed. Check your key or selected model.
             </div>
           )}
         </div>
@@ -213,7 +294,7 @@ print(response.choices[0].message.content)`,
             Test
           </Button>
           <Button onClick={save} disabled={!key.trim()}>
-            Save Key
+            Save
           </Button>
         </DialogFooter>
       </DialogContent>
